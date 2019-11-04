@@ -16,7 +16,19 @@ int main() {
 
     for (Variable& t : x) cout << t.core() << endl;
 
-    (x(1) + x(3) * 2 * x(2) * pow(1 + x(0), x(1)) + sin(x(2) + 3)).to_dot();
+    Expression expr;
+
+    expr += 2;
+    expr /= 1;
+    expr *= x(1);
+
+    Expression expr2;
+    expr2 *= 3;
+    expr2 += 5;
+
+    expr += expr2;
+
+    (expr * sin(2 * x(1))).to_dot();
 
     return 0;
 }
