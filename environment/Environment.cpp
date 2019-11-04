@@ -1,0 +1,23 @@
+//
+// Created by hlefebvr on 04/11/19.
+//
+
+#include "Environment.h"
+#include "../modeling/Variable.h"
+#include "../modeling/VariableVector.h"
+
+ED::Variable& ED::Environment::add_isolated_variable(const std::string &name) {
+    auto new_variable = new Variable(name);
+    _variables.add(new_variable);
+    return *new_variable;
+}
+
+ED::VariableVector &ED::Environment::add_variable_vector(const std::string &name) {
+    auto new_variable_vector = new VariableVector(name);
+    _variable_vectors.add_component(name, *new_variable_vector);
+    return *new_variable_vector;
+}
+
+ED::VariableVector::~VariableVector() {
+    for (auto m : _components) delete m.second;
+}
