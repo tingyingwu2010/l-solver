@@ -40,7 +40,7 @@ namespace ED {
     class Map<index, component>::iterator {
         typename std::map<index, component *>::iterator _it;
     public:
-        explicit iterator(std::map<index, component> &components, bool is_end) {
+        explicit iterator(std::map<index, component*> &components, bool is_end) {
             _it = is_end ? components.end() : components.begin();
         }
 
@@ -62,7 +62,7 @@ namespace ED {
     class Map<index, component>::const_iterator {
         typename std::map<index, component *>::const_iterator _it;
     public:
-        explicit const_iterator(std::map<index, component> &components, bool is_end) {
+        explicit const_iterator(std::map<index, component*> &components, bool is_end) {
             _it = is_end ? components.cend() : components.cbegin();
         }
 

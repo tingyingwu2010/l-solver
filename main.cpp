@@ -5,12 +5,15 @@
 #include "modeling/VariableVector.h"
 
 using namespace std;
+using namespace ED;
 
 int main() {
-    ED::Environment env;
-    ED::VariableVector x(env, "x");
+    Environment env;
+    VariableVector x(env, "x");
     x(1);
     x(2);
-    cout << x << endl;
+
+    for (Variable& t : x) cout << t.core() << endl;
+
     return 0;
 }
