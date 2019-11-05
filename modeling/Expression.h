@@ -74,13 +74,14 @@ namespace ED {
 
 class ED::Term {
 public:
-    enum Type { Num, Var, Sum, Mul, Cos, Sin, Ln, Log, Exp, Sqrt, Div, Sub, Pow };
-private:
+    enum Type { Num, Var, Sum, Mul, Div, Sub, Pow, Cos, Sin, Ln, Log, Exp, Sqrt };
+protected:
     Type _type;
     Variable* _variable = nullptr;
     float _value = 0.0;
     Term* _left = nullptr;
     Term* _right = nullptr;
+    bool _expert_mode = false;
 public:
     explicit Term(float num); //!< builds a numerical term
     explicit Term(Variable& var); //!< builds a variable term
@@ -103,6 +104,12 @@ public:
     Term& right() const { return *_right; }
 
     std::string to_string() const;
+    void expert_mode(bool b) { _expert_mode = b; } //!< the expert mode is used when the term does not free the memory
+    bool expert_mode() { return _expert_mode; }
+    void swap();
+
+    static bool is_binary_operator(Type type);
+    static bool is_unitary_operator(Type type);
 };
 
 /***
@@ -123,6 +130,9 @@ public:
     Expression& operator=(const Expression& expr);
     Expression& operator=(Variable& var) { return (*this = Expression(var)); }
     Expression& operator=(float v) { return (*this = Expression(v)); }
+
+    void expand(); //!< Turns the expression in expanded summation form
+    void reduce();
 
     // operators that do not copy the left term
     void operator+=(float x) { add_term(Term(x), Term::Sum); }
@@ -206,6 +216,7 @@ public:
     friend Expression pow(Variable& var, float v) { return pow(Expression(var), Expression(v)); }
 
     void to_dot();
+    std::string to_string();
 };
 
 ED::Expression ED::operator*(const ED::Expression &lhs, const ED::Expression &rhs) {
@@ -239,7 +250,7 @@ ED::Expression ED::Expression::unitary_function(const ED::Expression &expr, ED::
 }
 
 ED::Expression ED::pow(const ED::Expression &expr1, const ED::Expression &expr2) {
-    Term term(Term::Sub);
+    Term term(Term::Pow);
     term.left(*new Term(*expr1._root));
     term.right(*new Term(*expr2._root));
     return Expression(term);

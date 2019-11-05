@@ -16,19 +16,14 @@ int main() {
 
     for (Variable& t : x) cout << t.core() << endl;
 
+    // Expression expr = (x(1) - 1) * (x(2) + 2);
     Expression expr;
+    expr = 1.0;
+    expr.expand();
+    expr.reduce();
+    expr.to_dot();
 
-    expr += 2;
-    expr /= 1;
-    expr *= x(1);
-
-    Expression expr2;
-    expr2 *= 3;
-    expr2 += 5;
-
-    expr += expr2;
-
-    (expr * sin(2 * x(1))).to_dot();
+    cout << expr.to_string() << endl;
 
     return 0;
 }
