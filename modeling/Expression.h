@@ -215,8 +215,8 @@ public:
     friend Expression pow(Variable& var1, Variable& var2) { return pow(Expression(var1), Expression(var2)); }
     friend Expression pow(Variable& var, float v) { return pow(Expression(var), Expression(v)); }
 
-    void to_dot();
-    std::string to_string();
+    void to_dot() const;
+    std::string to_string() const;
 };
 
 ED::Expression ED::operator*(const ED::Expression &lhs, const ED::Expression &rhs) {

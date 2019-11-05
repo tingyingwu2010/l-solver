@@ -41,7 +41,7 @@ namespace ED {
         void type(Type t) { _type = t; }
         void reduced_cost(float r) { _reduced_cost = r; }
 
-        const Variable& core() const { return *_parent; } //!< returns the core variable attached to the environment
+        const Variable& core() const { return (_parent == nullptr) ? *this : *_parent; } //!< returns the core variable attached to the environment
 
         friend std::ostream& operator<<(std::ostream& os, const Variable& var);
     };

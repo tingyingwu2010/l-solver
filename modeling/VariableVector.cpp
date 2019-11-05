@@ -35,3 +35,7 @@ std::ostream &ED::operator<<(std::ostream &os, const VariableVector &vec) {
         os << *m.second << std::endl;
     return os;
 }
+
+ED::VariableVector::~VariableVector() {
+    for (auto m : _components) delete m.second;
+}

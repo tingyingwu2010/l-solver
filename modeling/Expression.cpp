@@ -112,7 +112,7 @@ ED::Expression::Expression(ED::Variable &var) : _root(new Term(var)) {}
 
 ED::Expression::Expression(float v) : _root(new Term(v)) {}
 
-void ED::Expression::to_dot() {
+void ED::Expression::to_dot() const {
     std::ofstream f;
     f.open("expression_tree.dot");
     f << "graph expression {\n";
@@ -212,7 +212,7 @@ void ED::Expression::expand() {
 
 }
 
-std::string ED::Expression::to_string() {
+std::string ED::Expression::to_string() const {
 
     std::function<std::string(Term*)> str;
     str = [&str](Term* term) {

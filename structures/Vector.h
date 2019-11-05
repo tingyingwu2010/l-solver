@@ -39,7 +39,9 @@ namespace ED {
     };
 
     class Variable;
+    class Constraint;
     typedef Vector<Variable> AbstractVariableVector;
+    typedef Vector<Constraint> AbstractConstraintVector;
 
 }
 

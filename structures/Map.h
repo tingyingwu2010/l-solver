@@ -104,8 +104,10 @@ namespace ED {
     }
 
     class VariableVector;
+    class ConstraintVector;
 
     typedef Map<std::string, VariableVector> MapVariableVector;
+    typedef Map<std::string, ConstraintVector> MapConstraintVector;
 
 }
 

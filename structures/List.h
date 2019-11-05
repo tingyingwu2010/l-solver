@@ -34,6 +34,7 @@ namespace ED {
     }
 
     class Variable;
+    class Constraint;
 
     typedef List<bool> BoolList;
     typedef List<int> IntList;
@@ -41,6 +42,8 @@ namespace ED {
     typedef List<std::string> StringList;
     typedef List<Variable*> VariablePtrList;
     typedef List<Variable* const> VariableConstPtrList;
+    typedef List<Constraint*> ConstraintPtrList;
+    typedef List<Constraint* const> ConstraintConstPtrList;
 
 };
 

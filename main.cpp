@@ -4,6 +4,7 @@
 #include "modeling/Variable.h"
 #include "modeling/VariableVector.h"
 #include "modeling/Expression.h"
+#include "modeling/ConstraintVector.h"
 
 using namespace std;
 using namespace ED;
@@ -11,19 +12,12 @@ using namespace ED;
 int main() {
     Environment env;
     VariableVector x(env, "x");
-    x(1);
-    x(2);
+    ConstraintVector ctr(env, "ctr");
 
-    for (Variable& t : x) cout << t.core() << endl;
+    ctr(1).expression(x(1) * 2 + 10);
+    ctr(2).expression(x(1) + x(2) + 10 * cos(10 * x(1)));
 
-    // Expression expr = (x(1) - 1) * (x(2) + 2);
-    Expression expr;
-    expr = 1.0;
-    expr.expand();
-    expr.reduce();
-    expr.to_dot();
-
-    cout << expr.to_string() << endl;
+    cout << ctr;
 
     return 0;
 }
