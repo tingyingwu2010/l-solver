@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "environment/Environment.h"
-#include "modeling/Variable.h"
 #include "modeling/VariableVector.h"
 #include "modeling/Expression.h"
 #include "modeling/ConstraintVector.h"

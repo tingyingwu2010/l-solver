@@ -21,6 +21,7 @@ namespace ED {
         ConstraintPtrList _constraints;
         MapConstraintVector _constraint_vectors;
     public:
+        virtual ~Environment();
         Variable& add_isolated_variable(const std::string& name) override;
         VariableVector& add_variable_vector(const std::string& name) override;
         Constraint& add_isolated_constraint(const std::string& name) override;

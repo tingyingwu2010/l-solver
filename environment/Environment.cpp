@@ -29,3 +29,10 @@ ED::ConstraintVector &ED::Environment::add_constraint_vector(const std::string &
     _constraint_vectors.add_component(name, *new_ctr_vector);
     return *new_ctr_vector;
 }
+
+ED::Environment::~Environment() {
+    for (auto& var:  _variables) delete &var;
+    for (auto& vec: _variable_vectors) for (auto& var: vec) delete &var;
+    for (auto& ctr:  _constraints) delete &ctr;
+    for (auto& vec: _constraint_vectors) for (auto& ctr: vec) delete &ctr;
+}
