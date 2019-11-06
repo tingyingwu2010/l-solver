@@ -131,6 +131,7 @@ public:
     Expression& operator=(Variable& var) { return (*this = Expression(var)); }
     Expression& operator=(float v) { return (*this = Expression(v)); }
 
+    void remove_minus();
     void expand(); //!< Turns the expression in expanded summation form
     void reduce();
 
@@ -143,10 +144,6 @@ public:
     void operator-=(Variable& var) { add_term(Term(var), Term::Sub); }
     void operator*=(Variable& var) { add_term(Term(var), Term::Mul); }
     void operator/=(Variable& var) { add_term(Term(var), Term::Div); }
-    /* void operator+=(const Term& term) { add_term(term, Term::Sum); }
-    void operator-=(const Term& term) { add_term(term, Term::Sub); }
-    void operator*=(const Term& term) { add_term(term, Term::Mul); }
-    void operator/=(const Term& term) { add_term(term, Term::Div); } */
     void operator+=(const Expression& rhs) { add_term(*rhs._root, Term::Sum); }
     void operator-=(const Expression& rhs) { add_term(*rhs._root, Term::Sub); }
     void operator*=(const Expression& rhs) { add_term(*rhs._root, Term::Mul); }

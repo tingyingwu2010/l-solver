@@ -163,51 +163,147 @@ ED::Expression::~Expression() {
     delete _root;
 }
 
+void ED::Expression::remove_minus() {
+
+    if (_root != nullptr) {
+
+        std::function<Term*(Term*)> treat_one_node;
+        treat_one_node = [&treat_one_node](Term* root) {
+
+            if (root->type() == Term::Sub) {
+                Term* added_node_sum = new Term(Term::Sum);
+                Term* added_node_mul = new Term(Term::Mul);
+                Term* added_node_1 = new Term(-1);
+                Term* left = &root->left();
+                Term* right = &root->right();
+
+                added_node_mul->left(*added_node_1);
+                added_node_mul->right(*right);
+                added_node_sum->right(*added_node_mul);
+                added_node_sum->left(*left);
+
+                root->expert_mode(true);
+                delete root;
+
+                return added_node_sum;
+            }
+
+            if (root->has_left()) {
+                Term* left = treat_one_node(&root->left());
+                root->left(*left);
+            }
+
+            if (root->has_right()) {
+                Term* right = treat_one_node(&root->right());
+                root->right(*right);
+            }
+
+            return root;
+        };
+
+        _root = treat_one_node(_root);
+    }
+
+}
+
 void ED::Expression::expand() {
 
     if (_root != nullptr) {
 
-        std::function<Term*(Term*)> expand_node;
-        expand_node = [&expand_node](Term* to_expand){
+        remove_minus();
 
-            if (to_expand->type() == Term::Mul && (to_expand->left().type() == Term::Sum || to_expand->left().type() == Term::Sub)) {
-                Term* new_term = new Term(to_expand->left().type());
+        std::function<Term*(Term*)> treat_one_node;
+        treat_one_node = [&treat_one_node](Term* root) {
 
-                Term* left = new Term(Term::Mul);
-                left->left(to_expand->left().left());
-                left->right(to_expand->right());
+            // expand integer power
+            if (root->type() == Term::Pow && root->right().type() == Term::Num) {
+                float float_value = root->right().as_numerical();
+                auto int_value = static_cast<unsigned long int>(float_value);
+                if (int_value == float_value) {
+                    if (int_value > 1) {
 
-                Term* right = new Term(Term::Mul);
-                right->left(to_expand->left().right());
-                right->right(to_expand->right());
+                        Term* left = &root->left();
 
-                new_term->left(*expand_node(left));
-                new_term->right(*expand_node(right));
+                        Term* added_node_mul_root = new Term(Term::Mul);
+                        added_node_mul_root->left(*left);
+                        Term* parent = added_node_mul_root;
+                        for (unsigned long int i = 0, n = int_value; i < n - 2; i += 1) {
+                            Term* added_copy_left = new Term(*left);
+                            Term* added_node_mul = new Term(Term::Mul);
 
-                return new_term;
+                            parent->right(*added_node_mul);
+                            added_node_mul->left(*added_copy_left);
+
+                            parent = added_node_mul;
+                        }
+                        Term* added_copy_left = new Term(*left);
+                        parent->right(*added_copy_left);
+
+                        root->expert_mode(true);
+                        delete &root->right();
+                        delete root;
+
+                        return treat_one_node(added_node_mul_root);
+                    }
+
+                    if (int_value == 1) {
+                        Term* left = &root->left();
+                        root->expert_mode(true);
+                        delete &root->right();
+                        delete root;
+                        return treat_one_node(left);
+                    }
+
+                    if (int_value == 0 && root->left().type() == Term::Num) {
+                        if (root->left().as_numerical() == 0)
+                            throw Exception("Could not reduce 0^0. Undefined expression.");
+                        delete root;
+                        return new Term(1);
+                    }
+                }
             }
 
-            if (to_expand->type() == Term::Mul && (to_expand->right().type() == Term::Sum || to_expand->right().type() == Term::Sub)) {
-                to_expand->swap();
-                Term* expanded_term = expand_node(to_expand);
-                expanded_term->swap();
-                return expanded_term;
+            // expand * over + (+ on the right)
+            if (root->type() == Term::Mul && root->right().type() == Term::Sum) {
+                Term* A = &root->left();
+                Term* B = &root->right().left();
+                Term* C = &root->right().right();
+
+                Term* added_node_sum = new Term(Term::Sum);
+                added_node_sum->left(*root);
+                root->right(*B);
+
+                Term* added_node_mul = new Term(Term::Mul);
+                Term* added_node_copy_A = new Term(*A);
+                added_node_mul->left(*added_node_copy_A);
+                added_node_mul->right(*C);
+                added_node_sum->right(*added_node_mul);
+
+                return treat_one_node(added_node_sum);
             }
 
-            if (to_expand->type() == Term::Num || to_expand->type() == Term::Var) {
-                return new Term(*to_expand);
+            // expand * over + (+ on the left)
+            if (root->type() == Term::Mul && root->left().type() == Term::Sum) {
+                root->swap();
+                root = treat_one_node(root);
+                root->swap();
+                return treat_one_node(root);
             }
 
-            Term* new_term = new Term(to_expand->type());
-            if (to_expand->has_left()) new_term->left(*expand_node(&to_expand->left()));
-            if (to_expand->has_right()) new_term->right(*expand_node(&to_expand->right()));
-            return new_term;
+            if (root->has_left()) {
+                Term* left = treat_one_node(&root->left());
+                root->left(*left);
+            }
 
+            if (root->has_right()) {
+                Term* right = treat_one_node(&root->right());
+                root->right(*right);
+            }
+
+            return root;
         };
 
-        Term* new_root = expand_node(_root);
-        delete _root;
-        _root = new_root;
+        _root = treat_one_node(_root);
     }
 
 }
