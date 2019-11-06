@@ -14,6 +14,7 @@ namespace ED {
     public:
         explicit Exception(const std::string& message);
         const std::string& message() const;
+        const char* what() const throw() override;
     };
 
 }

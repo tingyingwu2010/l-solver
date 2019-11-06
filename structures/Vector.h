@@ -6,6 +6,9 @@
 #define ED_SOLVER_VECTOR_H
 
 // #include <map>
+#include <vector>
+#include <cstdarg>
+#include <iostream>
 #include "../structures/Map.h"
 #include "../utils/Exception.h"
 
@@ -19,29 +22,28 @@ namespace ED {
      * @tparam index
      * @tparam components
      */
-    template<class component>
-    class Vector : public Map<VectorIndex, component> {
+    template<class Component, class Iterator = DefaultMapIterator<VectorIndex, Component>, class ConstIterator = DefaultConstMapIterator<VectorIndex, Component>>
+    class AbstractVector : public Map<VectorIndex, Component, Iterator, ConstIterator> {
     protected:
-        component& on_component_not_found(const VectorIndex& index) override = 0;
-        void add_component(const VectorIndex& index, component& x) override { Map<VectorIndex, component>::add_component(index, x); }
+        const unsigned int _dimension = 4;
+        Component& on_component_not_found(const VectorIndex& index) override = 0;
+        void add_component(const VectorIndex& index, Component& x) override { Map<VectorIndex, Component, Iterator, ConstIterator>::add_component(index, x); }
+        Component& get_component(const VectorIndex& index) override { return Map<VectorIndex, Component, Iterator, ConstIterator>::get_component(index); }
+        const Component& get_component(const VectorIndex& index) const override { return Map<VectorIndex, Component, Iterator, ConstIterator>::get_component(index); }
+        std::array<unsigned int, 4> as_array4(unsigned int i, ...) const {
+            va_list raw_indices;
+            std::array<unsigned int, 4> indices = {i};
+            va_start(raw_indices, i);
+            for (unsigned int k = 1; k < _dimension; k += 1) indices[k] = va_arg(raw_indices, unsigned int);
+            va_end(raw_indices);
+            return indices;
+        }
     public:
 
-        // \todo these should be written with va_list...
-        component& operator()(unsigned int i) { return this->get_component({i}); }
-        component& operator()(unsigned int i, unsigned int j) { return this->get_component({i,j}); }
-        component& operator()(unsigned int i, unsigned int j, unsigned int k) { return this->get_component({i,j,k}); }
-        component& operator()(unsigned int i, unsigned int j, unsigned int k, unsigned int l) { return this->get_component({i,j,k,l}); }
+        template<class... Uint> Component& operator()(Uint... indices) { return this->get_component(as_array4(indices...)); }
+        template<class... Uint> const Component& operator()(Uint... indices) const { return this->get_component(as_array4(indices...)); }
 
-        const component& operator()(unsigned int i) const { return this->get_component({i}); }
-        const component& operator()(unsigned int i, unsigned int j) const { return this->get_component({i,j}); }
-        const component& operator()(unsigned int i, unsigned int j, unsigned int k) const { return this->get_component({i,j,k}); }
-        const component& operator()(unsigned int i, unsigned int j, unsigned int k, unsigned int l) const { return this->get_component({i,j,k,l}); }
     };
-
-    class Variable;
-    class Constraint;
-    typedef Vector<Variable> AbstractVariableVector;
-    typedef Vector<Constraint> AbstractConstraintVector;
 
 }
 

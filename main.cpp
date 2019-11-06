@@ -1,22 +1,18 @@
 #include <iostream>
 
 #include "environment/Environment.h"
-#include "modeling/VariableVector.h"
-#include "modeling/Expression.h"
-#include "modeling/ConstraintVector.h"
 
 using namespace std;
 using namespace ED;
 
 int main() {
     Environment env;
-    VariableVector x(env, "x");
-    ConstraintVector ctr(env, "ctr");
+    env.variable("x");
+    env.variable("y");
+    env.constraint("ctr");
 
-    ctr(1).expression(x(1) * 2 + 10);
-    ctr(2).expression(x(1) + x(2) + 10 * cos(10 * x(1)));
-
-    cout << ctr;
+    for (Variable v : env.variables()) cout << v << endl;
+    for (Constraint ctr : env.constraints()) cout << ctr << endl;
 
     return 0;
 }
