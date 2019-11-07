@@ -14,6 +14,7 @@ int main() {
 
     expr = pow(x + 2, 3);
     // expr = x + 2 *  y + 1 + 2 + x * cos(pow(x + 2, 2));
+    // expr = x - 2 * y;
 
     expr.expand();
     expr.reduce();

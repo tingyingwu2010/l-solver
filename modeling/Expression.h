@@ -81,7 +81,6 @@ protected:
     float _value = 0.0;
     Term* _left = nullptr;
     Term* _right = nullptr;
-    Term* _parent = nullptr;
     bool _expert_mode = false;
 public:
     explicit Term(float num); //!< builds a numerical term
@@ -97,17 +96,13 @@ public:
     void use_variable_as_numerical();
     bool is_hidden_variable();
 
-    void left(Term& l) { _left = &l; l.parent(*this); }
-    void right(Term& r) { _right = &r; r.parent(*this); }
-    void parent(Term& p) { _parent = &p; }
-    void teenage_crisis() { _parent = nullptr; } //!< sets the parent to nullptr
+    void left(Term& l) { _left = &l; }
+    void right(Term& r) { _right = &r; }
     bool has_left() const { return _left != nullptr; }
     bool has_right() const { return _right != nullptr; }
-    bool has_parent() const { return _parent != nullptr; }
-    // todo add has_left/right/parent check ?
+    // todo add has_left/right check ?
     Term& left() const { return *_left; }
     Term& right() const { return *_right; }
-    Term& parent() const { return *_parent; }
 
     std::string to_string() const;
     void expert_mode(bool b) { _expert_mode = b; } //!< the expert mode is used when the term does not free the memory

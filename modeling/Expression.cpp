@@ -353,35 +353,45 @@ void ED::Expression::reduce() {
     std::function<Term*(Term*, unsigned int)> treat_one_node;
     treat_one_node = [&treat_one_node](Term* root, unsigned int inner_counter) {
 
-        if (Term::is_binary_operator(root->type()) && root->left().type() == Term::Num && root->right().type() == Term::Num) {
+        // if comutative operation
+        if (root->type() == Term::Sum || root->type() == Term::Mul) {
 
-            Term* left = &root->left();
-            Term* right = &root->right();
-            Term* parent = root->has_parent() ? &root->parent() : nullptr;
-            float n1 = left->as_numerical();
-            float n2 = right->as_numerical();
-
-            right->as_numerical() = Term::apply(n1, root->type(), n2);
-
-            if (parent != nullptr) {
-                if (parent->has_left() && root == &parent->left()) parent->left(*right);
-                if (parent->has_right() && root == &parent->right()) parent->right(*right);
+            // put numbers on the right
+            if (root->left().type() == Term::Num && root->right().type() != Term::Num) {
+                Term* new_root = new Term(root->type());
+                new_root->right(root->left());
+                new_root->left(root->right());
+                root->expert_mode(true);
+                delete root;
+                return treat_one_node(new_root, 0);
             }
 
-            root->expert_mode(true);
+            // align same operations in layer
+            if (root->left().type() != root->type() && root->right().type() == root->type()) {
+                Term* new_root = new Term(root->type());
+                new_root->right(root->left());
+                new_root->left(root->right());
+                root->expert_mode(true);
+                delete root;
+                return treat_one_node(new_root, 0);
+            }
+
+        }
+
+        // compute binary operations
+        if (Term::is_binary_operator(root->type()) && root->left().type() == Term::Num && root->right().type() == Term::Num) {
+
+            float n1 = root->left().as_numerical();
+            float n2 = root->right().as_numerical();
+            Term::Type op = root->type();
+
+            Term* new_root = new Term(Term::apply(n1, op, n2));
             delete root;
-            delete left;
-
-            return right;
+            return new_root;
         }
 
-        if ((root->type() == Term::Sum || root->type() == Term::Mul) && root->left().type() == Term::Num && root->right().type() != Term::Num) {
-            root->swap();
-            Term* result = treat_one_node(root, 0);
-            root->swap();
-            return result;
-        }
-
+        // put all sums to the left
+        // TODO mul as well
         if (root->type() == Term::Sum && root->left().type() == Term::Sum && root->right().type() == Term::Sum) {
             Term* right = &root->right();
             Term* right_left = &root->right().left();
@@ -392,12 +402,14 @@ void ED::Expression::reduce() {
             return treat_one_node(right, 0);
         }
 
+        // put num at the highest level and reduce
         if (Term::is_binary_operator(root->type()) && root->left().type() == root->type() ) {
             Term::Type op = root->type();
 
+            // put num at the highest level
             if (inner_counter == 0) {
 
-                Term* uppest_non_numerical = nullptr;
+                Term* uppest_non_numerical = root->right().type() != Term::Num ? root : nullptr;
                 for (Term* current = &root->left() ; current->type() == op ; current = &current->left()) {
 
                     if (current->right().type() != Term::Num && uppest_non_numerical == nullptr) {
@@ -413,6 +425,7 @@ void ED::Expression::reduce() {
 
                 }
 
+                // return treat_one_node(root, 1);
             }
 
             if (root->right().type() == Term::Num && root->left().right().type() == Term::Num) {
@@ -429,6 +442,7 @@ void ED::Expression::reduce() {
                 return treat_one_node(left, 1);
 
             }
+
         }
 
         if (root->has_left()) {
