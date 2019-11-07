@@ -12,14 +12,17 @@ int main() {
     Variable x = env.variable("x");
     Variable y = env.variable("y");
 
-    expr = pow(pow(x + y, 2), 1);
+    expr = pow(x + 2, 3);
+    // expr = x + 2 *  y + 1 + 2 + x * cos(pow(x + 2, 2));
 
     expr.expand();
+    expr.reduce();
 
     expr.to_dot();
-    system("dot -Tpng expression_tree.dot > image.png");
-
     cout << expr.to_string() << endl;
+    cout << "processing image....";
+    system("dot -Tpng expression_tree.dot > image.png");
+    cout << "done!" << endl;
 
     return 0;
 }

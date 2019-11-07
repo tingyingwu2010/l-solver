@@ -3,7 +3,7 @@
 //
 
 #include <fstream>
-#include <stack>
+#include <cmath>
 #include <functional>
 #include "Expression.h"
 #include "../utils/Exception.h"
@@ -16,7 +16,7 @@ ED::Variable &ED::Term::as_variable() {
     return *_variable;
 }
 
-float ED::Term::as_numerical() {
+float& ED::Term::as_numerical() {
     if (_type != Num) throw Exception("Trying to convert non-numerical term to numeric");
     return _value;
 }
@@ -74,6 +74,8 @@ std::string ED::Term::to_string() const {
 }
 
 #include <iostream>
+#include <vector>
+
 ED::Term::~Term() {
     if (!_expert_mode) {
         delete _left;
@@ -93,6 +95,17 @@ bool ED::Term::is_unitary_operator(ED::Term::Type type) {
 
 bool ED::Term::is_binary_operator(ED::Term::Type type) {
     return type == Sum || type == Sub || type == Mul || type == Div || type == Pow;
+}
+
+float ED::Term::apply(float n1, ED::Term::Type op, float n2) {
+    switch (op) {
+        case Sum: return n1 + n2;
+        case Sub: return n1 - n2;
+        case Mul: return n1 * n2;
+        case Div: return n1 / n2;
+        case Pow: return std::pow(n1, n2);
+        default: throw Exception("Unknown binary operator");
+    }
 }
 
 /****  EXPRESSION  ****/
@@ -335,63 +348,106 @@ std::string ED::Expression::to_string() const {
 void ED::Expression::reduce() {
     if (_root == nullptr) return;
 
-    std::function<Term*(Term*)> reduce_node;
-    reduce_node = [&reduce_node](Term* term) {
-        // compute straightforward operations
-        if (term->type() == Term::Mul && term->left().type() == Term::Num && term->right().type() == Term::Num)
-            return new Term(term->right().as_numerical() * term->left().as_numerical());
-        if (term->type() == Term::Div && term->left().type() == Term::Num && term->right().type() == Term::Num)
-            return new Term(term->left().as_numerical() / term->right().as_numerical());
-        if (term->type() == Term::Sum && term->left().type() == Term::Num && term->right().type() == Term::Num)
-            return new Term(term->right().as_numerical() + term->left().as_numerical());
-        if (term->type() == Term::Sub && term->left().type() == Term::Num && term->right().type() == Term::Num)
-            return new Term(term->left().as_numerical() - term->right().as_numerical());
+    remove_minus();
 
-        // remove useless 1 multiplication
-        if (term->type() == Term::Mul && term->left().type() == Term::Num && term->left().as_numerical() == 1) {
-            Term* result = reduce_node(&term->right());
-            Term* copy = new Term(*result);
-            delete result;
-            return copy;
-        }
-        if (term->type() == Term::Mul && term->right().type() == Term::Num && term->right().as_numerical() == 1) {
-            Term* result = reduce_node(&term->left());
-            Term* copy = new Term(*result);
-            delete result;
-            return copy;
-        }
+    std::function<Term*(Term*, unsigned int)> treat_one_node;
+    treat_one_node = [&treat_one_node](Term* root, unsigned int inner_counter) {
 
-        // remove useless 0 multiplications
-        if (term->type() == Term::Mul && term->left().type() == Term::Num && term->left().as_numerical() == 0)
-            return new Term(0);
-        if (term->type() == Term::Mul && term->right().type() == Term::Num && term->right().as_numerical() == 0)
-            return new Term(0);
+        if (Term::is_binary_operator(root->type()) && root->left().type() == Term::Num && root->right().type() == Term::Num) {
 
-        // remove useless 0 addition
-        if (term->type() == Term::Sum && term->left().type() == Term::Num && term->left().as_numerical() == 0) {
-            Term* result = reduce_node(&term->right());
-            Term* copy = new Term(*result);
-            delete result;
-            return copy;
-        }
-        if (term->type() == Term::Sum && term->right().type() == Term::Num && term->right().as_numerical() == 0) {
-            Term* result = reduce_node(&term->left());
-            Term* copy = new Term(*result);
-            delete result;
-            return copy;
+            Term* left = &root->left();
+            Term* right = &root->right();
+            Term* parent = root->has_parent() ? &root->parent() : nullptr;
+            float n1 = left->as_numerical();
+            float n2 = right->as_numerical();
+
+            right->as_numerical() = Term::apply(n1, root->type(), n2);
+
+            if (parent != nullptr) {
+                if (parent->has_left() && root == &parent->left()) parent->left(*right);
+                if (parent->has_right() && root == &parent->right()) parent->right(*right);
+            }
+
+            root->expert_mode(true);
+            delete root;
+            delete left;
+
+            return right;
         }
 
-        if (term->type() == Term::Num || term->type() == Term::Var)
-            return new Term(*term);
+        if ((root->type() == Term::Sum || root->type() == Term::Mul) && root->left().type() == Term::Num && root->right().type() != Term::Num) {
+            root->swap();
+            Term* result = treat_one_node(root, 0);
+            root->swap();
+            return result;
+        }
 
-        Term* new_term = new Term(term->type());
-        if (term->has_left()) new_term->left(*reduce_node(&term->left()));
-        if (term->has_right()) new_term->right(*reduce_node(&term->right()));
-        return new_term;
+        if (root->type() == Term::Sum && root->left().type() == Term::Sum && root->right().type() == Term::Sum) {
+            Term* right = &root->right();
+            Term* right_left = &root->right().left();
+
+            right->left(*root);
+            root->right(*right_left);
+
+            return treat_one_node(right, 0);
+        }
+
+        if (Term::is_binary_operator(root->type()) && root->left().type() == root->type() ) {
+            Term::Type op = root->type();
+
+            if (inner_counter == 0) {
+
+                Term* uppest_non_numerical = nullptr;
+                for (Term* current = &root->left() ; current->type() == op ; current = &current->left()) {
+
+                    if (current->right().type() != Term::Num && uppest_non_numerical == nullptr) {
+                        uppest_non_numerical = current;
+                    }
+
+                    if (current->right().type() == Term::Num && uppest_non_numerical != nullptr) {
+                        Term* uppest_non_numerical_term = &uppest_non_numerical->right();
+                        uppest_non_numerical->right(current->right());
+                        current->right(*uppest_non_numerical_term);
+                        uppest_non_numerical = current;
+                    }
+
+                }
+
+            }
+
+            if (root->right().type() == Term::Num && root->left().right().type() == Term::Num) {
+
+                Term *left = &root->left();
+                float n1 = root->left().right().as_numerical();
+                float n2 = root->right().as_numerical();
+
+                left->right().as_numerical() = Term::apply(n1, op, n2);
+
+                root->expert_mode(true);
+                delete root;
+
+                return treat_one_node(left, 1);
+
+            }
+        }
+
+        if (root->has_left()) {
+            Term* original_left = &root->left();
+            Term* left = treat_one_node(&root->left(), 0);
+            root->left(*left);
+            if (left != original_left) root = treat_one_node(root, 0);
+        }
+
+        if (root->has_right()) {
+            Term* original_right = &root->right();
+            Term* right = treat_one_node(&root->right(), 0);
+            root->right(*right);
+            if (right != original_right) root = treat_one_node(root, 0);
+        }
+
+        return root;
     };
 
-    Term* new_root = reduce_node(_root);
-    delete _root;
-    _root = new_root;
+    _root = treat_one_node(_root, 0);
 
 }
