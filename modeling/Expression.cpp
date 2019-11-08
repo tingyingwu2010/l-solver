@@ -75,6 +75,7 @@ std::string ED::Term::to_string() const {
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 ED::Term::~Term() {
     if (!_expert_mode) {
@@ -342,9 +343,6 @@ std::string ED::Expression::to_string() const {
 }
 
 
-/**
- * \warning Probably inefficient due to copying :/
- */
 void ED::Expression::reduce() {
     if (_root == nullptr) return;
 
@@ -463,5 +461,102 @@ void ED::Expression::reduce() {
     };
 
     _root = treat_one_node(_root, 0);
+
+}
+
+void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indicator) {
+    typename std::map<std::string, Term*> handler;
+
+    std::function<Term*(Term*)> treat_one_node;
+    treat_one_node = [&treat_one_node, &handler, &indicator](Term* root){
+
+        if (root->type() != Term::Sum) return root;
+
+        std::cout << root->to_string() << std::endl;
+
+        if (root->left().type() == Term::Sum && root->left().left().type() != Term::Sum) {
+            Term* last_term = &root->left().left();
+            if (last_term->type() == Term::Mul) {
+                Term* potential_variable = &last_term->left();
+                if (potential_variable->type() == Term::Var && root->left().left().right().type() == Term::Num) {
+                    Variable& var = potential_variable->as_variable();
+                    auto found = handler.find(var.user_defined_name());
+                    if (found != handler.end()) {
+                        found->second->as_numerical() += root->left().left().right().as_numerical();
+                        Term* new_root = new Term(root->type());
+                        new_root->left(root->left().right());;
+                        new_root->right(root->right());
+                        root->expert_mode(true);
+                        root->left().expert_mode(true);
+                        delete &root->left().left();
+                        delete &root->left();
+                        delete root;
+                        return new_root;
+                    }
+                }
+            }
+
+            if (last_term->type() == Term::Var) {
+                auto found = handler.find(last_term->as_variable().user_defined_name());
+                if (found != handler.end()) {
+                    found->second->as_numerical() += 1;
+                    Term* new_root = new Term(root->type());
+                    new_root->left(root->left().right());
+                    new_root->right(root->right());
+                    root->expert_mode(true);
+                    root->left().expert_mode(true);
+                    delete &root->left().left();
+                    delete &root->left();
+                    delete root;
+                    return new_root;
+                }
+            }
+        }
+
+        if (root->right().type() == Term::Mul) {
+            Term* potential_variable = &root->right().left();
+            if (potential_variable->type() == Term::Var && indicator(potential_variable->as_variable())) {
+                std::string name = potential_variable->as_variable().user_defined_name();
+                auto found = handler.find(name);
+                if (found == handler.end()) {
+                    handler.insert({ name, &root->right().right() });
+                    return treat_one_node(root);
+                } else if (!root->right().has_right() || found->second != &root->right().right()) {
+                    found->second->as_numerical() += root->right().right().as_numerical();
+                    delete &root->right();
+                    return treat_one_node(&root->left());
+                }
+            }
+        }
+
+        if (root->right().type() == Term::Var) {
+            if (indicator(root->right().as_variable())) {
+                std::string name = root->right().as_variable().user_defined_name();
+                auto found = handler.find(name);
+                if (found == handler.end()) {
+                    Term* added_node_mul = new Term(Term::Mul);
+                    Term* added_node_one = new Term(1);
+                    added_node_mul->left(root->right());
+                    added_node_mul->right(*added_node_one);
+                    root->right(*added_node_mul);
+                    handler.insert({ name, added_node_one });
+                    return treat_one_node(root);
+                } else if(!root->right().has_right() || found->second != &root->right().right()) {
+                    found->second->as_numerical() += 1;
+                    delete &root->right();
+                    return treat_one_node(&root->left());
+                }
+            }
+        }
+
+        Term* original_left = &root->left();
+        Term* left = treat_one_node(&root->left());
+        root->left(*left);
+        if (original_left != left) root =  treat_one_node(root);
+
+        return root;
+    };
+
+    _root = treat_one_node(_root);
 
 }

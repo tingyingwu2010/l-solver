@@ -5,6 +5,8 @@
 #ifndef ED_SOLVER_EXPRESSION_H
 #define ED_SOLVER_EXPRESSION_H
 
+#include <functional>
+
 namespace ED {
     class Variable;
     class Term;
@@ -136,6 +138,7 @@ public:
     void remove_minus();
     void expand(); //!< Turns the expression in expanded summation form
     void reduce();
+    void linear_group_by(std::function<bool(const Variable&)> indicator);
 
     // operators that do not copy the left term
     void operator+=(float x) { add_term(Term(x), Term::Sum); }

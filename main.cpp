@@ -14,10 +14,15 @@ int main() {
 
     expr = pow(x + 2, 3);
     // expr = x + 2 *  y + 1 + 2 + x * cos(pow(x + 2, 2));
-    // expr = x - 2 * y;
+    expr = 2 * x + y + 3 * x - y;
+    // expr = x + 2 * x + 2 * y + 3 * x - y;
 
     expr.expand();
     expr.reduce();
+    expr.linear_group_by([](const Variable& var){
+        return (var.user_defined_name() == "x" || var.user_defined_name() == "y");
+    });
+    // expr.reduce();
 
     expr.to_dot();
     cout << expr.to_string() << endl;
