@@ -464,6 +464,7 @@ void ED::Expression::reduce() {
 
 }
 
+// TODO WARNING, variables of interests have to be on the left
 void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indicator) {
     typename std::map<std::string, Term*> handler;
 
@@ -472,45 +473,68 @@ void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indica
 
         if (root->type() != Term::Sum) return root;
 
-        std::cout << root->to_string() << std::endl;
+        if (root->left().type() != Term::Sum) {
 
-        if (root->left().type() == Term::Sum && root->left().left().type() != Term::Sum) {
-            Term* last_term = &root->left().left();
-            if (last_term->type() == Term::Mul) {
-                Term* potential_variable = &last_term->left();
-                if (potential_variable->type() == Term::Var && root->left().left().right().type() == Term::Num) {
-                    Variable& var = potential_variable->as_variable();
-                    auto found = handler.find(var.user_defined_name());
+            if (root->left().type() == Term::Mul) {
+                Term* potential_variable = &root->left().left();
+                if (potential_variable->type() == Term::Var && indicator(potential_variable->as_variable())) {
+
+                    std::string name = potential_variable->as_variable().user_defined_name();
+                    auto found = handler.find(name);
                     if (found != handler.end()) {
-                        found->second->as_numerical() += root->left().left().right().as_numerical();
-                        Term* new_root = new Term(root->type());
-                        new_root->left(root->left().right());;
-                        new_root->right(root->right());
+                        Term* existing_term = &found->second->right();
+                        Term* added_node_sum = new Term(Term::Sum);
+                        added_node_sum->left(*existing_term);
+                        added_node_sum->right(root->left().right());
+                        found->second->right(*added_node_sum);
+
                         root->expert_mode(true);
                         root->left().expert_mode(true);
                         delete &root->left().left();
                         delete &root->left();
                         delete root;
-                        return new_root;
+
+                        return &root->right();
                     }
+
                 }
             }
 
-            if (last_term->type() == Term::Var) {
-                auto found = handler.find(last_term->as_variable().user_defined_name());
-                if (found != handler.end()) {
-                    found->second->as_numerical() += 1;
-                    Term* new_root = new Term(root->type());
-                    new_root->left(root->left().right());
-                    new_root->right(root->right());
-                    root->expert_mode(true);
-                    root->left().expert_mode(true);
-                    delete &root->left().left();
-                    delete &root->left();
-                    delete root;
-                    return new_root;
+            if (root->left().type() == Term::Var) {
+                Term* potential_variable = &root->left();
+                if (potential_variable->type() == Term::Var && indicator(potential_variable->as_variable())) {
+
+                    std::string name = potential_variable->as_variable().user_defined_name();
+                    auto found = handler.find(name);
+                    if (found == handler.end()) {
+
+                        Term* added_node_mul = new Term(Term::Mul);
+                        Term* added_node_one = new Term(1);
+                        added_node_mul->left(*potential_variable);
+                        added_node_mul->right(*added_node_one);
+                        root->left(*added_node_mul);
+
+                        return root;
+
+                    } else {
+
+                        Term* existing_term = &found->second->right();
+                        Term* added_node_sum = new Term(Term::Sum);
+                        Term* added_node_one = new Term(1);
+                        added_node_sum->left(*existing_term);
+                        added_node_sum->right(*added_node_one);
+                        found->second->right(*added_node_sum);
+
+                        Term* added_node_zero = new Term(0);
+                        delete &root->left();
+                        root->left(*added_node_zero);
+
+                        return treat_one_node(root);
+                    }
+
                 }
             }
+
         }
 
         if (root->right().type() == Term::Mul) {
@@ -519,11 +543,25 @@ void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indica
                 std::string name = potential_variable->as_variable().user_defined_name();
                 auto found = handler.find(name);
                 if (found == handler.end()) {
-                    handler.insert({ name, &root->right().right() });
+
+                    handler.insert({ name, &root->right() });
+
                     return treat_one_node(root);
-                } else if (!root->right().has_right() || found->second != &root->right().right()) {
-                    found->second->as_numerical() += root->right().right().as_numerical();
+
+                } else if (!root->right().has_right() || found->second != &root->right()) {
+
+                    Term* existing_term = &found->second->right();
+                    Term* added_node_sum = new Term(Term::Sum);
+                    added_node_sum->left(*existing_term);
+                    added_node_sum->right(root->right().right());
+                    found->second->right(*added_node_sum);
+
+                    root->expert_mode(true);
+                    root->right().expert_mode(true);
+                    delete &root->right().left();
                     delete &root->right();
+                    delete root;
+
                     return treat_one_node(&root->left());
                 }
             }
@@ -534,16 +572,31 @@ void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indica
                 std::string name = root->right().as_variable().user_defined_name();
                 auto found = handler.find(name);
                 if (found == handler.end()) {
+
                     Term* added_node_mul = new Term(Term::Mul);
                     Term* added_node_one = new Term(1);
                     added_node_mul->left(root->right());
                     added_node_mul->right(*added_node_one);
                     root->right(*added_node_mul);
-                    handler.insert({ name, added_node_one });
+                    handler.insert({ name, added_node_mul });
+
                     return treat_one_node(root);
-                } else if(!root->right().has_right() || found->second != &root->right().right()) {
-                    found->second->as_numerical() += 1;
+
+                } else if(!root->right().has_right() || found->second != &root->right()) {
+
+                    Term* existing_term = &found->second->right();
+                    Term* added_node_sum = new Term(Term::Sum);
+                    Term* added_node_one = new Term(1);
+                    added_node_sum->left(*existing_term);
+                    added_node_sum->right(*added_node_one);
+                    found->second->right(*added_node_sum);
+
+                    root->expert_mode(true);
+                    root->right().expert_mode(true);
+                    delete &root->right().left();
                     delete &root->right();
+                    delete root;
+
                     return treat_one_node(&root->left());
                 }
             }
