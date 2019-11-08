@@ -76,6 +76,7 @@ std::string ED::Term::to_string() const {
 #include <iostream>
 #include <vector>
 #include <map>
+#include <stack>
 
 ED::Term::~Term() {
     if (!_expert_mode) {
@@ -465,7 +466,7 @@ void ED::Expression::reduce() {
 }
 
 // TODO WARNING, variables of interests have to be on the left
-void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indicator) {
+void ED::Expression::linear_group_by(const std::function<bool(const Variable&)>& indicator) {
     typename std::map<std::string, Term*> handler;
 
     std::function<Term*(Term*)> treat_one_node;
@@ -612,4 +613,32 @@ void ED::Expression::linear_group_by(std::function<bool(const Variable&)> indica
 
     _root = treat_one_node(_root);
 
+}
+
+ED::Expression ED::Expression::linear(const std::function<bool(const Variable&)>& indicator) const {
+    Expression expr = evaluate(indicator);
+    expr.linear_group_by(indicator);
+    expr.reduce();
+    return expr;
+}
+
+void ED::Expression::linear_transform(const std::function<bool(const Variable &)> &indicator) {
+    evaluate(indicator);
+    linear_group_by(indicator);
+    reduce();
+}
+
+ED::Expression ED::Expression::evaluate(const std::function<bool(const Variable&)>& indicator) const {
+    Expression expr = *this;
+    std::stack<Term*> fifo;
+    fifo.push(expr._root);
+    while (!fifo.empty()) {
+        Term* current = fifo.top();
+        fifo.pop();
+        if (current->type() == Term::Var && !indicator(current->as_variable())) current->use_variable_as_numerical();
+        if (current->has_left()) fifo.push(&current->left());
+        if (current->has_right()) fifo.push(&current->right());
+    }
+    expr.reduce();
+    return expr;
 }

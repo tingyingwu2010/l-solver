@@ -11,6 +11,7 @@ namespace ED {
     class Variable;
     class Term;
     class Expression;
+    class LinearExpression;
 
     static Expression operator+(Variable& lhs, Variable& rhs);
     static Expression operator-(Variable& lhs, Variable& rhs);
@@ -138,7 +139,10 @@ public:
     void remove_minus();
     void expand(); //!< Turns the expression in expanded summation form
     void reduce();
-    void linear_group_by(std::function<bool(const Variable&)> indicator);
+    void linear_group_by(const std::function<bool(const Variable&)>& indicator);
+    Expression linear(const std::function<bool(const Variable&)>& indicator) const;
+    void linear_transform(const std::function<bool(const Variable&)>& indicator);
+    Expression evaluate(const std::function<bool(const Variable&)>& indicator) const;
 
     // operators that do not copy the left term
     void operator+=(float x) { add_term(Term(x), Term::Sum); }
