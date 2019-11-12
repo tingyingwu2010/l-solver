@@ -7,7 +7,7 @@
 
 #include <string>
 
-namespace ED {
+namespace L {
     class Variable;
     class VariableVector;
     /**

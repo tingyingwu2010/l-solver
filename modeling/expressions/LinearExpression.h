@@ -8,7 +8,11 @@
 #include "Expression.h"
 #include "../Variable.h"
 
-struct LinearExpression {
+namespace L {
+    struct LinearExpression;
+}
+
+struct L::LinearExpression {
     class LinearExpressionIterator{
         const Expression& _expr;
     public:

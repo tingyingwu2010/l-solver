@@ -4,6 +4,8 @@
 
 #include "LinearExpression.h"
 
+using namespace L;
+
 float LinearExpression::offset(const Expression& expr) {
     if(is_numerical(expr._tree.node())) return expr._tree.node().as_numerical();
 

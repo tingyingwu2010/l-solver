@@ -4,10 +4,10 @@
 
 #include "Expression.h"
 
-
 #include <vector>
 #include <map>
-#include "Expression.h"
+
+using namespace L;
 
 Expression::Expression(float num) : _tree(ExpressionTree(*new ExpressionNode(num))) {}
 Expression::Expression(Variable& variable) : _tree(ExpressionTree(*new ExpressionNode(variable))) {}
@@ -29,7 +29,7 @@ void Expression::expand(unsigned long depth) {
         // correct losing normal form
         if (is_product(current.node()) && current.has_child(ExpressionTree::Left) && !is_product(current.child(ExpressionTree::Left).node())) {
             /* current.node().color(true);
-            ExpressionTree& added_product = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+            ExpressionTree& added_product = *new ExpressionTree(ExpressionNode(Product));
             current.insert(ExpressionTree::Left, added_product);
             ExpressionTree::transfer(ExpressionTree::Left, current.child(ExpressionTree::Left), ExpressionTree::Right, current.child(ExpressionTree::Left));
             return true; */
@@ -100,11 +100,11 @@ void Expression::expand(unsigned long depth) {
 
                     ExpressionTree& right = current.child(ExpressionTree::Right);
                     // current
-                    current.node().type(ExpressionNode::Sum);
+                    current.node().type(Sum);
 
                     // right of current
-                    ExpressionTree& added_right = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
-                    ExpressionTree& added_product = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+                    ExpressionTree& added_right = *new ExpressionTree(ExpressionNode(Product));
+                    ExpressionTree& added_product = *new ExpressionTree(ExpressionNode(Product));
                     added_right.attach(ExpressionTree::Left, added_product);
                     ExpressionTree& B = left_right.child(ExpressionTree::Left);
                     /* if (!B.has_child(ExpressionTree::Left)) */ B.reduce_to_delete(ExpressionTree::Right);
@@ -112,9 +112,9 @@ void Expression::expand(unsigned long depth) {
                     current.insert(ExpressionTree::Right, added_right);
 
                     // left of current
-                    left.node().type(ExpressionNode::Sum);
-                    left_right.node().type(ExpressionNode::Product);
-                    ExpressionTree& added_left = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+                    left.node().type(Sum);
+                    left_right.node().type(Product);
+                    ExpressionTree& added_left = *new ExpressionTree(ExpressionNode(Product));
                     added_left.attach_copy(ExpressionTree::Right, right);
                     left_right.detach(ExpressionTree::Left);
                     left_right.attach(ExpressionTree::Left, added_left);
@@ -202,7 +202,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
             } else if (is_numerical(existing_term.child(ExpressionTree::Right).node())) {
                 existing_term.child(ExpressionTree::Right).node().as_numerical() += n;
             } else if (is_sum(existing_term.node())) {
-                ExpressionTree& added_sum = *new ExpressionTree(ExpressionNode(ExpressionNode::Sum));
+                ExpressionTree& added_sum = *new ExpressionTree(ExpressionNode(Sum));
                 added_sum.attach(ExpressionTree::Right, *new ExpressionTree(ExpressionNode(n)));
                 existing_term.insert(ExpressionTree::Left, added_sum);
                 ExpressionTree::swap(ExpressionTree::Right, existing_term, ExpressionTree::Right, added_sum);
@@ -211,7 +211,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
                 ExpressionTree& forward_existing = *new ExpressionTree(existing_term.node());
                 existing_term.insert(ExpressionTree::Left, forward_existing);
                 ExpressionTree::transfer(ExpressionTree::Right, existing_term, ExpressionTree::Right, existing_term.child(ExpressionTree::Left));
-                existing_term.node().type(ExpressionNode::Sum);
+                existing_term.node().type(Sum);
                 existing_term.attach(ExpressionTree::Right, added_coefficient);
             }
 
@@ -225,7 +225,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
                 } else if (is_numerical(existing_term.child(ExpressionTree::Right).node())) {
                     existing_term.child(ExpressionTree::Right).node().as_numerical() += n;
                 } else {
-                    ExpressionTree& added_sum = *new ExpressionTree(ExpressionNode(ExpressionNode::Sum));
+                    ExpressionTree& added_sum = *new ExpressionTree(ExpressionNode(Sum));
                     added_sum.attach(ExpressionTree::Right, *new ExpressionTree(ExpressionNode(n)));
                     existing_term.insert(ExpressionTree::Left, added_sum);
                     ExpressionTree::swap(ExpressionTree::Left, existing_term, ExpressionTree::Right, existing_term);
@@ -240,15 +240,15 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
             if (is_numerical(existing_term.node())) {
                 ExpressionTree& forwarded_numerical = *new ExpressionTree(ExpressionNode(existing_term.node().as_numerical()));
                 existing_term.node().as_numerical() = 0;
-                existing_term.node().type(ExpressionNode::Sum);
-                ExpressionTree& added_sum_term = *new ExpressionTree(ExpressionNode(ExpressionNode::Sum));
+                existing_term.node().type(Sum);
+                ExpressionTree& added_sum_term = *new ExpressionTree(ExpressionNode(Sum));
                 existing_term.attach(ExpressionTree::Left, added_sum_term);
                 existing_term.attach(ExpressionTree::Right, forwarded_numerical);
                 added_sum_term.attach(ExpressionTree::Right, term.child(ExpressionTree::Right));
             } else {
                 ExpressionTree* last;
                 for (last = &existing_term ; last->has_child(ExpressionTree::Left) ; last = &last->child(ExpressionTree::Left) ){}
-                ExpressionTree& added_sum_term = *new ExpressionTree(ExpressionNode(ExpressionNode::Sum));
+                ExpressionTree& added_sum_term = *new ExpressionTree(ExpressionNode(Sum));
                 existing_term.attach(ExpressionTree::Left, added_sum_term);
                 added_sum_term.attach(ExpressionTree::Right, term.child(ExpressionTree::Right));
             }
@@ -274,7 +274,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
     ExpressionTree* current = &_tree;
     if (!is_sum(_tree.node())) {
         return;
-        ExpressionTree virtual_sum((ExpressionNode(ExpressionNode::Sum)));
+        ExpressionTree virtual_sum((ExpressionNode(Sum)));
         virtual_sum.unsafe_mode(true);
         virtual_sum.attach(ExpressionTree::Right, _tree);
         current = &virtual_sum;
@@ -290,10 +290,10 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
 
         if (is_variable(current->child(ExpressionTree::Right).node()) && indicator(current->child(ExpressionTree::Right).node().as_variable())) {
 
-            ExpressionTree& added_product_by_one = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+            ExpressionTree& added_product_by_one = *new ExpressionTree(ExpressionNode(Product));
             current->insert(ExpressionTree::Right, added_product_by_one);
 
-            ExpressionTree& added_product_by_var = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+            ExpressionTree& added_product_by_var = *new ExpressionTree(ExpressionNode(Product));
             added_product_by_var.attach(ExpressionTree::Right, *new ExpressionTree(ExpressionNode(1)));
 
             added_product_by_one.attach(ExpressionTree::Left, added_product_by_var);
@@ -342,7 +342,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
                     // turn all '*' into '+'
                     /* ExpressionTree* last_term = nullptr;
                     term = &product;
-                    do term->node().type(ExpressionNode::Product);
+                    do term->node().type(Product);
                     while (
                             term->has_child(ExpressionTree::Left)
                             && (last_term = term)
@@ -356,8 +356,8 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
                     else last_term->reduce_to(ExpressionTree::Left);
 
                     // add product with variable
-                    ExpressionTree& product_by_coefficient = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
-                    ExpressionTree& product_by_variable = *new ExpressionTree(ExpressionNode(ExpressionNode::Product));
+                    ExpressionTree& product_by_coefficient = *new ExpressionTree(ExpressionNode(Product));
+                    ExpressionTree& product_by_variable = *new ExpressionTree(ExpressionNode(Product));
                     current->insert(ExpressionTree::Right, product_by_coefficient);
                     product_by_coefficient.attach(ExpressionTree::Left, product_by_variable);
                     product_by_variable.attach(ExpressionTree::Right, variable);
@@ -381,7 +381,7 @@ void Expression::linear_factorize(const std::function<bool(const Variable &)> &i
 
 }
 
-Expression::Expression(ExpressionNode::Type type, const Expression &node) : Expression(ExpressionNode(type)) {
+Expression::Expression(Type type, const Expression &node) : Expression(ExpressionNode(type)) {
     if (!is_unitary_operator(type)) throw Exception("Trying to build an expression of non-unitary-operator type with only one argument. "
                                                     "If you intended to create an expression with one variable, you need not specify the type. "
                                                     "Use Expression(Var& variable) instead. Otherwise, the type you requested is a binary "
@@ -389,13 +389,13 @@ Expression::Expression(ExpressionNode::Type type, const Expression &node) : Expr
     _tree.attach_copy(ExpressionTree::Right, node._tree);
 }
 
-Expression::Expression(ExpressionNode::Type type, Variable &node) : Expression(type, Expression(node)) {}
-Expression::Expression(ExpressionNode::Type type, float node) : Expression(type, Expression(node)) {}
+Expression::Expression(Type type, Variable &node) : Expression(type, Expression(node)) {}
+Expression::Expression(Type type, float node) : Expression(type, Expression(node)) {}
 
-Expression operator+(const Expression &a, const Expression &b) {
+Expression L::operator+(const Expression &a, const Expression &b) {
     Expression output;
     if (!is_sum(a._tree.node())) {
-        output = Expression(ExpressionNode(ExpressionNode::Sum));
+        output = Expression(ExpressionNode(Sum));
         output._tree.attach_copy(ExpressionTree::Right, a._tree);
     } else {
         output = a;
@@ -408,7 +408,7 @@ Expression operator+(const Expression &a, const Expression &b) {
             return output;
         }
 
-        ExpressionTree added_sum((ExpressionNode(ExpressionNode::Sum)));
+        ExpressionTree added_sum((ExpressionNode(Sum)));
         added_sum.insert_copy(ExpressionTree::Right, b._tree);
         output._tree.insert_copy(ExpressionTree::Left, added_sum);
         ExpressionTree::swap(ExpressionTree::Right, output._tree, ExpressionTree::Right, output._tree.child(ExpressionTree::Left));
@@ -434,7 +434,7 @@ Expression operator+(const Expression &a, const Expression &b) {
 
     if (output._tree.has_child(ExpressionTree::Right)) {
 
-        ExpressionTree added_sum((ExpressionNode(ExpressionNode::Sum)));
+        ExpressionTree added_sum((ExpressionNode(Sum)));
         added_sum.attach_copy(ExpressionTree::Right, b._tree);
         output._tree.insert_copy(ExpressionTree::Left, added_sum);
         return output;
@@ -444,10 +444,10 @@ Expression operator+(const Expression &a, const Expression &b) {
     return output;
 }
 
-Expression operator*(const Expression &a, const Expression &b) {
+Expression L::operator*(const Expression &a, const Expression &b) {
     Expression output;
     if (!is_product(a._tree.node())) {
-        output = Expression(ExpressionNode(ExpressionNode::Product));
+        output = Expression(ExpressionNode(Product));
         output._tree.attach_copy(ExpressionTree::Right, a._tree);
     } else {
         output = a;
@@ -460,7 +460,7 @@ Expression operator*(const Expression &a, const Expression &b) {
             return output;
         }
 
-        ExpressionTree added_sum((ExpressionNode(ExpressionNode::Product)));
+        ExpressionTree added_sum((ExpressionNode(Product)));
         added_sum.insert_copy(ExpressionTree::Right, b._tree);
         output._tree.insert_copy(ExpressionTree::Left, added_sum);
         ExpressionTree::swap(ExpressionTree::Right, output._tree, ExpressionTree::Right, output._tree.child(ExpressionTree::Left));
@@ -486,7 +486,7 @@ Expression operator*(const Expression &a, const Expression &b) {
 
     if (output._tree.has_child(ExpressionTree::Right)) {
 
-        ExpressionTree added_sum((ExpressionNode(ExpressionNode::Product)));
+        ExpressionTree added_sum((ExpressionNode(Product)));
         added_sum.attach_copy(ExpressionTree::Right, b._tree);
         output._tree.insert_copy(ExpressionTree::Left, added_sum);
         return output;

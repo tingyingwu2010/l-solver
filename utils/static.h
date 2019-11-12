@@ -8,12 +8,13 @@
 #include <string>
 #include <array>
 
-static std::string concat_string_array(const std::string& str, const std::array<unsigned int, 4>& arr) {
-    std::string output = str + "(";
-    for (auto& i : arr) output += std::to_string(i) + ",";
-    output[output.size() - 1] = ')';
-    return output;
+namespace L {
+    static std::string concat_string_array(const std::string &str, const std::array<unsigned int, 4> &arr) {
+        std::string output = str + "(";
+        for (auto &i : arr) output += std::to_string(i) + ",";
+        output[output.size() - 1] = ')';
+        return output;
+    }
 }
-
 
 #endif //ED_SOLVER_STATIC_H

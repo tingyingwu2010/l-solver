@@ -8,7 +8,15 @@
 #include <string>
 #include "../environment/AbstractEnvironmentVariable.h"
 
-class AbstractVariable {
+namespace L {
+    class AbstractVariable;
+    class CoreVariable;
+    class Variable;
+    class DetachedVariable;
+    class ConstVariable;
+}
+
+class L::AbstractVariable {
 public:
     enum Status { Core, Detached, Default };
     enum Type { Positive, Negative, Free, Binary, Integer };
@@ -37,7 +45,7 @@ public:
 /***
  * \brief A core variable is an object which represents a decisional variable. Core variable belong to environments.
  */
-class CoreVariable : public AbstractVariable {
+class L::CoreVariable : public AbstractVariable {
 protected:
     float _value = 0.0; //!< current value
     float _ub = 0.0; //!< lower bound
@@ -67,7 +75,7 @@ public:
  * \brief A variable is a representation of a core variable. Every modification to a variable is repeated to its core variable.
  * They may be seen as indirections to core variables.
  */
-class Variable : public AbstractVariable {
+class L::Variable : public AbstractVariable {
 protected:
     CoreVariable& _core;
     friend class DetachedVariable;
@@ -89,7 +97,7 @@ public:
     void type(Type type) override { _core.type(type); }
 };
 
-class ConstVariable : public AbstractVariable {
+class L::ConstVariable : public AbstractVariable {
     const CoreVariable& _core;
     void value(float value) override {  }
     void ub(float ub) override {  }
@@ -112,7 +120,7 @@ public:
  * Modifications which are repeated to the core variable are: value, reduced cost.
  * Modifications which are independently performed: upper bound, lower bound, type.
  */
-class DetachedVariable : public Variable {
+class L::DetachedVariable : public Variable {
 protected:
     float _ub = 0.0; //!< lower bound
     float _lb = 0.0; //!< upper bound

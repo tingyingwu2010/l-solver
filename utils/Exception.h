@@ -7,7 +7,11 @@
 
 #include <string>
 
-class Exception : public std::exception {
+namespace L {
+    class Exception;
+}
+
+class L::Exception : public std::exception {
     std::string _message;
 public:
     explicit Exception(const std::string& message);

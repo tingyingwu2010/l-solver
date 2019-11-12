@@ -9,13 +9,15 @@
 #include "expressions/Expression.h"
 #include "../environment/AbstractEnvironmentConstraint.h"
 
-class AbstractConstraint;
-class CoreConstraint;
-class Constraint;
-class ConstConstraint;
-class DetachedConstraint;
+namespace L {
+    class AbstractConstraint;
+    class CoreConstraint;
+    class Constraint;
+    class ConstConstraint;
+    class DetachedConstraint;
+}
 
-class AbstractConstraint {
+class L::AbstractConstraint {
 public:
     enum Type {LessOrEqualTo, GreaterOrEqualTo, EqualTo};
     enum Status { Core, Detached, Default };
@@ -31,7 +33,7 @@ public:
     static std::string to_string(Type type);
 };
 
-class CoreConstraint : public AbstractConstraint {
+class L::CoreConstraint : public AbstractConstraint {
 protected:
     Expression _expr;
     AbstractConstraint::Type _type = LessOrEqualTo;
@@ -46,7 +48,7 @@ public:
     Status status() const override { return Core; }
 };
 
-class Constraint : public AbstractConstraint {
+class L::Constraint : public AbstractConstraint {
     CoreConstraint& _core;
     friend class DetachedConstraint;
 public:
@@ -59,7 +61,7 @@ public:
     Status status() const override { return Default; }
 };
 
-class ConstConstraint : public AbstractConstraint {
+class L::ConstConstraint : public AbstractConstraint {
     CoreConstraint& _core;
     friend class ConstDetachedConstraint;
     void type(Type type) override {}

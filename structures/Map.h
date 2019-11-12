@@ -8,7 +8,7 @@
 #include <map>
 #include "../utils/Exception.h"
 
-namespace ED {
+namespace L {
 
     template<class Index, class Component> class DefaultMapIterator;
     template<class Index, class Component> class DefaultConstMapIterator;

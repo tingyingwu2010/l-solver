@@ -4,7 +4,3 @@
 
 #include "Vector.h"
 #include "../utils/Exception.h"
-
-namespace ED {
-
-}

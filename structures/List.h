@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-namespace ED {
+namespace L {
 
     template<class components>
     class List {

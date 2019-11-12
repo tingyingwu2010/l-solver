@@ -7,7 +7,11 @@
 
 #include <string>
 
-class BinaryTreeNode {
+namespace L {
+    class BinaryTreeNode;
+}
+
+class L::BinaryTreeNode {
     static unsigned long int _node_id;
     static unsigned long int get_next_node_id();
     unsigned long int _id = get_next_node_id();

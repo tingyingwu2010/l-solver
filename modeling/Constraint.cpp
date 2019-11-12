@@ -7,6 +7,8 @@
 #include <utility>
 #include "../utils/Exception.h"
 
+using namespace L;
+
 CoreConstraint::CoreConstraint(std::string  user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
 std::ostream &operator<<(std::ostream &os, const Constraint &constraint) {

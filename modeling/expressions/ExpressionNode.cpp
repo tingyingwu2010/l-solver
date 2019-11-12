@@ -5,6 +5,8 @@
 #include "ExpressionNode.h"
 #include "../../utils/Exception.h"
 
+using namespace L;
+
 Variable &ExpressionNode::as_variable() const {
     if (!is_variable(*this)) throw Exception("Cannot return variable for non-variable nodes");
     return *_variable;
@@ -20,7 +22,7 @@ float &ExpressionNode::as_numerical() {
     return _numerical;
 }
 
-std::ostream& operator<<(std::ostream& os, const ExpressionNode& expr) {
+std::ostream& L::operator<<(std::ostream& os, const ExpressionNode& expr) {
     return (os << expr.to_string());
 }
 
@@ -46,7 +48,7 @@ std::string ExpressionNode::to_string() const {
     }
 }
 
-ExpressionNode::ExpressionNode(ExpressionNode::Type type) : _type(type) { }
+ExpressionNode::ExpressionNode(L::Type type) : _type(type) { }
 ExpressionNode::ExpressionNode(float numerical) : _numerical(numerical), _type(Num) {}
 ExpressionNode::ExpressionNode(class Variable& variable) : _variable(&variable), _type(Var) {}
 ExpressionNode::ExpressionNode(const ExpressionNode &rhs) : _type(rhs._type), _numerical(rhs._numerical), _variable(rhs._variable) {}
@@ -58,4 +60,4 @@ ExpressionNode &ExpressionNode::operator=(const ExpressionNode &rhs) {
     return *this;
 }
 
-bool is_type(const ExpressionNode& node, ExpressionNode::Type type) { return node._type == type; }
+bool L::is_type(const ExpressionNode& node, L::Type type) { return node._type == type; }

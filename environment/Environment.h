@@ -13,11 +13,13 @@
 #include "../modeling/Constraint.h"
 #include "../modeling/Variable.h"
 
-
-class Environment;
+namespace L {
+    class Environment;
+    template<class, class, class, class> class Set;
+}
 
 template <class Index, class CoreComponent, class Component, class ConstComponent>
-class Set {
+class L::Set {
     std::map<Index, CoreComponent*> _components;
     Environment& _env;
 public:
@@ -34,7 +36,7 @@ public:
     const_iterator cend() const { return const_iterator(_components, true); }
 };
 
-class Environment  {
+class L::Environment  {
 public:
     typedef Set<std::string, CoreVariable, Variable, ConstVariable> VariableSet;
     typedef Set<std::string, CoreConstraint, Constraint, ConstConstraint> ConstraintSet;
@@ -56,12 +58,12 @@ public:
 };
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>
-Set<Index, CoreComponent, Component, ConstComponent>::~Set() {
+L::Set<Index, CoreComponent, Component, ConstComponent>::~Set() {
     for (auto m : _components) delete m.second;
 }
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>
-Component Set<Index, CoreComponent, Component, ConstComponent>::get_or_create(const Index &index) {
+Component L::Set<Index, CoreComponent, Component, ConstComponent>::get_or_create(const Index &index) {
     auto found = _components.find(index);
     if (found != _components.end()) return Component(*found->second);
     auto new_component = new CoreComponent(index);
@@ -70,14 +72,14 @@ Component Set<Index, CoreComponent, Component, ConstComponent>::get_or_create(co
 }
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>
-ConstComponent Set<Index, CoreComponent, Component, ConstComponent>::get(const Index &index) const {
+ConstComponent L::Set<Index, CoreComponent, Component, ConstComponent>::get(const Index &index) const {
     auto found = _components.find(index);
     if (found != _components.end()) return ConstComponent(*found->second);
     throw Exception("Could not find component");
 }
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>
-class Set<Index, CoreComponent, Component, ConstComponent>::iterator {
+class L::Set<Index, CoreComponent, Component, ConstComponent>::iterator {
     typename std::map<Index, CoreComponent*>::iterator _it;
     public:
         explicit iterator(std::map<Index, CoreComponent*>& base, bool is_end) : _it(is_end ? base.end() : base.begin()) {}
@@ -89,7 +91,7 @@ class Set<Index, CoreComponent, Component, ConstComponent>::iterator {
 };
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>
-class Set<Index, CoreComponent, Component, ConstComponent>::const_iterator {
+class L::Set<Index, CoreComponent, Component, ConstComponent>::const_iterator {
     typename std::map<Index, CoreComponent*>::const_iterator _it;
 public:
     explicit const_iterator(std::map<Index, CoreComponent*>& base, bool is_end) : _it(is_end ? base.cend() : base.cbegin()) {}

@@ -11,8 +11,13 @@
 #include "../utils/Exception.h"
 #include "BinaryTreeNode.h"
 
+namespace L {
+    template<class Node> class BinaryTree;
+    template<class Node> static std::ostream& operator<<(std::ostream& os, const BinaryTree<Node>& node);
+}
+
 template<class Node>
-class BinaryTree {
+class L::BinaryTree {
 protected:
     BinaryTree<Node>* _left = nullptr;
     BinaryTree<Node>* _right = nullptr;
@@ -84,7 +89,7 @@ public:
 };
 
 template<class Node>
-static std::ostream& operator<<(std::ostream& os, const BinaryTree<Node>& node);
+static std::ostream& L::operator<<(std::ostream& os, const BinaryTree<Node>& node);
 
 #include "BinaryTree.cpp"
 

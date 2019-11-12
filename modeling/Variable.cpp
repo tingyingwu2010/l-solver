@@ -5,6 +5,8 @@
 #include "Variable.h"
 #include <utility>
 
+using namespace L;
+
 CoreVariable::CoreVariable(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
 std::ostream &operator<<(std::ostream &os, const AbstractVariable &var) {

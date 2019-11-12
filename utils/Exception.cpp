@@ -4,6 +4,8 @@
 
 #include "Exception.h"
 
+using namespace L;
+
 Exception::Exception(const std::string& message) : _message(message) {}
 
 const std::string &Exception::message() const {

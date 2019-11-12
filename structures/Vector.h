@@ -12,7 +12,7 @@
 #include "../structures/Map.h"
 #include "../utils/Exception.h"
 
-namespace ED {
+namespace L {
 
     typedef std::array<unsigned int, 4> VectorIndex;
 
