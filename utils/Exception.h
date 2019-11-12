@@ -7,17 +7,14 @@
 
 #include <string>
 
-namespace ED {
+class Exception : public std::exception {
+    std::string _message;
+public:
+    explicit Exception(const std::string& message);
+    const std::string& message() const;
+    const char* what() const throw() override;
+};
 
-    class Exception : public std::exception {
-        std::string _message;
-    public:
-        explicit Exception(const std::string& message);
-        const std::string& message() const;
-        const char* what() const throw() override;
-    };
-
-}
 
 
 #endif //ED_SOLVER_EXCEPTION_H

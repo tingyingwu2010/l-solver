@@ -5,10 +5,10 @@
 #include "Variable.h"
 #include <utility>
 
-ED::CoreVariable::CoreVariable(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
+CoreVariable::CoreVariable(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
-std::ostream &ED::operator<<(std::ostream &os, const ED::AbstractVariable &var) {
-    os << std::string("Variable ") << var.user_defined_name();
+std::ostream &operator<<(std::ostream &os, const AbstractVariable &var) {
+    os << std::string("Var ") << var.user_defined_name();
     os << std::string(" (") << std::to_string(var.status()) << std::string(" )");
     os << std::string("\n\tValue : ") << std::to_string(var.value());
     os << std::string("\n\tLB    : ") << std::to_string(var.lb());
@@ -18,8 +18,8 @@ std::ostream &ED::operator<<(std::ostream &os, const ED::AbstractVariable &var) 
     return os;
 }
 
-ED::Variable::Variable(CoreVariable& core) : _core(core) {}
+Variable::Variable(CoreVariable& core) : _core(core) {}
 
-ED::DetachedVariable::DetachedVariable(ED::Variable &variable) : Variable(variable._core) {}
+DetachedVariable::DetachedVariable(Variable &variable) : Variable(variable._core) {}
 
-ED::ConstVariable::ConstVariable(const ED::CoreVariable &core) : _core(core) {}
+ConstVariable::ConstVariable(const CoreVariable &core) : _core(core) {}

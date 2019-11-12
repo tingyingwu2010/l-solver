@@ -6,18 +6,16 @@
 #define ED_SOLVER_CONSTRAINT_H
 
 #include <string>
-#include "Expression.h"
+#include "expressions/Expression.h"
 #include "../environment/AbstractEnvironmentConstraint.h"
 
-namespace ED {
-    class AbstractConstraint;
-    class CoreConstraint;
-    class Constraint;
-    class ConstConstraint;
-    class DetachedConstraint;
-}
+class AbstractConstraint;
+class CoreConstraint;
+class Constraint;
+class ConstConstraint;
+class DetachedConstraint;
 
-class ED::AbstractConstraint {
+class AbstractConstraint {
 public:
     enum Type {LessOrEqualTo, GreaterOrEqualTo, EqualTo};
     enum Status { Core, Detached, Default };
@@ -33,7 +31,7 @@ public:
     static std::string to_string(Type type);
 };
 
-class ED::CoreConstraint : public ED::AbstractConstraint {
+class CoreConstraint : public AbstractConstraint {
 protected:
     Expression _expr;
     AbstractConstraint::Type _type = LessOrEqualTo;
@@ -48,7 +46,7 @@ public:
     Status status() const override { return Core; }
 };
 
-class ED::Constraint : public ED::AbstractConstraint {
+class Constraint : public AbstractConstraint {
     CoreConstraint& _core;
     friend class DetachedConstraint;
 public:
@@ -61,7 +59,7 @@ public:
     Status status() const override { return Default; }
 };
 
-class ED::ConstConstraint : public ED::AbstractConstraint {
+class ConstConstraint : public AbstractConstraint {
     CoreConstraint& _core;
     friend class ConstDetachedConstraint;
     void type(Type type) override {}

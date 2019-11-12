@@ -4,12 +4,12 @@
 
 #include "Exception.h"
 
-ED::Exception::Exception(const std::string& message) : _message(message) {}
+Exception::Exception(const std::string& message) : _message(message) {}
 
-const std::string &ED::Exception::message() const {
+const std::string &Exception::message() const {
     return _message;
 }
 
-const char *ED::Exception::what() const throw() {
+const char *Exception::what() const throw() {
     return _message.c_str();
 }
