@@ -6,8 +6,8 @@
 #define ED_SOLVER_ENVIRONMENT_H
 
 #include <vector>
-#include "../structures/List.h"
-#include "../structures/Map.h"
+#include <map>
+#include "../utils/Exception.h"
 #include "AbstractEnvironmentVariable.h"
 #include "AbstractEnvironmentConstraint.h"
 #include "../modeling/Constraint.h"

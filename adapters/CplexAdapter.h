@@ -19,5 +19,4 @@ class L::CplexAdapter : public SolverAdapter {
 
 };
 
-
 #endif //ED_SOLVER_CPLEXADAPTER_H

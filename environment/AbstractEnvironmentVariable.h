@@ -9,14 +9,12 @@
 
 namespace L {
     class Variable;
-    class VariableVector;
     /**
      * Interface for the Variable class to speak with Environment
      */
     class AbstractEnvironmentVariable {
     public:
         virtual Variable& add_isolated_variable(const std::string& name) = 0;
-        virtual VariableVector& add_variable_vector(const std::string& name) = 0;
     };
 }
 

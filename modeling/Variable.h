@@ -79,6 +79,7 @@ class L::Variable : public AbstractVariable {
 protected:
     CoreVariable& _core;
     friend class DetachedVariable;
+    friend class Expression;
 public:
     explicit Variable(CoreVariable& core);
     float value() const override { return _core.value(); }

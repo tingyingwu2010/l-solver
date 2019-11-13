@@ -9,12 +9,10 @@
 
 namespace L {
     class Constraint;
-    class ConstraintVector;
 
     class AbstractEnvironmentConstraint {
     public:
         virtual Constraint& add_isolated_constraint(const std::string& name) = 0;
-        virtual ConstraintVector& add_constraint_vector(const std::string& name) = 0;
     };
 }
 

@@ -6,7 +6,7 @@
 #define ED_SOLVER_CONSTRAINT_H
 
 #include <string>
-#include "expressions/Expression.h"
+#include "Expression.h"
 #include "../environment/AbstractEnvironmentConstraint.h"
 
 namespace L {
