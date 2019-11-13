@@ -6,19 +6,18 @@
 #define ED_SOLVER_VARIABLE_H
 
 #include <string>
-#include "../environment/AbstractEnvironmentVariable.h"
 
 namespace L {
     class AbstractVariable;
     class CoreVariable;
     class Variable;
-    class DetachedVariable;
     class ConstVariable;
+    class Environment;
 }
 
 class L::AbstractVariable {
 public:
-    enum Status { Core, Detached, Default };
+    enum Status { Core, Default };
     enum Type { Positive, Negative, Free, Binary, Integer };
 
     virtual ~AbstractVariable() = default;
@@ -78,9 +77,9 @@ public:
 class L::Variable : public AbstractVariable {
 protected:
     CoreVariable& _core;
-    friend class DetachedVariable;
     friend class Expression;
 public:
+    explicit Variable(Environment& env, const std::string& name);
     explicit Variable(CoreVariable& core);
     float value() const override { return _core.value(); }
     float ub() const override { return _core.ub(); }
@@ -114,29 +113,6 @@ public:
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Type type() const override { return _core.type(); }
     Status status() const { return Default; }
-};
-
-/***
- * \brief Detached variables are variables which are independent of their core variables but by value.
- * Modifications which are repeated to the core variable are: value, reduced cost.
- * Modifications which are independently performed: upper bound, lower bound, type.
- */
-class L::DetachedVariable : public Variable {
-protected:
-    float _ub = 0.0; //!< lower bound
-    float _lb = 0.0; //!< upper bound
-    Type _type = Positive; //!< variable's type
-public:
-    explicit DetachedVariable(Variable& variable);
-    float ub() const override { return _ub; }
-    float lb() const override { return _lb; }
-    Type type() const override { return _type; }
-    Status status() const { return Detached; }
-
-    // setters
-    void ub(float ub) override { _ub = ub; }
-    void lb(float lb) override { _lb = lb; }
-    void type(Type type) override { _type = type; }
 };
 
 #endif //ED_SOLVER_VARIABLE_H

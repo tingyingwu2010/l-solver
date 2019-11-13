@@ -10,16 +10,10 @@ using namespace L;
 int main() {
 
     Environment env;
-    Variable x = env.variable("x");
-    Variable y = env.variable("y");
-    Variable a = env.variable("a");
-    Variable b = env.variable("b");
-    Variable c = env.variable("c");
-    c.value(10);
-
-    Expression z = (x + b + y) * (a + c);
-
-    z.export_to_dot("expression_tree", true);
+    Variable x = Variable(env, "x");
+    Variable y = Variable(env, "y");
+    Constraint ctr = Constraint(env, "ctr");
+    ctr.expression() = x + y;
 
     return 0;
 }

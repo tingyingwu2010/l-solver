@@ -3,6 +3,7 @@
 //
 
 #include "Variable.h"
+#include "../environment/Environment.h"
 #include <utility>
 
 using namespace L;
@@ -21,7 +22,6 @@ std::ostream &operator<<(std::ostream &os, const AbstractVariable &var) {
 }
 
 Variable::Variable(CoreVariable& core) : _core(core) {}
-
-DetachedVariable::DetachedVariable(Variable &variable) : Variable(variable._core) {}
+Variable::Variable(Environment& env, const std::string& name) : Variable(env.variable(name)) {}
 
 ConstVariable::ConstVariable(const CoreVariable &core) : _core(core) {}

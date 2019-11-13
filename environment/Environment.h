@@ -8,8 +8,6 @@
 #include <vector>
 #include <map>
 #include "../utils/Exception.h"
-#include "AbstractEnvironmentVariable.h"
-#include "AbstractEnvironmentConstraint.h"
 #include "../modeling/Constraint.h"
 #include "../modeling/Variable.h"
 
