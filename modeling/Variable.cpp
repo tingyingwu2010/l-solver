@@ -10,6 +10,11 @@ using namespace L;
 
 CoreVariable::CoreVariable(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
+void CoreVariable::type(AbstractVariable::Type type) {
+    // TODO change bounds
+    _type = type;
+}
+
 std::ostream &operator<<(std::ostream &os, const AbstractVariable &var) {
     os << std::string("Var ") << var.user_defined_name();
     os << std::string(" (") << std::to_string(var.status()) << std::string(" )");

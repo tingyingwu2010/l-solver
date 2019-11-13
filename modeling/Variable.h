@@ -47,7 +47,7 @@ public:
 class L::CoreVariable : public AbstractVariable {
 protected:
     float _value = 0.0; //!< current value
-    float _ub = 0.0; //!< lower bound
+    float _ub = std::numeric_limits<float>::max(); //!< lower bound
     float _lb = 0.0; //!< upper bound
     float _reduced_cost = 0.0; //!< reduced cost
     Type _type = Positive; //!< variable's type
@@ -67,7 +67,7 @@ public:
     void ub(float ub) override { _ub = ub; }
     void lb(float lb) override { _lb = lb; }
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
-    void type(Type type) override { _type = type; }
+    void type(Type type) override;
 };
 
 /***

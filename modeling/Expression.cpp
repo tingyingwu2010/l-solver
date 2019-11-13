@@ -74,6 +74,10 @@ const L::Expression &L::Expression::child(L::ExpressionSide side) const {
     return side == Left ? *_left : *_right;
 }
 
+L::ExpressionType L::Expression::type() const {
+    return _type;
+}
+
 /** SETTERS **/
 
 void L::Expression::attach(L::ExpressionSide side, L::Expression &expr) {
@@ -93,7 +97,7 @@ void L::Expression::detach_delete(L::ExpressionSide side) {
 }
 
 void L::Expression::insert(L::ExpressionSide side, L::Expression &expr) {
-    if (has_child(side) && child(side).has_child(side)) throw Exception("Invalid insertion");
+    if (has_child(side) && expr.has_child(side)) throw Exception("Invalid insertion");
     Expression* transferred = side == Left ? _left : _right;
     if (side == Left) { _left = &expr; expr._left = transferred; } else { _right = &expr; expr._right = transferred; }
 }

@@ -39,16 +39,6 @@ class L::Expression {
     CoreVariable* _variable = nullptr;
     unsigned long int _id = _expression_id++;
 
-    // getter
-    bool has_child(ExpressionSide side) const;
-
-    // setters
-    void attach(ExpressionSide side, Expression& expr);
-    void attach_copy(ExpressionSide side, const Expression& expr);
-    void insert(ExpressionSide side, Expression& expr);
-    void shift(ExpressionSide side);
-    void detach_delete(ExpressionSide side);
-
     // operators
     Expression& apply_operator(ExpressionType type, const Expression& rhs);
 public:
@@ -65,9 +55,18 @@ public:
     ConstVariable as_variable() const;
     float& as_numerical();
     float as_numerical() const;
+    bool has_child(ExpressionSide side) const;
     Expression& child(ExpressionSide side);
     const Expression& child(ExpressionSide side) const;
     unsigned long int id() const;
+    ExpressionType type() const;
+
+    // setters
+    void attach(ExpressionSide side, Expression& expr);
+    void attach_copy(ExpressionSide side, const Expression& expr);
+    void insert(ExpressionSide side, Expression& expr);
+    void shift(ExpressionSide side);
+    void detach_delete(ExpressionSide side);
 
     // operations on children
     friend void transfer(ExpressionSide from_side, Expression& from_expr, ExpressionSide to_side, Expression& to_expr);
