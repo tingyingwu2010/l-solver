@@ -6,6 +6,7 @@
 #include "modeling/Model.h"
 #include "adapters/CplexAdapter.h"
 #include "algorithms/DirectSolver/DirectLPSolver.h"
+#include "modeling/Vector.h"
 
 using namespace std;
 using namespace L;

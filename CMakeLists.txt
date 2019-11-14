@@ -37,7 +37,7 @@ add_executable(lbds_solver
         modeling/Model.h
         algorithms/DirectSolver/DirectMILPSolver.h
         algorithms/Solver.cpp
-        algorithms/DirectSolver/DirectLPSolver.h)
+        algorithms/DirectSolver/DirectLPSolver.h modeling/Vector.cpp modeling/Vector.h structures/MapIterator.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(lbds_solver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})
