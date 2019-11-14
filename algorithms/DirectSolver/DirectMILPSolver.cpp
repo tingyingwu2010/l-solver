@@ -2,8 +2,6 @@
 // Created by hlefebvr on 14/11/19.
 //
 
-#include "DirectMILPSolver.h"
-
 template <class ExternalSolver>
 L::DirectMILPSolver<ExternalSolver>::DirectMILPSolver(L::Model &model) : DirectSolver(model) {
     build_milp_model();

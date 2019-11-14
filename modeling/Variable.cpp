@@ -30,3 +30,14 @@ Variable::Variable(CoreVariable& core) : _core(core) {}
 Variable::Variable(Environment& env, const std::string& name) : Variable(env.variable(name)) {}
 
 ConstVariable::ConstVariable(const CoreVariable &core) : _core(core) {}
+
+void DetachedVariable::type(AbstractVariable::Type type) {
+    // TODO change bounds
+    _type = type;
+}
+
+void DetachedVariable::update_value() {
+    _core.value(_value);
+}
+
+DetachedVariable::DetachedVariable(const Variable &src) : Variable(src) {}

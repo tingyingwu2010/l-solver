@@ -152,8 +152,9 @@ void L::CplexAdapter::save_more_results(bool primal, bool dual, bool reduced_cos
 
 void L::CplexAdapter::save_results(bool primal, bool dual) {
     if (primal)
-        for (auto& m : _variables)
+        for (auto& m : _variables) {
             m.second.first->value(_cplex->getValue(*m.second.second));
+        }
 
     if (dual)
         for (auto& m : _constraints)

@@ -5,7 +5,7 @@
 #include "modeling/Expression.h"
 #include "modeling/Model.h"
 #include "adapters/CplexAdapter.h"
-#include "algorithms/DirectSolver/DirectMILPSolver.h"
+#include "algorithms/DirectSolver/DirectLPSolver.h"
 
 using namespace std;
 using namespace L;
@@ -19,7 +19,7 @@ int main() {
     ctr.expression() = 3 * x + 2 * y - 10;
     ctr.type(L::Constraint::GreaterOrEqualTo);
     Objective obj = Objective(env, "objective");
-    obj.expression() = 3 * x - y;
+    obj.expression() = 3 * x + y;
     y.type(AbstractVariable::Binary);
 
     Model model;
@@ -28,7 +28,7 @@ int main() {
     model.add(x);
     model.add(y);
 
-    DirectMILPSolver<CplexAdapter> solver(model);
+    DirectLPSolver<CplexAdapter> solver(model);
     solver.solve();
     cout << "Execution time: " << solver.last_execution_time() << endl;
     if (obj.status() == Optimal) {

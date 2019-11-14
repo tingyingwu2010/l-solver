@@ -12,12 +12,13 @@ namespace L {
     class CoreVariable;
     class Variable;
     class ConstVariable;
+    class DetachedVariable;
     class Environment;
 }
 
 class L::AbstractVariable {
 public:
-    enum Status { Core, Default };
+    enum Status { Core, Default, Detached };
     enum Type { Positive, Negative, Free, Binary, Integer };
 
     virtual ~AbstractVariable() = default;
@@ -113,6 +114,32 @@ public:
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Type type() const override { return _core.type(); }
     Status status() const { return Default; }
+};
+
+class L::DetachedVariable : public Variable {
+    float _value = 0.0; //!< current value
+    float _ub = std::numeric_limits<float>::max(); //!< lower bound
+    float _lb = 0.0; //!< upper bound
+    float _reduced_cost = 0.0; //!< reduced cost
+    Type _type = Positive; //!< variable's type
+public:
+    explicit DetachedVariable(const Variable& src);
+    float value() const override { return _value; }
+    float ub() const override { return _ub; }
+    float lb() const override { return _lb; }
+    float reduced_cost() const override { return _reduced_cost; }
+    std::string user_defined_name() const override { return _core.user_defined_name(); }
+    Type type() const override { return _type; }
+    Status status() const { return Detached; }
+
+    // setters
+    void value(float value) override { _value = value; }
+    void ub(float ub) override { _ub = ub; }
+    void lb(float lb) override { _lb = lb; }
+    void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
+    void type(Type type) override;
+
+    void update_value();
 };
 
 #endif //ED_SOLVER_VARIABLE_H
