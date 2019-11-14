@@ -10,6 +10,7 @@
 #include "../utils/Exception.h"
 #include "../modeling/Constraint.h"
 #include "../modeling/Variable.h"
+#include "../modeling/Objective.h"
 
 namespace L {
     class Environment;
@@ -38,9 +39,11 @@ class L::Environment  {
 public:
     typedef Set<std::string, CoreVariable, Variable, ConstVariable> VariableSet;
     typedef Set<std::string, CoreConstraint, Constraint, ConstConstraint> ConstraintSet;
+    typedef Set<std::string, CoreObjective, Objective, ConstObjective> ObjectiveSet;
 private:
     VariableSet _variables = VariableSet(*this);
     ConstraintSet _constraints = ConstraintSet(*this);
+    ObjectiveSet _objectives = ObjectiveSet(*this);
 public:
     // Variables
     VariableSet& variables() { return _variables; }
@@ -53,6 +56,12 @@ public:
     const ConstraintSet& constraints() const { return _constraints; }
     Constraint constraint(const std::string& name) { return _constraints.get_or_create(name); }
     ConstConstraint constraint(const std::string& name) const { return _constraints.get(name); }
+
+    // Objectives
+    ObjectiveSet& objectives() { return _objectives; }
+    const ObjectiveSet& objectives() const { return _objectives; }
+    Objective objective(const std::string& name) { return _objectives.get_or_create(name); }
+    ConstObjective objective(const std::string& name) const { return _objectives.get(name); }
 };
 
 template<class Index, class CoreComponent, class Component, class ConstComponent>

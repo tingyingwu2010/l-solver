@@ -8,6 +8,7 @@
 #include <string>
 #include "Expression.h"
 #include "../utils/Exception.h"
+#include "Variable.h"
 
 namespace L {
     class AbstractConstraint;
@@ -28,10 +29,13 @@ public:
     virtual Expression& expression() = 0;
     virtual std::string user_defined_name() const = 0;
     virtual Status status() const = 0;
+    virtual Variable dual() = 0;
+    virtual float slack() const = 0;
 
     // setters
     virtual void expression(const Expression& expr) = 0;
     virtual void type(Type) = 0;
+    virtual void slack(float s) = 0;
 
     friend std::ostream& operator<<(std::ostream& os, const Constraint& constraint);
     static std::string to_string(Type type);
@@ -42,6 +46,8 @@ protected:
     Expression _expr;
     AbstractConstraint::Type _type = LessOrEqualTo;
     std::string _user_defined_name;
+    CoreVariable* _dual_variable = nullptr;
+    float _slack = 0;
 public:
     // constructors
     explicit CoreConstraint(std::string user_defined_name);
@@ -52,10 +58,13 @@ public:
     Type type() const override { return _type; }
     std::string user_defined_name() const override { return _user_defined_name; }
     Status status() const override { return Core; }
+    Variable dual() override;
+    float slack() const override { return _slack; }
 
     // setters
     void expression(const Expression& expr) override { _expr = expr; }
     void type(Type type) override { _type = type; }
+    void slack(float slack) override { _slack = slack; }
 };
 
 class L::Constraint : public AbstractConstraint {
@@ -73,10 +82,13 @@ public:
     const Expression& expression() const override { return _core.expression(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Status status() const override { return Default; }
+    Variable dual() override { return _core.dual(); }
+    float slack() const override { return _core.slack(); }
 
     // setters
     void type(Type type) override { _core.type(type); }
     void expression(const Expression& expr) override { _core.expression(expr); }
+    void slack(float slack) override { _core.slack(slack); }
 };
 
 class L::ConstConstraint : public AbstractConstraint {
@@ -84,6 +96,7 @@ class L::ConstConstraint : public AbstractConstraint {
     void type(Type type) override {}
     void expression(const Expression& expr) override {  }
     Expression& expression() override { throw Exception("Const constraint"); }
+    void slack(float slack) override {  }
 public:
     // constructor
     explicit ConstConstraint(CoreConstraint& core);
@@ -94,6 +107,8 @@ public:
     const Expression& expression() const override { return _core.expression(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Status status() const override { return Default; }
+    Variable dual() override { return _core.dual(); }
+    float slack() const override { return _core.slack(); }
 };
 
 

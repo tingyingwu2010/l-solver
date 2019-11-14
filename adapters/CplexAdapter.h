@@ -23,19 +23,26 @@ class L::CplexAdapter : public SolverAdapter {
     IloEnv* _env = new IloEnv();
     IloModel* _model = new IloModel(*_env);
     IloCplex* _cplex = new IloCplex(*_model);
-    std::map<std::string, std::pair<Variable, IloNumVar*>> _variables;
-    std::map<std::string, std::pair<Constraint, IloRange*>> _constraints;
+    std::map<std::string, std::pair<Variable*, IloNumVar*>> _variables;
+    std::map<std::string, std::pair<Constraint*, IloRange*>> _constraints;
     IloObjective* _objective = nullptr;
+    Objective* _lbds_objective = nullptr;
 
     void lbds_expression_to_cplex(const Expression& lbds_expr, IloNumExpr& cplex_expr);
 public:
+    CplexAdapter();
     ~CplexAdapter();
     void create_variable(const Variable& variable) override;
     void create_constraint(const Constraint& constraint) override;
+    void create_objective(const Objective& objective) override;
     void export_to_file(const std::string& filename) override;
     void solve() override;
+    void save_more_results(bool primal = true, bool dual = true, bool reduced_costs = true, bool slacks = true);
+    void save_results(bool primal = true, bool dual = false) override;
 
     static IloNumVar::Type to_cplex(AbstractVariable::Type type);
+    static IloObjective::Sense to_cplex(ObjectiveType type);
+    static ObjectiveStatus to_lbds(IloAlgorithm::Status status);
 };
 
 

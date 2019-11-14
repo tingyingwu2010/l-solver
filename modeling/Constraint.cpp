@@ -13,6 +13,12 @@ using namespace L;
 /** CORE CONSTRAINTS **/
 
 CoreConstraint::CoreConstraint(std::string  user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
+
+Variable CoreConstraint::dual() {
+    if (!_dual_variable) _dual_variable = new CoreVariable("_dual_" + _user_defined_name);
+    return Variable(*_dual_variable);
+}
+
 ConstConstraint::ConstConstraint(CoreConstraint &core) : _core(core) {}
 
 std::string AbstractConstraint::to_string(CoreConstraint::Type type) {
