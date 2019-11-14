@@ -3,3 +3,5 @@
 //
 
 #include "DirectSolver.h"
+
+L::DirectSolver::DirectSolver(L::Model &model) : _model(model) {}
