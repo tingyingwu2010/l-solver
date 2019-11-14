@@ -14,30 +14,35 @@ endif()
 
 add_executable(lbds_solver
         main.cpp
-        environment/Environment.cpp
-        environment/Environment.h
-        modeling/Variable.cpp
-        modeling/Variable.h
-        utils/Exception.cpp
-        utils/Exception.h
-        utils/static.h
-        modeling/Constraint.cpp
-        modeling/Constraint.h
-        adapters/SolverAdapter.h
-        adapters/CplexAdapter.cpp
-        adapters/CplexAdapter.h
-        algorithms/DirectSolver/DirectSolver.cpp
-        algorithms/DirectSolver/DirectSolver.h
-        algorithms/Solver.h
-        modeling/Expression.cpp
-        modeling/Expression.h
-        modeling/Objective.cpp
-        modeling/Objective.h
-        modeling/Model.cpp
-        modeling/Model.h
-        algorithms/DirectSolver/DirectMILPSolver.h
-        algorithms/Solver.cpp
-        algorithms/DirectSolver/DirectLPSolver.h modeling/Vector.cpp modeling/Vector.h structures/MapIterator.h)
+        src/environment/Environment.cpp
+        src/environment/Environment.h
+        src/modeling/Variable.cpp
+        src/modeling/Variable.h
+        src/utils/Exception.cpp
+        src/utils/Exception.h
+        src/utils/static.h
+        src/modeling/Constraint.cpp
+        src/modeling/Constraint.h
+        src/adapters/SolverAdapter.h
+        src/adapters/CplexAdapter.cpp
+        src/adapters/CplexAdapter.h
+        src/algorithms/DirectSolver/DirectSolver.cpp
+        src/algorithms/DirectSolver/DirectSolver.h
+        src/algorithms/Solver.h
+        src/modeling/Expression.cpp
+        src/modeling/Expression.h
+        src/modeling/Objective.cpp
+        src/modeling/Objective.h
+        src/modeling/Model.cpp
+        src/modeling/Model.h
+        src/algorithms/DirectSolver/DirectMILPSolver.h
+        src/algorithms/Solver.cpp
+        src/algorithms/DirectSolver/DirectLPSolver.h
+        src/modeling/Vector.cpp
+        src/modeling/Vector.h
+        src/structures/MapIterator.h
+        src/algorithms/BranchAndBound/BranchAndBound.cpp
+        src/algorithms/BranchAndBound/BranchAndBound.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(lbds_solver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})

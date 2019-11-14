@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "environment/Environment.h"
-#include "modeling/Variable.h"
-#include "modeling/Expression.h"
-#include "modeling/Model.h"
-#include "adapters/CplexAdapter.h"
-#include "algorithms/DirectSolver/DirectLPSolver.h"
-#include "modeling/Vector.h"
+#include "src/environment/Environment.h"
+#include "src/modeling/Variable.h"
+#include "src/modeling/Expression.h"
+#include "src/modeling/Model.h"
+#include "src/adapters/CplexAdapter.h"
+#include "src/algorithms/DirectSolver/DirectLPSolver.h"
+#include "src/modeling/Vector.h"
 
 using namespace std;
 using namespace L;
