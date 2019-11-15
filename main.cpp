@@ -8,11 +8,15 @@
 #include "src/algorithms/DirectSolver/DirectLPSolver.h"
 #include "src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h"
 #include "src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h"
+#include "src/application/Application.h"
+#include "src/application/enums.h"
 
 using namespace std;
 using namespace L;
 
 int main() {
+
+    Application app("../main.cfg");
 
     Environment env;
     Variable x = Variable(env, "x");

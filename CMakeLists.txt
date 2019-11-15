@@ -49,7 +49,7 @@ add_executable(lbds_solver
         src/algorithms/BranchAndBound/BranchAndBoundNode.cpp
         src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h
 
-)
+        src/application/Application.cpp src/application/Application.h src/application/ParameterManager.cpp src/application/ParameterManager.h src/application/LogManager.h src/application/enums.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(lbds_solver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})
