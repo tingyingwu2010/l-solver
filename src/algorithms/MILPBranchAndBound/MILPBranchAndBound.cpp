@@ -25,4 +25,5 @@ void L::MILPBranchAndBoundNode<ExternalSolver>::actually_solve() {
     DirectLPSolver<ExternalSolver> solver(detached_model);
     solver.solve();
     _solved = true;
+    _objective_value = _model.objective().value();
 }

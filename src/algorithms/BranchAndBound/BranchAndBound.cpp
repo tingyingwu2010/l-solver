@@ -17,10 +17,10 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
 
         while (!_nodes_to_be_processed.empty()) {
             NodeClass& node = pull_node_to_be_processed();
-            _L_LOG_(Debug) << "Solving node " << node.id() << "...\n";
+            _L_LOG_(Debug) << "Solving node " << node.id() << "..." << std::endl;
             node.solve();
-            _L_LOG_(Debug) << "Node " << node.id() << " was solved in " << node.last_execution_time() << "s, feasible for original problem: "
-                << node.solution().is_feasible() << ", objective = " << node.solution().objective_value() << "\n";
+            _L_LOG_(Release) << "Node " << node.id() << " was solved in " << node.last_execution_time() << "s, vertex: "
+                << node.solution().is_feasible() << ", LB = " << node.solution().objective_value() << "" << std::endl;
             bound(node);
         }
 
@@ -43,7 +43,7 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::branching_rule(L::BranchingRule &branching_rule) {
     _branching_rule = &branching_rule;
-    _L_LOG_(Debug) << "Branching rule has been set with " << typeid(branching_rule).name() << "\n";
+    _L_LOG_(Debug) << "Branching rule has been set with " << typeid(branching_rule).name() << "" << std::endl;
 }
 
 template<class NodeClass>
@@ -62,7 +62,7 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::bound(NodeClass &node) {
     if (solution_improves_incumbent(node)) {
         _incumbent = &node;
-        _L_LOG_(Release) << "New incumbent found, best bound = " << _incumbent->solution().objective_value() << "\n";
+        _L_LOG_(Release) << "New incumbent found, UB = " << _incumbent->solution().objective_value() << "" << std::endl;
     }
 }
 
@@ -70,7 +70,7 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
     Variable branching_variable = (*_branching_rule)(node);
     _L_LOG_(Debug) << "Branching rule selected variable " << branching_variable.user_defined_name() << ", current bounds: "
-        << branching_variable.lb() << ", " << branching_variable.ub() << "\n";
+        << branching_variable.lb() << ", " << branching_variable.ub() << ", value = " << branching_variable.value() << "" << std::endl;
     if (branching_variable.value() != branching_variable.ub() && branching_variable.value() != branching_variable.lb()) {
 
         enum Side { Up, Down };
@@ -80,14 +80,16 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
                 float bound = (branching_variable.type() == AbstractVariable::Binary ||
                                branching_variable.type() == AbstractVariable::Integer) ? ceil(
                         branching_variable.value()) : branching_variable.value();
-                added_node.upper_bound(branching_variable, bound);
-                _L_LOG_(Release) << "Created new node: node " << added_node.id() << " \\ " << branching_variable.lb() << " <= " << branching_variable.user_defined_name() << " <= " << bound << "\n";
+                added_node.lower_bound(branching_variable, bound);
+                _L_LOG_(Release) << "Branching. Created node " << added_node.id() << " with additional bounds " << bound << " <= "
+                    << branching_variable.user_defined_name() << " <= " << branching_variable.ub() << "" << std::endl;
             } else {
                 float bound = (branching_variable.type() == AbstractVariable::Binary ||
                                branching_variable.type() == AbstractVariable::Integer) ? floor(
                         branching_variable.value()) : branching_variable.value();
-                added_node.lower_bound(branching_variable, bound);
-                _L_LOG_(Release) << "Created new node: node " << added_node.id() << " \\ " << bound << " <= " << branching_variable.user_defined_name() << " <= " << branching_variable.ub() << "\n";
+                added_node.upper_bound(branching_variable, bound);
+                _L_LOG_(Release) << "Branching. Created node " << added_node.id() << " with additional bounds " << branching_variable.lb()
+                    << " <= " << branching_variable.user_defined_name() << " <= " << bound << "" << std::endl;
             }
             _nodes_to_be_processed.push(&added_node);
             _active_nodes.emplace_back(&added_node);
@@ -99,14 +101,14 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
     }
 
     remove_active_node(node);
-    _L_LOG_(Debug) << "Node " << node.id() << " was removed from active nodes because it was branched uppon\n";
+    _L_LOG_(Debug) << "Node " << node.id() << " was removed from active nodes because it was branched uppon" << std::endl;
 }
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::fathom_dominated_nodes() {
     const float tolerance = Application::parameters().tolerance();
     if (!_incumbent) {
-        _L_LOG_(Debug) << "No incumbent has been found so far, fathoming is not performed\n";
+        _L_LOG_(Debug) << "No incumbent has been found so far, fathoming is not performed" << std::endl;
         return;
     }
 
@@ -116,7 +118,7 @@ void L::BranchAndBound<NodeClass>::fathom_dominated_nodes() {
         if (!node.solved()) continue;
         if (node.solution().objective_value() + tolerance >= incumbent_objective_value) { // todo maximization
             _active_nodes.erase(it);
-            _L_LOG_(Release) << "Node " << node.id() << " was fathomed because " << node.solution().objective_value() << " >= " << incumbent_objective_value << "\n";
+            _L_LOG_(Release) << "Node " << node.id() << " was fathomed because LB = " << node.solution().objective_value() << " >= " << incumbent_objective_value << " = UB" << std::endl;
             it--;
             end--;
         }
@@ -137,7 +139,7 @@ NodeClass& L::BranchAndBound<NodeClass>::select_node_for_branching() {
     }
 
     if (branching_node == nullptr) throw Exception("Could not find any node to branch on");
-    _L_LOG_(Debug) << "Node " << branching_node->id() << " has been selected for branching\n";
+    _L_LOG_(Debug) << "Node " << branching_node->id() << " has been selected for branching" << std::endl;
     return *branching_node;
 }
 
@@ -153,11 +155,11 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::save_results() {
     if (!_incumbent) {
         _model.objective().status(ObjectiveStatus::Infeasible);
-        _L_LOG_(Debug) << "No feasible solution was found\n";
+        _L_LOG_(Debug) << "No feasible solution was found" << std::endl;
         return;
     }
 
-    _L_LOG_(Debug) << "Optimal solution found ! Updating core variables...\n";
+    _L_LOG_(Debug) << "Optimal solution found ! Updating core variables..." << std::endl;
     _incumbent->solution().update();
 }
 

@@ -16,22 +16,17 @@ namespace L {
 
 class L::LogManager : public std::ostream, std::streambuf {
     LogLevel _level;
+    bool _bold;
 public:
-    explicit LogManager(LogLevel level) : _level(level), std::ostream(this) {}
+    LogManager(LogLevel level, bool bold = false) : _level(level), std::ostream(this), _bold(bold) {}
     int overflow(int obj) override {
         LogLevel param = Application::parameters().log_level();
-        if (_level == Release && (param == Release || param == Debug)) {
-            std::cout << "\033[32m";
-            std::cout.put(obj);
-            std::cout << "\033[0m";
-        }
-        if (_level == Debug && param == Debug) {
-            std::cout << "\033[34m";
-            std::cout.put(obj);
-            std::cout << "\033[0m";
-        }
-        if (_level == External && Application::parameters().external_solver_logs()) {
-            std::cout << "\033[35m";
+        std::string color;
+        if (_level == Release && (param == Release || param == Debug)) color = (_bold ? "\033[1;32m" : "\033[32m");
+        if (_level == Debug && param == Debug) color = (_bold ? "\033[1;34m" : "\033[34m");
+        if (_level == External && Application::parameters().external_solver_logs()) color = "\033[35m";
+        if (!color.empty()) {
+            std::cout << color;
             std::cout.put(obj);
             std::cout << "\033[0m";
         }
@@ -39,6 +34,6 @@ public:
     }
 };
 
-#define _L_LOG_(level) (L::LogManager(level) << __PRETTY_FUNCTION__ << ": ")
+#define _L_LOG_(level) { std::string caller = __PRETTY_FUNCTION__; L::LogManager(level, true) << caller.substr(0, caller.find("[") - 1); } L::LogManager(level) << ": "
 
 #endif //LBDS_SOLVER_LOGMANAGER_H
