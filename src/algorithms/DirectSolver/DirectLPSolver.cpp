@@ -20,7 +20,11 @@ void L::DirectLPSolver<ExternalSolver>::actually_solve() {
 template<class ExternalSolver>
 void L::DirectLPSolver<ExternalSolver>::save_results() {
     ObjectiveStatus status = _model.objective().status();
-    if (status == Optimal || status == Feasible) _solver.save_results(true, false);
+    if (status == Optimal || status == Feasible) {
+        _solver.save_results(true, false);
+        for (auto& m : _detached_variables)
+            m->update_core_value();
+    }
 }
 
 template<class ExternalSolver>
@@ -30,7 +34,7 @@ void L::DirectLPSolver<ExternalSolver>::build_lp_model() {
             DetachedVariable* x = new DetachedVariable(variable);
             x->type(AbstractVariable::Free);
             _detached_variables.emplace_back(x);
-            _solver.create_variable(*x);
+            _solver.create_variable(Variable(*x));
         } else {
             _solver.create_variable(variable);
         }
