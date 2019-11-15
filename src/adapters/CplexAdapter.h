@@ -11,6 +11,7 @@
 
 namespace L {
     class CplexAdapter;
+    class LogManager;
 }
 
 /**
@@ -27,6 +28,7 @@ class L::CplexAdapter : public SolverAdapter {
     std::map<std::string, std::pair<Constraint*, IloRange*>> _constraints;
     IloObjective* _objective = nullptr;
     Objective* _lbds_objective = nullptr;
+    LogManager* _logger = nullptr;
 
     void lbds_expression_to_cplex(const Expression& lbds_expr, IloNumExpr& cplex_expr);
 public:

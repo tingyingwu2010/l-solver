@@ -8,7 +8,6 @@
 #include "src/algorithms/DirectSolver/DirectLPSolver.h"
 #include "src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h"
 #include "src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h"
-#include "src/application/Application.h"
 
 using namespace std;
 using namespace L;
@@ -23,7 +22,7 @@ int main() {
     Constraint ctr = Constraint(env, "ctr");
     ctr.expression() = 3 * x + 2 * y - 10;
     ctr.type(L::Constraint::GreaterOrEqualTo);
-    Objective obj = Objective(env,     const std::string _config_file;"objective");
+    Objective obj = Objective(env, "objective");
     obj.expression() = 3 * x + y;
     y.type(AbstractVariable::Binary);
 

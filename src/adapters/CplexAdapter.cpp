@@ -2,7 +2,9 @@
 // Created by hlefebvr on 12/11/19.
 //
 
+#include <iostream>
 #include "CplexAdapter.h"
+#include "../application/LogManager.h"
 
 IloNumVar::Type L::CplexAdapter::to_cplex(L::AbstractVariable::Type type) {
     switch (type) {
@@ -16,7 +18,12 @@ IloNumVar::Type L::CplexAdapter::to_cplex(L::AbstractVariable::Type type) {
 }
 
 L::CplexAdapter::CplexAdapter() {
-    _cplex->setOut(_env->getNullStream());
+    if (Application::parameters().external_solver_logs()) {
+        _logger = new LogManager(External);
+        _cplex->setOut(*_logger);
+    } else {
+        _cplex->setOut(_env->getNullStream());
+    }
 }
 
 
@@ -31,6 +38,8 @@ L::CplexAdapter::~CplexAdapter() {
         delete m.second.second;
     }
     delete _env;
+    if(_logger) _logger->flush();
+    delete _logger;
 }
 
 void L::CplexAdapter::create_variable(const L::Variable &variable) {

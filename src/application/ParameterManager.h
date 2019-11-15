@@ -18,11 +18,13 @@ class L::ParameterManager {
     friend class Application;
 
     // parameters
-    LogLevel _log_level = None;
+    LogLevel _log_level = Release;
     float _tolerance = 0.00000001;
+    bool _external_solver_logs = false;
 public:
     LogLevel log_level() const { return _log_level; }
     float tolerance() const { return _tolerance; }
+    bool external_solver_logs() const { return _external_solver_logs; }
 };
 
 

@@ -6,7 +6,7 @@
 #define LBDS_SOLVER_ENUMS_H
 
 namespace L {
-    enum LogLevel { None, Release, Debug };
+    enum LogLevel { None, Release, Debug, External };
 }
 
 #endif //LBDS_SOLVER_ENUMS_H
