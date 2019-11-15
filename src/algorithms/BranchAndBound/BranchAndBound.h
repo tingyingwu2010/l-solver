@@ -6,24 +6,34 @@
 #define LBDS_SOLVER_BRANCHANDBOUND_H
 
 #include <functional>
+#include <stack>
 #include "../Solver.h"
 #include "../../modeling/Variable.h"
+#include "BranchingRules/BranchingRule.h"
 
 namespace L {
-    class BranchAndBound;
+    template<class NodeClass> class BranchAndBound;
 }
 
-namespace L::BranchingRule {
-    // most infeasible
-    // random branching
-    // strong branching
-}
-
+template<class NodeClass>
 class L::BranchAndBound : public Solver {
-    const std::function<void()>& _branching_rule;
-    const std::function<void()>& _solve_node;
-public:
+protected:
+    Model& _model;
+    BranchingRule* _branching_rule = nullptr;
+    std::vector<NodeClass*> _active_nodes;
+    std::stack<NodeClass*> _nodes_to_be_processed;
+    NodeClass* _incumbent = nullptr;
+    void actually_solve() override;
 
+    bool has_active_nodes() const;
+    NodeClass& pull_node_to_be_processed();
+    void branch(NodeClass& node);
+    void bound(NodeClass& node);
+    void fathom_dominated_nodes();
+    NodeClass& select_node_for_branching();
+    bool solution_improves_incumbent(NodeClass& node);
+public:
+    void branching_rule(BranchingRule& branching_rule);
 };
 
 

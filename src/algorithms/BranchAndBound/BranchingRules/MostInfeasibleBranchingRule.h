@@ -1,0 +1,14 @@
+//
+// Created by hlefebvr on 15/11/19.
+//
+
+#ifndef LBDS_SOLVER_MOSTINFEASIBLEBRANCHINGRULE_H
+#define LBDS_SOLVER_MOSTINFEASIBLEBRANCHINGRULE_H
+
+
+class MostInfeasibleBranchingRule {
+
+};
+
+
+#endif //LBDS_SOLVER_MOSTINFEASIBLEBRANCHINGRULE_H
