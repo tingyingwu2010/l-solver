@@ -4,6 +4,8 @@
 
 #include "BranchAndBoundNode.h"
 
+unsigned long int L::BranchAndBoundNode::_branch_and_bound_node_id = 0;
+
 L::BranchAndBoundNode::Solution L::BranchAndBoundNode::solution() {
     return Solution(*this);
 }

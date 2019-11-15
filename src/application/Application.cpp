@@ -8,13 +8,8 @@
 
 L::Application* L::Application::_application = nullptr;
 
-L::Application::Application(const std::string &config_file) : _parameter_manager(*new ParameterManager(config_file)) {
-    if (_application) throw Exception("Another application is already running");
-    _application = this;
-}
-
 L::Application &L::Application::running_application() {
-    if (!_application) Application();
+    if (!_application) _application = new Application();
     return *_application;
 }
 
@@ -22,7 +17,6 @@ L::ParameterManager &L::Application::parameters() {
     return running_application()._parameter_manager;
 }
 
-L::LogManager L::Application::log(L::LogLevel level, const std::string& caller) {
-    return (LogManager(level) << caller << ": ");
+void L::Application::load_configuration_file(const std::string &cfg_file) {
+    running_application()._parameter_manager.load_configuration(cfg_file);
 }
-

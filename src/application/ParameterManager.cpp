@@ -4,21 +4,14 @@
 
 #include "ParameterManager.h"
 #include "../utils/Exception.h"
-#include "Application.h"
-#include <utility>
+#include "LogManager.h"
 #include <regex>
 #include <fstream>
-#include <iostream>
 #include "enums.h"
 
-L::ParameterManager::ParameterManager(std::string config_file) : _config_file(std::move(config_file)) {
-    load_configuration();
-}
+void L::ParameterManager::load_configuration(const std::string& config_file) {
 
-void L::ParameterManager::load_configuration() {
-    if (_config_file == "__default__") return;
-
-    std::ifstream f(_config_file);
+    std::ifstream f(config_file);
     if (!f.is_open()) throw Exception("Could not open configuration file");
 
     std::regex kv("([A-Z_]+)=([a-zA-Z0-9_.]+)(( +)#(.+))?");

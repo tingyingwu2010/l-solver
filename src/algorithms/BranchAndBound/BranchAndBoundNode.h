@@ -17,12 +17,14 @@ namespace L {
 }
 
 class L::BranchAndBoundNode : public Solver {
+    static unsigned long int _branch_and_bound_node_id;
 protected:
     Model& _model;
     bool _solved = false;
     bool _is_feasible = false;
     float _objective_value = 0;
     std::map<std::string, DetachedVariable*> _variables;
+    const unsigned long int _id = _branch_and_bound_node_id++;
 public:
     class Solution;
     friend class Solution;
@@ -34,6 +36,7 @@ public:
     virtual void lower_bound(const Variable& variable, float lb);
     virtual bool solved() const { return _solved; }
     virtual void save_results() override;
+    unsigned long int id() const { return _id; }
     Solution solution();
 };
 

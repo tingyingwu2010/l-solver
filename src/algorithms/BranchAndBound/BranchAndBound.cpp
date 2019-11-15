@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include "../../application/Application.h"
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::actually_solve() {
@@ -16,7 +17,10 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
 
         while (!_nodes_to_be_processed.empty()) {
             NodeClass& node = pull_node_to_be_processed();
+            _L_LOG_(Debug) << "Solving node " << node.id() << "...\n";
             node.solve();
+            _L_LOG_(Debug) << "Node " << node.id() << " was solved in " << node.last_execution_time() << "s, feasible for original problem: "
+                << node.solution().is_feasible() << ", objective = " << node.solution().objective_value() << "\n";
             bound(node);
         }
 
@@ -39,6 +43,7 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::branching_rule(L::BranchingRule &branching_rule) {
     _branching_rule = &branching_rule;
+    _L_LOG_(Debug) << "Branching rule has been set with " << typeid(branching_rule).name() << "\n";
 }
 
 template<class NodeClass>
@@ -55,12 +60,17 @@ NodeClass &L::BranchAndBound<NodeClass>::pull_node_to_be_processed() {
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::bound(NodeClass &node) {
-    if (solution_improves_incumbent(node)) _incumbent = &node;
+    if (solution_improves_incumbent(node)) {
+        _incumbent = &node;
+        _L_LOG_(Release) << "New incumbent found, best bound = " << _incumbent->solution().objective_value() << "\n";
+    }
 }
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
     Variable branching_variable = (*_branching_rule)(node);
+    _L_LOG_(Debug) << "Branching rule selected variable " << branching_variable.user_defined_name() << ", current bounds: "
+        << branching_variable.lb() << ", " << branching_variable.ub() << "\n";
     if (branching_variable.value() != branching_variable.ub() && branching_variable.value() != branching_variable.lb()) {
 
         enum Side { Up, Down };
@@ -71,13 +81,16 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
                                branching_variable.type() == AbstractVariable::Integer) ? ceil(
                         branching_variable.value()) : branching_variable.value();
                 added_node.upper_bound(branching_variable, bound);
+                _L_LOG_(Release) << "Created new node: node " << added_node.id() << " \\ " << branching_variable.lb() << " <= " << branching_variable.user_defined_name() << " <= " << bound << "\n";
             } else {
                 float bound = (branching_variable.type() == AbstractVariable::Binary ||
                                branching_variable.type() == AbstractVariable::Integer) ? floor(
                         branching_variable.value()) : branching_variable.value();
                 added_node.lower_bound(branching_variable, bound);
+                _L_LOG_(Release) << "Created new node: node " << added_node.id() << " \\ " << bound << " <= " << branching_variable.user_defined_name() << " <= " << branching_variable.ub() << "\n";
             }
             _nodes_to_be_processed.push(&added_node);
+            _active_nodes.emplace_back(&added_node);
         };
 
         if (branching_variable.value() != branching_variable.ub()) create_node(Up);
@@ -86,18 +99,24 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
     }
 
     remove_active_node(node);
+    _L_LOG_(Debug) << "Node " << node.id() << " was removed from active nodes because it was branched uppon\n";
 }
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::fathom_dominated_nodes() {
-    const float tolerance = 0.000001;
-    if (!_incumbent) return;
+    const float tolerance = Application::parameters().tolerance();
+    if (!_incumbent) {
+        _L_LOG_(Debug) << "No incumbent has been found so far, fathoming is not performed\n";
+        return;
+    }
+
     const float incumbent_objective_value = _incumbent->solution().objective_value();
     for (auto it = _active_nodes.cbegin(), end = _active_nodes.cend(); it != end; ++it) {
         NodeClass &node = **it;
         if (!node.solved()) continue;
         if (node.solution().objective_value() + tolerance >= incumbent_objective_value) { // todo maximization
             _active_nodes.erase(it);
+            _L_LOG_(Release) << "Node " << node.id() << " was fathomed because " << node.solution().objective_value() << " >= " << incumbent_objective_value << "\n";
             it--;
             end--;
         }
@@ -118,6 +137,7 @@ NodeClass& L::BranchAndBound<NodeClass>::select_node_for_branching() {
     }
 
     if (branching_node == nullptr) throw Exception("Could not find any node to branch on");
+    _L_LOG_(Debug) << "Node " << branching_node->id() << " has been selected for branching\n";
     return *branching_node;
 }
 
@@ -133,9 +153,11 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::save_results() {
     if (!_incumbent) {
         _model.objective().status(ObjectiveStatus::Infeasible);
+        _L_LOG_(Debug) << "No feasible solution was found\n";
         return;
     }
 
+    _L_LOG_(Debug) << "Optimal solution found ! Updating core variables...\n";
     _incumbent->solution().update();
 }
 

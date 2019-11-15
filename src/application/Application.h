@@ -8,9 +8,6 @@
 #include <string>
 #include "ParameterManager.h"
 #include "enums.h"
-#include "LogManager.h"
-
-#define _L_LOG_(level) L::Application::log(level, __PRETTY_FUNCTION__)
 
 namespace L {
     class Application;
@@ -18,12 +15,11 @@ namespace L {
 
 class L::Application {
     static Application* _application;
-    ParameterManager& _parameter_manager;
+    ParameterManager _parameter_manager;
     static Application& running_application();
 public:
-    explicit Application(const std::string& config_file = "__use_default__");
     static ParameterManager& parameters();
-    static LogManager log(LogLevel level, const std::string& caller);
+    static void load_configuration_file(const std::string& cfg_file);
 };
 
 

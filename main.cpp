@@ -9,14 +9,13 @@
 #include "src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h"
 #include "src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h"
 #include "src/application/Application.h"
-#include "src/application/enums.h"
 
 using namespace std;
 using namespace L;
 
 int main() {
 
-    Application app("../main.cfg");
+    Application::load_configuration_file("../main.cfg");
 
     Environment env;
     Variable x = Variable(env, "x");
@@ -24,7 +23,7 @@ int main() {
     Constraint ctr = Constraint(env, "ctr");
     ctr.expression() = 3 * x + 2 * y - 10;
     ctr.type(L::Constraint::GreaterOrEqualTo);
-    Objective obj = Objective(env, "objective");
+    Objective obj = Objective(env,     const std::string _config_file;"objective");
     obj.expression() = 3 * x + y;
     y.type(AbstractVariable::Binary);
 
