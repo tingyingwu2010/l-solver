@@ -24,12 +24,26 @@ L::BranchAndBoundNode::~BranchAndBoundNode() {
     for (auto& m : _variables) delete m.second;
 }
 
-L::BranchAndBoundNode::BranchAndBoundNode(const L::BranchAndBoundNode &src) : _solved(false), _is_feasible(false) {
+L::BranchAndBoundNode::BranchAndBoundNode(const L::BranchAndBoundNode &src) : _solved(false), _is_feasible(false), _model(src._model) {
     for (auto& m : src._variables)
         _variables.insert({ m.first, new DetachedVariable(*m.second) });
 }
 
-L::BranchAndBoundNode::BranchAndBoundNode(L::Model &src) {
+L::BranchAndBoundNode::BranchAndBoundNode(L::Model &src) : _model(src) {
     for (const auto& variable : src.variables())
         _variables.insert({ variable.user_defined_name(), new DetachedVariable(variable) });
+}
+
+void L::BranchAndBoundNode::save_results() {
+    for (auto& ptr : _variables) {
+        if (ptr.second->priority() == 0) continue;
+        if (ptr.second->value() != ptr.second->ub() && ptr.second->value() != ptr.second->lb()) {
+            return;
+        }
+    }
+    _is_feasible = true;
+}
+
+void L::BranchAndBoundNode::Solution::update() {
+    for (auto& m : _parent._variables) m.second->update_core_value();
 }

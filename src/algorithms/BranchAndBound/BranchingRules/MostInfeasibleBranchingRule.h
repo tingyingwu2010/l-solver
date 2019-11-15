@@ -5,9 +5,16 @@
 #ifndef LBDS_SOLVER_MOSTINFEASIBLEBRANCHINGRULE_H
 #define LBDS_SOLVER_MOSTINFEASIBLEBRANCHINGRULE_H
 
+#include "BranchingRule.h"
+#include "../BranchAndBoundNode.h"
 
-class MostInfeasibleBranchingRule {
+namespace L {
+    class MostInfeasibleBranchingRule;
+}
 
+
+class L::MostInfeasibleBranchingRule : public BranchingRule {
+    Variable operator()(BranchAndBoundNode&);
 };
 
 

@@ -41,8 +41,15 @@ add_executable(lbds_solver
         src/modeling/Vector.cpp
         src/modeling/Vector.h
         src/structures/MapIterator.h
-        src/algorithms/BranchAndBound/BranchAndBound.cpp
-        src/algorithms/BranchAndBound/BranchAndBound.h src/algorithms/BranchAndBound/BranchingRules/BranchingRule.h src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.cpp src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h src/algorithms/BranchAndBound/BranchAndBoundNode.h src/algorithms/BranchAndBound/BranchAndBoundNode.cpp)
+        src/algorithms/BranchAndBound/BranchAndBound.h
+        src/algorithms/BranchAndBound/BranchingRules/BranchingRule.h
+        src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.cpp
+        src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h
+        src/algorithms/BranchAndBound/BranchAndBoundNode.h
+        src/algorithms/BranchAndBound/BranchAndBoundNode.cpp
+        src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h
+
+)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(lbds_solver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})

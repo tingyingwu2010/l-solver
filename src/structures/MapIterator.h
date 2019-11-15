@@ -8,11 +8,11 @@
 #include <map>
 
 namespace L {
-    template<class Index, class Components> class MapIterator;
+    template<class Index, class Components, class Wrapper> class MapIterator;
 }
 
 
-template <class Index, class Component>
+template <class Index, class Component, class Wrapper = Component>
 class L::MapIterator {
     std::map<Index, Component*>& _map;
 public:
@@ -22,15 +22,15 @@ public:
     iterator end() { return iterator(_map, true); }
 };
 
-template <class Index, class Component>
-class L::MapIterator<Index, Component>::iterator {
+template <class Index, class Component, class Wrapper>
+class L::MapIterator<Index, Component, Wrapper>::iterator {
     typename std::map<Index, Component*>::iterator _it;
 public:
     iterator(std::map<Index, Component*>& m, bool is_end) : _it(!is_end ? m.begin() : m.end()) {}
     bool operator==(const iterator& rhs) const { return _it == rhs._it; }
     bool operator!=(const iterator& rhs) const { return !(*this == rhs); }
     iterator& operator++() { _it++; return *this; }
-    Component operator*() const { return Component(*_it->second); }
+    Wrapper operator*() const { return Wrapper(*_it->second); }
 };
 
 

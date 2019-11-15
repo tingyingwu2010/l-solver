@@ -11,7 +11,11 @@ using namespace L;
 CoreVariable::CoreVariable(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
 void CoreVariable::type(AbstractVariable::Type type) {
-    // TODO change bounds
+    if (type == Binary) {
+        _lb = 0;
+        _ub = 1;
+        _priority = 1;
+    }
     _type = type;
 }
 
@@ -31,7 +35,7 @@ Variable::Variable(Environment& env, const std::string& name) : Variable(env.var
 
 ConstVariable::ConstVariable(const CoreVariable &core) : _core(core) {}
 
-DetachedVariable::DetachedVariable(const Variable &src) : CoreVariable(src.user_defined_name()), _core(src._core) {}
+DetachedVariable::DetachedVariable(const Variable &src) : CoreVariable(src._core), _core(src._core) {}
 
 void DetachedVariable::update_core_value() {
     _core.value(_value);

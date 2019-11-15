@@ -6,6 +6,8 @@
 #include "src/modeling/Model.h"
 #include "src/adapters/CplexAdapter.h"
 #include "src/algorithms/DirectSolver/DirectLPSolver.h"
+#include "src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h"
+#include "src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h"
 
 using namespace std;
 using namespace L;
@@ -28,13 +30,14 @@ int main() {
     model.add(x);
     model.add(y);
 
-    DirectLPSolver<CplexAdapter> solver(model);
+    MostInfeasibleBranchingRule rule;
+    MILPBranchAndBound<CplexAdapter> solver(model);
+    solver.branching_rule(rule);
     solver.solve();
-    cout << "Execution time: " << solver.last_execution_time() << endl;
-    if (obj.status() == Optimal) {
-        cout << "x = " << x.value() << endl;
-        cout << "y = " << y.value() << endl;
-    }
+
+    std::cout << "status " << model.objective().status() << std::endl;
+    for (const auto& var : model.variables())
+        std::cout << var.user_defined_name() << " = " << var.value() << std::endl;
 
     return 0;
 }

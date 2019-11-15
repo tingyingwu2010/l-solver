@@ -31,6 +31,7 @@ public:
     virtual std::string user_defined_name() const = 0;//!< access variable's name
     virtual Type type() const = 0; //!< access variable's type
     virtual Status status() const = 0;//!< access variables's status
+    virtual unsigned int priority() const = 0;//!< access variable's priority for branching
 
     // setters
     virtual void value(float) = 0; //!< updates variable's value
@@ -38,6 +39,7 @@ public:
     virtual void lb(float) = 0; //!< updates variable's lower bound
     virtual void reduced_cost(float) = 0; //!< updates variable's reduced cost
     virtual void type(Type) = 0; //!< updates variable's type
+    virtual void priority(unsigned int) = 0; //<! update variable's priority for branching
 
     friend std::ostream& operator<<(std::ostream& os, const AbstractVariable& var);
 };
@@ -53,6 +55,7 @@ protected:
     float _reduced_cost = 0.0; //!< reduced cost
     Type _type = Positive; //!< variable's type
     const std::string _user_defined_name;
+    unsigned int _priority = 0;
 public:
     explicit CoreVariable(std::string user_defined_name);
     float value() const override { return _value; }
@@ -62,6 +65,7 @@ public:
     std::string user_defined_name() const override { return _user_defined_name; }
     Type type() const override { return _type; }
     Status status() const { return Core; }
+    unsigned int priority() const override { return _priority; }
 
     // setters
     void value(float value) override { _value = value; }
@@ -69,6 +73,7 @@ public:
     void lb(float lb) override { _lb = lb; }
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
     void type(Type type) override;
+    void priority(unsigned int priority) override { _priority = priority; }
 };
 
 /***
@@ -90,6 +95,7 @@ public:
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Type type() const override { return _core.type(); }
     Status status() const { return Default; }
+    unsigned int priority() const override { return _core.priority(); }
 
     // setters
     void value(float value) override { _core.value(value); }
@@ -97,6 +103,7 @@ public:
     void lb(float lb) override { _core.lb(lb); }
     void reduced_cost(float reduced_cost) override { _core.reduced_cost(reduced_cost); }
     void type(Type type) override { _core.type(type); }
+    void priority(unsigned int priority) override { _core.priority(priority); }
 };
 
 class L::DetachedVariable : public CoreVariable {
@@ -113,6 +120,7 @@ class L::ConstVariable : public AbstractVariable {
     void lb(float lb) override {  }
     void reduced_cost(float reduced_cost) override {  }
     void type(Type type) override {  }
+    void priority(unsigned int priority) override {  }
 public:
     explicit ConstVariable(const CoreVariable& core);
     float value() const override { return _core.value(); }
@@ -122,6 +130,7 @@ public:
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Type type() const override { return _core.type(); }
     Status status() const { return Default; }
+    unsigned int priority() const override { return _core.priority(); }
 };
 
 #endif //ED_SOLVER_VARIABLE_H
