@@ -13,7 +13,7 @@ include_directories(${PATH_TO_GOOGLE_TEST}/googletest/include)
 #include the googlemock/include dir
 include_directories(${PATH_TO_GOOGLE_TEST}/googlemock/include)
 
-add_executable(LSolverTests TestsMain.cpp modeling/VariableTests.h)
+add_executable(LSolverTests TestsMain.cpp modeling/VariableTests.h modeling/ExpressionTests.h)
 target_link_libraries(LSolverTests LSolver)
 target_link_libraries(LSolverTests gtest gtest_main)
 target_link_libraries(LSolverTests gmock gmock_main)

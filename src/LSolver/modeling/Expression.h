@@ -48,7 +48,7 @@ public:
     Expression(const Variable& variable); // NOLINT(google-explicit-constructor,hicpp-explicit-conversions)
     Expression(float coef); // NOLINT(google-explicit-constructor,hicpp-explicit-conversions)
     Expression(const Expression& rhs);
-    Expression&operator=(const Expression& rhs);
+    Expression& operator=(const Expression& rhs);
 
     // getters
     Variable as_variable();
@@ -75,10 +75,15 @@ public:
     // operators
     Expression& operator+=(const Expression& rhs);
     Expression& operator*=(const Expression& rhs);
+    Expression& operator-=(const Expression& rhs);
+    Expression& operator/=(const Expression& rhs);
 
     // traversal algorithms
     template<ExpressionTraversalOrder order> void depth_first_traversal(const std::function<void(Expression& expr)>&);
     template<ExpressionTraversalOrder order> void depth_first_traversal(const std::function<void(const Expression& expr)>&) const;
+
+    // evaluators
+    float feval(bool cast_variables = true);
 
     // output and display
     std::string to_string() const;

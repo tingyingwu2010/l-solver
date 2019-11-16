@@ -171,6 +171,14 @@ L::Expression& L::Expression::operator*=(const Expression& rhs) {
     return apply_operator(Prod, rhs);
 }
 
+L::Expression& L::Expression::operator-=(const Expression& rhs) {
+    return (*this += (-1) * rhs);
+}
+
+L::Expression& L::Expression::operator/=(const Expression& rhs) {
+    return (*this *= 1 / rhs);
+}
+
 std::string L::Expression::to_string() const {
     switch (_type) {
         case Num: {
@@ -207,6 +215,26 @@ void L::Expression::export_to_dot(const std::string &filename, bool with_system_
     f.close();
 
     if (with_system_command) system(("dot -Tpng " + dot_filename + " > " + png_filename).c_str());
+}
+
+float L::Expression::feval(bool cast_variables) {
+
+    std::function<float(const Expression&)> compute;
+    compute = [&cast_variables, &compute](const Expression& current) {
+
+        switch (current.type()) {
+            case Num: return current.as_numerical();
+            case Var: {
+                if (cast_variables) return current.as_variable().value();
+                throw Exception("Found variable in expression while evaluating");
+            }
+            case Prod: return compute(current.child(Left)) * compute(current.child(Right));
+            case Sum: return compute(current.child(Left)) + compute(current.child(Right));
+            default:
+                throw Exception("Not implemented yet");
+        }
+    };
+    return compute(*this);
 }
 
 L::Expression L::operator+(const L::Expression& a, const L::Expression& b) {
