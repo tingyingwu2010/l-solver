@@ -3,6 +3,8 @@
 //
 
 #include <fstream>
+#include <iomanip>
+#include <sstream>
 #include "Expression.h"
 #include "Variable.h"
 #include "../utils/Exception.h"
@@ -169,54 +171,13 @@ L::Expression& L::Expression::operator*=(const Expression& rhs) {
     return apply_operator(Prod, rhs);
 }
 
-template<L::ExpressionTraversalOrder order>
-void L::Expression::depth_first_traversal(const std::function<void(Expression & expr)>& explore) {
-
-    std::function<void(Expression&)> traversal;
-    traversal = [&traversal, &explore](Expression& current){
-        if constexpr(order == PostOrder) {
-            if (current.has_child(Left)) traversal(current.child(Left));
-            if (current.has_child(Right)) traversal(current.child(Right));
-            explore(current);
-        } else if constexpr(order == InOrder) {
-            if (current.has_child(Left)) traversal(current.child(Left));
-            explore(current);
-            if (current.has_child(Right)) traversal(current.child(Right));
-        } else {
-            explore(current);
-            if (current.has_child(Left)) traversal(current.child(Left));
-            if (current.has_child(Right)) traversal(current.child(Right));
-        }
-    };
-
-    traversal(*this);
-}
-
-template<L::ExpressionTraversalOrder order>
-void L::Expression::depth_first_traversal(const std::function<void(const Expression & expr)>& explore) const {
-    std::function<void(const Expression&)> traversal;
-    traversal = [&traversal, &explore](const Expression& current){
-        if constexpr(order == PostOrder) {
-            if (current.has_child(Left)) traversal(current.child(Left));
-            if (current.has_child(Right)) traversal(current.child(Right));
-            explore(current);
-        } else if constexpr(order == InOrder) {
-            if (current.has_child(Left)) traversal(current.child(Left));
-            explore(current);
-            if (current.has_child(Right)) traversal(current.child(Right));
-        } else {
-            explore(current);
-            if (current.has_child(Left)) traversal(current.child(Left));
-            if (current.has_child(Right)) traversal(current.child(Right));
-        }
-    };
-
-    traversal(*this);
-}
-
 std::string L::Expression::to_string() const {
     switch (_type) {
-        case Num: return std::to_string(_numerical);
+        case Num: {
+            std::ostringstream stream;
+            stream << std::setprecision(2) << _numerical;
+            return stream.str();
+        }
         case Var: return _variable->user_defined_name();
         case Prod: return "*";
         case Sum: return "+";

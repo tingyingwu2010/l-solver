@@ -5,14 +5,16 @@
 #include "Model.h"
 
 #include <utility>
+#include <fstream>
 #include "Variable.h"
 #include "Constraint.h"
+#include "Expression.h"
 #include "Objective.h"
 
 L::Model::Model(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
 L::Model::~Model() {
-    // for (auto& m : _variables) delete m.second;
+    for (auto& m : _variables) delete m.second;
     for (auto& m : _constraints) delete m.second;
     delete _objective;
 }
@@ -67,4 +69,3 @@ L::Model::ConstraintIterator L::Model::constraints() {
 L::Objective L::Model::objective() {
     return Objective(*_objective);
 }
-

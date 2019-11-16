@@ -1,22 +1,22 @@
+//
+// Created by hlefebvr on 16/11/19.
+//
+
 #include <iostream>
 
-#include "src/environment/Environment.h"
-#include "src/modeling/Variable.h"
-#include "src/modeling/Expression.h"
-#include "src/modeling/Model.h"
-#include "src/adapters/CplexAdapter.h"
-#include "src/algorithms/DirectSolver/DirectLPSolver.h"
-#include "src/algorithms/DirectSolver/DirectMILPSolver.h"
-#include "src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h"
-#include "src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h"
-#include "src/modeling/Vector.h"
+#include <LSolver/application/LogManager.h>
+#include <LSolver/environment/Environment.h>
+#include <LSolver/modeling/Model.h>
+#include <LSolver/modeling/Vector.h>
+#include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
+#include <LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h>
+#include <LSolver/algorithms/DirectSolver/DirectMILPSolver.h>
+#include <LSolver/adapters/CplexAdapter.h>
 
 using namespace std;
 using namespace L;
 
 int main() {
-
-    Application::load_configuration_file("../main.cfg");
 
     Environment env;
     Model model;

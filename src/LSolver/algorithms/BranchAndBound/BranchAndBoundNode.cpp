@@ -2,7 +2,9 @@
 // Created by hlefebvr on 15/11/19.
 //
 
+#include <iostream>
 #include "BranchAndBoundNode.h"
+#include "../../modeling/Objective.h"
 
 unsigned long int L::BranchAndBoundNode::_branch_and_bound_node_id = 0;
 
@@ -48,4 +50,5 @@ void L::BranchAndBoundNode::save_results() {
 
 void L::BranchAndBoundNode::Solution::update() {
     for (auto& m : _parent._variables) m.second->update_core_value();
+    _parent._model.objective().value(_parent._objective_value);
 }

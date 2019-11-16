@@ -5,6 +5,19 @@
 #include "Objective.h"
 #include "../environment/Environment.h"
 
+std::ostream& L::operator<<(std::ostream& os, ObjectiveStatus obj) {
+    switch (obj) {
+
+        case Unsolved: return (os << std::string("Unsolved"));
+        case Optimal: return (os << std::string("Optimal"));
+        case Feasible: return (os << std::string("Feasible"));
+        case Infeasible: return (os << std::string("Infeasible"));
+        case Unbounded: return (os << std::string("Unbounded"));
+        case Error:  return (os << std::string("Error"));
+        default: throw Exception("Unknown objective status: " + std::to_string(obj));
+    }
+}
+
 /** CORE OBJECTIVE **/
 
 L::ObjectiveType L::CoreObjective::type() const {

@@ -155,11 +155,11 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::save_results() {
     if (!_incumbent) {
         _model.objective().status(ObjectiveStatus::Infeasible);
-        _L_LOG_(Debug) << "No feasible solution was found" << std::endl;
+        _L_LOG_(Release) << "No feasible solution was found" << std::endl;
         return;
     }
 
-    _L_LOG_(Debug) << "Optimal solution found ! Updating core variables..." << std::endl;
+    _L_LOG_(Release) << "Optimal solution found ! Updating core variables..." << std::endl;
     _incumbent->solution().update();
 }
 

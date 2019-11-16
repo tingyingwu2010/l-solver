@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.12.4)
-project(lbds_solver)
+cmake_minimum_required(VERSION 3.15)
+project(LSolverProject)
 
 set(CMAKE_CXX_STANDARD 17)
 set(SOLVERS "CPLEX")
@@ -7,50 +7,8 @@ set(SOLVERS "CPLEX")
 # folder for cmake files
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-if ("CPLEX" IN_LIST SOLVERS)
-    message("Including CPLEX dependency")
-    include(cmake/UseCPLEX.cmake)
-endif()
+include_directories(src)
 
-add_executable(lbds_solver
-        main.cpp
-        src/environment/Environment.cpp
-        src/environment/Environment.h
-        src/modeling/Variable.cpp
-        src/modeling/Variable.h
-        src/utils/Exception.cpp
-        src/utils/Exception.h
-        src/utils/static.h
-        src/modeling/Constraint.cpp
-        src/modeling/Constraint.h
-        src/adapters/SolverAdapter.h
-        src/adapters/CplexAdapter.cpp
-        src/adapters/CplexAdapter.h
-        src/algorithms/DirectSolver/DirectSolver.cpp
-        src/algorithms/DirectSolver/DirectSolver.h
-        src/algorithms/Solver.h
-        src/modeling/Expression.cpp
-        src/modeling/Expression.h
-        src/modeling/Objective.cpp
-        src/modeling/Objective.h
-        src/modeling/Model.cpp
-        src/modeling/Model.h
-        src/algorithms/DirectSolver/DirectMILPSolver.h
-        src/algorithms/Solver.cpp
-        src/algorithms/DirectSolver/DirectLPSolver.h
-        src/modeling/Vector.cpp
-        src/modeling/Vector.h
-        src/structures/MapIterator.h
-        src/algorithms/BranchAndBound/BranchAndBound.h
-        src/algorithms/BranchAndBound/BranchingRules/BranchingRule.h
-        src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.cpp
-        src/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h
-        src/algorithms/BranchAndBound/BranchAndBoundNode.h
-        src/algorithms/BranchAndBound/BranchAndBoundNode.cpp
-        src/algorithms/MILPBranchAndBound/MILPBranchAndBound.h
-
-        src/application/Application.cpp src/application/Application.h src/application/ParameterManager.cpp src/application/ParameterManager.h src/application/LogManager.h src/application/enums.h)
-
-if ("CPLEX" IN_LIST SOLVERS)
-    target_link_libraries(lbds_solver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})
-endif()
+add_subdirectory(src)
+add_subdirectory(examples)
+add_subdirectory(tests)

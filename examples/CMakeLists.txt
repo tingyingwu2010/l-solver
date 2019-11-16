@@ -1,0 +1,4 @@
+project(LSolverExamples)
+
+add_subdirectory(BranchAndBoundKnapsackExample)
+add_subdirectory(DantzigWolfeDecompositionExample)
