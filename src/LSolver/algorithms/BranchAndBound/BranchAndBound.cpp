@@ -77,15 +77,15 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
         auto create_node = [this, &node, &branching_variable](Side side) {
             NodeClass &added_node = *new NodeClass(node);
             if (side == Up) {
-                float bound = (branching_variable.type() == AbstractVariable::Binary ||
-                               branching_variable.type() == AbstractVariable::Integer) ? ceil(
+                float bound = (branching_variable.type() == Binary ||
+                               branching_variable.type() == Integer) ? ceil(
                         branching_variable.value()) : branching_variable.value();
                 added_node.lower_bound(branching_variable, bound);
                 _L_LOG_(Release) << "Branching. Created node " << added_node.id() << " with additional bounds " << bound << " <= "
                     << branching_variable.user_defined_name() << " <= " << branching_variable.ub() << "" << std::endl;
             } else {
-                float bound = (branching_variable.type() == AbstractVariable::Binary ||
-                               branching_variable.type() == AbstractVariable::Integer) ? floor(
+                float bound = (branching_variable.type() == Binary ||
+                               branching_variable.type() == Integer) ? floor(
                         branching_variable.value()) : branching_variable.value();
                 added_node.upper_bound(branching_variable, bound);
                 _L_LOG_(Release) << "Branching. Created node " << added_node.id() << " with additional bounds " << branching_variable.lb()

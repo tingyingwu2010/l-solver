@@ -21,7 +21,7 @@ Variable CoreConstraint::dual() {
 
 ConstConstraint::ConstConstraint(CoreConstraint &core) : _core(core) {}
 
-std::string AbstractConstraint::to_string(CoreConstraint::Type type) {
+std::string AbstractConstraint::to_string(ConstraintType type) {
     switch (type) {
         case LessOrEqualTo: return "<=";
         case GreaterOrEqualTo: return ">=";
@@ -38,4 +38,13 @@ Constraint::Constraint(Environment & env, const std::string& name) : Constraint(
 std::ostream &L::operator<<(std::ostream &os, const L::AbstractConstraint &constraint) {
     os << std::string("(Constraint) ") << constraint.expression().to_string() << std::string(" ") << L::Constraint::to_string(constraint.type()) << std::string(" 0");
     return os;
+}
+
+std::ostream& L::operator<<(std::ostream& os, ConstraintType constraint) {
+    switch (constraint) {
+        case LessOrEqualTo: return (os << std::string("<="));
+        case GreaterOrEqualTo: return (os << std::string(">="));
+        case EqualTo: return (os << std::string("=="));
+        default: throw Exception("Unknown constraint type: " + std::to_string(constraint));
+    }
 }

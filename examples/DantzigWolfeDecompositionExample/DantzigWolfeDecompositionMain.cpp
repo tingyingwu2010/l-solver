@@ -43,13 +43,13 @@ int main() {
         for (unsigned int j = 0 ; j < n_masterp_var ; j += 1) linking_constraints(i).expression() += (rand() % 10) * x(j);
         for (unsigned int j = 0 ; j < n_subprob_var ; j += 1) linking_constraints(i).expression() += (rand() % 10) * y(j);
         linking_constraints(i).expression() += -(rand() % 10);
-        linking_constraints(i).type(AbstractConstraint::GreaterOrEqualTo);
+        linking_constraints(i).type(GreaterOrEqualTo);
     }
     for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
         model.add(subproblem(i));
         for (unsigned int j = 0 ; j < n_subprob_var ; j += 1) subproblem(i).expression() += (rand() % 10) * y(j);
         subproblem(i).expression() += -(rand() % 10);
-        subproblem(i).type(AbstractConstraint::GreaterOrEqualTo);
+        subproblem(i).type(GreaterOrEqualTo);
     }
 
     DirectLPSolver<CplexAdapter> direct_solver(model);

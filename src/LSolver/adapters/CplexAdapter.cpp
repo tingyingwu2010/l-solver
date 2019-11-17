@@ -6,13 +6,13 @@
 #include "CplexAdapter.h"
 #include "../application/LogManager.h"
 
-IloNumVar::Type L::CplexAdapter::to_cplex(L::AbstractVariable::Type type) {
+IloNumVar::Type L::CplexAdapter::to_cplex(L::VariableType type) {
     switch (type) {
-        case AbstractVariable::Positive: return IloNumVar::Type::Float;
-        case AbstractVariable::Negative: return IloNumVar::Type::Float;
-        case AbstractVariable::Free: return IloNumVar::Type::Float;
-        case AbstractVariable::Binary: return IloNumVar::Type::Bool;
-        case AbstractVariable::Integer: return IloNumVar::Type::Int;
+        case Positive: return IloNumVar::Type::Float;
+        case Negative: return IloNumVar::Type::Float;
+        case Free: return IloNumVar::Type::Float;
+        case Binary: return IloNumVar::Type::Bool;
+        case Integer: return IloNumVar::Type::Int;
         default: throw Exception("Unkown LBDS type");
     }
 }
@@ -55,13 +55,13 @@ void L::CplexAdapter::create_constraint(const L::Constraint &constraint) {
 
     IloRange* cplex_constraint;
     switch (constraint.type()) {
-        case AbstractConstraint::LessOrEqualTo:
+        case LessOrEqualTo:
             cplex_constraint = new IloRange(cplex_expr <= 0);
             break;
-        case AbstractConstraint::GreaterOrEqualTo:
+        case GreaterOrEqualTo:
             cplex_constraint = new IloRange(cplex_expr >= 0);
             break;
-        case AbstractConstraint::EqualTo:
+        case EqualTo:
             cplex_constraint = new IloRange(cplex_expr == 0);
             break;
         default: throw Exception("Unknown constraint type");

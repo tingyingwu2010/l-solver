@@ -25,7 +25,7 @@ int main() {
     Objective obj = Objective(env, "objective");
 
     for (unsigned int i = 0 ; i < 10 ; i += 1) {
-        x(i).type(AbstractVariable::Binary);
+        x(i).type(Binary);
         model.add(x(i));
         obj.expression() += -(rand() % 10) * x(i);
         knapsack_ctr.expression() += (rand() % 10) * x(i);

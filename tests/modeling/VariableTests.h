@@ -12,7 +12,7 @@ TEST(modeling_variables, checking_default_values_for_newly_created_variables) {
     const std::string name = "x";
     Environment env;
     Variable x(env, name);
-    EXPECT_EQ(x.type(), AbstractVariable::Positive);
+    EXPECT_EQ(x.type(), Positive);
     EXPECT_EQ(x.lb(), 0);
     EXPECT_EQ(x.ub(), std::numeric_limits<float>::max());
     EXPECT_EQ(x.user_defined_name(), name);
@@ -25,7 +25,7 @@ TEST(modeling_variables, a_copied_variable_should_still_refer_to_the_same_core_v
     Variable copy_x = x;
     x.value(100);
     x.reduced_cost(100);
-    copy_x.type(AbstractVariable::Binary);
+    copy_x.type(Binary);
     EXPECT_EQ(copy_x.value(), x.value());
     EXPECT_EQ(copy_x.reduced_cost(), x.reduced_cost());
     EXPECT_EQ(copy_x.type(), x.type());
@@ -45,9 +45,9 @@ TEST(modeling_variables, a_detached_variable_should_update_its_core_variable_onl
     EXPECT_EQ(detached.value(), 0); // updating core variable should not have changed the detacged variable's value
     EXPECT_EQ(x.value(), 0); // but should have impacted its core variable
 
-    detached.type(AbstractVariable::Binary);
-    EXPECT_EQ(detached.type(), AbstractVariable::Binary); // should have changed the detached type
-    EXPECT_NE(x.type(), AbstractVariable::Binary); // should not have changed core's type
+    detached.type(Binary);
+    EXPECT_EQ(detached.type(), Binary); // should have changed the detached type
+    EXPECT_NE(x.type(), Binary); // should not have changed core's type
 }
 
 TEST(modeling_variables, detached_variable_remains_linked_to_its_core_even_when_indirected_by_a_regular_variable) {

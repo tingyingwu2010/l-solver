@@ -16,16 +16,18 @@ namespace L {
     class Constraint;
     class ConstConstraint;
     class Environment;
+
+    enum ConstraintType {LessOrEqualTo, GreaterOrEqualTo, EqualTo};
+    std::ostream& operator<<(std::ostream& os, ConstraintType constraint);
     std::ostream& operator<<(std::ostream& os, const AbstractConstraint& constraint);
 }
 
 class L::AbstractConstraint {
 public:
-    enum Type {LessOrEqualTo, GreaterOrEqualTo, EqualTo};
     enum Status { Core, Default };
 
     // getters
-    virtual Type type() const = 0;
+    virtual ConstraintType type() const = 0;
     virtual const Expression& expression() const = 0;
     virtual Expression& expression() = 0;
     virtual std::string user_defined_name() const = 0;
@@ -35,16 +37,16 @@ public:
 
     // setters
     virtual void expression(const Expression& expr) = 0;
-    virtual void type(Type) = 0;
+    virtual void type(ConstraintType) = 0;
     virtual void slack(float s) = 0;
 
-    static std::string to_string(Type type);
+    static std::string to_string(ConstraintType type);
 };
 
 class L::CoreConstraint : public AbstractConstraint {
 protected:
     Expression _expr;
-    AbstractConstraint::Type _type = LessOrEqualTo;
+    ConstraintType _type = LessOrEqualTo;
     std::string _user_defined_name;
     CoreVariable* _dual_variable = nullptr;
     float _slack = 0;
@@ -55,7 +57,7 @@ public:
     // getters
     Expression& expression() override { return _expr; }
     const Expression& expression() const override { return _expr; }
-    Type type() const override { return _type; }
+    ConstraintType type() const override { return _type; }
     std::string user_defined_name() const override { return _user_defined_name; }
     Status status() const override { return Core; }
     Variable dual() override;
@@ -63,7 +65,7 @@ public:
 
     // setters
     void expression(const Expression& expr) override { _expr = expr; }
-    void type(Type type) override { _type = type; }
+    void type(ConstraintType type) override { _type = type; }
     void slack(float slack) override { _slack = slack; }
 };
 
@@ -77,7 +79,7 @@ public:
     Constraint& operator=(const Constraint& rhs) { _core = rhs._core; return *this; }
 
     // getters
-    Type type() const override { return _core.type(); }
+    ConstraintType type() const override { return _core.type(); }
     Expression& expression() override { return _core.expression(); }
     const Expression& expression() const override { return _core.expression(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
@@ -86,14 +88,14 @@ public:
     float slack() const override { return _core.slack(); }
 
     // setters
-    void type(Type type) override { _core.type(type); }
+    void type(ConstraintType type) override { _core.type(type); }
     void expression(const Expression& expr) override { _core.expression(expr); }
     void slack(float slack) override { _core.slack(slack); }
 };
 
 class L::ConstConstraint : public AbstractConstraint {
     CoreConstraint& _core;
-    void type(Type type) override {}
+    void type(ConstraintType type) override {}
     void expression(const Expression& expr) override {  }
     Expression& expression() override { throw Exception("Const constraint"); }
     void slack(float slack) override {  }
@@ -103,7 +105,7 @@ public:
     ConstConstraint& operator=(const ConstConstraint& rhs) { _core = rhs._core; return *this; }
 
     // getters
-    Type type() const override { return _core.type(); }
+    ConstraintType type() const override { return _core.type(); }
     const Expression& expression() const override { return _core.expression(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
     Status status() const override { return Default; }

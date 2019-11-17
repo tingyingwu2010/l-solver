@@ -16,6 +16,37 @@ std::ostream& L::operator<<(std::ostream& os, const Expression& expr) {
     return (os << expr.to_string());
 }
 
+std::ostream& L::operator<<(std::ostream& os, ExpressionType type) {
+    switch (type) {
+        case Num: return (os << "numerical");
+        case Var: return (os << "variable");
+        case Prod: return (os << "*");
+        case Sum: return (os << "+");
+        case Sqrt: return (os << "sqrt");
+        case Exp: return (os << "exp");
+        case Pow: return (os << "^");
+        case Ln: return (os << "ln");
+        default: throw Exception("Unknown expression type: " + std::to_string(type));
+    }
+}
+
+std::ostream& L::operator<<(std::ostream& os, ExpressionSide type) {
+    switch (type) {
+        case Left: return (os << "left");
+        case Right: return (os << "right");
+        default: throw Exception("Unknown expression side: " + std::to_string(type));
+    }
+}
+
+std::ostream& L::operator<<(std::ostream& os, ExpressionTraversalOrder type) {
+    switch (type) {
+        case PostOrder: return (os << "post-order");
+        case PreOrder: return (os << "pre-order");
+        case InOrder: return (os << "in-order");
+        default: throw Exception("Unknown expression traversal order: " + std::to_string(type));
+    }
+}
+
 /** CONSTRUCTORS **/
 
 L::Expression::Expression(L::ExpressionType type) : _type(type) {}

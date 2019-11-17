@@ -15,13 +15,14 @@ namespace L {
     class DetachedVariable;
     class Environment;
 
+    enum VariableType { Positive, Negative, Free, Binary, Integer };
     std::ostream &operator<<(std::ostream &os, const AbstractVariable &var);
+    std::ostream &operator<<(std::ostream &os, VariableType type);
 }
 
 class L::AbstractVariable {
 public:
     enum Status { Core, Default, Detached };
-    enum Type { Positive, Negative, Free, Binary, Integer };
 
     virtual ~AbstractVariable() = default;
 
@@ -31,7 +32,7 @@ public:
     virtual float lb() const = 0; //!< access variable's lower bound
     virtual float reduced_cost() const = 0;//!< access variable's reduced cost (when appropriate)
     virtual std::string user_defined_name() const = 0;//!< access variable's name
-    virtual Type type() const = 0; //!< access variable's type
+    virtual VariableType type() const = 0; //!< access variable's type
     virtual Status status() const = 0;//!< access variables's status
     virtual unsigned int priority() const = 0;//!< access variable's priority for branching
 
@@ -40,7 +41,7 @@ public:
     virtual void ub(float) = 0; //!< updates variable's upper bound
     virtual void lb(float) = 0; //!< updates variable's lower bound
     virtual void reduced_cost(float) = 0; //!< updates variable's reduced cost
-    virtual void type(Type) = 0; //!< updates variable's type
+    virtual void type(VariableType) = 0; //!< updates variable's type
     virtual void priority(unsigned int) = 0; //<! update variable's priority for branching
 
     friend std::ostream& operator<<(std::ostream& os, const AbstractVariable& var);
@@ -55,7 +56,7 @@ protected:
     float _ub = std::numeric_limits<float>::max(); //!< lower bound
     float _lb = 0.0; //!< upper bound
     float _reduced_cost = 0.0; //!< reduced cost
-    Type _type = Positive; //!< variable's type
+    VariableType _type = Positive; //!< variable's type
     const std::string _user_defined_name;
     unsigned int _priority = 0;
 public:
@@ -65,7 +66,7 @@ public:
     float lb() const override { return _lb; }
     float reduced_cost() const override { return _reduced_cost; }
     std::string user_defined_name() const override { return _user_defined_name; }
-    Type type() const override { return _type; }
+    VariableType type() const override { return _type; }
     Status status() const { return Core; }
     unsigned int priority() const override { return _priority; }
 
@@ -74,7 +75,7 @@ public:
     void ub(float ub) override { _ub = ub; }
     void lb(float lb) override { _lb = lb; }
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
-    void type(Type type) override;
+    void type(VariableType type) override;
     void priority(unsigned int priority) override { _priority = priority; }
 };
 
@@ -95,7 +96,7 @@ public:
     float lb() const override { return _core.lb(); }
     float reduced_cost() const override { return _core.reduced_cost(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
-    Type type() const override { return _core.type(); }
+    VariableType type() const override { return _core.type(); }
     Status status() const { return Default; }
     unsigned int priority() const override { return _core.priority(); }
 
@@ -104,7 +105,7 @@ public:
     void ub(float ub) override { _core.ub(ub); }
     void lb(float lb) override { _core.lb(lb); }
     void reduced_cost(float reduced_cost) override { _core.reduced_cost(reduced_cost); }
-    void type(Type type) override { _core.type(type); }
+    void type(VariableType type) override { _core.type(type); }
     void priority(unsigned int priority) override { _core.priority(priority); }
 };
 
@@ -121,7 +122,7 @@ class L::ConstVariable : public AbstractVariable {
     void ub(float ub) override {  }
     void lb(float lb) override {  }
     void reduced_cost(float reduced_cost) override {  }
-    void type(Type type) override {  }
+    void type(VariableType type) override {  }
     void priority(unsigned int priority) override {  }
 public:
     explicit ConstVariable(const CoreVariable& core);
@@ -130,7 +131,7 @@ public:
     float lb() const override { return _core.lb(); }
     float reduced_cost() const override { return _core.reduced_cost(); }
     std::string user_defined_name() const override { return _core.user_defined_name(); }
-    Type type() const override { return _core.type(); }
+    VariableType type() const override { return _core.type(); }
     Status status() const { return Default; }
     unsigned int priority() const override { return _core.priority(); }
 };

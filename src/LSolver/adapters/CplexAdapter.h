@@ -42,7 +42,7 @@ public:
     void save_more_results(bool primal = true, bool dual = true, bool reduced_costs = true, bool slacks = true);
     void save_results(bool primal = true, bool dual = false) override;
 
-    static IloNumVar::Type to_cplex(AbstractVariable::Type type);
+    static IloNumVar::Type to_cplex(VariableType type);
     static IloObjective::Sense to_cplex(ObjectiveType type);
     static ObjectiveStatus to_lbds(IloAlgorithm::Status status);
 };

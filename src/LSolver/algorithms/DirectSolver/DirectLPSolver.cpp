@@ -32,10 +32,10 @@ void L::DirectLPSolver<ExternalSolver>::save_results() {
 template<class ExternalSolver>
 void L::DirectLPSolver<ExternalSolver>::build_lp_model() {
     for (auto variable : _model.variables()) {
-        if (variable.type() == AbstractVariable::Binary || variable.type() == AbstractVariable::Integer) {
+        if (variable.type() == Binary || variable.type() == Integer) {
             _L_LOG_(Debug) << "Because variable " << variable.user_defined_name() << " has to be relaxed to be solved with an LP solver, a detached variable is created.\n";
             DetachedVariable* x = new DetachedVariable(variable);
-            x->type(AbstractVariable::Free);
+            x->type(Free);
             _detached_variables.emplace_back(x);
             _solver.create_variable(Variable(*x));
         } else {

@@ -16,7 +16,7 @@ namespace L {
     enum ObjectiveType { Minimize, Maximize };
     enum ObjectiveStatus { Unsolved, Optimal, Feasible, Infeasible, Unbounded, Error };
     std::ostream& operator<<(std::ostream& os, ObjectiveStatus obj);
-    std::ostream& operator<<(std::ostream& os, ObjectiveType obj);
+    std::ostream& operator<<(std::ostream& os, ObjectiveType type);
     std::ostream& operator<<(std::ostream& os, const AbstractObjective& obj);
 }
 
