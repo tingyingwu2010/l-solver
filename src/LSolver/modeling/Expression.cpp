@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <sstream>
+#include <map>
 #include "Expression.h"
 #include "Variable.h"
 #include "../utils/Exception.h"
@@ -179,7 +180,7 @@ L::Expression& L::Expression::operator/=(const Expression& rhs) {
     return (*this *= 1 / rhs);
 }
 
-std::string L::Expression::to_string() const {
+std::string L::Expression::to_elementary_string() const {
     switch (_type) {
         case Num: {
             std::ostringstream stream;
@@ -206,7 +207,7 @@ void L::Expression::export_to_dot(const std::string &filename, bool with_system_
 
     f << "graph " + filename << " {\n";
     depth_first_traversal<PostOrder>([&f](const Expression &current) {
-        f << "\t" << current.id() << "[label=\"" << current.to_string() << "\"]\n";
+        f << "\t" << current.id() << "[label=\"" << current.to_elementary_string() << "\"]\n";
         if (current.has_child(Left)) f << "\t " << current.id() << " -- " << current.child(Left).id() << "[color=\"red\"]\n";
         if (current.has_child(Right)) f << "\t " << current.id() << " -- " << current.child(Right).id() << "\n";
     });
@@ -235,6 +236,68 @@ float L::Expression::feval(bool cast_variables) {
         }
     };
     return compute(*this);
+}
+
+std::string L::Expression::to_string() const {
+    std::function<std::string(const Expression&)> compute;
+    compute = [&compute](const Expression& current){
+        switch (current.type()) {
+            case Prod: {
+                std::string result;
+                if (current.child(Left).type() == Sum) result += "(" + compute(current.child(Left)) + ")";
+                else result += compute(current.child(Left));
+                result += "*";
+                if (current.child(Right).type() == Sum) result += "(" + compute(current.child(Right)) + ")";
+                else result += compute(current.child(Right));
+                return result;
+            }
+            case Sum: return compute(current.child(Left)) + "+" + compute(current.child(Right));
+            case Num:
+            case Var: return current.to_elementary_string();
+            default:
+                throw Exception("Not implemented yet");
+        }
+    };
+    return compute(*this);
+}
+
+std::map<std::string, L::Expression>
+L::Expression::split_by_variable(const std::map<std::string, std::function<bool(const Variable&)>>& indicator) {
+
+    std::map<std::string, L::Expression> output;
+
+    auto add = [&output](const std::string& id, const Expression& expr){
+        auto found = output.find(id);
+        if (found == output.end()) output.insert({id, expr});
+        else found->second += expr;
+    };
+
+    auto look_for_match = [&indicator, &add](Expression& expr) {
+        bool matched = false;
+        expr.depth_first_traversal<PostOrder>([&expr, &add, &matched, &indicator](Expression& node){
+            if (!matched && node.type() == Var) {
+                for (auto m : indicator) {
+                    if (m.second(node.as_variable())) {
+                        matched = true;
+                        add(m.first, expr);
+                        throw StopIteration();
+                    }
+                }
+            }
+        });
+        if (!matched) add("others", expr);
+    };
+
+    for (Expression* current = this ; current->has_child(Left) ; current = &current->child(Left) ) {
+        if (current->has_child(Right)) look_for_match(current->child(Right));
+        else add("others", *current);
+        if (current->type() == Sum && current->child(Left).type() != Sum) {
+            look_for_match(current->child(Left));
+            break;
+        }
+    }
+
+    return output;
 }
 
 L::Expression L::operator+(const L::Expression& a, const L::Expression& b) {

@@ -9,13 +9,19 @@
 
 namespace L {
     class Exception;
+    class StopIteration;
 }
 
 class L::Exception : public std::exception {
     std::string _message;
 public:
-    explicit Exception(const std::string& message);
+    explicit Exception(std::string  message);
     const std::string& message() const;
+    const char* what() const throw() override;
+};
+
+class L::StopIteration : public std::exception {
+public:
     const char* what() const throw() override;
 };
 

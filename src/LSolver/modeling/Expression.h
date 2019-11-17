@@ -7,7 +7,9 @@
 
 #include <vector>
 #include <string>
+#include <map>
 #include <functional>
+#include "../utils/Exception.h"
 
 namespace L {
     enum ExpressionType { Num, Var, Prod, Sum, Sqrt, Exp, Pow, Ln }; // cos, sin, ...
@@ -85,11 +87,14 @@ public:
     // evaluators
     float feval(bool cast_variables = true);
 
+    // expression search/splits
+    std::map<std::string, Expression> split_by_variable(const std::map<std::string, std::function<bool(const Variable&)>>& indicators);
+
     // output and display
+    std::string to_elementary_string() const;
     std::string to_string() const;
     void export_to_dot(const std::string& filename, bool with_system_command = true) const;
 };
-
 
 template<L::ExpressionTraversalOrder order>
 void L::Expression::depth_first_traversal(const std::function<void(Expression & expr)>& explore) {
@@ -111,7 +116,7 @@ void L::Expression::depth_first_traversal(const std::function<void(Expression & 
         }
     };
 
-    traversal(*this);
+    try { traversal(*this); } catch (const StopIteration& err) {}
 }
 
 template<L::ExpressionTraversalOrder order>
@@ -133,7 +138,7 @@ void L::Expression::depth_first_traversal(const std::function<void(const Express
         }
     };
 
-    traversal(*this);
+    try { traversal(*this); } catch (const StopIteration& err) {}
 }
 
 
