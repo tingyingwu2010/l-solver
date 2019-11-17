@@ -14,6 +14,8 @@ namespace L {
     class ConstVariable;
     class DetachedVariable;
     class Environment;
+
+    std::ostream &operator<<(std::ostream &os, const AbstractVariable &var);
 }
 
 class L::AbstractVariable {

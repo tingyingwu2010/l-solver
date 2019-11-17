@@ -5,6 +5,14 @@
 #include "Objective.h"
 #include "../environment/Environment.h"
 
+std::ostream& L::operator<<(std::ostream& os, ObjectiveType type) {
+    switch (type) {
+        case Minimize: return (os << std::string("minimize"));
+        case Maximize: return (os << std::string("maximize"));
+        default: throw Exception("Unknown objective type: " + std::to_string(type));
+    }
+}
+
 std::ostream& L::operator<<(std::ostream& os, ObjectiveStatus obj) {
     switch (obj) {
 
@@ -140,4 +148,7 @@ L::Expression &L::ConstObjective::expression() {
     throw Exception("ConstObjective cannot be modified");
 }
 
-
+std::ostream &L::operator<<(std::ostream &os, const L::AbstractObjective &obj) {
+    os << std::string("(Objective) ") << obj.type() << std::string(" ") << obj.expression();
+    return os;
+}

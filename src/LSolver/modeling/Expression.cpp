@@ -12,6 +12,10 @@
 
 unsigned long int L::Expression::_expression_id = 0;
 
+std::ostream& L::operator<<(std::ostream& os, const Expression& expr) {
+    return (os << expr.to_string());
+}
+
 /** CONSTRUCTORS **/
 
 L::Expression::Expression(L::ExpressionType type) : _type(type) {}

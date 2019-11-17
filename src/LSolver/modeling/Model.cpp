@@ -69,3 +69,12 @@ L::Model::ConstraintIterator L::Model::constraints() {
 L::Objective L::Model::objective() {
     return Objective(*_objective);
 }
+
+std::ostream &L::operator<<(std::ostream &os, const L::Model &model) {
+    os << "Model \" " + model._user_defined_name + " \": " << std::endl;
+    if (model._objective) os << *model._objective << std::endl << std::endl;
+    else os << "(Objective) No objective" << std::endl;
+    for (auto& m : model._constraints) os << *m.second << std::endl;
+    for (auto& m : model._variables) os << *m.second << std::endl;
+    return os;
+}

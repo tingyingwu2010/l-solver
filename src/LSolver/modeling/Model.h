@@ -15,6 +15,7 @@
 namespace L {
     class Model;
     class Objective;
+    std::ostream& operator<<(std::ostream& os, const Model& model);
 }
 
 class L::Model {
@@ -39,6 +40,8 @@ public:
     Objective objective();
     VariableIterator variables();
     ConstraintIterator constraints();
+
+    friend std::ostream& operator<<(std::ostream& os, const Model& model);
 };
 
 #endif //ED_SOLVER_MODEL_H

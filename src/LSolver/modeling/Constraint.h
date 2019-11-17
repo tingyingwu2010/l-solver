@@ -16,6 +16,7 @@ namespace L {
     class Constraint;
     class ConstConstraint;
     class Environment;
+    std::ostream& operator<<(std::ostream& os, const AbstractConstraint& constraint);
 }
 
 class L::AbstractConstraint {
@@ -37,7 +38,6 @@ public:
     virtual void type(Type) = 0;
     virtual void slack(float s) = 0;
 
-    friend std::ostream& operator<<(std::ostream& os, const Constraint& constraint);
     static std::string to_string(Type type);
 };
 
@@ -110,6 +110,5 @@ public:
     Variable dual() override { return _core.dual(); }
     float slack() const override { return _core.slack(); }
 };
-
 
 #endif //ED_SOLVER_CONSTRAINT_H

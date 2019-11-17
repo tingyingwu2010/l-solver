@@ -90,7 +90,7 @@ TEST(modeling_expressions, to_string) { // WARNING THIS TEST DEPENDS ON HOW COMM
     EXPECT_EQ(((a + 2) * (x * (y + 10))).to_string(), "(a+2)*x*(y+10)");
 }
 
-TEST(modeling_expressions, split_vy_variabe) {
+TEST(modeling_expressions, split_by_variabe) {
     Environment env;
     Variable a = Variable(env, "a");
     Variable x = Variable(env, "x");

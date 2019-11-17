@@ -29,6 +29,8 @@ namespace L {
     Expression operator*(const Expression& a, const Expression& b);
     Expression operator/(const Expression& a, const Expression& b);
     Expression operator-(const Expression& a, const Expression& b);
+
+    std::ostream& operator<<(std::ostream& os, const Expression& expr);
 }
 
 class L::Expression {

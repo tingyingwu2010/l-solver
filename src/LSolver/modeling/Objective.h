@@ -16,6 +16,8 @@ namespace L {
     enum ObjectiveType { Minimize, Maximize };
     enum ObjectiveStatus { Unsolved, Optimal, Feasible, Infeasible, Unbounded, Error };
     std::ostream& operator<<(std::ostream& os, ObjectiveStatus obj);
+    std::ostream& operator<<(std::ostream& os, ObjectiveType obj);
+    std::ostream& operator<<(std::ostream& os, const AbstractObjective& obj);
 }
 
 class L::AbstractObjective {
@@ -32,6 +34,8 @@ public:
     virtual void type(ObjectiveType) = 0;
     virtual void status(ObjectiveStatus) = 0;
     virtual void value(float) = 0;
+
+    friend std::ostream& operator<<(std::ostream& os, const AbstractObjective& obj);
 };
 
 class L::CoreObjective : public AbstractObjective {

@@ -4,6 +4,7 @@
 
 #include "Variable.h"
 #include "../environment/Environment.h"
+#include <iostream>
 #include <utility>
 
 using namespace L;
@@ -19,14 +20,8 @@ void CoreVariable::type(AbstractVariable::Type type) {
     _type = type;
 }
 
-std::ostream &operator<<(std::ostream &os, const AbstractVariable &var) {
-    os << std::string("Var ") << var.user_defined_name();
-    os << std::string(" (") << std::to_string(var.status()) << std::string(" )");
-    os << std::string("\n\tValue : ") << std::to_string(var.value());
-    os << std::string("\n\tLB    : ") << std::to_string(var.lb());
-    os << std::string("\n\tUB    : ") << std::to_string(var.ub());
-    os << std::string("\n\tType  : ") << std::to_string(var.type());
-    os << std::string("\n\tR.ct. : ") << std::to_string(var.reduced_cost());
+std::ostream &L::operator<<(std::ostream &os, const AbstractVariable &var) {
+    os << "(Variable) " << var.lb() << " <= " << var.user_defined_name() << " <= " << var.ub() << ", " << var.type();
     return os;
 }
 

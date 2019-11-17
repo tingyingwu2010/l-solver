@@ -14,7 +14,7 @@ using namespace L;
 
 int main() {
 
-    // Application::load_configuration_file("../main.cfg");
+    Application::load_configuration_file("../../../examples/DantzigWolfeDecompositionExample/dw.cfg");
 
     Environment env;
     Model model;
@@ -57,6 +57,8 @@ int main() {
     cout << "Status: " << objective.status() << endl;
 
     DantzigWolfeDecomposition<CplexAdapter> dw_solver(model);
+    dw_solver.add_decomposition("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+    dw_solver.decompose();
 
     return 0;
 }
