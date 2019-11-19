@@ -152,3 +152,13 @@ std::ostream &L::operator<<(std::ostream &os, const L::AbstractObjective &obj) {
     os << std::string("(Objective) ") << obj.type() << std::string(" ") << obj.expression();
     return os;
 }
+
+L::DetachedObjective::DetachedObjective(const L::Objective & src) : CoreObjective(src.user_defined_name()), _core(src._core) {
+    _expression = _core.expression();
+    _type = _core.type();
+    _status = _core.status();
+}
+
+void L::DetachedObjective::update_core_value() {
+    _core.value(value());
+}

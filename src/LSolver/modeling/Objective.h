@@ -13,6 +13,7 @@ namespace L {
     class AbstractObjective;
     class CoreObjective;
     class ConstObjective;
+    class DetachedObjective;
     class Objective;
     enum ObjectiveType { Minimize, Maximize };
     enum ObjectiveStatus { Unsolved, Optimal, Feasible, Infeasible, Unbounded, Error };
@@ -38,6 +39,7 @@ public:
 };
 
 class L::CoreObjective : public AbstractObjective {
+protected:
     Expression _expression;
     std::string _user_defined_name;
     ObjectiveStatus _status = Unsolved;
@@ -63,6 +65,7 @@ public:
 
 class L::Objective : public AbstractObjective {
     CoreObjective& _core;
+    friend class DetachedObjective;
 public:
     // constructor
     Objective(CoreObjective&);
@@ -99,6 +102,13 @@ public:
     const Expression& expression() const override;
     ObjectiveStatus status() const override;
     float value() const override;
+};
+
+class L::DetachedObjective : public L::CoreObjective {
+    CoreObjective& _core;
+public:
+    explicit DetachedObjective(const Objective& src);
+    void update_core_value();
 };
 
 #endif //ED_SOLVER_OBJECTIVE_H

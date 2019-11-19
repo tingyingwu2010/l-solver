@@ -186,6 +186,7 @@ void L::CplexAdapter::rebuild_objective() {
     if (_objective) {
         _objective->end();
         delete _objective;
+        _objective = nullptr;
     }
     create_objective(*_lbds_objective);
 }

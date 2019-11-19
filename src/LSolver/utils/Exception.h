@@ -10,6 +10,7 @@
 namespace L {
     class Exception;
     class StopIteration;
+    class NotFound;
 }
 
 class L::Exception : public std::exception {
@@ -21,6 +22,11 @@ public:
 };
 
 class L::StopIteration : public std::exception {
+public:
+    const char* what() const throw() override;
+};
+
+class L::NotFound : public std::exception {
 public:
     const char* what() const throw() override;
 };

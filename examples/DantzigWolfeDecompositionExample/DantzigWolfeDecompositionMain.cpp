@@ -8,6 +8,7 @@
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
 #include <LSolver/modeling/Vector.h>
 #include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
+#include <LSolver/algorithms/DantzigWolfe/DantzigWolfe.h>
 
 using namespace std;
 using namespace L;
@@ -61,11 +62,19 @@ int main() {
         subproblem_x(i).type(GreaterOrEqualTo);
     }
 
-    DantzigWolfeDecomposition<CplexAdapter> dw_solver(model);
+    /* DantzigWolfeDecomposition<CplexAdapter> dw_solver(model);
     dw_solver.add_decomposition("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
     dw_solver.add_decomposition("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
     dw_solver.decompose();
-    dw_solver.solve();
+    dw_solver.solve(); */
+
+    std::map<std::string, std::function<bool(const Variable&)>> indicators;
+    indicators.insert({ "dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; } });
+    indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
+    DualAngularModel da_model(model, indicators);
+    std::cout << da_model << std::endl;
+  DantzigWolfe<CplexAdapter> dw_2(da_model);
+    dw_2.solve();
 
     std::cout << "CPLEX direct" << std::endl;
     DirectLPSolver<CplexAdapter> direct_solver(model);

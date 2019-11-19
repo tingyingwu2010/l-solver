@@ -130,7 +130,7 @@ L::LinkingConstraint::LinkingConstraint(const L::Constraint &ctr, std::map<std::
 
 L::Expression &L::LinkingConstraint::block(const std::string &block_name) {
     auto found = _splitted_expression.find(block_name);
-    if (found == _splitted_expression.end()) throw Exception("Block not found in expression");
+    if (found == _splitted_expression.end()) throw NotFound();
     return found->second;
 }
 

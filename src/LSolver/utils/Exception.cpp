@@ -21,3 +21,7 @@ const char *Exception::what() const throw() {
 const char *StopIteration::what() const throw() {
     return "Stopped after throwing StopIteration exception";
 }
+
+const char *NotFound::what() const throw() {
+    return "Requested component not found";
+}

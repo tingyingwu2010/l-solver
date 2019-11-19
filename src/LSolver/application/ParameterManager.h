@@ -19,7 +19,7 @@ class L::ParameterManager {
 
     // parameters
     LogLevel _log_level = Release;
-    float _tolerance = 0.00000001;
+    float _tolerance = 0.00001;
     bool _external_solver_logs = false;
 public:
     LogLevel log_level() const { return _log_level; }
