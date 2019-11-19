@@ -71,7 +71,7 @@ public:
     unsigned int priority() const override { return _priority; }
 
     // setters
-    void value(float value) override { _value = value; }
+    void value(float value) override;
     void ub(float ub) override { _ub = ub; }
     void lb(float lb) override { _lb = lb; }
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }

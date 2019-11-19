@@ -3,6 +3,8 @@
 //
 
 #include "../../application/LogManager.h"
+#include "DirectLPSolver.h"
+
 
 template <class ExternalSolver>
 L::DirectLPSolver<ExternalSolver>::DirectLPSolver(L::Model &model) : DirectSolver(model) {
@@ -23,7 +25,7 @@ template<class ExternalSolver>
 void L::DirectLPSolver<ExternalSolver>::save_results() {
     ObjectiveStatus status = _model.objective().status();
     if (status == Optimal || status == Feasible) {
-        _solver.save_results(true, false);
+        _solver.save_results(true, true);
         for (auto& m : _detached_variables)
             m->update_core_value();
     }
@@ -45,3 +47,29 @@ void L::DirectLPSolver<ExternalSolver>::build_lp_model() {
     for (auto constraints : _model.constraints()) _solver.create_constraint(constraints);
     _solver.create_objective(_model.objective());
 }
+
+template<class ExternalSolver>
+void L::DirectLPSolver<ExternalSolver>::export_to_file(const std::string& filename) {
+    _solver.export_to_file(filename);
+}
+
+template<class ExternalSolver>
+void L::DirectLPSolver<ExternalSolver>::rebuild_objective() {
+    _solver.rebuild_objective();
+}
+
+template<class ExternalSolver>
+void L::DirectLPSolver<ExternalSolver>::add_variable(const L::Variable &variable) {
+    _solver.create_variable(variable);
+}
+
+template<class ExternalSolver>
+void L::DirectLPSolver<ExternalSolver>::add_constraint(const L::Constraint &constraint) {
+    _solver.create_constraint(constraint);
+}
+
+template<class ExternalSolver>
+void L::DirectLPSolver<ExternalSolver>::rebuild_constraint(const L::Constraint &ctr) {
+    _solver.rebuild_constraint(ctr);
+}
+

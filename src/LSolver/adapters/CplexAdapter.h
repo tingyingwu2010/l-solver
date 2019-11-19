@@ -34,9 +34,12 @@ class L::CplexAdapter : public SolverAdapter {
 public:
     CplexAdapter();
     ~CplexAdapter();
+    void rebuild_objective();
     void create_variable(const Variable& variable) override;
     void create_constraint(const Constraint& constraint) override;
+    void remove_constraint(const Constraint& constraint);
     void create_objective(const Objective& objective) override;
+    void rebuild_constraint(const Constraint& ctr);
     void export_to_file(const std::string& filename) override;
     void solve() override;
     void save_more_results(bool primal = true, bool dual = true, bool reduced_costs = true, bool slacks = true);

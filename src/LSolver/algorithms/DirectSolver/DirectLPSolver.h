@@ -22,6 +22,11 @@ class L::DirectLPSolver : public DirectSolver {
     void save_results() override;
 public:
     explicit DirectLPSolver(Model& model);
+    void rebuild_objective();
+    void add_variable(const Variable& variable);
+    void add_constraint(const Constraint& constraint);
+    void export_to_file(const std::string& filename);
+    void rebuild_constraint(const Constraint& ctr);
     ~DirectLPSolver();
 };
 

@@ -281,12 +281,12 @@ std::string L::Expression::to_string() const {
                 std::string result;
                 if (current.child(Left).type() == Sum) result += "(" + compute(current.child(Left)) + ")";
                 else result += compute(current.child(Left));
-                result += "*";
+                result += " ";
                 if (current.child(Right).type() == Sum) result += "(" + compute(current.child(Right)) + ")";
                 else result += compute(current.child(Right));
                 return result;
             }
-            case Sum: return compute(current.child(Left)) + "+" + compute(current.child(Right));
+            case Sum: return compute(current.child(Left)) + " + " + compute(current.child(Right));
             case Num:
             case Var: return current.to_elementary_string();
             default:

@@ -23,6 +23,7 @@ class L::Model {
     std::map<std::string, Constraint*> _constraints;
     Objective* _objective = nullptr;
     std::string _user_defined_name;
+    std::map<unsigned int, unsigned int> _user_arguments;
 public:
     typedef MapIterator<std::string, Variable> VariableIterator;
     typedef MapIterator<std::string, Constraint> ConstraintIterator;
@@ -40,6 +41,10 @@ public:
     Objective objective();
     VariableIterator variables();
     ConstraintIterator constraints();
+
+    const std::string& user_defined_name() const;
+    unsigned int user_argument(unsigned int index) const;
+    void user_argument(unsigned int index, unsigned int value);
 
     friend std::ostream& operator<<(std::ostream& os, const Model& model);
 };

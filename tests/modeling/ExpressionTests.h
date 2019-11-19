@@ -86,8 +86,8 @@ TEST(modeling_expressions, to_string) { // WARNING THIS TEST DEPENDS ON HOW COMM
     Variable a = Variable(env, "a");
     Variable x = Variable(env, "x");
     Variable y = Variable(env, "y");
-    EXPECT_EQ(((a + 2) * (x + y + 10)).to_string(), "(a+2)*(x+10+y)");
-    EXPECT_EQ(((a + 2) * (x * (y + 10))).to_string(), "(a+2)*x*(y+10)");
+    EXPECT_EQ(((a + 2) * (x + y + 10)).to_string(), "(a + 2) (x + 10 + y)");
+    EXPECT_EQ(((a + 2) * (x * (y + 10))).to_string(), "(a + 2) x (y + 10)");
 }
 
 TEST(modeling_expressions, split_by_variabe) {
@@ -124,6 +124,16 @@ TEST(modeling_expressions, split_by_variabe) {
         }
     }
 
+}
+
+TEST(modeling_variables, bounds) {
+    Environment env;
+    Variable x = Variable(env, "x");
+    EXPECT_EQ(x.lb(), 0);
+    EXPECT_EQ(x.ub(), std::numeric_limits<float>::max());
+    x.type(Free);
+    EXPECT_EQ(x.lb(), std::numeric_limits<float>::lowest());
+    EXPECT_EQ(x.ub(), std::numeric_limits<float>::max());
 }
 
 #endif //LSOLVERPROJECT_EXPRESSIONTESTS_H

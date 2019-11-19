@@ -15,7 +15,11 @@ using namespace L;
 CoreConstraint::CoreConstraint(std::string  user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
 Variable CoreConstraint::dual() {
-    if (!_dual_variable) _dual_variable = new CoreVariable("_dual_" + _user_defined_name);
+    if (!_dual_variable) {
+        _dual_variable = new CoreVariable("_dual_" + _user_defined_name);
+        if (_type == LessOrEqualTo)  _dual_variable->type(Negative);
+        else if (_type == EqualTo) _dual_variable->type(Free);
+    }
     return Variable(*_dual_variable);
 }
 
@@ -48,3 +52,12 @@ std::ostream& L::operator<<(std::ostream& os, ConstraintType constraint) {
         default: throw Exception("Unknown constraint type: " + std::to_string(constraint));
     }
 }
+
+DetachedConstraint::DetachedConstraint(const Constraint &src, bool detach_dual) : CoreConstraint(src.user_defined_name()),
+    _core(src._core), _detach_dual(detach_dual) {}
+
+Variable DetachedConstraint::dual() {
+    if (_detach_dual) return CoreConstraint::dual();
+    return _core.dual();
+}
+

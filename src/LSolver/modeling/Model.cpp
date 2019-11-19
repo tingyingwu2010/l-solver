@@ -72,9 +72,26 @@ L::Objective L::Model::objective() {
 
 std::ostream &L::operator<<(std::ostream &os, const L::Model &model) {
     os << "Model \" " + model._user_defined_name + " \": " << std::endl;
-    if (model._objective) os << *model._objective << std::endl << std::endl;
+    if (model._objective) os << *model._objective << std::endl;
     else os << "(Objective) No objective" << std::endl;
     for (auto& m : model._constraints) os << *m.second << std::endl;
     for (auto& m : model._variables) os << *m.second << std::endl;
     return os;
+}
+
+unsigned int L::Model::user_argument(unsigned int index) const {
+    auto found = _user_arguments.find(index);
+    if (found == _user_arguments.end()) return 0;
+    return found->second;
+}
+
+void L::Model::user_argument(unsigned int index, unsigned int value) {
+    auto found = _user_arguments.find(index);
+    if (found == _user_arguments.end() && value != 0) _user_arguments.insert({ index, value });
+    else if (value == 0) _user_arguments.erase(found);
+    else found->second = value;
+}
+
+const std::string &L::Model::user_defined_name() const {
+    return _user_defined_name;
 }

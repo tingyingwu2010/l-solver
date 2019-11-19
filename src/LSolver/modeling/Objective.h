@@ -6,6 +6,7 @@
 #define ED_SOLVER_OBJECTIVE_H
 
 #include "Expression.h"
+#include "Row.h"
 
 namespace L {
     class Environment;
@@ -20,13 +21,11 @@ namespace L {
     std::ostream& operator<<(std::ostream& os, const AbstractObjective& obj);
 }
 
-class L::AbstractObjective {
+class L::AbstractObjective : public Row {
 public:
     // getters
     virtual ObjectiveType type() const =  0;
     virtual const std::string& user_defined_name() const = 0;
-    virtual const Expression& expression() const = 0;
-    virtual Expression& expression() = 0;
     virtual ObjectiveStatus status() const = 0;
     virtual float value() const = 0;
 

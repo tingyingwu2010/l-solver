@@ -81,7 +81,13 @@ void L::CplexAdapter::create_objective(const L::Objective &objective) {
 }
 
 void L::CplexAdapter::export_to_file(const std::string &filename) {
-    _cplex->exportModel(filename.c_str());
+    if (!_cplex) throw Exception("Uninitialized cplex object");
+    try {
+        _cplex->exportModel(filename.c_str());
+    } catch (const IloException& err) {
+        std::cout << err.getMessage() << std::endl;
+        __throw_exception_again;
+    }
 }
 
 void L::CplexAdapter::solve() {
@@ -111,8 +117,14 @@ void L::CplexAdapter::lbds_expression_to_cplex(const L::Expression &lbds_expr, I
         } else if (type == Var) {
             ConstVariable var = current.as_variable();
             auto found = _variables.find(var.user_defined_name());
-            if (found == _variables.end()) throw Exception("Reference to undeclared variable");
-            result = *found->second.second;
+            if (found == _variables.end()) {
+                // todo implicit cast should be better expressed to user
+                _L_LOG_(Debug) << "Variable " << var.user_defined_name() << " was casted by value() to float" << std::endl;
+                result += var.value();
+                // throw Exception("Reference to undeclared variable");
+            } else {
+                result = *found->second.second;
+            }
         } else if(type == Sum || type == Prod) {
             IloNumExpr right = IloNumExpr(env);
             IloNumExpr left = IloNumExpr(env);
@@ -168,5 +180,27 @@ void L::CplexAdapter::save_results(bool primal, bool dual) {
     if (dual)
         for (auto& m : _constraints)
             m.second.first->dual().value(_cplex->getDual(*m.second.second));
+}
+
+void L::CplexAdapter::rebuild_objective() {
+    if (_objective) {
+        _objective->end();
+        delete _objective;
+    }
+    create_objective(*_lbds_objective);
+}
+
+void L::CplexAdapter::remove_constraint(const L::Constraint &ctr) {
+    auto found = _constraints.find(ctr.user_defined_name());
+    if (found == _constraints.end()) throw Exception("Cannot remove undeclared constraint");
+    found->second.second->end();
+    delete found->second.second;
+    _constraints.erase(found);
+}
+
+void L::CplexAdapter::rebuild_constraint(const L::Constraint &ctr) {
+    // todo, use setLinCoef !
+    remove_constraint(ctr);
+    create_constraint(ctr);
 }
 
