@@ -51,7 +51,7 @@ class L::ColumnGeneration : public Solver {
 
     void actually_solve() override;
     void add_column(const Column& column);
-    void save_results() override { /* TODO */ }
+    void save_results() override;
 public:
     explicit ColumnGeneration(Model& model, ColumnIterator& column_iterator);
     ~ColumnGeneration();

@@ -24,7 +24,7 @@ void L::DirectLPSolver<ExternalSolver>::actually_solve() {
 template<class ExternalSolver>
 void L::DirectLPSolver<ExternalSolver>::save_results() {
     ObjectiveStatus status = _model.objective().status();
-    if (status == Optimal || status == Feasible) {
+    if (status != Infeasible && status != Error) {
         _solver.save_results(true, true);
         for (auto& m : _detached_variables)
             m->update_core_value();

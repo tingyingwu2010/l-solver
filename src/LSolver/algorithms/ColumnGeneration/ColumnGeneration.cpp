@@ -15,7 +15,6 @@ template<class ExternalSolver>
 void L::ColumnGeneration<ExternalSolver>::actually_solve() {
 
     Column col = _column_iterator.get_next_column();
-    unsigned int i = 0;
     while ( !_column_iterator.is_done() ) {
         add_column(col);
         _restricted_master_problem_solver.solve();
@@ -47,6 +46,9 @@ void L::ColumnGeneration<ExternalSolver>::add_column(const L::Column &column) {
     _restricted_master_problem_solver.rebuild_objective();
     _generated_columns.emplace_back(column);
 }
+
+template<class ExternalSolver>
+void L::ColumnGeneration<ExternalSolver>::save_results() {}
 
 const L::Column::Coefficients &L::Column::coefficients() const {
     return _coefficients;

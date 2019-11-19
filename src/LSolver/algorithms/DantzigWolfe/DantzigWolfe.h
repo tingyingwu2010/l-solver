@@ -46,7 +46,7 @@ class L::DantzigWolfe : public Solver {
 
     void add_artificial_variable(Constraint& ctr);
     void actually_solve() override;
-    void save_results() override { /* todo */ }
+    void save_results() override;
 public:
     ~DantzigWolfe();
     explicit DantzigWolfe(DualAngularModel& model);

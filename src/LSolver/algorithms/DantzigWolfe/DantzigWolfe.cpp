@@ -2,6 +2,7 @@
 // Created by hlefebvr on 19/11/19.
 //
 
+#include <regex>
 #include "DantzigWolfe.h"
 
 template<class ExternalSolver>
@@ -69,6 +70,22 @@ void L::DantzigWolfe<ExternalSolver>::actually_solve() {
     _cg_solver->solve();
 }
 
+template<class ExternalSolver>
+void L::DantzigWolfe<ExternalSolver>::save_results() {
+    ObjectiveStatus status =_restricted_master_problem.objective().status();
+    if(status == Optimal) {
+        for (const Variable& var : _restricted_master_problem.variables()) {
+            if (std::regex_match(var.user_defined_name(), std::regex("_artificial_([0-9]+)"))
+                && var.value() > 0 + Application::parameters().tolerance()) {
+                status = Infeasible;
+                break;
+            }
+        }
+    }
+    _model.source_model().objective().status(status);
+    _model.source_model().objective().value(_restricted_master_problem.objective().value());
+}
+
 //// GENERATING COLUMNS
 
 template<class ExternalSolver>
@@ -105,29 +122,31 @@ L::Column L::DantzigWolfeColumnIterator<ExternalSolver>::get_next_column() {
 
     subproblem_solver.rebuild_objective();
     subproblem_solver.solve();
+
+    float reduced_cost = std::numeric_limits<float>::lowest();
     subproblem_model.update_primal_values();
 
-    float dual_value_of_convex_combination = _restricted_master_problem.constraint("_convex_" + block_name).dual().value();
-    float reduced_cost = -dual_value_of_convex_combination + subproblem_model.objective().value();
-    output.reduced_cost(reduced_cost);
-    _L_LOG_(Release) << "Pricing problem was solved in " << subproblem_solver.last_execution_time() << ", and yielded a column"
-        << " with reduced cost = " <<  output.reduced_cost() << std::endl;
-
     // build column
-    for (LinkingConstraint& ctr : _dual_angular_model.linking_constraints()) {
+    for (LinkingConstraint &ctr : _dual_angular_model.linking_constraints())
         output.coefficient(ctr.user_defined_name(), ctr.block(block_name).feval());
-    }
+    output.objective_cost(_dual_angular_model.block(block_name).objective().expression().feval());
 
-    output.objective_cost( _dual_angular_model.block(block_name).objective().expression().feval() );
-
-    // add 1 to convex combinations if we have an extreme point
     if (subproblem_model.objective().status() == Optimal) {
+        float dual_value_of_convex_combination = _restricted_master_problem.constraint(
+                "_convex_" + block_name).dual().value();
+        reduced_cost = -dual_value_of_convex_combination + subproblem_model.objective().value();
+
+        // add convex combination coefficient
         output.coefficient("_convex_" + block_name, 1);
-    } else {
-        throw Exception("Only bounded subproblems are implemented for now");
     }
 
-    if (reduced_cost < 0 - Application::parameters().tolerance()) _last_iteration_improved = true;
+    output.reduced_cost(reduced_cost);
+
+    _L_LOG_(Release) << "Pricing problem was solved in " << subproblem_solver.last_execution_time()
+                     << ", and ended with status " << subproblem_model.objective().status()
+                     << " a column was generated with associated reduced cost = " << output.reduced_cost() << std::endl;
+
+    if (reduced_cost <= 0 - Application::parameters().tolerance()) _last_iteration_improved = true;
 
     return output;
 }

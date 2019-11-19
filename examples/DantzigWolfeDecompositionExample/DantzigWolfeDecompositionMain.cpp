@@ -34,12 +34,10 @@ int main() {
     model.add(objective);
     for (unsigned int j = 0 ; j < n_var_x ; j += 1) {
         model.add(x(j));
-        x(j).ub(1); // todo, deal with unbounded cases
         objective.expression() += (rand() % 10) * x(j);
     }
     for (unsigned int j = 0 ; j < n_var_y ; j += 1) {
         model.add(y(j));
-        y(j).ub(1); // todo, deal with unbounded cases
         objective.expression() += (rand() % 10) * y(j);
     }
     for (unsigned int i = 0 ; i < n_linking_ctr ; i += 1) {
@@ -62,27 +60,29 @@ int main() {
         subproblem_x(i).type(GreaterOrEqualTo);
     }
 
-    /* DantzigWolfeDecomposition<CplexAdapter> dw_solver(model);
-    dw_solver.add_decomposition("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
-    dw_solver.add_decomposition("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
-    dw_solver.decompose();
-    dw_solver.solve(); */
+    std::cout << "CPLEX direct" << std::endl;
+    DirectLPSolver<CplexAdapter> direct_solver(model);
+    direct_solver.solve();
+    direct_solver.export_to_file("direct.lp");
+    std::cout << "Status: " << objective.status() << std::endl;
+    std::cout << "Time  : " << direct_solver.last_execution_time() << std::endl;
+    if (objective.status() == Optimal) {
+        std::cout << "obj = " << objective.value() << std::endl;
+    }
+
+    std::cout << "\n";
 
     std::map<std::string, std::function<bool(const Variable&)>> indicators;
     indicators.insert({ "dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; } });
     indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
     DualAngularModel da_model(model, indicators);
-    std::cout << da_model << std::endl;
-  DantzigWolfe<CplexAdapter> dw_2(da_model);
+    DantzigWolfe<CplexAdapter> dw_2(da_model);
     dw_2.solve();
-
-    std::cout << "CPLEX direct" << std::endl;
-    DirectLPSolver<CplexAdapter> direct_solver(model);
-    direct_solver.solve();
-    direct_solver.export_to_file("direct.lp");
-    cout << "Status: " << objective.status() << endl;
+    std::cout << "Column Generation / Dantzig Wolfe" << std::endl;
+    std::cout << "Status: " << model.objective().status() << std::endl;
+    std::cout << "Time  : " << dw_2.last_execution_time() << std::endl;
     if (objective.status() == Optimal) {
-        std::cout << objective.value() << std::endl;
+        std::cout << "obj = " << objective.value() << std::endl;
     }
 
     return 0;

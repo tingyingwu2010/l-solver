@@ -94,6 +94,8 @@ void L::CplexAdapter::solve() {
 
     if (_objective == nullptr) throw Exception("Cannot solve model without objective");
 
+    _cplex->setParam(IloCplex::RootAlg, IloCplex::Primal);
+    _cplex->setParam(IloCplex::PreInd, false); // for getting extreme rays
     _cplex->solve();
 
     IloAlgorithm::Status status = _cplex->getStatus();
@@ -118,7 +120,6 @@ void L::CplexAdapter::lbds_expression_to_cplex(const L::Expression &lbds_expr, I
             ConstVariable var = current.as_variable();
             auto found = _variables.find(var.user_defined_name());
             if (found == _variables.end()) {
-                // todo implicit cast should be better expressed to user
                 _L_LOG_(Debug) << "Variable " << var.user_defined_name() << " was casted by value() to float" << std::endl;
                 result += var.value();
                 // throw Exception("Reference to undeclared variable");
@@ -151,7 +152,7 @@ L::ObjectiveStatus L::CplexAdapter::to_lbds(IloAlgorithm::Status status) {
         case IloAlgorithm::Optimal: return Optimal;
         case IloAlgorithm::Infeasible: return Infeasible;
         case IloAlgorithm::Unbounded: return Unbounded;
-        case IloAlgorithm::InfeasibleOrUnbounded: throw Exception("don't know what to do");
+        case IloAlgorithm::InfeasibleOrUnbounded: return Unbounded; // throw Exception("Don't know what to do");
         case IloAlgorithm::Error: return Error;
         default: throw Exception("Unknown CPLEX status");
     }
@@ -172,14 +173,25 @@ void L::CplexAdapter::save_more_results(bool primal, bool dual, bool reduced_cos
 }
 
 void L::CplexAdapter::save_results(bool primal, bool dual) {
-    if (primal)
-        for (auto& m : _variables) {
-            m.second.first->value(_cplex->getValue(*m.second.second));
-        }
 
-    if (dual)
-        for (auto& m : _constraints)
-            m.second.first->dual().value(_cplex->getDual(*m.second.second));
+    if (_lbds_objective->status() == Feasible || _lbds_objective->status() == Optimal) {
+        if (primal) {
+            for (auto &m : _variables)
+                m.second.first->value(_cplex->getValue(*m.second.second));
+        }
+        if (dual) {
+            for (auto &m : _constraints)
+                m.second.first->dual().value(_cplex->getDual(*m.second.second));
+        }
+    } else if (_lbds_objective->status() == Unbounded) {
+        IloNumArray result(*_env);
+        IloNumVarArray arr(*_env);
+        _cplex->getRay(result, arr);
+        for (auto &m : _variables) m.second.first->value(0);
+        for (unsigned int i = 0, n = result.getSize() ; i < n ; i += 1) {
+            _variables.find(arr[i].getName())->second.first->value(result[i]);
+        }
+    }
 }
 
 void L::CplexAdapter::rebuild_objective() {

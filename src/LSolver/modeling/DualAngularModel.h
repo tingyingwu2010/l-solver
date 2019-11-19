@@ -41,6 +41,8 @@ public:
     BlockIterator blocks() { return BlockIterator(_blocks); }
     LinkingConstraintIterator linking_constraints() { return LinkingConstraintIterator(_linking_constraints); }
 
+    Model& source_model() { return _src_model; }
+
     friend std::ostream& operator<<(std::ostream& os, const DualAngularModel& model);
 };
 

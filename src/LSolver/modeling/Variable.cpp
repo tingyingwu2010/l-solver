@@ -6,6 +6,7 @@
 #include "../environment/Environment.h"
 #include <iostream>
 #include <utility>
+#include <LSolver/application/Application.h>
 
 using namespace L;
 
@@ -43,8 +44,15 @@ void CoreVariable::type(VariableType type) {
 }
 
 void CoreVariable::value(float value) {
-    if (!(_lb <= value && value <= _ub))
+    float epsilon = Application::parameters().tolerance();
+    if (!(_lb - epsilon <= value && value <= _ub + epsilon))
         throw Exception("Value for " + _user_defined_name + " is out of bound: " + std::to_string(value) + " is not in [" + std::to_string(_lb) + ", " + std::to_string(_ub));
+    if (_lb > value) _value = _lb;
+    else if (_ub < value) _value = _ub;
+    else _value = value;
+}
+
+void CoreVariable::force_value_to(float value) {
     _value = value;
 }
 

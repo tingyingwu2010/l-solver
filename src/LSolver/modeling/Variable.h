@@ -43,6 +43,7 @@ public:
     virtual void reduced_cost(float) = 0; //!< updates variable's reduced cost
     virtual void type(VariableType) = 0; //!< updates variable's type
     virtual void priority(unsigned int) = 0; //<! update variable's priority for branching
+    virtual void force_value_to(float value) = 0;
 
     friend std::ostream& operator<<(std::ostream& os, const AbstractVariable& var);
 };
@@ -77,6 +78,7 @@ public:
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
     void type(VariableType type) override;
     void priority(unsigned int priority) override { _priority = priority; }
+    void force_value_to(float value) override;
 };
 
 /***
@@ -107,6 +109,7 @@ public:
     void reduced_cost(float reduced_cost) override { _core.reduced_cost(reduced_cost); }
     void type(VariableType type) override { _core.type(type); }
     void priority(unsigned int priority) override { _core.priority(priority); }
+    void force_value_to(float value) override { _core.force_value_to(value); }
 };
 
 class L::DetachedVariable : public CoreVariable {
@@ -124,6 +127,7 @@ class L::ConstVariable : public AbstractVariable {
     void reduced_cost(float reduced_cost) override {  }
     void type(VariableType type) override {  }
     void priority(unsigned int priority) override {  }
+    void force_value_to(float value) override {  }
 public:
     explicit ConstVariable(const CoreVariable& core);
     float value() const override { return _core.value(); }
