@@ -66,6 +66,12 @@ public:
     void add_detached(const Variable& variable);
     void add_detached(const Constraint& ctr);
     void add_detached(const Objective& obj);
+    void add(const Variable& variable) override { Model::add(variable); }
+    void add(const Constraint& ctr) override { Model::add(ctr); }
+    void add(const Objective& obj) override { Model::add(obj); }
+    void add(DetachedVariable& variable);
+    void add(DetachedConstraint& ctr);
+    void add(DetachedObjective& obj);
 
     void update_primal_values();
     void update_objective_value();

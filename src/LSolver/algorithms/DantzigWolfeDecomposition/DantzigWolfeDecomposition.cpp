@@ -44,11 +44,11 @@ template<class ExternalSolver>
 void L::DantzigWolfeDecomposition<ExternalSolver>::build_restricted_master_problem() {
     // add linking constraints and artificial variables
     for (LinkingConstraint& ctr : _model.linking_constraints()) {
-        DetachedConstraint& restricted_linking_constraint = *new DetachedConstraint(ctr, false); // todo, memory leak here
+        DetachedConstraint& restricted_linking_constraint = *new DetachedConstraint(ctr, false);
         restricted_linking_constraint.expression() = ctr.block("_default");
         Constraint casted = Constraint(restricted_linking_constraint);
         add_artificial_variable(casted);
-        _restricted_master_problem.add(Constraint(restricted_linking_constraint));
+        _restricted_master_problem.add(restricted_linking_constraint);
     }
 
     // add convex_constraints

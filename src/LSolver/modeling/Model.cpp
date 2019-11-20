@@ -154,4 +154,16 @@ void L::DetachedModel::update_objective_value() {
     _detached_objective->update_core_value();
 }
 
+void L::DetachedModel::add(L::DetachedVariable &variable) {
+    Model::add(Variable(variable));
+}
+
+void L::DetachedModel::add(L::DetachedConstraint &ctr) {
+    Model::add(Constraint(ctr));
+}
+
+void L::DetachedModel::add(L::DetachedObjective &obj) {
+    Model::add(Objective(obj));
+}
+
 
