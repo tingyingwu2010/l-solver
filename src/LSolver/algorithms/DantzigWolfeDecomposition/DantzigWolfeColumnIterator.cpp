@@ -2,6 +2,8 @@
 // Created by hlefebvr on 20/11/19.
 //
 
+#include "../../modeling/models/DetachedModel.h"
+
 template<class ExternalSolver>
 L::DantzigWolfeColumnIterator<ExternalSolver>::DantzigWolfeColumnIterator(L::Model &rmp, DualAngularModel& da_model)
         : _restricted_master_problem(rmp), _dual_angular_model(da_model) {

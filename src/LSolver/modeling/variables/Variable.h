@@ -17,25 +17,37 @@ namespace L {
     class Environment;
 }
 
-/***
- * \brief A variable is a representation of a core variable. Every modification to a variable is repeated to its core variable.
- * They may be seen as indirections to core variables.
+/**
+ * \brief Indirection to a core variable
+ * \details See the Modeling Objects page for implementation details and its relation with Variable, CoreVariable and DetachedVariable.
  */
 class L::Variable : public AbstractVariable {
 protected:
-    CoreVariable& _core;
+    CoreVariable& _core; //!< Reference to the constraint's core constraint
     friend class Expression;
     friend class DetachedVariable;
 public:
+    /**
+     * \brief Constructor. The constructor looks for an existing core variable in env, if none exists, one is created and
+     * the object refers to the newly created object. If there already exists a core variable with the given name, then
+     * the object refers to it.
+     * @param env the environment in charge of managing the memory for the core variable's
+     * @param name the variable name
+     */
     explicit Variable(Environment& env, const std::string& name);
+
+    /**
+     * \brief Constructor. The object is linked to its core variable given as parameter
+     * @param core the variable's core variable
+     */
     explicit Variable(CoreVariable& core);
+
     [[nodiscard]] float value() const override { return _core.value(); }
     [[nodiscard]] float ub() const override { return _core.ub(); }
     [[nodiscard]] float lb() const override { return _core.lb(); }
     [[nodiscard]] float reduced_cost() const override { return _core.reduced_cost(); }
     [[nodiscard]] const std::string& user_defined_name() const override { return _core.user_defined_name(); }
     [[nodiscard]] VariableType type() const override { return _core.type(); }
-    [[nodiscard]] Status status() const override { return Default; }
     [[nodiscard]] unsigned int priority() const override { return _core.priority(); }
 
     // setters
@@ -66,7 +78,6 @@ public:
     float reduced_cost() const override { return _core.reduced_cost(); }
     [[nodiscard]] const std::string& user_defined_name() const override { return _core.user_defined_name(); }
     VariableType type() const override { return _core.type(); }
-    Status status() const { return Default; }
     unsigned int priority() const override { return _core.priority(); }
 };
 

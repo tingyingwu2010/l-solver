@@ -73,7 +73,7 @@ add_library(LSolver
         LSolver/modeling/variables/CoreVariable.cpp
         LSolver/modeling/variables/CoreVariable.h
         LSolver/modeling/variables/DetachedVariable.cpp
-        LSolver/modeling/variables/DetachedVariable.h)
+        LSolver/modeling/variables/DetachedVariable.h LSolver/modeling/models/DetachedModel.cpp LSolver/modeling/models/DetachedModel.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(LSolver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})

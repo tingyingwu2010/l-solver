@@ -11,15 +11,24 @@ namespace L {
     class CoreObjective;
 }
 
+/**
+ * \brief Implements an objective.
+ * \details Like every core object, core objectives are the essence of what they represent in the sense that
+ * contrary to Objective's, it posesses its attributes. CoreObjective's should never be exposed to the user.
+ * Only the Environment class shall be allowed for their creation. Environment is in charge of core objective's memory.
+ */
 class L::CoreObjective : public AbstractObjective {
 protected:
-    Expression _expression;
-    std::string _user_defined_name;
-    ObjectiveStatus _status = Unsolved;
-    ObjectiveType _type = Minimize;
-    float _value = std::numeric_limits<float>::max();
+    Expression _expression; //!< objective's expression (see AbstractObjective)
+    std::string _user_defined_name; //!< objective's name
+    ObjectiveStatus _status = Unsolved; //!< objective's status (see AbstractObjective)
+    ObjectiveType _type = Minimize; //!< objective's type (see AbstractObjective)
+    float _value = std::numeric_limits<float>::max(); //!< objective's value
 public:
-    // constructor
+    /**
+     * \brief Constructor.
+     * @param user_defined_name objective's name
+     */
     explicit CoreObjective(const std::string& user_defined_name);
 
     // getters
