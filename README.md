@@ -15,8 +15,7 @@ a column-generation algorithm.
 - DirectLPSolver: solves an LP using its natural formulation
 - BranchAndBoundSolver: generic implementation of branch-and-bound algorithm
 - DirectBranchAndBoundSolver: branch-and-bound algorithm using any give direct solver (e.g., DirectLPSolver, DirectQPSolver, DirectNLPSolver)
-- ColumnGenerationSolver: column-generation algorithm for LPs and NLPs (i.e., inner-linear approximation)
-- BranchAndPriceSolver: branch-and-price algorithm for LPs and NLPs
+- ColumnGeneration: column-generation algorithm for LPs and NLPs (i.e., inner-linear approximation)
 - DantzigWolfeColumnGenerationSolver: generic solver for Dantzig-Wolfe decomposition for MILP sub-problems and LP master problem
 - DantzigWolfeBranchAndPriceSolver: generic solver for Dantzig-Wolfe decomposition for MILP sub-problems and master problem
 

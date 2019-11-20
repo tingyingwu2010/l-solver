@@ -1,53 +1,40 @@
 //
-// Created by hlefebvr on 16/11/19.
+// Created by hlefebvr on 19/11/19.
 //
 
-#ifndef LBDS_SOLVER_DANTZIGWOLFEDECOMPOSITION_H
-#define LBDS_SOLVER_DANTZIGWOLFEDECOMPOSITION_H
+#ifndef LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_H
+#define LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_H
 
-#include "../Solver.h"
+#include <LSolver/modeling/DualAngularModel.h>
+#include "../ColumnGeneration/ColumnGeneration.h"
+#include "DantzigWolfeColumnIterator.h"
 
 namespace L {
-    class DualAngularModel;
     template<class ExternalSolver> class DantzigWolfeDecomposition;
 }
 
 template<class ExternalSolver>
 class L::DantzigWolfeDecomposition : public Solver {
-    unsigned long int _column_counter = 0;
-    Model& _model;
-    Environment _dw_env; // will contain the convex constraint and the alphas
-    std::map<std::string, VariableIndicator> _indicators;
-    DualAngularModel* _decomposed_model = nullptr;
-    Model* _rmp_model = nullptr;
-    DirectLPSolver<ExternalSolver>* _rmp_solver = nullptr;
+    unsigned int _n_artificial_var = 0;
+    DualAngularModel& _model;
+    Model& _rmp_as_block;
+    DantzigWolfeColumnIterator<ExternalSolver>* _dw_column_generator = nullptr;
+    ColumnGeneration<ExternalSolver>* _cg_solver = nullptr;
 
-    // related to blocks and should be refactored
-    std::map<std::string, Constraint*> _convex_constraints;
-    std::map<std::string, DirectLPSolver<ExternalSolver>*> _subproblem_solvers;
-    std::map<std::string, Expression> _cost_functions;
+    // restricted master problem model
+    Environment _dw_env;
+    DetachedModel _restricted_master_problem;
 
-    // storing core/detached variables
-    std::map<std::string, DetachedConstraint*> _detached_constraints;
-
-    Constraint& convex_constraint(const std::string& block_name);
+    void add_artificial_variable(Constraint& ctr);
     void actually_solve() override;
-    void build_problems();
-    void add_column(const Variable& variable, Model& block);
-    void add_extreme_point(Model& block);
-    void add_extreme_ray(Model& block);
-public:
-    explicit DantzigWolfeDecomposition(Model& model);
-    ~DantzigWolfeDecomposition();
-
-    // From Solver
     void save_results() override;
+public:
+    ~DantzigWolfeDecomposition();
+    explicit DantzigWolfeDecomposition(DualAngularModel& model);
 
-    // User interface to create a DualAngularModel
-    void add_decomposition(const std::string& name, const VariableIndicator& indicator);
-    void decompose();
+    void build_restricted_master_problem();
 };
 
 #include "DantzigWolfeDecomposition.cpp"
 
-#endif //LBDS_SOLVER_DANTZIGWOLFEDECOMPOSITION_H
+#endif //LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_H

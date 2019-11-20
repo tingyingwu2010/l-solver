@@ -8,7 +8,6 @@
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
 #include <LSolver/modeling/Vector.h>
 #include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
-#include <LSolver/algorithms/DantzigWolfe/DantzigWolfe.h>
 
 using namespace std;
 using namespace L;
@@ -76,7 +75,7 @@ int main() {
     indicators.insert({ "dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; } });
     indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
     DualAngularModel da_model(model, indicators);
-    DantzigWolfe<CplexAdapter> dw_2(da_model);
+    DantzigWolfeDecomposition<CplexAdapter> dw_2(da_model);
     dw_2.solve();
     std::cout << "Column Generation / Dantzig Wolfe" << std::endl;
     std::cout << "Status: " << model.objective().status() << std::endl;

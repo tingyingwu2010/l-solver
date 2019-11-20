@@ -18,39 +18,24 @@ namespace L {
     class Column;
 }
 
-class L::Column {
-public:
-    typedef std::vector<std::pair<std::string, float>> Coefficients;
-private:
-    Coefficients _coefficients;
-    float _reduced_cost = 0;
-    float _objective_cost = 0;
-public:
-    float reduced_cost() const;
-    const Coefficients& coefficients() const;
-    float objective_cost() const;
-
-    void reduced_cost(float r);
-    void coefficient(const std::string& ctr, float coef);
-    void objective_cost(float c);
-};
-
-class L::ColumnIterator {
-public:
-    virtual Column get_next_column() = 0;
-    virtual bool is_done() = 0;
-};
-
+/**
+ * \brief Implements the generic column generation procedure.
+ * \details Column generation may be applied in cases where the number of variables is very large compare to the number of
+ * constraints provided that one posesses a polyhedral description of the aforementioned columns. Formally, we may consider
+ * the following model
+ * \f{align*}{ \textrm{minimize } & c^Tx + d^Ty \\ \textrm{s.t. } & Ax \ge b \\ & \sum_{i=j}^N t_{ij}x_j + \sum_{j|y_j\in\mathcal Y} h_{ij}y_j \ge f_i \quad \forall i = 1,...,M \f}
+ * where $\mathcal Y$ is a polyhedron. 
+ */
 template<class ExternalSolver>
 class L::ColumnGeneration : public Solver {
-    Environment _cg_env;
-    Model& _restricted_master_problem;
-    DirectLPSolver<ExternalSolver>& _restricted_master_problem_solver;
-    ColumnIterator& _column_iterator;
-    std::vector<Column> _generated_columns;
+    Environment _cg_env; //!< An environment storing the added variables
+    Model& _restricted_master_problem; //!< The restricted master problem model. It shall contain only a subset of columns
+    DirectLPSolver<ExternalSolver>& _restricted_master_problem_solver; //!< The solver used to solve the RMP to optimality
+    ColumnIterator& _column_iterator; //!< An iterator that iteratively solves the subproblem (to optimality or not) and returns columns to be addded
+    std::vector<Column> _generated_columns; //!< Contains the set of columns generated during the algorithm
 
     void actually_solve() override;
-    void add_column(const Column& column);
+    void add_column(const Column& column); //!< adds a column to the RMP
     void save_results() override;
 public:
     explicit ColumnGeneration(Model& model, ColumnIterator& column_iterator);

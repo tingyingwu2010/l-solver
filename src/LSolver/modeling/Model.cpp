@@ -67,6 +67,7 @@ L::Model::ConstraintIterator L::Model::constraints() {
 }
 
 L::Objective L::Model::objective() {
+    if (!_objective) throw Exception("No objective has been added");
     return Objective(*_objective);
 }
 

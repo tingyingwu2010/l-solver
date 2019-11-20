@@ -47,12 +47,15 @@ add_library(LSolver
         LSolver/application/ParameterManager.h
         LSolver/application/LogManager.h
         LSolver/application/enums.h
-        LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h
         LSolver/modeling/DualAngularModel.cpp
         LSolver/modeling/DualAngularModel.h
         LSolver/modeling/Row.h
         LSolver/algorithms/ColumnGeneration/ColumnGeneration.h
-        LSolver/algorithms/DantzigWolfe/DantzigWolfe.h)
+        LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h
+        LSolver/algorithms/ColumnGeneration/Column.cpp
+        LSolver/algorithms/ColumnGeneration/Column.h
+        LSolver/algorithms/ColumnGeneration/ColumnIterator.h
+        LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeColumnIterator.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(LSolver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})
