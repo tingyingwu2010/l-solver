@@ -40,7 +40,8 @@ void L::DirectLPSolver<ExternalSolver>::build_lp_model() {
         if (variable.type() == Binary) {
             DetachedVariable* x = new DetachedVariable(variable);
             x->type(Positive);
-            x->ub(1);
+            x->ub(variable.ub());
+            x->lb(variable.lb());
             _detached_variables.emplace_back(x);
             _solver.create_variable(Variable(*x));
         } else if (variable.type() == Integer) {

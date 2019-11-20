@@ -19,8 +19,11 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
             NodeClass& node = pull_node_to_be_processed();
             _L_LOG_(Debug) << "Solving node " << node.id() << "..." << std::endl;
             node.solve();
-            _L_LOG_(Release) << "Node " << node.id() << " was solved in " << node.last_execution_time() << "s, vertex: "
+            _L_LOG_(Release) << "Node " << node.id() << " was solved in " << node.last_execution_time()
+                << "s, and ended with status " << node.solution().objective_status()
+                << ", vertex: "
                 << node.solution().is_feasible() << ", LB = " << node.solution().objective_value() << "" << std::endl;
+            if (node.solution().objective_status() == Unbounded) { _unbounded = true; return; }
             bound(node);
         }
 
@@ -29,13 +32,6 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
         NodeClass &node = select_node_for_branching();
         branch(node);
 
-    }
-
-    if (!_incumbent) { // then the problem is infeasible
-        _model.objective().status(ObjectiveStatus::Infeasible);
-    } else {
-        _model.objective().status(ObjectiveStatus::Optimal);
-        // todo copy solution informations
     }
 
 }
@@ -68,6 +64,8 @@ void L::BranchAndBound<NodeClass>::bound(NodeClass &node) {
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
+    if (node.solution().objective_status() == Infeasible) return;
+
     Variable branching_variable = (*_branching_rule)(node);
     _L_LOG_(Debug) << "Branching rule selected variable " << branching_variable.user_defined_name() << ", current bounds: "
         << branching_variable.lb() << ", " << branching_variable.ub() << ", value = " << branching_variable.value() << "" << std::endl;
@@ -107,16 +105,16 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::fathom_dominated_nodes() {
     const float tolerance = Application::parameters().tolerance();
+
     if (!_incumbent) {
-        _L_LOG_(Debug) << "No incumbent has been found so far, fathoming is not performed" << std::endl;
-        return;
+        _L_LOG_(Debug) << "No incumbent has been found so far, only fathoming infeasible nodes (if any)" << std::endl;
     }
 
-    const float incumbent_objective_value = _incumbent->solution().objective_value();
+    const float incumbent_objective_value = _incumbent ? _incumbent->solution().objective_value() : std::numeric_limits<float>::max();
     for (auto it = _active_nodes.cbegin(), end = _active_nodes.cend(); it != end; ++it) {
         NodeClass &node = **it;
         if (!node.solved()) continue;
-        if (node.solution().objective_value() + tolerance >= incumbent_objective_value) { // todo maximization
+        if (node.solution().objective_status() == Infeasible || node.solution().objective_value() + tolerance >= incumbent_objective_value) {
             _active_nodes.erase(it);
             _L_LOG_(Release) << "Node " << node.id() << " was fathomed because LB = " << node.solution().objective_value() << " >= " << incumbent_objective_value << " = UB" << std::endl;
             it--;
@@ -153,8 +151,16 @@ bool L::BranchAndBound<NodeClass>::solution_improves_incumbent(NodeClass& node) 
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::save_results() {
+
+    if (_unbounded) {
+        _model.objective().status(Unbounded);
+        _model.objective().value(std::numeric_limits<float>::lowest());
+        _L_LOG_(Release) << "Problem was found to be unbounded" << std::endl;
+        return;
+    }
+
     if (!_incumbent) {
-        _model.objective().status(ObjectiveStatus::Infeasible);
+        _model.objective().status(Infeasible);
         _L_LOG_(Release) << "No feasible solution was found" << std::endl;
         return;
     }

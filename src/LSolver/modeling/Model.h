@@ -11,6 +11,7 @@
 #include "Variable.h"
 #include "Constraint.h"
 #include "../structures/MapIterator.h"
+#include "Vector.h"
 
 namespace L {
     class Model;
@@ -35,6 +36,8 @@ public:
     virtual void add(const Variable& variable);
     virtual void add(const Constraint& constraint);
     virtual void add(const Objective& objective);
+    virtual void add(VariableVector& vec);
+    virtual void add(ConstraintVector& vec);
 
     virtual void remove(const Variable& variable);
     virtual void remove(const Constraint& constraint);

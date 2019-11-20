@@ -152,7 +152,7 @@ L::ObjectiveStatus L::CplexAdapter::to_lbds(IloAlgorithm::Status status) {
         case IloAlgorithm::Optimal: return Optimal;
         case IloAlgorithm::Infeasible: return Infeasible;
         case IloAlgorithm::Unbounded: return Unbounded;
-        case IloAlgorithm::InfeasibleOrUnbounded: return Unbounded; // throw Exception("Don't know what to do");
+        case IloAlgorithm::InfeasibleOrUnbounded: throw Exception("CPLEX ended with status \"InfeasibleOrUnbounded\" ");
         case IloAlgorithm::Error: return Error;
         default: throw Exception("Unknown CPLEX status");
     }

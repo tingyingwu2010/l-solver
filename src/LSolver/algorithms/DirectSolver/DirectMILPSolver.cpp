@@ -17,6 +17,8 @@ void L::DirectMILPSolver<ExternalSolver>::save_results() {
     ObjectiveStatus status = _model.objective().status();
     if (status == Optimal || status == Feasible)
         _solver.save_results(true, false);
+    if (status == Unbounded)
+        _model.objective().value(std::numeric_limits<float>::lowest());
 }
 
 template<class ExternalSolver>

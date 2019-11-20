@@ -39,6 +39,8 @@ L::BranchAndBoundNode::BranchAndBoundNode(L::Model &src) : _model(src) {
 }
 
 void L::BranchAndBoundNode::save_results() {
+    _objective_status = _model.objective().status();
+    _objective_value = _model.objective().value();
     for (auto& ptr : _variables) {
         if (ptr.second->priority() == 0) continue;
         if (ptr.second->value() != ptr.second->ub() && ptr.second->value() != ptr.second->lb()) {

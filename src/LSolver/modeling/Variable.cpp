@@ -50,6 +50,16 @@ void CoreVariable::force_value_to(float value) {
     _value = value;
 }
 
+void CoreVariable::ub(float ub) {
+    if (ub < _lb) throw Exception("Trying to set contradictory bounds");
+    _ub = ub;
+}
+
+void CoreVariable::lb(float lb) {
+    if (lb > _ub) throw Exception("Trying to set contradictory bounds");
+    _lb = lb;
+}
+
 std::ostream &L::operator<<(std::ostream &os, const AbstractVariable &var) {
     os << "(Variable) " << var.lb() << " <= " << var.user_defined_name() << " <= " << var.ub() << ", " << var.type();
     return os;

@@ -3,6 +3,8 @@
 #include "modeling/VariableTests.h"
 #include "modeling/ExpressionTests.h"
 #include "algorithms/DirectLPSolver.h"
+#include "algorithms/DirectMILPSolver.h"
+#include "algorithms/MILPBranchAndBound.h"
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

@@ -11,6 +11,7 @@
 #include "../../structures/MapIterator.h"
 #include "../../utils/Exception.h"
 #include "../../modeling/Model.h"
+#include "../../modeling/Objective.h"
 
 namespace L {
     class BranchAndBoundNode;
@@ -23,6 +24,7 @@ protected:
     bool _solved = false;
     bool _is_feasible = false;
     float _objective_value = 0;
+    ObjectiveStatus _objective_status = Unsolved;
     std::map<std::string, DetachedVariable*> _variables;
     const unsigned long int _id = _branch_and_bound_node_id++;
 public:
@@ -47,6 +49,7 @@ public:
     explicit Solution(BranchAndBoundNode& parent) : _parent(parent), MapIterator<std::string, DetachedVariable, Variable>(parent._variables) {}
     bool is_feasible() { return _parent._is_feasible; }
     float objective_value() { return _parent._objective_value; }
+    ObjectiveStatus objective_status() { return _parent._objective_status; }
     void update();
 };
 

@@ -23,6 +23,7 @@ protected:
     std::vector<NodeClass*> _active_nodes;
     std::stack<NodeClass*> _nodes_to_be_processed;
     NodeClass* _incumbent = nullptr;
+    bool _unbounded = false;
     void actually_solve() override;
 
     bool has_active_nodes() const;

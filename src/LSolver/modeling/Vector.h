@@ -30,7 +30,7 @@ public:
     ~Vector();
     Vector(Environment& env, std::string  user_defined_name, unsigned long int dimension = 1);
     Component operator()(unsigned long int i, ...);
-    ComponentIterator components() const;
+    ComponentIterator components();
 };
 
 template<class Component>
@@ -65,7 +65,7 @@ L::Vector<Component>::~Vector() {
 }
 
 template<class Component>
-typename L::Vector<Component>::ComponentIterator L::Vector<Component>::components() const {
+typename L::Vector<Component>::ComponentIterator L::Vector<Component>::components() {
     return ComponentIterator(_components);
 }
 

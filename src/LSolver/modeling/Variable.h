@@ -73,8 +73,8 @@ public:
 
     // setters
     void value(float value) override;
-    void ub(float ub) override { _ub = ub; }
-    void lb(float lb) override { _lb = lb; }
+    void ub(float ub) override;
+    void lb(float lb) override;
     void reduced_cost(float reduced_cost) override { _reduced_cost = reduced_cost; }
     void type(VariableType type) override;
     void priority(unsigned int priority) override { _priority = priority; }

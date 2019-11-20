@@ -103,6 +103,14 @@ L::Constraint L::Model::constraint(const std::string name) {
     return *found->second;
 }
 
+void L::Model::add(L::VariableVector &vec) {
+    for (const Variable& x : vec.components()) add(x);
+}
+
+void L::Model::add(L::ConstraintVector &vec) {
+    for (const Constraint& ctr : vec.components()) add(ctr);
+}
+
 ////////////// DETACHED MODEL
 
 L::DetachedModel::DetachedModel(L::Model &src) : Model(src.user_defined_name()), _src(src) {
