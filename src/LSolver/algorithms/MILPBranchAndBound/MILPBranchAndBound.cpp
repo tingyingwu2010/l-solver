@@ -18,13 +18,11 @@ L::MILPBranchAndBoundNode<ExternalSolver>::MILPBranchAndBoundNode(const L::MILPB
 
 template<class ExternalSolver>
 void L::MILPBranchAndBoundNode<ExternalSolver>::actually_solve() {
-    Model detached_model; // todo need to implement detached model
+    Model detached_model;
     for (auto &m : _variables) detached_model.add(Variable(*m.second));
     for (Constraint m : _model.constraints()) detached_model.add(m);
     detached_model.add(_model.objective());
 
     DirectLPSolver<ExternalSolver> solver(detached_model);
     solver.solve();
-    _solved = true;
-    _objective_value = _model.objective().value();
 }

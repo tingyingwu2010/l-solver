@@ -28,7 +28,7 @@ L::BranchAndBoundNode::~BranchAndBoundNode() {
     for (auto& m : _variables) delete m.second;
 }
 
-L::BranchAndBoundNode::BranchAndBoundNode(const L::BranchAndBoundNode &src) : _solved(false), _is_feasible(false), _model(src._model) {
+L::BranchAndBoundNode::BranchAndBoundNode(const L::BranchAndBoundNode &src) : _is_feasible(false), _model(src._model) {
     for (auto& m : src._variables)
         _variables.insert({ m.first, new DetachedVariable(*m.second) });
 }

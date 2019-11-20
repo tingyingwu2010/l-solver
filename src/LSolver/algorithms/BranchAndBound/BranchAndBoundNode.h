@@ -21,7 +21,6 @@ class L::BranchAndBoundNode : public Solver {
     static unsigned long int _branch_and_bound_node_id;
 protected:
     Model& _model;
-    bool _solved = false;
     bool _is_feasible = false;
     float _objective_value = 0;
     ObjectiveStatus _objective_status = Unsolved;
@@ -36,7 +35,7 @@ public:
     ~BranchAndBoundNode();
     virtual void upper_bound(const Variable& variable, float ub);
     virtual void lower_bound(const Variable& variable, float lb);
-    virtual bool solved() const { return _solved; }
+    virtual bool solved() const { return _objective_status != Unsolved; }
     virtual void save_results() override;
     unsigned long int id() const { return _id; }
     Solution solution();
