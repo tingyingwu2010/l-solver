@@ -8,7 +8,7 @@
 #include <vector>
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
 #include <LSolver/environment/Environment.h>
-#include "../../modeling/Model.h"
+#include "LSolver/modeling/models/Model.h"
 #include "../Solver.h"
 
 namespace L {

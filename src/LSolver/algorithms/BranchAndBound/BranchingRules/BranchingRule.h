@@ -5,8 +5,8 @@
 #ifndef LBDS_SOLVER_BRANCHINGRULE_H
 #define LBDS_SOLVER_BRANCHINGRULE_H
 
-#include "../../../modeling/Model.h"
-#include "../../../modeling/Variable.h"
+#include "LSolver/modeling/models/Model.h"
+#include "LSolver/modeling/variables/Variable.h"
 #include "../BranchAndBoundNode.h"
 
 namespace L {

@@ -8,9 +8,10 @@
 #include <vector>
 #include <map>
 #include "../utils/Exception.h"
-#include "../modeling/Constraint.h"
-#include "../modeling/Variable.h"
-#include "../modeling/Objective.h"
+#include "LSolver/modeling/constraints/Constraint.h"
+#include "LSolver/modeling/variables/Variable.h"
+#include "LSolver/modeling/objectives/Objective.h"
+#include "LSolver/modeling/objectives/CoreObjective.h"
 
 namespace L {
     class Environment;

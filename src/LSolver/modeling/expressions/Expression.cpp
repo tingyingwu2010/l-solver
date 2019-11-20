@@ -7,8 +7,8 @@
 #include <sstream>
 #include <map>
 #include "Expression.h"
-#include "Variable.h"
-#include "../utils/Exception.h"
+#include "LSolver/modeling/variables/Variable.h"
+#include "LSolver/utils/Exception.h"
 
 unsigned long int L::Expression::_expression_id = 0;
 

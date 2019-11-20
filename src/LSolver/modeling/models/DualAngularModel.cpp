@@ -3,7 +3,7 @@
 //
 
 #include "DualAngularModel.h"
-#include "Objective.h"
+#include "LSolver/modeling/objectives/Objective.h"
 
 #include <utility>
 #include <iostream>
@@ -112,7 +112,7 @@ void L::DualAngularModel::dispatch_in_blocks(Constraint &row, const std::map<std
 
 std::ostream &L::operator<<(std::ostream &os, const L::DualAngularModel &model) {
     os << "Dual Angular Model: " << std::endl;
-    for (auto& m : model._linking_constraints) os << "Linking constraint \"" << m.first << "\": " << *m.second << std::endl;
+    for (auto& m : model._linking_constraints) os << "Linking constraints \"" << m.first << "\": " << *m.second << std::endl;
     for (auto& m : model._blocks) os << "Defined block \" " + m.first + " \": " << std::endl << *m.second << std::endl;
     return os;
 }

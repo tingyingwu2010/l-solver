@@ -6,8 +6,8 @@
 #define LSOLVERPROJECT_DANTZIGWOLFECOLUMNITERATOR_H
 
 #include "../ColumnGeneration/ColumnIterator.h"
-#include "../../modeling/Model.h"
-#include "../../modeling/DualAngularModel.h"
+#include "LSolver/modeling/models/Model.h"
+#include "LSolver/modeling/models/DualAngularModel.h"
 #include "../DirectSolver/DirectLPSolver.h"
 
 namespace L {

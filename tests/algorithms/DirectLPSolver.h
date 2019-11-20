@@ -5,8 +5,8 @@
 #ifndef LSOLVERPROJECT_DIRECTLPSOLVER_H
 #define LSOLVERPROJECT_DIRECTLPSOLVER_H
 
-#include <LSolver/modeling/Model.h>
-#include <LSolver/modeling/Vector.h>
+#include <LSolver/modeling/models/Model.h>
+#include <LSolver/modeling/vectors/Vector.h>
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
 #include <LSolver/adapters/CplexAdapter.h>
 #include "gtest/gtest.h"

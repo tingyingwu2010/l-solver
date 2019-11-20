@@ -3,4 +3,4 @@
 //
 
 #include "Environment.h"
-#include "../modeling/Constraint.h"
+#include "LSolver/modeling/constraints/Constraint.h"

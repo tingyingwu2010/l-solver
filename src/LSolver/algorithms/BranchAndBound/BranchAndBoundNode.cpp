@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "BranchAndBoundNode.h"
-#include "../../modeling/Objective.h"
+#include "LSolver/modeling/objectives/Objective.h"
 
 unsigned long int L::BranchAndBoundNode::_branch_and_bound_node_id = 0;
 

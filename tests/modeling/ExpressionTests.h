@@ -9,8 +9,8 @@
 #include <map>
 #include <vector>
 #include <functional>
-#include <LSolver/modeling/Variable.h>
-#include <LSolver/modeling/Expression.h>
+#include <LSolver/modeling/variables/Variable.h>
+#include <LSolver/modeling/expressions/Expression.h>
 
 using namespace L;
 

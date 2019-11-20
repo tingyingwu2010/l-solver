@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_H
 #define LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_H
 
-#include <LSolver/modeling/DualAngularModel.h>
+#include <LSolver/modeling/models/DualAngularModel.h>
 #include "../ColumnGeneration/ColumnGeneration.h"
 #include "DantzigWolfeColumnIterator.h"
 

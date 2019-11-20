@@ -3,6 +3,7 @@
 //
 
 #include <regex>
+#include "../../modeling/constraints/DetachedConstraint.h"
 
 template<class ExternalSolver>
 L::DantzigWolfeDecomposition<ExternalSolver>::~DantzigWolfeDecomposition() {
@@ -36,7 +37,7 @@ void L::DantzigWolfeDecomposition<ExternalSolver>::add_artificial_variable(L::Co
         case LessOrEqualTo: ctr.expression() -= artificial_variable(); break;
         case GreaterOrEqualTo: ctr.expression() += artificial_variable(); break;
         case EqualTo: ctr.expression() += artificial_variable() - artificial_variable(); break;
-        default: throw Exception("Unknown constraint type: " + std::to_string(ctr.type()));
+        default: throw Exception("Unknown constraints type: " + std::to_string(ctr.type()));
     }
 }
 

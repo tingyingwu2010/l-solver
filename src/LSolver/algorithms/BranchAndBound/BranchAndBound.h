@@ -8,7 +8,7 @@
 #include <functional>
 #include <stack>
 #include "../Solver.h"
-#include "../../modeling/Variable.h"
+#include "LSolver/modeling/variables/Variable.h"
 #include "BranchingRules/BranchingRule.h"
 
 namespace L {

@@ -6,8 +6,8 @@
 
 #include <LSolver/application/LogManager.h>
 #include <LSolver/environment/Environment.h>
-#include <LSolver/modeling/Model.h>
-#include <LSolver/modeling/Vector.h>
+#include <LSolver/modeling/models/Model.h>
+#include <LSolver/modeling/vectors/Vector.h>
 #include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
 #include <LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h>
 #include <LSolver/algorithms/DirectSolver/DirectMILPSolver.h>

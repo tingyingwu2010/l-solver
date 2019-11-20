@@ -9,7 +9,7 @@
 #include <string>
 #include <map>
 #include <functional>
-#include "../utils/Exception.h"
+#include "LSolver/utils/Exception.h"
 
 namespace L {
     enum ExpressionType { Num, Var, Prod, Sum, Sqrt, Exp, Pow, Ln }; // cos, sin, ...

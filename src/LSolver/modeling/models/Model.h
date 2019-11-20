@@ -8,15 +8,17 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "Variable.h"
-#include "Constraint.h"
-#include "../structures/MapIterator.h"
-#include "Vector.h"
+#include "LSolver/modeling/variables/Variable.h"
+#include "LSolver/modeling/variables/DetachedVariable.h"
+#include "LSolver/modeling/constraints/Constraint.h"
+#include "LSolver/structures/MapIterator.h"
+#include "LSolver/modeling/vectors/Vector.h"
 
 namespace L {
     class Model;
     class DetachedModel;
     class DetachedObjective;
+    class DetachedConstraint;
     class Objective;
     std::ostream& operator<<(std::ostream& os, const Model& model);
 }

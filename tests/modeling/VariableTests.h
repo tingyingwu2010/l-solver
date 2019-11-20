@@ -3,8 +3,9 @@
 //
 
 #include "gtest/gtest.h"
-#include <LSolver/modeling/Variable.h>
+#include <LSolver/modeling/variables/Variable.h>
 #include <LSolver/environment/Environment.h>
+#include <LSolver/modeling/variables/DetachedVariable.h>
 
 using namespace L;
 

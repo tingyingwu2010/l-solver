@@ -66,7 +66,7 @@ void L::CplexAdapter::create_constraint(const L::Constraint &constraint) {
         case EqualTo:
             cplex_constraint = new IloRange(cplex_expr == 0);
             break;
-        default: throw Exception("Unknown constraint type");
+        default: throw Exception("Unknown constraints type");
     }
 
     cplex_constraint->setName(constraint.user_defined_name().c_str());
@@ -207,7 +207,7 @@ void L::CplexAdapter::rebuild_objective() {
 
 void L::CplexAdapter::remove_constraint(const L::Constraint &ctr) {
     auto found = _constraints.find(ctr.user_defined_name());
-    if (found == _constraints.end()) throw Exception("Cannot remove undeclared constraint");
+    if (found == _constraints.end()) throw Exception("Cannot remove undeclared constraints");
     found->second.second->end();
     delete found->second.second;
     _constraints.erase(found);

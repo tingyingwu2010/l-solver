@@ -1,12 +1,12 @@
 #include <iostream>
 
 #include <LSolver/environment/Environment.h>
-#include <LSolver/modeling/Variable.h>
-#include <LSolver/modeling/Expression.h>
-#include <LSolver/modeling/Model.h>
+#include <LSolver/modeling/variables/Variable.h>
+#include <LSolver/modeling/expressions/Expression.h>
+#include <LSolver/modeling/models/Model.h>
 #include <LSolver/adapters/CplexAdapter.h>
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
-#include <LSolver/modeling/Vector.h>
+#include <LSolver/modeling/vectors/Vector.h>
 #include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
 
 using namespace std;

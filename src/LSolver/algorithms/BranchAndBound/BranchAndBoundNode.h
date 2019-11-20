@@ -7,11 +7,11 @@
 
 #include <map>
 #include "../Solver.h"
-#include "../../modeling/Variable.h"
+#include "LSolver/modeling/variables/Variable.h"
 #include "../../structures/MapIterator.h"
 #include "../../utils/Exception.h"
-#include "../../modeling/Model.h"
-#include "../../modeling/Objective.h"
+#include "LSolver/modeling/models/Model.h"
+#include "LSolver/modeling/objectives/Objective.h"
 
 namespace L {
     class BranchAndBoundNode;

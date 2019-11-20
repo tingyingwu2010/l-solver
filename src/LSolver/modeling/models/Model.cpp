@@ -6,10 +6,13 @@
 
 #include <utility>
 #include <fstream>
-#include "Variable.h"
-#include "Constraint.h"
-#include "Expression.h"
-#include "Objective.h"
+#include "LSolver/modeling/variables/Variable.h"
+#include "LSolver/modeling/constraints/Constraint.h"
+#include "LSolver/modeling/expressions/Expression.h"
+#include "LSolver/modeling/objectives/Objective.h"
+#include "LSolver/modeling/objectives/DetachedObjective.h"
+#include "../constraints/DetachedConstraint.h"
+#include "../variables/DetachedVariable.h"
 
 L::Model::Model(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 
@@ -27,7 +30,7 @@ void L::Model::add(const L::Variable &variable) {
 
 void L::Model::add(const L::Constraint &constraint) {
     auto found = _constraints.find(constraint.user_defined_name());
-    if (found != _constraints.end()) throw Exception("A constraint has already been declared under that name: " + constraint.user_defined_name());
+    if (found != _constraints.end()) throw Exception("A constraints has already been declared under that name: " + constraint.user_defined_name());
     _constraints.insert({ constraint.user_defined_name(), new Constraint(constraint) });
 }
 
@@ -45,7 +48,7 @@ void L::Model::remove(const L::Variable &variable) {
 
 void L::Model::remove(const L::Constraint &constraint) {
     auto found = _constraints.find(constraint.user_defined_name());
-    if (found == _constraints.end()) throw Exception("Cannot remove non existing constraint");
+    if (found == _constraints.end()) throw Exception("Cannot remove non existing constraints");
     _constraints.erase(found);
     delete found->second;
 }

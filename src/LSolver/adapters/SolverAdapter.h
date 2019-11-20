@@ -5,9 +5,9 @@
 #ifndef ED_SOLVER_SOLVERADAPTER_H
 #define ED_SOLVER_SOLVERADAPTER_H
 
-#include "../modeling/Constraint.h"
-#include "../modeling/Variable.h"
-#include "../modeling/Objective.h"
+#include "LSolver/modeling/constraints/Constraint.h"
+#include "LSolver/modeling/variables/Variable.h"
+#include "LSolver/modeling/objectives/Objective.h"
 
 namespace L {
     class SolverAdapter;

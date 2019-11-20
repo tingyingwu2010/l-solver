@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DUALANGULARMODELTEST_H
 #define LSOLVERPROJECT_DUALANGULARMODELTEST_H
 
-#include <LSolver/modeling/DualAngularModel.h>
+#include <LSolver/modeling/models/DualAngularModel.h>
 
 TEST(dual_angular_model, nominal_case) {
     Environment env;

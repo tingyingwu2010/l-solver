@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_TEST_H
 #define LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_TEST_H
 
-#include <LSolver/modeling/DualAngularModel.h>
+#include <LSolver/modeling/models/DualAngularModel.h>
 #include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
 
 TEST(dantzig_wolfe_cg, optimal) {

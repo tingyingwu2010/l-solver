@@ -5,9 +5,9 @@
 #ifndef LSOLVERPROJECT_DUALANGULARMODEL_H
 #define LSOLVERPROJECT_DUALANGULARMODEL_H
 
-#include "../application/enums.h"
-#include "Model.h"
-#include "../environment/Environment.h"
+#include "LSolver/application/enums.h"
+#include "LSolver/modeling/models/Model.h"
+#include "LSolver/environment/Environment.h"
 
 namespace L {
     class DualAngularModel;
