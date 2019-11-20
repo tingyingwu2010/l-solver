@@ -3,7 +3,6 @@
 //
 
 #include <regex>
-#include "DantzigWolfeDecomposition.h"
 
 template<class ExternalSolver>
 L::DantzigWolfeDecomposition<ExternalSolver>::~DantzigWolfeDecomposition() {
@@ -19,7 +18,7 @@ L::DantzigWolfeDecomposition<ExternalSolver>::DantzigWolfeDecomposition(L::DualA
 {
     build_restricted_master_problem();
     _dw_column_generator = new DantzigWolfeColumnIterator<ExternalSolver>(_restricted_master_problem, _model);
-    _cg_solver = new ColumnGeneration<ExternalSolver>(_restricted_master_problem, *_dw_column_generator);
+    _cg_solver = new ColumnGeneration<ExternalSolver>(_dw_env, _restricted_master_problem, *_dw_column_generator);
 }
 
 template<class ExternalSolver>
@@ -45,7 +44,7 @@ template<class ExternalSolver>
 void L::DantzigWolfeDecomposition<ExternalSolver>::build_restricted_master_problem() {
     // add linking constraints and artificial variables
     for (LinkingConstraint& ctr : _model.linking_constraints()) {
-        DetachedConstraint& restricted_linking_constraint = *new DetachedConstraint(ctr, false);
+        DetachedConstraint& restricted_linking_constraint = *new DetachedConstraint(ctr, false); // todo, memory leak here
         restricted_linking_constraint.expression() = ctr.block("_default");
         Constraint casted = Constraint(restricted_linking_constraint);
         add_artificial_variable(casted);

@@ -198,7 +198,6 @@ TEST(dantzig_wolfe_cg, random) {
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();
 
-        std::cout << dw_status << " -> " << dw_objective << std::endl;
         EXPECT_EQ(dw_status, cplex_status);
         EXPECT_FLOAT_EQ(dw_objective, cplex_objective);
     }

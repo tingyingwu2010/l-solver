@@ -28,7 +28,7 @@ namespace L {
  */
 template<class ExternalSolver>
 class L::ColumnGeneration : public Solver {
-    Environment _cg_env; //!< An environment storing the added variables
+    Environment& _env; //!< An environment storing the added variables
     Model& _restricted_master_problem; //!< The restricted master problem model. It shall contain only a subset of columns
     DirectLPSolver<ExternalSolver>& _restricted_master_problem_solver; //!< The solver used to solve the RMP to optimality
     ColumnIterator& _column_iterator; //!< An iterator that iteratively solves the subproblem (to optimality or not) and returns columns to be addded
@@ -38,7 +38,7 @@ class L::ColumnGeneration : public Solver {
     void add_column(const Column& column); //!< adds a column to the RMP
     void save_results() override;
 public:
-    explicit ColumnGeneration(Model& model, ColumnIterator& column_iterator);
+    explicit ColumnGeneration(Environment& env, Model& model, ColumnIterator& column_iterator);
     ~ColumnGeneration();
 };
 

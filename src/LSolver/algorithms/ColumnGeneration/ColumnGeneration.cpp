@@ -6,8 +6,9 @@
 #include "ColumnIterator.h"
 
 template<class ExternalSolver>
-L::ColumnGeneration<ExternalSolver>::ColumnGeneration(L::Model &restricted_master_problem, L::ColumnIterator &column_iterator)
-    : _column_iterator(column_iterator),
+L::ColumnGeneration<ExternalSolver>::ColumnGeneration(Environment& env, L::Model &restricted_master_problem, L::ColumnIterator &column_iterator)
+    : _env(env),
+    _column_iterator(column_iterator),
     _restricted_master_problem(restricted_master_problem),
     _restricted_master_problem_solver(*new DirectLPSolver<ExternalSolver>(_restricted_master_problem)) {
 }
@@ -48,7 +49,7 @@ void L::ColumnGeneration<ExternalSolver>::actually_solve() {
 
 template<class ExternalSolver>
 void L::ColumnGeneration<ExternalSolver>::add_column(const L::Column &column) {
-    Variable alpha = Variable(_cg_env, "_alpha_" + std::to_string(_generated_columns.size()));
+    Variable alpha = Variable(_env, "_alpha_" + std::to_string(_generated_columns.size()));
     _restricted_master_problem.add(alpha);
     _restricted_master_problem_solver.add_variable(alpha);
     for (const auto& coefficient : column.coefficients()) {

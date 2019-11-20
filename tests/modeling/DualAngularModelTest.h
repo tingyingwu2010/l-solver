@@ -54,7 +54,7 @@ TEST(dual_angular_model, nominal_case) {
     indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
     DualAngularModel da_model(model, indicators);
 
-    std::cout << da_model << std::endl;
+    // todo, add some test
 }
 
 #endif //LSOLVERPROJECT_DUALANGULARMODELTEST_H

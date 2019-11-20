@@ -84,7 +84,12 @@ void L::DantzigWolfeColumnIterator<ExternalSolver>::next_subproblem() {
 }
 
 template<class ExternalSolver>
-L::DantzigWolfeColumnIterator<ExternalSolver>::~DantzigWolfeColumnIterator() {}
+L::DantzigWolfeColumnIterator<ExternalSolver>::~DantzigWolfeColumnIterator() {
+    for (auto& m : _subproblems) {
+        delete m.second;
+        delete m.first;
+    }
+}
 
 template<class ExternalSolver>
 bool L::DantzigWolfeColumnIterator<ExternalSolver>::is_done() {

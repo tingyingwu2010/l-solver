@@ -29,27 +29,6 @@ int main() {
     const unsigned int n_linking_ctr = 15;
     const unsigned int n_subprob_ctr = 5;
 
-    /* std::cout << "objective.expression() = 0";
-    for (unsigned int j = 0 ; j < n_var_x ; j += 1) std::cout << " + " + std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ")";
-    for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << " + " + std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ")";
-    std::cout << ";" << std::endl;
-    for (unsigned int i = 0 ; i < n_linking_ctr ; i += 1) {
-        std::cout << "linking_constraints(" + std::to_string(i) + ").expression() = ";
-        for (unsigned int j = 0 ; j < n_var_x ; j += 1) std::cout << std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ") + ";
-        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ") + ";
-        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
-    }
-    for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
-        std::cout << "subproblem_y(" + std::to_string(i) + ").expression() = ";
-        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ") + ";
-        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
-    }
-    for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
-        std::cout << "subproblem_x(" + std::to_string(i) + ").expression() = ";
-        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ") + ";
-        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
-    } */
-
     for (unsigned int j = 0 ; j < n_var_x ; j += 1) objective.expression() += (rand() % 10) * x(j);
     for (unsigned int j = 0 ; j < n_var_y ; j += 1) objective.expression() += (rand() % 10) * y(j);
     for (unsigned int i = 0 ; i < n_linking_ctr ; i += 1) {
