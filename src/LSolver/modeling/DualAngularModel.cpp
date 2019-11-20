@@ -8,13 +8,12 @@
 #include <utility>
 #include <iostream>
 
-L::DualAngularModel::DualAngularModel(L::Model &model, const std::map<std::string, VariableIndicator> &indicators)
-    : _src_model(model)
+L::DualAngularModel::DualAngularModel(L::Model &model) : _src_model(model) {}
+
+L::DualAngularModel::DualAngularModel(L::Model &model, std::map<std::string, VariableIndicator> indicators)
+    : _src_model(model), _indicators(std::move(indicators))
 {
-    for (Variable variable : _src_model.variables()) dispatch_in_blocks(variable, indicators);
-    try { block("others"); } catch (Exception&) { _blocks.insert({ "others", new Model("others") }); }
-    for (Constraint ctr : _src_model.constraints()) dispatch_in_blocks(ctr, indicators);
-    dispatch_in_blocks(_src_model.objective(), indicators);
+    decompose();
 }
 
 void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable, const std::map<std::string, VariableIndicator> &indicators) {
@@ -39,7 +38,7 @@ void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable, const std::m
         }
     }
     if (!added_to_a_block) {
-        add_variable_to_block(variable, "others");
+        add_variable_to_block(variable, "_default");
     }
 }
 
@@ -90,13 +89,13 @@ void L::DualAngularModel::dispatch_in_blocks(Constraint &row, const std::map<std
     }
 
     if (splitted_by_block.size() == 2) { // can be block defining
-        auto others = splitted_by_block.end();
+        auto _default = splitted_by_block.end();
         for (auto it = splitted_by_block.begin(), end = splitted_by_block.end() ; it != end ; ++it ) {
-            if (it->first == "others") others = it;
+            if (it->first == "_default") _default = it;
             else block_name = it->first;
         }
 
-        if (others != splitted_by_block.end() && is_numerical(others->second)) { // block defining
+        if (_default != splitted_by_block.end() && is_numerical(_default->second)) { // block defining
             is_block_defining = true;
         }
     }
@@ -119,9 +118,52 @@ std::ostream &L::operator<<(std::ostream &os, const L::DualAngularModel &model) 
 }
 
 L::Model &L::DualAngularModel::block(const std::string &name) {
+    if (_blocks.empty()) throw Exception("Dual angular model has not been decomposed.");
     auto found = _blocks.find(name);
     if (found == _blocks.end()) throw Exception("The requested block could not be found: " + name);
     return *found->second;
+}
+
+void L::DualAngularModel::decompose() {
+    // dispatch variables
+    for (Variable variable : _src_model.variables()) dispatch_in_blocks(variable, _indicators);
+
+    // if the "_default" block has no variable, we must create an empty model
+    // so that future call can allways rely on "_default" to be available
+    Model* default_model = nullptr;
+    try {
+        default_model = &block("_default");
+    } catch (Exception&) {
+        default_model = new Model("_default");
+        _blocks.insert({ "_default", default_model });
+    }
+
+    // dispatch constraints
+    for (Constraint ctr : _src_model.constraints()) dispatch_in_blocks(ctr, _indicators);
+
+    // dispatch objective
+    dispatch_in_blocks(_src_model.objective(), _indicators);
+
+    // if the "_default" model does not have a defined objective it shall be put to "0"
+    try {
+        default_model->objective();
+    } catch (Exception&) {
+        default_model->add(Objective(_dw_env, "obj__default"));
+    }
+}
+
+L::DualAngularModel::BlockIterator L::DualAngularModel::blocks() {
+    if (_blocks.empty()) throw Exception("Dual angular model has not been decomposed.");
+    return BlockIterator(_blocks);
+}
+
+L::DualAngularModel::LinkingConstraintIterator L::DualAngularModel::linking_constraints() {
+    if (_blocks.empty()) throw Exception("Dual angular model has not been decomposed.");
+    return LinkingConstraintIterator(_linking_constraints);
+}
+
+void L::DualAngularModel::add_block_indicator(const std::string& name, const VariableIndicator& indicator) {
+    _indicators.insert({ name, indicator });
 }
 
 L::LinkingConstraint::LinkingConstraint(const L::Constraint &ctr, std::map<std::string, Expression> block_splitted_expression)

@@ -11,7 +11,7 @@ L::DantzigWolfeColumnIterator<ExternalSolver>::DantzigWolfeColumnIterator(L::Mod
 template<class ExternalSolver>
 void L::DantzigWolfeColumnIterator<ExternalSolver>::build_subproblems() {
     for (Model& block : _dual_angular_model.blocks()) {
-        if (block.user_defined_name() == "others") continue;
+        if (block.user_defined_name() == "_default") continue;
         _L_LOG_(Debug) << "Building subproblem's model: " << block.user_defined_name() << std::endl;
         DetachedModel& subproblem_model = *new DetachedModel(block);
         for (LinkingConstraint& ctr : _dual_angular_model.linking_constraints()) {
@@ -36,22 +36,26 @@ L::Column L::DantzigWolfeColumnIterator<ExternalSolver>::get_next_column() {
 
     subproblem_solver.rebuild_objective();
     subproblem_solver.solve();
-
-    float reduced_cost = std::numeric_limits<float>::lowest();
     subproblem_model.update_primal_values();
 
-    // build column
-    for (LinkingConstraint &ctr : _dual_angular_model.linking_constraints())
-        output.coefficient(ctr.user_defined_name(), ctr.block(block_name).feval());
-    output.objective_cost(_dual_angular_model.block(block_name).objective().expression().feval());
+    float reduced_cost = std::numeric_limits<float>::lowest();
 
-    if (subproblem_model.objective().status() == Optimal) {
-        float dual_value_of_convex_combination = _restricted_master_problem.constraint(
-                "_convex_" + block_name).dual().value();
-        reduced_cost = -dual_value_of_convex_combination + subproblem_model.objective().value();
-
-        // add convex combination coefficient
-        output.coefficient("_convex_" + block_name, 1);
+    switch (subproblem_model.objective().status()) {
+        case Infeasible: return output;
+        case Feasible:
+        case Optimal: {
+            float dual_value_of_convex_combination = _restricted_master_problem.constraint("_convex_" + block_name).dual().value();
+            reduced_cost = -dual_value_of_convex_combination + subproblem_model.objective().value();
+            output.coefficient("_convex_" + block_name, 1);
+            [[fallthrough]];
+            }
+        case Unbounded: {
+            for (LinkingConstraint &ctr : _dual_angular_model.linking_constraints())
+                output.coefficient(ctr.user_defined_name(), ctr.block(block_name).feval());
+            output.objective_cost(_dual_angular_model.block(block_name).objective().expression().feval());
+            break;
+        }
+        default: throw Exception("Subproblem " + subproblem_model.user_defined_name() + " ended with indesirable status");
     }
 
     output.reduced_cost(reduced_cost);
@@ -60,7 +64,7 @@ L::Column L::DantzigWolfeColumnIterator<ExternalSolver>::get_next_column() {
                      << ", and ended with status " << subproblem_model.objective().status()
                      << " a column was generated with associated reduced cost = " << output.reduced_cost() << std::endl;
 
-    if (reduced_cost <= 0 - Application::parameters().tolerance()) _last_iteration_improved = true;
+    if (reduced_cost < 0 - Application::parameters().tolerance()) _last_iteration_improved = true;
 
     return output;
 }

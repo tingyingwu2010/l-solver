@@ -21,8 +21,10 @@ L::CplexAdapter::CplexAdapter() {
     if (Application::parameters().external_solver_logs()) {
         _logger = new LogManager(External);
         _cplex->setOut(*_logger);
+        _cplex->setWarning(*_logger);
     } else {
         _cplex->setOut(_env->getNullStream());
+        _cplex->setWarning(_env->getNullStream());
     }
 }
 

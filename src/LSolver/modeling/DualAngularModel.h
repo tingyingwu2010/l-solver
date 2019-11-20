@@ -28,6 +28,7 @@ class L::DualAngularModel {
     Environment _dw_env;
     std::map<std::string, Model*> _blocks;
     std::map<std::string, LinkingConstraint*> _linking_constraints;
+    std::map<std::string, VariableIndicator> _indicators;
 
     void dispatch_in_blocks(Variable &row, const std::map<std::string, VariableIndicator> &indicators);
     void dispatch_in_blocks(Constraint &row, const std::map<std::string, VariableIndicator> &indicators);
@@ -35,11 +36,15 @@ class L::DualAngularModel {
 public:
     typedef MapIterator<std::string, Model, Model&> BlockIterator;
     typedef MapIterator<std::string, LinkingConstraint, LinkingConstraint&> LinkingConstraintIterator;
-    DualAngularModel(Model& model, const std::map<std::string, VariableIndicator>& indicators);
+    explicit DualAngularModel(Model& model);
+    DualAngularModel(Model& model, std::map<std::string, VariableIndicator>  indicators);
     Model& block(const std::string& name);
 
-    BlockIterator blocks() { return BlockIterator(_blocks); }
-    LinkingConstraintIterator linking_constraints() { return LinkingConstraintIterator(_linking_constraints); }
+    BlockIterator blocks();
+    LinkingConstraintIterator linking_constraints();
+
+    void decompose();
+    void add_block_indicator(const std::string& name, const VariableIndicator& indicator);
 
     Model& source_model() { return _src_model; }
 

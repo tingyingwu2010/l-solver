@@ -14,7 +14,7 @@ L::DantzigWolfeDecomposition<ExternalSolver>::~DantzigWolfeDecomposition() {
 template<class ExternalSolver>
 L::DantzigWolfeDecomposition<ExternalSolver>::DantzigWolfeDecomposition(L::DualAngularModel &model)
     : _model(model),
-      _rmp_as_block(_model.block("others")),
+      _rmp_as_block(_model.block("_default")),
       _restricted_master_problem(DetachedModel(_rmp_as_block))
 {
     build_restricted_master_problem();
@@ -46,7 +46,7 @@ void L::DantzigWolfeDecomposition<ExternalSolver>::build_restricted_master_probl
     // add linking constraints and artificial variables
     for (LinkingConstraint& ctr : _model.linking_constraints()) {
         DetachedConstraint& restricted_linking_constraint = *new DetachedConstraint(ctr, false);
-        restricted_linking_constraint.expression() = ctr.block("others");
+        restricted_linking_constraint.expression() = ctr.block("_default");
         Constraint casted = Constraint(restricted_linking_constraint);
         add_artificial_variable(casted);
         _restricted_master_problem.add(Constraint(restricted_linking_constraint));
@@ -54,7 +54,7 @@ void L::DantzigWolfeDecomposition<ExternalSolver>::build_restricted_master_probl
 
     // add convex_constraints
     for (Model& block: _model.blocks()) {
-        if (block.user_defined_name() == "others") continue;
+        if (block.user_defined_name() == "_default") continue;
         Constraint convex_constraint = Constraint(_dw_env, "_convex_" + block.user_defined_name());
         convex_constraint.type(EqualTo);
         convex_constraint.expression() += -1;

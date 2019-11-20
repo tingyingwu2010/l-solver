@@ -23,9 +23,19 @@ void L::ColumnGeneration<ExternalSolver>::actually_solve() {
     Column col = _column_iterator.get_next_column();
     while ( !_column_iterator.is_done() ) {
 
+        if (col.empty()) {
+            _restricted_master_problem.objective().status(Infeasible);
+            break;
+        }
+
         if (col.reduced_cost() < 0) add_column(col);
 
         _restricted_master_problem_solver.solve();
+        if (_restricted_master_problem.objective().status() == Unbounded) {
+            _restricted_master_problem.objective().status(Unbounded);
+            _restricted_master_problem.objective().value(std::numeric_limits<float>::lowest());
+            break;
+        }
 
         _L_LOG_(Release) << "RMP was solved in " << _restricted_master_problem_solver.last_execution_time()
             << " and ended with status " << _restricted_master_problem.objective().status() << ", associated UB = "

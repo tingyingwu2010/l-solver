@@ -103,7 +103,7 @@ TEST(modeling_expressions, split_by_variabe) {
     expected_results.insert({ "a", a - 2 * a });
     expected_results.insert({ "x", 2 * x + x * x });
     expected_results.insert({ "y", 10 * y + y });
-    expected_results.insert({ "others", 12 + 3 * z * z });
+    expected_results.insert({ "_default", 12 + 3 * z * z });
 
     // building variable indicators
     std::map<std::string, std::function<bool(const Variable&)>> indicators;

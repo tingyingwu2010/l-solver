@@ -27,3 +27,7 @@ void L::Column::objective_cost(float c) {
 float L::Column::objective_cost() const {
     return _objective_cost;
 }
+
+bool L::Column::empty() const {
+    return _coefficients.empty();
+}

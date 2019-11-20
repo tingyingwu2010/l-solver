@@ -320,12 +320,12 @@ L::Expression::split_by_variable(const std::map<std::string, std::function<bool(
                 }
             }
         });
-        if (!matched) add("others", expr);
+        if (!matched) add("_default", expr);
     };
 
     for (Expression* current = this ; current->has_child(Left) ; current = &current->child(Left) ) {
         if (current->has_child(Right)) look_for_match(current->child(Right));
-        else add("others", *current);
+        else add("_default", *current);
         if (current->type() == Sum && current->child(Left).type() != Sum) {
             look_for_match(current->child(Left));
             break;

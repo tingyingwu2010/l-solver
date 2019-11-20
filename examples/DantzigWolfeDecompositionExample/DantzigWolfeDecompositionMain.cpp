@@ -17,7 +17,6 @@ int main() {
     Application::load_configuration_file("../../../examples/DantzigWolfeDecompositionExample/dw.cfg");
 
     Environment env;
-    Model model;
     VariableVector x = VariableVector(env, "x");
     VariableVector y = VariableVector(env, "y");
     ConstraintVector linking_constraints = ConstraintVector(env, "linking_constraints");
@@ -30,34 +29,50 @@ int main() {
     const unsigned int n_linking_ctr = 15;
     const unsigned int n_subprob_ctr = 5;
 
-    model.add(objective);
-    for (unsigned int j = 0 ; j < n_var_x ; j += 1) {
-        model.add(x(j));
-        objective.expression() += (rand() % 10) * x(j);
-    }
-    for (unsigned int j = 0 ; j < n_var_y ; j += 1) {
-        model.add(y(j));
-        objective.expression() += (rand() % 10) * y(j);
-    }
+    /* std::cout << "objective.expression() = 0";
+    for (unsigned int j = 0 ; j < n_var_x ; j += 1) std::cout << " + " + std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ")";
+    for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << " + " + std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ")";
+    std::cout << ";" << std::endl;
     for (unsigned int i = 0 ; i < n_linking_ctr ; i += 1) {
-        model.add(linking_constraints(i));
+        std::cout << "linking_constraints(" + std::to_string(i) + ").expression() = ";
+        for (unsigned int j = 0 ; j < n_var_x ; j += 1) std::cout << std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ") + ";
+        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ") + ";
+        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
+    }
+    for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
+        std::cout << "subproblem_y(" + std::to_string(i) + ").expression() = ";
+        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * y(" + std::to_string(j) + ") + ";
+        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
+    }
+    for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
+        std::cout << "subproblem_x(" + std::to_string(i) + ").expression() = ";
+        for (unsigned int j = 0 ; j < n_var_y ; j += 1) std::cout << std::to_string(rand() % 10) +  " * x(" + std::to_string(j) + ") + ";
+        std::cout << std::to_string(-(rand() % 10)) << ";" << std::endl;
+    } */
+
+    for (unsigned int j = 0 ; j < n_var_x ; j += 1) objective.expression() += (rand() % 10) * x(j);
+    for (unsigned int j = 0 ; j < n_var_y ; j += 1) objective.expression() += (rand() % 10) * y(j);
+    for (unsigned int i = 0 ; i < n_linking_ctr ; i += 1) {
         for (unsigned int j = 0 ; j < n_var_x ; j += 1) linking_constraints(i).expression() += (rand() % 10) * x(j);
         for (unsigned int j = 0 ; j < n_var_y ; j += 1) linking_constraints(i).expression() += (rand() % 10) * y(j);
         linking_constraints(i).expression() += -(rand() % 10);
-        linking_constraints(i).type(GreaterOrEqualTo);
     }
     for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
-        model.add(subproblem_y(i));
         for (unsigned int j = 0 ; j < n_var_y ; j += 1) subproblem_y(i).expression() += (rand() % 10) * y(j);
         subproblem_y(i).expression() += -(rand() % 10);
-        subproblem_y(i).type(GreaterOrEqualTo);
     }
     for (unsigned int i = 0 ; i < n_subprob_ctr ; i += 1) {
-        model.add(subproblem_x(i));
         for (unsigned int j = 0 ; j < n_var_x ; j += 1) subproblem_x(i).expression() += (rand() % 10) * x(j);
         subproblem_x(i).expression() += -(rand() % 10);
-        subproblem_x(i).type(GreaterOrEqualTo);
     }
+
+    Model model;
+    model.add(objective);
+    model.add(linking_constraints);
+    model.add(subproblem_y);
+    model.add(subproblem_x);
+    model.add(x);
+    model.add(y);
 
     std::cout << "CPLEX direct" << std::endl;
     DirectLPSolver<CplexAdapter> direct_solver(model);

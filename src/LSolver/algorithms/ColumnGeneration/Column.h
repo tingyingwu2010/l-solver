@@ -23,6 +23,7 @@ public:
     float reduced_cost() const;
     const Coefficients& coefficients() const;
     float objective_cost() const;
+    bool empty() const;
 
     void reduced_cost(float r);
     void coefficient(const std::string& ctr, float coef);
