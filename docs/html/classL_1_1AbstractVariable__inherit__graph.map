@@ -1,0 +1,6 @@
+<map id="L::AbstractVariable" name="L::AbstractVariable">
+<area shape="rect" id="node2" href="$classL_1_1ConstVariable.html" title="L::ConstVariable" alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node3" href="$classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="147,80,259,107"/>
+<area shape="rect" id="node5" href="$classL_1_1Variable.html" title="Indirection to a core variable. " alt="" coords="284,80,368,107"/>
+<area shape="rect" id="node4" href="$classL_1_1DetachedVariable.html" title="Implements a variable, while still being linked to a core variable. " alt="" coords="133,155,273,181"/>
+</map>

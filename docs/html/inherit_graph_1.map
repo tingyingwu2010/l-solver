@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="5,56,147,83"/>
+<area shape="rect" id="node2" href="$classL_1_1ConstObjective.html" title="L::ConstObjective" alt="" coords="195,5,321,32"/>
+<area shape="rect" id="node3" href="$classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="198,56,318,83"/>
+<area shape="rect" id="node5" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="212,107,304,133"/>
+<area shape="rect" id="node4" href="$classL_1_1DetachedObjective.html" title="Implements an objective, while still being linked to a core objective. " alt="" coords="369,56,517,83"/>
+</map>

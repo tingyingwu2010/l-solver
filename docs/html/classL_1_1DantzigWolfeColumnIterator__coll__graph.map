@@ -1,0 +1,16 @@
+<map id="L::DantzigWolfeColumnIterator&lt; ExternalSolver &gt;" name="L::DantzigWolfeColumnIterator&lt; ExternalSolver &gt;">
+<area shape="rect" id="node2" href="$classL_1_1ColumnIterator.html" title="L::ColumnIterator" alt="" coords="1588,5,1711,32"/>
+<area shape="rect" id="node3" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="1079,81,1151,108"/>
+<area shape="rect" id="node15" href="$classL_1_1Decomposition.html" title="Embeds instructions for decomposting a given model. " alt="" coords="1271,107,1395,133"/>
+<area shape="rect" id="node4" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="875,81,967,108"/>
+<area shape="rect" id="node5" href="$classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="405,56,547,83"/>
+<area shape="rect" id="node6" href="$classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="669,107,789,133"/>
+<area shape="rect" id="node7" href="$classL_1_1Expression.html" title="L::Expression" alt="" coords="425,160,527,187"/>
+<area shape="rect" id="node8" href="$classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="188,160,300,187"/>
+<area shape="rect" id="node9" href="$classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="5,160,139,187"/>
+<area shape="rect" id="node10" href="$classL_1_1DualAngularModel.html" title="Represents a model which has a dual angular structure. " alt="" coords="1578,107,1721,133"/>
+<area shape="rect" id="node11" href="$classL_1_1Environment.html" title="L::Environment" alt="" coords="1277,288,1388,315"/>
+<area shape="rect" id="node12" href="$classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreConstraint, Constraint,\l ConstConstraint \&gt;" alt="" coords="1556,188,1743,244"/>
+<area shape="rect" id="node13" href="$classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreObjective, Objective,\l ConstObjective \&gt;" alt="" coords="1561,289,1737,345"/>
+<area shape="rect" id="node14" href="$classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreVariable, Variable,\l ConstVariable \&gt;" alt="" coords="1569,387,1729,443"/>
+</map>

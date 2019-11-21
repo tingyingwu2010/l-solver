@@ -1,0 +1,31 @@
+<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/ColumnGeneration/ColumnGeneration.h" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/ColumnGeneration/ColumnGeneration.h">
+<area shape="rect" id="node3" href="$DirectLPSolver_8h.html" title="LSolver/algorithms\l/DirectSolver/DirectLPSolver.h" alt="" coords="20,109,221,151"/>
+<area shape="rect" id="node5" href="$Solver_8h.html" title="../Solver.h" alt="" coords="238,295,321,322"/>
+<area shape="rect" id="node16" href="$Environment_8h.html" title="LSolver/environment\l/Environment.h" alt="" coords="921,199,1062,240"/>
+<area shape="rect" id="node30" href="$Model_8h.html" title="LSolver/modeling/models\l/Model.h" alt="" coords="1470,109,1638,151"/>
+<area shape="rect" id="node37" href="$ColumnGeneration_8cpp.html" title="ColumnGeneration.cpp" alt="" coords="395,117,550,143"/>
+<area shape="rect" id="node4" href="$DirectSolver_8h.html" title="DirectSolver.h" alt="" coords="164,206,269,233"/>
+<area shape="rect" id="node7" href="$DirectLPSolver_8cpp.html" title="DirectLPSolver.cpp" alt="" coords="5,206,140,233"/>
+<area shape="rect" id="node8" href="$LogManager_8h.html" title="../../application/LogManager.h" alt="" coords="27,385,222,411"/>
+<area shape="rect" id="node11" href="$Application_8h.html" title="Application.h" alt="" coords="223,474,320,501"/>
+<area shape="rect" id="node14" href="$application_2enums_8h.html" title="enums.h" alt="" coords="283,631,355,657"/>
+<area shape="rect" id="node13" href="$ParameterManager_8h.html" title="ParameterManager.h" alt="" coords="303,556,445,583"/>
+<area shape="rect" id="node18" href="$Exception_8h.html" title="../utils/Exception.h" alt="" coords="866,556,997,583"/>
+<area shape="rect" id="node19" href="$Constraint_8h.html" title="LSolver/modeling/constraints\l/Constraint.h" alt="" coords="1224,288,1415,329"/>
+<area shape="rect" id="node23" href="$Variable_8h.html" title="../variables/Variable.h" alt="" coords="1752,385,1900,411"/>
+<area shape="rect" id="node27" href="$Objective_8h.html" title="LSolver/modeling/objectives\l/Objective.h" alt="" coords="861,288,1047,329"/>
+<area shape="rect" id="node29" href="$CoreObjective_8h.html" title="LSolver/modeling/objectives\l/CoreObjective.h" alt="" coords="652,288,837,329"/>
+<area shape="rect" id="node20" href="$AbstractConstraint_8h.html" title="LSolver/modeling/constraints\l/AbstractConstraint.h" alt="" coords="1376,467,1567,508"/>
+<area shape="rect" id="node22" href="$Expression_8h.html" title="LSolver/modeling/expressions\l/Expression.h" alt="" coords="800,467,996,508"/>
+<area shape="rect" id="node26" href="$CoreConstraint_8h.html" title="CoreConstraint.h" alt="" coords="1275,385,1396,411"/>
+<area shape="rect" id="node21" href="$modeling_2enums_8h.html" title="../enums.h" alt="" coords="1189,631,1273,657"/>
+<area shape="rect" id="node24" href="$AbstractVariable_8h.html" title="AbstractVariable.h" alt="" coords="1845,556,1975,583"/>
+<area shape="rect" id="node25" href="$CoreVariable_8h.html" title="CoreVariable.h" alt="" coords="1896,474,2004,501"/>
+<area shape="rect" id="node28" href="$AbstractObjective_8h.html" title="LSolver/modeling/objectives\l/AbstractObjective.h" alt="" coords="669,377,855,419"/>
+<area shape="rect" id="node31" href="$DetachedVariable_8h.html" title="LSolver/modeling/variables\l/DetachedVariable.h" alt="" coords="1985,377,2163,419"/>
+<area shape="rect" id="node32" href="$MapIterator_8h.html" title="LSolver/structures\l/MapIterator.h" alt="" coords="1490,288,1618,329"/>
+<area shape="rect" id="node33" href="$Vector_8h.html" title="LSolver/modeling/vectors\l/Vector.h" alt="" coords="1693,199,1863,240"/>
+<area shape="rect" id="node36" href="$Vector_8cpp.html" title="Vector.cpp" alt="" coords="1962,295,2047,322"/>
+<area shape="rect" id="node38" href="$Column_8h.html" title="Column.h" alt="" coords="497,474,576,501"/>
+<area shape="rect" id="node39" href="$ColumnIterator_8h.html" title="ColumnIterator.h" alt="" coords="396,206,515,233"/>
+</map>

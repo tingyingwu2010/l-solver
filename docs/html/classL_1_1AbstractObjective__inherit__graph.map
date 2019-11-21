@@ -1,0 +1,6 @@
+<map id="L::AbstractObjective" name="L::AbstractObjective">
+<area shape="rect" id="node2" href="$classL_1_1ConstObjective.html" title="L::ConstObjective" alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node3" href="$classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="157,80,277,107"/>
+<area shape="rect" id="node5" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="301,80,393,107"/>
+<area shape="rect" id="node4" href="$classL_1_1DetachedObjective.html" title="Implements an objective, while still being linked to a core objective. " alt="" coords="143,155,291,181"/>
+</map>
