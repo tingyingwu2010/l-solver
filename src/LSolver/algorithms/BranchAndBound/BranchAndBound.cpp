@@ -3,13 +3,15 @@
 //
 
 #include <cmath>
+#include <LSolver/application/LogManager.h>
 #include "../../application/Application.h"
+
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::actually_solve() {
     if (_branching_rule == nullptr) throw Exception("Cannot use branch-and-bound without branching rule.");
 
-    NodeClass& root_node = *new NodeClass(_model);
+    NodeClass& root_node = *allocate_new_node();
     _active_nodes.emplace_back(&root_node);
     _nodes_to_be_processed.push(&root_node);
 

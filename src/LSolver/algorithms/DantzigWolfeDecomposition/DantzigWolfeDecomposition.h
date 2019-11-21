@@ -16,7 +16,8 @@ namespace L {
 template<class ExternalSolver>
 class L::DantzigWolfeDecomposition : public Solver {
     unsigned int _n_artificial_var = 0;
-    DualAngularModel& _model;
+    Decomposition& _decomposition;
+    DualAngularModel _model;
     Model& _rmp_as_block;
     DantzigWolfeColumnIterator<ExternalSolver>* _dw_column_generator = nullptr;
     ColumnGeneration<ExternalSolver>* _cg_solver = nullptr;
@@ -30,7 +31,7 @@ class L::DantzigWolfeDecomposition : public Solver {
     void save_results() override;
 public:
     ~DantzigWolfeDecomposition();
-    explicit DantzigWolfeDecomposition(DualAngularModel& model);
+    explicit DantzigWolfeDecomposition(Decomposition& model);
 
     void build_restricted_master_problem();
 };

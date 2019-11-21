@@ -14,7 +14,13 @@ L::MILPBranchAndBoundNode<ExternalSolver>::MILPBranchAndBoundNode(Model& model)
     : BranchAndBoundNode(model) {}
 
 template<class ExternalSolver>
-L::MILPBranchAndBoundNode<ExternalSolver>::MILPBranchAndBoundNode(const L::MILPBranchAndBoundNode<ExternalSolver>& src) : BranchAndBoundNode(src) {}
+L::MILPBranchAndBoundNode<ExternalSolver>::MILPBranchAndBoundNode(const L::MILPBranchAndBoundNode<ExternalSolver>& src)
+    : BranchAndBoundNode(src) {}
+
+template<class ExternalSolver>
+L::MILPBranchAndBoundNode <ExternalSolver> *L::MILPBranchAndBound<ExternalSolver>::allocate_new_node() {
+    return new MILPBranchAndBoundNode<ExternalSolver>(BranchAndBound<MILPBranchAndBoundNode<ExternalSolver>>::_model);
+}
 
 template<class ExternalSolver>
 void L::MILPBranchAndBoundNode<ExternalSolver>::actually_solve() {

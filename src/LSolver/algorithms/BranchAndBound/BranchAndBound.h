@@ -26,7 +26,7 @@ protected:
     bool _unbounded = false;
     void actually_solve() override;
 
-    bool has_active_nodes() const;
+    [[nodiscard]] bool has_active_nodes() const;
     NodeClass& pull_node_to_be_processed();
     void branch(NodeClass& node);
     void bound(NodeClass& node);
@@ -34,6 +34,7 @@ protected:
     NodeClass& select_node_for_branching();
     bool solution_improves_incumbent(NodeClass& node);
     void remove_active_node(const NodeClass& node);
+    virtual NodeClass* allocate_new_node() = 0;
 public:
     explicit BranchAndBound(Model& model);
     void branching_rule(BranchingRule& branching_rule);

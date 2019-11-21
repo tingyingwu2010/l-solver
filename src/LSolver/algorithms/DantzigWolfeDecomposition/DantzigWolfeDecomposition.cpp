@@ -4,6 +4,7 @@
 
 #include <regex>
 #include "../../modeling/constraints/DetachedConstraint.h"
+#include "LSolver/modeling/models/Decomposition.h"
 
 template<class ExternalSolver>
 L::DantzigWolfeDecomposition<ExternalSolver>::~DantzigWolfeDecomposition() {
@@ -12,10 +13,11 @@ L::DantzigWolfeDecomposition<ExternalSolver>::~DantzigWolfeDecomposition() {
 }
 
 template<class ExternalSolver>
-L::DantzigWolfeDecomposition<ExternalSolver>::DantzigWolfeDecomposition(L::DualAngularModel &model)
-    : _model(model),
+L::DantzigWolfeDecomposition<ExternalSolver>::DantzigWolfeDecomposition(L::Decomposition &decomposition)
+    : _model(DualAngularModel(decomposition)),
       _rmp_as_block(_model.block("_default")),
-      _restricted_master_problem(DetachedModel(_rmp_as_block))
+      _restricted_master_problem(DetachedModel(_rmp_as_block)),
+      _decomposition(decomposition)
 {
     build_restricted_master_problem();
     _dw_column_generator = new DantzigWolfeColumnIterator<ExternalSolver>(_restricted_master_problem, _model);
@@ -83,15 +85,15 @@ void L::DantzigWolfeDecomposition<ExternalSolver>::save_results() {
         }
 
         // build original variables
-        for (Variable variable : _model.source_model().variables()) variable.value(0);
+        for (Variable variable : _decomposition.source_model().variables()) variable.value(0);
         for (const auto& p : _cg_solver->variable_column_paris()) {
             Variable alpha = p.first;
             for (const auto& var_coef : p.second.as_variables()) {
-                float v = _model.source_model().variable(var_coef.first).value();
-                _model.source_model().variable(var_coef.first).value(v + alpha.value() * var_coef.second );
+                float v = _decomposition.source_model().variable(var_coef.first).value();
+                _decomposition.source_model().variable(var_coef.first).value(v + alpha.value() * var_coef.second );
             }
         }
     }
-    _model.source_model().objective().status(status);
-    _model.source_model().objective().value(_restricted_master_problem.objective().value());
+    _decomposition.source_model().objective().status(status);
+    _decomposition.source_model().objective().value(_restricted_master_problem.objective().value());
 }

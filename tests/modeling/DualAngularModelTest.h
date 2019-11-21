@@ -49,11 +49,6 @@ TEST(dual_angular_model, nominal_case) {
     model.add(x);
     model.add(y);
 
-    std::map<std::string, std::function<bool(const Variable&)>> indicators;
-    indicators.insert({ "dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; } });
-    indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
-    DualAngularModel da_model(model, indicators);
-
     // todo, add some test
 }
 

@@ -53,13 +53,12 @@ TEST(dantzig_wolfe_cg, optimal) {
     model.add(y);
 
     // build decomposition
-    DualAngularModel dual_angular_model(model);
-    dual_angular_model.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
-    dual_angular_model.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
-    dual_angular_model.decompose();
+    Decomposition decomposition(model);
+    decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+    decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(dual_angular_model);
+    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Optimal);
@@ -103,13 +102,12 @@ TEST(dantzig_wolfe_cg, infeasible) {
     model.add(y);
 
     // build decomposition
-    DualAngularModel dual_angular_model(model);
-    dual_angular_model.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
-    dual_angular_model.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
-    dual_angular_model.decompose();
+    Decomposition decomposition(model);
+    decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+    decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(dual_angular_model);
+    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Infeasible);
@@ -140,13 +138,12 @@ TEST(dantzig_wolfe_cg, unbounded) {
     model.add(y);
 
     // build decomposition
-    DualAngularModel dual_angular_model(model);
-    dual_angular_model.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
-    dual_angular_model.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
-    dual_angular_model.decompose();
+    Decomposition decomposition(model);
+    decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+    decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(dual_angular_model);
+    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Unbounded);
@@ -193,17 +190,16 @@ TEST(dantzig_wolfe_cg, random) {
         model.add(x);
         model.add(y);
 
-        DualAngularModel dual_angular_model(model);
-        dual_angular_model.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
-        dual_angular_model.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
-        dual_angular_model.decompose();
+        Decomposition decomposition(model);
+        decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+        decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
         DirectLPSolver<CplexAdapter> direct_solver(model);
         direct_solver.solve();
         const ObjectiveStatus cplex_status = model.objective().status();
         const float cplex_objective = model.objective().value();
 
-        DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe_solver(dual_angular_model);
+        DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe_solver(decomposition);
         dantzig_wolfe_solver.solve();
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();

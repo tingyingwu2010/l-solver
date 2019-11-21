@@ -35,9 +35,9 @@ public:
     ~BranchAndBoundNode();
     virtual void upper_bound(const Variable& variable, float ub);
     virtual void lower_bound(const Variable& variable, float lb);
-    virtual bool solved() const { return _objective_status != Unsolved; }
-    virtual void save_results() override;
-    unsigned long int id() const { return _id; }
+    [[nodiscard]] virtual bool solved() const { return _objective_status != Unsolved; }
+    void save_results() override;
+    [[nodiscard]] unsigned long int id() const { return _id; }
     Solution solution();
 };
 

@@ -65,11 +65,11 @@ int main() {
 
     std::cout << "\n";
 
-    std::map<std::string, std::function<bool(const Variable&)>> indicators;
-    indicators.insert({ "dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; } });
-    indicators.insert({ "dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; } });
-    DualAngularModel da_model(model, indicators);
-    DantzigWolfeDecomposition<CplexAdapter> dw_2(da_model);
+    Decomposition decomposition(model);
+    decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
+    decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
+
+    DantzigWolfeDecomposition<CplexAdapter> dw_2(decomposition);
     dw_2.solve();
     std::cout << "Column Generation / Dantzig Wolfe" << std::endl;
     std::cout << "Status: " << model.objective().status() << std::endl;

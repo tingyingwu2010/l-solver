@@ -15,6 +15,7 @@ namespace L {
 
 template<class ExternalSolver>
 class L::MILPBranchAndBound : public BranchAndBound<MILPBranchAndBoundNode<ExternalSolver>> {
+    MILPBranchAndBoundNode<ExternalSolver>* allocate_new_node() override;
 public:
     explicit MILPBranchAndBound(Model& model);
 };
@@ -24,7 +25,7 @@ class L::MILPBranchAndBoundNode : public BranchAndBoundNode {
     void actually_solve() override;
 public:
     MILPBranchAndBoundNode(const MILPBranchAndBoundNode& src);
-    MILPBranchAndBoundNode(Model& model);
+    explicit MILPBranchAndBoundNode(Model& model);
 };
 
 #include "MILPBranchAndBound.cpp"

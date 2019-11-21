@@ -8,15 +8,11 @@
 #include <utility>
 #include <iostream>
 
-L::DualAngularModel::DualAngularModel(L::Model &model) : _src_model(model) {}
-
-L::DualAngularModel::DualAngularModel(L::Model &model, std::map<std::string, VariableIndicator> indicators)
-    : _src_model(model), _indicators(std::move(indicators))
-{
+L::DualAngularModel::DualAngularModel(L::Decomposition &decomposition) : _decomposition(decomposition) {
     decompose();
 }
 
-void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable, const std::map<std::string, VariableIndicator> &indicators) {
+void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable) {
     auto add_variable_to_block = [this](const Variable& variable, const std::string& block_name){
         auto found = _blocks.find(block_name);
         Model* model;
@@ -30,7 +26,7 @@ void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable, const std::m
     };
 
     bool added_to_a_block = false;
-    for (auto& m : indicators) {
+    for (auto& m : _decomposition.block_indicators()) {
         if (m.second(variable)) {
             add_variable_to_block(variable, m.first);
             added_to_a_block = true;
@@ -42,9 +38,9 @@ void L::DualAngularModel::dispatch_in_blocks(L::Variable &variable, const std::m
     }
 }
 
-void L::DualAngularModel::dispatch_in_blocks(const Objective &row, const std::map<std::string, VariableIndicator> &indicators) {
-    Objective copy = row;
-    std::map<std::string, Expression> splitted_by_block = copy.expression().split_by_variable(indicators);
+void L::DualAngularModel::dispatch_in_blocks(const Objective &objective) {
+    Objective copy = objective;
+    std::map<std::string, Expression> splitted_by_block = copy.expression().split_by_variable(_decomposition.block_indicators());
 
     if (splitted_by_block.empty()) return;
 
@@ -52,10 +48,10 @@ void L::DualAngularModel::dispatch_in_blocks(const Objective &row, const std::ma
 
         auto found = _blocks.find(m.first);
         if (found == _blocks.end()) {
-            throw Exception("An error occurred while decomposing model: " + _src_model.user_defined_name() + ", block: " + m.first);
+            throw Exception("An error occurred while decomposing model: " + _decomposition.source_model().user_defined_name() + ", block: " + m.first);
         } else {
             Objective added_obj = Objective(_dw_env, "obj_" + m.first);
-            added_obj.type(_src_model.objective().type());
+            added_obj.type(_decomposition.source_model().objective().type());
             added_obj.expression() = m.second;
             found->second->add(added_obj);
         }
@@ -63,7 +59,7 @@ void L::DualAngularModel::dispatch_in_blocks(const Objective &row, const std::ma
 
 }
 
-void L::DualAngularModel::dispatch_in_blocks(Constraint &row, const std::map<std::string, VariableIndicator> &indicators) {
+void L::DualAngularModel::dispatch_in_blocks(Constraint &constraint) {
 
     // TODO this can be removed as soon as expand() is written and simplifies the expressions !
     auto is_numerical = [](const Expression& expr){ // checks if an expression is an expression
@@ -77,7 +73,7 @@ void L::DualAngularModel::dispatch_in_blocks(Constraint &row, const std::map<std
         return is_numerical;
     };
 
-    std::map<std::string, Expression> splitted_by_block = row.expression().split_by_variable(indicators);
+    std::map<std::string, Expression> splitted_by_block = constraint.expression().split_by_variable(_decomposition.block_indicators());
 
     if (splitted_by_block.empty()) return;
 
@@ -102,10 +98,10 @@ void L::DualAngularModel::dispatch_in_blocks(Constraint &row, const std::map<std
 
     if (is_block_defining) {
         auto found = _blocks.find(block_name);
-        if (found == _blocks.end()) throw Exception("An error occured while decomposing model:" + _src_model.user_defined_name() + ", on " + block_name);
-        found->second->add(row);
+        if (found == _blocks.end()) throw Exception("An error occured while decomposing model:" + _decomposition.source_model().user_defined_name() + ", on " + block_name);
+        found->second->add(constraint);
     } else {
-        _linking_constraints.insert({ row.user_defined_name(), new LinkingConstraint(row, splitted_by_block) });
+        _linking_constraints.insert({constraint.user_defined_name(), new LinkingConstraint(constraint, splitted_by_block) });
     }
 
 }
@@ -126,7 +122,7 @@ L::Model &L::DualAngularModel::block(const std::string &name) {
 
 void L::DualAngularModel::decompose() {
     // dispatch variables
-    for (Variable variable : _src_model.variables()) dispatch_in_blocks(variable, _indicators);
+    for (Variable variable : _decomposition.source_model().variables()) dispatch_in_blocks(variable);
 
     // if the "_default" block has no variable, we must create an empty model
     // so that future call can allways rely on "_default" to be available
@@ -139,10 +135,10 @@ void L::DualAngularModel::decompose() {
     }
 
     // dispatch constraints
-    for (Constraint ctr : _src_model.constraints()) dispatch_in_blocks(ctr, _indicators);
+    for (Constraint ctr : _decomposition.source_model().constraints()) dispatch_in_blocks(ctr);
 
     // dispatch objective
-    dispatch_in_blocks(_src_model.objective(), _indicators);
+    dispatch_in_blocks(_decomposition.source_model().objective());
 
     // if the "_default" model does not have a defined objective it shall be put to "0"
     try {
@@ -160,10 +156,6 @@ L::DualAngularModel::BlockIterator L::DualAngularModel::blocks() {
 L::DualAngularModel::LinkingConstraintIterator L::DualAngularModel::linking_constraints() {
     if (_blocks.empty()) throw Exception("Dual angular model has not been decomposed.");
     return LinkingConstraintIterator(_linking_constraints);
-}
-
-void L::DualAngularModel::add_block_indicator(const std::string& name, const VariableIndicator& indicator) {
-    _indicators.insert({ name, indicator });
 }
 
 L::LinkingConstraint::LinkingConstraint(const L::Constraint &ctr, std::map<std::string, Expression> block_splitted_expression)
