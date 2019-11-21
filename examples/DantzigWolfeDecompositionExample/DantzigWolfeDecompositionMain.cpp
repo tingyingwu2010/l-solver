@@ -69,11 +69,13 @@ int main() {
     decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
     decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
-    DantzigWolfeDecomposition<CplexAdapter> dw_2(decomposition);
-    dw_2.solve();
+    DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe(decomposition);
+    dantzig_wolfe.solve();
+
+    
     std::cout << "Column Generation / Dantzig Wolfe" << std::endl;
     std::cout << "Status: " << model.objective().status() << std::endl;
-    std::cout << "Time  : " << dw_2.last_execution_time() << std::endl;
+    std::cout << "Time  : " << dantzig_wolfe.last_execution_time() << std::endl;
     if (objective.status() == Optimal) {
         std::cout << "obj = " << objective.value() << std::endl;
     }

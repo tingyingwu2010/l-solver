@@ -24,6 +24,7 @@ template<class ExternalSolver>
 void L::ColumnGeneration<ExternalSolver>::actually_solve() {
 
     Column col = _column_iterator.get_next_column();
+
     while ( !_column_iterator.is_done() ) {
 
         if (col.empty()) {

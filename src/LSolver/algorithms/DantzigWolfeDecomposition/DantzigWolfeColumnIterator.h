@@ -19,7 +19,7 @@ class L::DantzigWolfeColumnIterator : public ColumnIterator {
     Model& _restricted_master_problem;
     DualAngularModel& _dual_angular_model;
     typedef std::pair< DetachedModel*, DirectLPSolver<ExternalSolver>*> ModelSolverAssoc;
-    bool _last_iteration_improved = false;
+    bool _last_iteration_improved = true;
     bool _is_done = false;
     std::vector<ModelSolverAssoc> _subproblems;
     typename std::vector<ModelSolverAssoc>::iterator _subproblem_iterator;
