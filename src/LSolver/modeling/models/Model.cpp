@@ -100,3 +100,9 @@ void L::Model::add(L::VariableVector &vec) {
 void L::Model::add(L::ConstraintVector &vec) {
     for (const Constraint& ctr : vec.components()) add(ctr);
 }
+
+L::Variable L::Model::variable(std::string name) {
+    auto found = _variables.find(name);
+    if (found == _variables.end()) throw NotFound();
+    return *found->second;
+}

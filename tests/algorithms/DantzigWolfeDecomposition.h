@@ -64,6 +64,16 @@ TEST(dantzig_wolfe_cg, optimal) {
 
     EXPECT_EQ(model.objective().status(), Optimal);
     EXPECT_FLOAT_EQ(model.objective().value(), 5.8);
+    EXPECT_FLOAT_EQ(x(0).value(), 0.2);
+    EXPECT_FLOAT_EQ(x(1).value(), 0);
+    EXPECT_FLOAT_EQ(x(2).value(), 0);
+    EXPECT_FLOAT_EQ(x(3).value(), 0);
+    EXPECT_FLOAT_EQ(x(4).value(), 0.8);
+    EXPECT_FLOAT_EQ(y(0).value(), 0);
+    EXPECT_FLOAT_EQ(y(1).value(), 0);
+    EXPECT_FLOAT_EQ(y(2).value(), 0.8666667);
+    EXPECT_FLOAT_EQ(y(3).value(), 0);
+    EXPECT_FLOAT_EQ(y(4).value(), 1.066667);
 
 }
 

@@ -117,6 +117,12 @@ public:
     Constraint constraint(std::string name);
 
     /**
+     * \brief Returns an added variable. Throws an exception if it cannot be found.
+     * @return the added variable
+     */
+    Variable variable(std::string name);
+
+    /**
      * \brief Returns the model's name
      * @return model's name
      */

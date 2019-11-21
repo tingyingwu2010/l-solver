@@ -14,19 +14,23 @@ namespace L {
 
 class L::Column {
 public:
-    typedef std::vector<std::pair<std::string, float>> Coefficients;
+    typedef std::vector<std::pair<std::string, float>> CoefficientsAsConstraints;
+    typedef std::vector<std::pair<std::string, float>> CoefficientsAsVariables;
 private:
-    Coefficients _coefficients;
+    CoefficientsAsConstraints _as_constraints;
+    CoefficientsAsVariables _as_variables;
     float _reduced_cost = 0;
     float _objective_cost = 0;
 public:
-    float reduced_cost() const;
-    const Coefficients& coefficients() const;
-    float objective_cost() const;
-    bool empty() const;
+    [[nodiscard]] float reduced_cost() const;
+    [[nodiscard]] const CoefficientsAsConstraints& as_constraints() const;
+    [[nodiscard]] const CoefficientsAsVariables& as_variables() const;
+    [[nodiscard]] float objective_cost() const;
+    [[nodiscard]] bool empty() const;
 
     void reduced_cost(float r);
-    void coefficient(const std::string& ctr, float coef);
+    void constraint_coefficient(const std::string& ctr, float coef);
+    void variable_coefficient(const std::string& ctr, float coef);
     void objective_cost(float c);
 };
 

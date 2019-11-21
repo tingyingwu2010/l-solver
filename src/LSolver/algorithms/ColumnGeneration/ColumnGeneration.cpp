@@ -4,6 +4,8 @@
 
 #include "Column.h"
 #include "ColumnIterator.h"
+#include "ColumnGeneration.h"
+
 
 template<class ExternalSolver>
 L::ColumnGeneration<ExternalSolver>::ColumnGeneration(Environment& env, L::Model &restricted_master_problem, L::ColumnIterator &column_iterator)
@@ -52,15 +54,23 @@ void L::ColumnGeneration<ExternalSolver>::add_column(const L::Column &column) {
     Variable alpha = Variable(_env, "_alpha_" + std::to_string(_generated_columns.size()));
     _restricted_master_problem.add(alpha);
     _restricted_master_problem_solver.add_variable(alpha);
-    for (const auto& coefficient : column.coefficients()) {
+    for (const auto& coefficient : column.as_constraints()) {
         Constraint rmp_ctr = _restricted_master_problem.constraint(coefficient.first);
         rmp_ctr.expression() += coefficient.second * alpha;
         _restricted_master_problem_solver.rebuild_constraint(rmp_ctr);
     }
     _restricted_master_problem.objective().expression() += column.objective_cost() * alpha;
     _restricted_master_problem_solver.rebuild_objective();
-    _generated_columns.emplace_back(column);
+    _generated_columns.emplace_back(std::pair<Variable, Column>({ alpha, column }));
 }
 
 template<class ExternalSolver>
-void L::ColumnGeneration<ExternalSolver>::save_results() {}
+void L::ColumnGeneration<ExternalSolver>::save_results() {
+    // nothing to be done here
+    // the values should already have been updated by the last RMP solve
+}
+
+template<class ExternalSolver>
+const typename L::ColumnGeneration<ExternalSolver>::VariableColumnPairs &L::ColumnGeneration<ExternalSolver>::variable_column_paris() const {
+    return _generated_columns;
+}

@@ -48,12 +48,14 @@ L::Column L::DantzigWolfeColumnIterator<ExternalSolver>::get_next_column() {
         case Optimal: {
             float dual_value_of_convex_combination = _restricted_master_problem.constraint("_convex_" + block_name).dual().value();
             reduced_cost = -dual_value_of_convex_combination + subproblem_model.objective().value();
-            output.coefficient("_convex_" + block_name, 1);
+            output.constraint_coefficient("_convex_" + block_name, 1);
             [[fallthrough]];
             }
         case Unbounded: {
             for (LinkingConstraint &ctr : _dual_angular_model.linking_constraints())
-                output.coefficient(ctr.user_defined_name(), ctr.block(block_name).feval());
+                output.constraint_coefficient(ctr.user_defined_name(), ctr.block(block_name).feval());
+            for (const Variable& variable : _subproblem_iterator->first->variables())
+                output.variable_coefficient(variable.user_defined_name(), variable.value());
             output.objective_cost(_dual_angular_model.block(block_name).objective().expression().feval());
             break;
         }

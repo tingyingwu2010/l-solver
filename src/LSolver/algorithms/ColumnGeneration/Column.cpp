@@ -4,8 +4,8 @@
 
 #include "Column.h"
 
-const L::Column::Coefficients &L::Column::coefficients() const {
-    return _coefficients;
+const L::Column::CoefficientsAsConstraints &L::Column::as_constraints() const {
+    return _as_constraints;
 }
 
 float L::Column::reduced_cost() const {
@@ -16,8 +16,8 @@ void L::Column::reduced_cost(float r) {
     _reduced_cost = r;
 }
 
-void L::Column::coefficient(const std::string &ctr, float coef) {
-    _coefficients.emplace_back(std::pair<std::string, float>( ctr, coef ));
+void L::Column::constraint_coefficient(const std::string &ctr, float coef) {
+    _as_constraints.emplace_back(std::pair<std::string, float>(ctr, coef ));
 }
 
 void L::Column::objective_cost(float c) {
@@ -29,5 +29,13 @@ float L::Column::objective_cost() const {
 }
 
 bool L::Column::empty() const {
-    return _coefficients.empty();
+    return _as_constraints.empty();
+}
+
+const L::Column::CoefficientsAsVariables &L::Column::as_variables() const {
+    return _as_variables;
+}
+
+void L::Column::variable_coefficient(const std::string &ctr, float coef) {
+    _as_variables.emplace_back(std::pair<std::string, float>(ctr, coef ));
 }

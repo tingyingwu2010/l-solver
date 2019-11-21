@@ -73,12 +73,22 @@ void L::DantzigWolfeDecomposition<ExternalSolver>::actually_solve() {
 template<class ExternalSolver>
 void L::DantzigWolfeDecomposition<ExternalSolver>::save_results() {
     ObjectiveStatus status =_restricted_master_problem.objective().status();
-    if(status == Optimal) {
+    if(status == Optimal || status == Feasible) {
         for (const Variable& var : _restricted_master_problem.variables()) {
             if (std::regex_match(var.user_defined_name(), std::regex("_artificial_([0-9]+)"))
                 && var.value() > 0 + Application::parameters().tolerance()) {
                 status = Infeasible;
                 break;
+            }
+        }
+
+        // build original variables
+        for (Variable variable : _model.source_model().variables()) variable.value(0);
+        for (const auto& p : _cg_solver->variable_column_paris()) {
+            Variable alpha = p.first;
+            for (const auto& var_coef : p.second.as_variables()) {
+                float v = _model.source_model().variable(var_coef.first).value();
+                _model.source_model().variable(var_coef.first).value(v + alpha.value() * var_coef.second );
             }
         }
     }
