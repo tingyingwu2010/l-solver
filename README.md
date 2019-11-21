@@ -11,10 +11,10 @@ a column-generation algorithm.
 
 ## Documentation
 
-A documentation is available at [github.io/hlefebvr](http://github.io/hlefebvr). Feel free to also check the following tutorials :
-- [ ] [Modeling and solving a MILP using its natural formulation]()
-- [ ] [Dantzig-Wolfe reformulation]()
-- [ ] [Writting a custom column generation procedure]()
+A documentation is available at [https://hlefebvr.github.io/l-solver/](https://hlefebvr.github.io/l-solver/). Feel free to also check the following tutorials:
+- [x] [Modeling and solving a MILP using its natural formulation](https://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html)
+- [x] [Dantzig-Wolfe reformulation](https://hlefebvr.github.io/posts/en_lsolver_dantzig_wolfe.html)
+- [ ] Writting a custom column generation procedure
 
 ## Optimization techniques
 
