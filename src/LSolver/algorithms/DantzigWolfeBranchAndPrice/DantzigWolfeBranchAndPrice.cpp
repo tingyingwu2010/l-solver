@@ -2,6 +2,8 @@
 // Created by hlefebvr on 21/11/19.
 //
 
+#include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
+#include <LSolver/adapters/CplexAdapter.h>
 #include "DantzigWolfeBranchAndPrice.h"
 
 L::DantzigWolfeBranchAndPrice::DantzigWolfeBranchAndPrice(L::Decomposition &decomposition)
@@ -20,5 +22,11 @@ L::DantzigWolfeBranchAndPriceNode::DantzigWolfeBranchAndPriceNode(L::Decompositi
 
 
 void L::DantzigWolfeBranchAndPriceNode::actually_solve() {
-    // do it
+    Model detached_model;
+    for (auto &m : _variables) detached_model.add(Variable(*m.second));
+    for (Constraint m : _model.constraints()) detached_model.add(m);
+    detached_model.add(_model.objective());
+
+    DantzigWolfeDecomposition<CplexAdapter> solver(_decomposition);
+    solver.solve();
 }

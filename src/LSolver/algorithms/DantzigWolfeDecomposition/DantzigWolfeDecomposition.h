@@ -31,7 +31,7 @@ class L::DantzigWolfeDecomposition : public Solver {
     void save_results() override;
 public:
     ~DantzigWolfeDecomposition();
-    explicit DantzigWolfeDecomposition(Decomposition& model);
+    explicit DantzigWolfeDecomposition(Decomposition& decomposition);
 
     void build_restricted_master_problem();
 };
