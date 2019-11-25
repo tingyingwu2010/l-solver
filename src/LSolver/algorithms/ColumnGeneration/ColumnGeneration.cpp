@@ -21,7 +21,7 @@ L::ColumnGeneration<ExternalSolver>::~ColumnGeneration() {
 }
 
 template<class ExternalSolver>
-void L::ColumnGeneration<ExternalSolver>::actually_solve() {
+void L::ColumnGeneration<ExternalSolver>::actually_solve_hook() {
 
     Column col = _column_iterator.get_next_column();
 
@@ -32,11 +32,11 @@ void L::ColumnGeneration<ExternalSolver>::actually_solve() {
             break;
         }
 
-        if (col.reduced_cost() < 0) add_column(col);
+        if (col.reduced_cost() < 0)
+            add_column(col);
 
         _restricted_master_problem_solver.solve();
         if (_restricted_master_problem.objective().status() == Unbounded) {
-            _restricted_master_problem.objective().status(Unbounded);
             _restricted_master_problem.objective().value(std::numeric_limits<float>::lowest());
             break;
         }
@@ -48,6 +48,9 @@ void L::ColumnGeneration<ExternalSolver>::actually_solve() {
         col = _column_iterator.get_next_column();
     }
 
+    if (_restricted_master_problem.objective().status() == Optimal) {
+        _restricted_master_problem_solver.solve();
+    }
 }
 
 template<class ExternalSolver>
@@ -55,10 +58,9 @@ void L::ColumnGeneration<ExternalSolver>::add_column(const L::Column &column) {
     Variable alpha = Variable(_env, "_alpha_" + std::to_string(_generated_columns.size()));
     _restricted_master_problem.add(alpha);
     _restricted_master_problem_solver.add_variable(alpha);
-    for (const auto& coefficient : column.as_constraints()) {
-        Constraint rmp_ctr = _restricted_master_problem.constraint(coefficient.first);
-        rmp_ctr.expression() += coefficient.second * alpha;
-        _restricted_master_problem_solver.rebuild_constraint(rmp_ctr);
+    for (auto coefficient : column.as_constraints()) {
+        coefficient.first.expression() += coefficient.second * alpha;
+        _restricted_master_problem_solver.rebuild_constraint(coefficient.first);
     }
     _restricted_master_problem.objective().expression() += column.objective_cost() * alpha;
     _restricted_master_problem_solver.rebuild_objective();
@@ -66,7 +68,7 @@ void L::ColumnGeneration<ExternalSolver>::add_column(const L::Column &column) {
 }
 
 template<class ExternalSolver>
-void L::ColumnGeneration<ExternalSolver>::save_results() {
+void L::ColumnGeneration<ExternalSolver>::save_results_hook() {
     // nothing to be done here
     // the values should already have been updated by the last RMP solve
 }

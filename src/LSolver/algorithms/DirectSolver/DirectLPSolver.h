@@ -18,8 +18,8 @@ class L::DirectLPSolver : public DirectSolver {
     std::vector<DetachedVariable*> _detached_variables;
 
     void build_lp_model();
-    void actually_solve() override;
-    void save_results() override;
+    void actually_solve_hook() override;
+    void save_results_hook() override;
 public:
     explicit DirectLPSolver(Model& model);
     void rebuild_objective();

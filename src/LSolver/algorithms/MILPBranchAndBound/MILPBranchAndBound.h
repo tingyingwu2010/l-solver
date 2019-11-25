@@ -22,7 +22,7 @@ public:
 
 template<class ExternalSolver>
 class L::MILPBranchAndBoundNode : public BranchAndBoundNode {
-    void actually_solve() override;
+    void actually_solve_hook() override;
 public:
     MILPBranchAndBoundNode(const MILPBranchAndBoundNode& src);
     explicit MILPBranchAndBoundNode(Model& model);

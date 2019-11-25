@@ -1,4 +1,4 @@
-<map id="L::DirectLPSolver&lt; ExternalSolver &gt;" name="L::DirectLPSolver&lt; ExternalSolver &gt;">
+<map id="L::DirectLPSolver&lt; Adapter_RMP &gt;" name="L::DirectLPSolver&lt; Adapter_RMP &gt;">
 <area shape="rect" id="node2" href="$classL_1_1DirectSolver.html" title="L::DirectSolver" alt="" coords="17,531,127,557"/>
 <area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="13,441,88,468"/>
 <area shape="rect" id="node4" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="112,441,184,468"/>

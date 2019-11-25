@@ -14,8 +14,8 @@ namespace L {
 
 class L::Column {
 public:
-    typedef std::vector<std::pair<std::string, float>> CoefficientsAsConstraints;
-    typedef std::vector<std::pair<std::string, float>> CoefficientsAsVariables;
+    typedef std::vector<std::pair<Constraint, float>> CoefficientsAsConstraints;
+    typedef std::vector<std::pair<Variable, float>> CoefficientsAsVariables;
 private:
     CoefficientsAsConstraints _as_constraints;
     CoefficientsAsVariables _as_variables;
@@ -29,8 +29,8 @@ public:
     [[nodiscard]] bool empty() const;
 
     void reduced_cost(float r);
-    void constraint_coefficient(const std::string& ctr, float coef);
-    void variable_coefficient(const std::string& ctr, float coef);
+    void constraint_coefficient(const Constraint& ctr, float coef);
+    void variable_coefficient(const Variable& ctr, float coef);
     void objective_cost(float c);
 };
 

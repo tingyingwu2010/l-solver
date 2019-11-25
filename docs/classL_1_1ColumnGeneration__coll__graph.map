@@ -1,4 +1,4 @@
-<map id="L::ColumnGeneration&lt; ExternalSolver &gt;" name="L::ColumnGeneration&lt; ExternalSolver &gt;">
+<map id="L::ColumnGeneration&lt; Adapter_RMP &gt;" name="L::ColumnGeneration&lt; Adapter_RMP &gt;">
 <area shape="rect" id="node2" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="1103,5,1177,32"/>
 <area shape="rect" id="node3" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="1104,56,1176,83"/>
 <area shape="rect" id="node4" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="875,56,967,83"/>

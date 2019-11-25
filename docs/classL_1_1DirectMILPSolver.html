@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: L::DirectMILPSolver&lt; ExternalSolver &gt; Class Template Reference</title>
+<title>L-Solver: L::DirectMILPSolver&lt; Adapter_RMP &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,13 +77,13 @@ $(function() {
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classL_1_1DirectMILPSolver-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">L::DirectMILPSolver&lt; ExternalSolver &gt; Class Template Reference</div>  </div>
+<div class="title">L::DirectMILPSolver&lt; Adapter_RMP &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="DirectMILPSolver_8h_source.html">DirectMILPSolver.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for L::DirectMILPSolver&lt; ExternalSolver &gt;:</div>
+Inheritance diagram for L::DirectMILPSolver&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectMILPSolver__inherit__graph.png" border="0" usemap="#L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_inherit__map" id="L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_inherit__map">
@@ -92,7 +92,7 @@ Inheritance diagram for L::DirectMILPSolver&lt; ExternalSolver &gt;:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for L::DirectMILPSolver&lt; ExternalSolver &gt;:</div>
+Collaboration diagram for L::DirectMILPSolver&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectMILPSolver__coll__graph.png" border="0" usemap="#L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_coll__map" id="L_1_1DirectMILPSolver_3_01ExternalSolver_01_4_coll__map">
@@ -125,14 +125,14 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a12dd260ef41270447fb21afccee31bb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#a12dd260ef41270447fb21afccee31bb4">build_milp_model</a> ()</td></tr>
 <tr class="separator:a12dd260ef41270447fb21afccee31bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56b4b58be6631fc3e0e976db02d1a959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#a56b4b58be6631fc3e0e976db02d1a959">actually_solve</a> () override</td></tr>
+<tr class="memitem:a56b4b58be6631fc3e0e976db02d1a959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#a56b4b58be6631fc3e0e976db02d1a959">actually_solve_hook</a> () override</td></tr>
 <tr class="separator:a56b4b58be6631fc3e0e976db02d1a959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80b3b1ded9bf0caeae03f560506d345d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#a80b3b1ded9bf0caeae03f560506d345d">save_results</a> () override</td></tr>
+<tr class="memitem:a80b3b1ded9bf0caeae03f560506d345d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#a80b3b1ded9bf0caeae03f560506d345d">save_results_hook</a> () override</td></tr>
 <tr class="separator:a80b3b1ded9bf0caeae03f560506d345d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aac916c3ab9b3af2a036ae74bf10e9469"><td class="memItemLeft" align="right" valign="top">ExternalSolver&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#aac916c3ab9b3af2a036ae74bf10e9469">_solver</a></td></tr>
+<tr class="memitem:aac916c3ab9b3af2a036ae74bf10e9469"><td class="memItemLeft" align="right" valign="top">Adapter_RMP&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectMILPSolver.html#aac916c3ab9b3af2a036ae74bf10e9469">_solver</a></td></tr>
 <tr class="separator:aac916c3ab9b3af2a036ae74bf10e9469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -148,13 +148,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1DirectMILPSolver.html">DirectMILPSolver</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1DirectMILPSolver.html">DirectMILPSolver</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classL_1_1Model.html">L::Model</a> &amp;&#160;</td>
           <td class="paramname"><em>model</em></td><td>)</td>
@@ -172,18 +172,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a56b4b58be6631fc3e0e976db02d1a959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56b4b58be6631fc3e0e976db02d1a959">&#9670;&nbsp;</a></span>actually_solve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b4b58be6631fc3e0e976db02d1a959">&#9670;&nbsp;</a></span>actually_solve_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; ExternalSolver &gt;::actually_solve </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; Adapter_RMP &gt;::actually_solve_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -206,13 +206,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; ExternalSolver &gt;::build_milp_model </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; Adapter_RMP &gt;::build_milp_model </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -228,18 +228,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 </div>
 <a id="a80b3b1ded9bf0caeae03f560506d345d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80b3b1ded9bf0caeae03f560506d345d">&#9670;&nbsp;</a></span>save_results()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b3b1ded9bf0caeae03f560506d345d">&#9670;&nbsp;</a></span>save_results_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; ExternalSolver &gt;::save_results </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; Adapter_RMP &gt;::save_results_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -263,13 +263,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ExternalSolver <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; ExternalSolver &gt;::_solver</td>
+          <td class="memname">Adapter_RMP <a class="el" href="classL_1_1DirectMILPSolver.html">L::DirectMILPSolver</a>&lt; Adapter_RMP &gt;::_solver</td>
         </tr>
       </table>
   </td>

@@ -26,6 +26,10 @@ protected:
     ObjectiveStatus _objective_status = Unsolved;
     std::map<std::string, DetachedVariable*> _variables;
     const unsigned long int _id = _branch_and_bound_node_id++;
+
+    virtual void apply_bounds();
+    void before_actually_solving_hook() override;
+    void before_saving_results_hook() override;
 public:
     class Solution;
     friend class Solution;
@@ -36,7 +40,7 @@ public:
     virtual void upper_bound(const Variable& variable, float ub);
     virtual void lower_bound(const Variable& variable, float lb);
     [[nodiscard]] virtual bool solved() const { return _objective_status != Unsolved; }
-    void save_results() override;
+    void save_results_hook() override;
     [[nodiscard]] unsigned long int id() const { return _id; }
     Solution solution();
 };

@@ -8,6 +8,19 @@
 
 unsigned long int L::BranchAndBoundNode::_branch_and_bound_node_id = 0;
 
+void L::BranchAndBoundNode::apply_bounds() {
+    for (const auto& m : _variables)
+        m.second->update_core_bounds();
+}
+
+void L::BranchAndBoundNode::before_actually_solving_hook() {
+    apply_bounds();
+}
+
+void L::BranchAndBoundNode::before_saving_results_hook() {
+    for (const auto& m : _variables) m.second->update_this_value();
+}
+
 L::BranchAndBoundNode::Solution L::BranchAndBoundNode::solution() {
     return Solution(*this);
 }
@@ -38,7 +51,7 @@ L::BranchAndBoundNode::BranchAndBoundNode(L::Model &src) : _model(src) {
         _variables.insert({ variable.user_defined_name(), new DetachedVariable(variable) });
 }
 
-void L::BranchAndBoundNode::save_results() {
+void L::BranchAndBoundNode::save_results_hook() {
     _objective_status = _model.objective().status();
     _objective_value = _model.objective().value();
     for (auto& ptr : _variables) {

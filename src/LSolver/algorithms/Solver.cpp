@@ -6,9 +6,11 @@
 
 void L::Solver::solve() {
     clock_t begin_clock = clock();
-    actually_solve();
+    before_actually_solving_hook();
+    actually_solve_hook();
     _last_execution_time = float(clock() - begin_clock) / CLOCKS_PER_SEC;
-    save_results();
+    before_saving_results_hook();
+    save_results_hook();
 }
 
 float L::Solver::last_execution_time() {

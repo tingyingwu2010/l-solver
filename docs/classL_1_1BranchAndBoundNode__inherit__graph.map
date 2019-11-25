@@ -1,5 +1,5 @@
 <map id="L::BranchAndBoundNode" name="L::BranchAndBoundNode">
 <area shape="rect" id="node3" href="$classL_1_1DantzigWolfeBranchAndPriceNode.html" title="L::DantzigWolfeBranchAnd\lPriceNode" alt="" coords="5,155,185,196"/>
-<area shape="rect" id="node4" href="$classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt;" alt="" coords="210,155,410,196"/>
+<area shape="rect" id="node4" href="$classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt;" alt="" coords="210,155,410,196"/>
 <area shape="rect" id="node2" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="165,5,239,32"/>
 </map>

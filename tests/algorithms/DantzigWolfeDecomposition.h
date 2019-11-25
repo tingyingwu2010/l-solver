@@ -6,7 +6,7 @@
 #define LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_TEST_H
 
 #include <LSolver/modeling/models/DualAngularModel.h>
-#include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
+#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h>
 
 TEST(dantzig_wolfe_cg, optimal) {
     Environment env;
@@ -58,7 +58,7 @@ TEST(dantzig_wolfe_cg, optimal) {
     decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
+    DantzigWolfeDecompositionSolver<CplexAdapter, DirectLPSolver<CplexAdapter>> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Optimal);
@@ -107,7 +107,7 @@ TEST(dantzig_wolfe_cg, infeasible) {
     decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
+    DantzigWolfeDecompositionSolver<CplexAdapter, DirectLPSolver<CplexAdapter>> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Infeasible);
@@ -143,7 +143,7 @@ TEST(dantzig_wolfe_cg, unbounded) {
     decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
     // solve
-    DantzigWolfeDecomposition<CplexAdapter> solver(decomposition);
+    DantzigWolfeDecompositionSolver<CplexAdapter, DirectLPSolver<CplexAdapter>> solver(decomposition);
     solver.solve();
 
     EXPECT_EQ(model.objective().status(), Unbounded);
@@ -199,7 +199,7 @@ TEST(dantzig_wolfe_cg, random) {
         const ObjectiveStatus cplex_status = model.objective().status();
         const float cplex_objective = model.objective().value();
 
-        DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe_solver(decomposition);
+        DantzigWolfeDecompositionSolver<CplexAdapter, DirectLPSolver<CplexAdapter>> dantzig_wolfe_solver(decomposition);
         dantzig_wolfe_solver.solve();
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();

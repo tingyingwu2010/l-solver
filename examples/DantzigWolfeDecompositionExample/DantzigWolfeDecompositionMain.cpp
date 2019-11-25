@@ -7,7 +7,9 @@
 #include <LSolver/adapters/CplexAdapter.h>
 #include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
 #include <LSolver/modeling/vectors/Vector.h>
-#include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
+#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.h>
+#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionAlgorithm.h>
+#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h>
 
 using namespace std;
 using namespace L;
@@ -61,6 +63,8 @@ int main() {
     std::cout << "Time  : " << direct_solver.last_execution_time() << std::endl;
     if (objective.status() == Optimal) {
         std::cout << "obj = " << objective.value() << std::endl;
+        for (const Variable& _x : env.variables())
+            std::cout << _x.user_defined_name() << " = " << _x.value() << std::endl;
     }
 
     std::cout << "\n";
@@ -69,15 +73,16 @@ int main() {
     decomposition.add_block_indicator("dw_in_y", [](const Variable& var){ return var.user_defined_name()[0] == 'y'; });
     decomposition.add_block_indicator("dw_in_x", [](const Variable& var){ return var.user_defined_name()[0] == 'x'; });
 
-    DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe(decomposition);
-    dantzig_wolfe.solve();
+    DantzigWolfeDecompositionSolver<CplexAdapter, DirectLPSolver<CplexAdapter>> solver(decomposition);
+    solver.solve();
 
-    
     std::cout << "Column Generation / Dantzig Wolfe" << std::endl;
     std::cout << "Status: " << model.objective().status() << std::endl;
-    std::cout << "Time  : " << dantzig_wolfe.last_execution_time() << std::endl;
-    if (objective.status() == Optimal) {
-        std::cout << "obj = " << objective.value() << std::endl;
+    std::cout << "Time  : " << solver.last_execution_time() << std::endl;
+    if (model.objective().status() == Optimal) {
+        std::cout << "obj = " << model.objective().value() << std::endl;
+        for (const Variable& _x : env.variables())
+            std::cout << _x.user_defined_name() << " = " << _x.value() << std::endl;
     }
 
     return 0;

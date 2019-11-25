@@ -2,7 +2,6 @@
 // Created by hlefebvr on 21/11/19.
 //
 
-#include <LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h>
 #include <LSolver/adapters/CplexAdapter.h>
 #include "DantzigWolfeBranchAndPrice.h"
 
@@ -21,12 +20,10 @@ L::DantzigWolfeBranchAndPriceNode::DantzigWolfeBranchAndPriceNode(L::Decompositi
     : BranchAndBoundNode(decomposition.source_model()), _decomposition(decomposition) {}
 
 
-void L::DantzigWolfeBranchAndPriceNode::actually_solve() {
-    Model detached_model;
-    for (auto &m : _variables) detached_model.add(Variable(*m.second));
-    for (Constraint m : _model.constraints()) detached_model.add(m);
-    detached_model.add(_model.objective());
+void L::DantzigWolfeBranchAndPriceNode::actually_solve_hook() {
+    // DantzigWolfeDecomposition<CplexAdapter> solver(_decomposition);
+    //solver.solve();
 
-    DantzigWolfeDecomposition<CplexAdapter> solver(_decomposition);
-    solver.solve();
+    for (const auto& var : _decomposition.source_model().variables())
+        std::cout << var.user_defined_name() << " = " << var.value() << std::endl;
 }

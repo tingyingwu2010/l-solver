@@ -1,4 +1,4 @@
-<map id="L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;" name="L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;">
+<map id="L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;" name="L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;">
 <area shape="rect" id="node2" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="1707,5,1781,32"/>
 <area shape="rect" id="node3" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="1161,137,1233,164"/>
 <area shape="rect" id="node14" href="$classL_1_1DetachedModel.html" title="Detached version of Model. " alt="" coords="1379,187,1507,213"/>

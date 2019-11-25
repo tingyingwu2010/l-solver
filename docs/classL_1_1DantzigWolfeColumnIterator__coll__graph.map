@@ -1,4 +1,4 @@
-<map id="L::DantzigWolfeColumnIterator&lt; ExternalSolver &gt;" name="L::DantzigWolfeColumnIterator&lt; ExternalSolver &gt;">
+<map id="L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;" name="L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;">
 <area shape="rect" id="node2" href="$classL_1_1ColumnIterator.html" title="L::ColumnIterator" alt="" coords="1588,5,1711,32"/>
 <area shape="rect" id="node3" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="1079,81,1151,108"/>
 <area shape="rect" id="node15" href="$classL_1_1Decomposition.html" title="Embeds instructions for decomposting a given model. " alt="" coords="1271,107,1395,133"/>

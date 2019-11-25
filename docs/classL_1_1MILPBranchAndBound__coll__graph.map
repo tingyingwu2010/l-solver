@@ -1,5 +1,5 @@
-<map id="L::MILPBranchAndBound&lt; ExternalSolver &gt;" name="L::MILPBranchAndBound&lt; ExternalSolver &gt;">
-<area shape="rect" id="node2" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt; \&gt;" alt="" coords="45,531,235,587"/>
+<map id="L::MILPBranchAndBound&lt; Adapter_RMP &gt;" name="L::MILPBranchAndBound&lt; Adapter_RMP &gt;">
+<area shape="rect" id="node2" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt; \&gt;" alt="" coords="45,531,235,587"/>
 <area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="5,441,80,468"/>
 <area shape="rect" id="node4" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="104,441,176,468"/>
 <area shape="rect" id="node5" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="94,352,186,379"/>

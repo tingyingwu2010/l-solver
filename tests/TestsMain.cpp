@@ -7,6 +7,7 @@
 #include "algorithms/MILPBranchAndBound.h"
 #include "algorithms/DantzigWolfeDecomposition.h"
 #include "modeling/DualAngularModelTest.h"
+#include "algorithms/DantzigWolfeBranchAndPriceTest.h"
 
 int main(int argc, char **argv) {
     Application::load_configuration_file("../../tests/test.cfg");

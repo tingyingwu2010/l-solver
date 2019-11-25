@@ -88,18 +88,18 @@ Inheritance diagram for L::Solver:</div>
 <div class="center"><img src="classL_1_1Solver__inherit__graph.png" border="0" usemap="#L_1_1Solver_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1Solver_inherit__map" id="L_1_1Solver_inherit__map">
 <area shape="rect" id="node2" href="classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l DantzigWolfeBranchAndPrice\lNode \&gt;" alt="" coords="130,5,329,61"/>
-<area shape="rect" id="node4" href="classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt; \&gt;" alt="" coords="135,85,324,141"/>
+<area shape="rect" id="node4" href="classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt; \&gt;" alt="" coords="135,85,324,141"/>
 <area shape="rect" id="node6" href="classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l NodeClass \&gt;" alt="" coords="156,166,303,207"/>
 <area shape="rect" id="node7" href="classL_1_1BranchAndBoundNode.html" title="L::BranchAndBoundNode" alt="" coords="145,232,314,259"/>
 <area shape="rect" id="node10" href="classL_1_1ColumnGeneration.html" title="Implements the generic column generation procedure. " alt="" coords="157,283,302,325"/>
-<area shape="rect" id="node11" href="classL_1_1DantzigWolfeDecomposition.html" title="L::DantzigWolfeDecomposition\l\&lt; ExternalSolver \&gt;" alt="" coords="128,349,331,390"/>
+<area shape="rect" id="node11" href="classL_1_1DantzigWolfeDecomposition.html" title="L::DantzigWolfeDecomposition\l\&lt; Adapter_RMP \&gt;" alt="" coords="128,349,331,390"/>
 <area shape="rect" id="node12" href="classL_1_1DirectSolver.html" title="L::DirectSolver" alt="" coords="175,415,284,441"/>
 <area shape="rect" id="node3" href="classL_1_1DantzigWolfeBranchAndPrice.html" title="L::DantzigWolfeBranchAnd\lPrice" alt="" coords="389,13,569,54"/>
-<area shape="rect" id="node5" href="classL_1_1MILPBranchAndBound.html" title="L::MILPBranchAndBound\l\&lt; ExternalSolver \&gt;" alt="" coords="394,93,563,134"/>
+<area shape="rect" id="node5" href="classL_1_1MILPBranchAndBound.html" title="L::MILPBranchAndBound\l\&lt; Adapter_RMP \&gt;" alt="" coords="394,93,563,134"/>
 <area shape="rect" id="node8" href="classL_1_1DantzigWolfeBranchAndPriceNode.html" title="L::DantzigWolfeBranchAnd\lPriceNode" alt="" coords="389,191,569,233"/>
-<area shape="rect" id="node9" href="classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt;" alt="" coords="379,257,579,298"/>
-<area shape="rect" id="node13" href="classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l ExternalSolver \&gt;" alt="" coords="412,374,545,415"/>
-<area shape="rect" id="node14" href="classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; ExternalSolver \&gt;" alt="" coords="409,439,549,481"/>
+<area shape="rect" id="node9" href="classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt;" alt="" coords="379,257,579,298"/>
+<area shape="rect" id="node13" href="classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l Adapter_RMP \&gt;" alt="" coords="412,374,545,415"/>
+<area shape="rect" id="node14" href="classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; Adapter_RMP \&gt;" alt="" coords="409,439,549,481"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -112,9 +112,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a5cae27ad2e307df58a85b4eb9142ef0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a5cae27ad2e307df58a85b4eb9142ef0d">actually_solve</a> ()=0</td></tr>
+<tr class="memitem:a5cae27ad2e307df58a85b4eb9142ef0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a5cae27ad2e307df58a85b4eb9142ef0d">actually_solve_hook</a> ()=0</td></tr>
 <tr class="separator:a5cae27ad2e307df58a85b4eb9142ef0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad439bf55cfa922f5b6b6f13c9242af37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#ad439bf55cfa922f5b6b6f13c9242af37">save_results</a> ()=0</td></tr>
+<tr class="memitem:ad439bf55cfa922f5b6b6f13c9242af37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#ad439bf55cfa922f5b6b6f13c9242af37">save_results_hook</a> ()=0</td></tr>
 <tr class="separator:ad439bf55cfa922f5b6b6f13c9242af37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -124,7 +124,7 @@ Private Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5cae27ad2e307df58a85b4eb9142ef0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cae27ad2e307df58a85b4eb9142ef0d">&#9670;&nbsp;</a></span>actually_solve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cae27ad2e307df58a85b4eb9142ef0d">&#9670;&nbsp;</a></span>actually_solve_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,7 +133,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void L::Solver::actually_solve </td>
+          <td class="memname">virtual void L::Solver::actually_solve_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -146,7 +146,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classL_1_1ColumnGeneration.html#a211c6af8e7d21ac6937f0c79eae3ad41">L::ColumnGeneration&lt; ExternalSolver &gt;</a>, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a68fd3bb6b7c6837c91e35ae73b08cea0">L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; NodeClass &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; MILPBranchAndBoundNode&lt; ExternalSolver &gt; &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; DantzigWolfeBranchAndPriceNode &gt;</a>, <a class="el" href="classL_1_1DantzigWolfeBranchAndPriceNode.html#ac19b248da5d47f38c9c698555d701702">L::DantzigWolfeBranchAndPriceNode</a>, <a class="el" href="classL_1_1MILPBranchAndBoundNode.html#aaa1a7b656cc303384c393f082c8e99e9">L::MILPBranchAndBoundNode&lt; ExternalSolver &gt;</a>, <a class="el" href="classL_1_1DirectLPSolver.html#a9e3544d508ce2fe8572ecb95b484bfdf">L::DirectLPSolver&lt; ExternalSolver &gt;</a>, and <a class="el" href="classL_1_1DirectMILPSolver.html#a56b4b58be6631fc3e0e976db02d1a959">L::DirectMILPSolver&lt; ExternalSolver &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classL_1_1ColumnGeneration.html#a211c6af8e7d21ac6937f0c79eae3ad41">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a68fd3bb6b7c6837c91e35ae73b08cea0">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; NodeClass &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; MILPBranchAndBoundNode&lt; Adapter_RMP &gt; &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#abbe4314525e0ae6252baf4379a3957f2">L::BranchAndBound&lt; DantzigWolfeBranchAndPriceNode &gt;</a>, <a class="el" href="classL_1_1DantzigWolfeBranchAndPriceNode.html#ac19b248da5d47f38c9c698555d701702">L::DantzigWolfeBranchAndPriceNode</a>, <a class="el" href="classL_1_1MILPBranchAndBoundNode.html#aaa1a7b656cc303384c393f082c8e99e9">L::MILPBranchAndBoundNode&lt; Adapter_RMP &gt;</a>, <a class="el" href="classL_1_1DirectLPSolver.html#a9e3544d508ce2fe8572ecb95b484bfdf">L::DirectLPSolver&lt; Adapter_RMP &gt;</a>, and <a class="el" href="classL_1_1DirectMILPSolver.html#a56b4b58be6631fc3e0e976db02d1a959">L::DirectMILPSolver&lt; Adapter_RMP &gt;</a>.</p>
 
 </div>
 </div>
@@ -168,7 +168,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ad439bf55cfa922f5b6b6f13c9242af37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad439bf55cfa922f5b6b6f13c9242af37">&#9670;&nbsp;</a></span>save_results()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad439bf55cfa922f5b6b6f13c9242af37">&#9670;&nbsp;</a></span>save_results_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void L::Solver::save_results </td>
+          <td class="memname">virtual void L::Solver::save_results_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -190,7 +190,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classL_1_1ColumnGeneration.html#ab8f1fa51f9a09d9dc56e160bd5f96cc0">L::ColumnGeneration&lt; ExternalSolver &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; NodeClass &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; MILPBranchAndBoundNode&lt; ExternalSolver &gt; &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; DantzigWolfeBranchAndPriceNode &gt;</a>, <a class="el" href="classL_1_1BranchAndBoundNode.html#aa011a8c2bb873d0b08b04cc7a610a868">L::BranchAndBoundNode</a>, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#ac80fcb32ca7d427850338470acf0472e">L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;</a>, <a class="el" href="classL_1_1DirectLPSolver.html#ab12b001cffbf7c9638cf035078624f8b">L::DirectLPSolver&lt; ExternalSolver &gt;</a>, and <a class="el" href="classL_1_1DirectMILPSolver.html#a80b3b1ded9bf0caeae03f560506d345d">L::DirectMILPSolver&lt; ExternalSolver &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classL_1_1ColumnGeneration.html#ab8f1fa51f9a09d9dc56e160bd5f96cc0">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; NodeClass &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; MILPBranchAndBoundNode&lt; Adapter_RMP &gt; &gt;</a>, <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; DantzigWolfeBranchAndPriceNode &gt;</a>, <a class="el" href="classL_1_1BranchAndBoundNode.html#aa011a8c2bb873d0b08b04cc7a610a868">L::BranchAndBoundNode</a>, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#ac80fcb32ca7d427850338470acf0472e">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>, <a class="el" href="classL_1_1DirectLPSolver.html#ab12b001cffbf7c9638cf035078624f8b">L::DirectLPSolver&lt; Adapter_RMP &gt;</a>, and <a class="el" href="classL_1_1DirectMILPSolver.html#a80b3b1ded9bf0caeae03f560506d345d">L::DirectMILPSolver&lt; Adapter_RMP &gt;</a>.</p>
 
 </div>
 </div>

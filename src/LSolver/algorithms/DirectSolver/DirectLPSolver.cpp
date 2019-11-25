@@ -17,12 +17,12 @@ L::DirectLPSolver<ExternalSolver>::~DirectLPSolver() {
 }
 
 template <class ExternalSolver>
-void L::DirectLPSolver<ExternalSolver>::actually_solve() {
+void L::DirectLPSolver<ExternalSolver>::actually_solve_hook() {
     _solver.solve();
 }
 
 template<class ExternalSolver>
-void L::DirectLPSolver<ExternalSolver>::save_results() {
+void L::DirectLPSolver<ExternalSolver>::save_results_hook() {
     ObjectiveStatus status = _model.objective().status();
     if (status != Infeasible && status != Error) {
         _solver.save_results(true, true);

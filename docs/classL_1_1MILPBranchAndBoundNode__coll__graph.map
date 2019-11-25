@@ -1,4 +1,4 @@
-<map id="L::MILPBranchAndBoundNode&lt; ExternalSolver &gt;" name="L::MILPBranchAndBoundNode&lt; ExternalSolver &gt;">
+<map id="L::MILPBranchAndBoundNode&lt; Adapter_RMP &gt;" name="L::MILPBranchAndBoundNode&lt; Adapter_RMP &gt;">
 <area shape="rect" id="node2" href="$classL_1_1BranchAndBoundNode.html" title="L::BranchAndBoundNode" alt="" coords="21,531,190,557"/>
 <area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="47,441,121,468"/>
 <area shape="rect" id="node4" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="145,441,217,468"/>

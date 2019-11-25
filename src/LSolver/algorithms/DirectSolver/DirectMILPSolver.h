@@ -16,8 +16,8 @@ class L::DirectMILPSolver : public DirectSolver {
     ExternalSolver _solver;
 
     void build_milp_model();
-    void actually_solve() override;
-    void save_results() override;
+    void actually_solve_hook() override;
+    void save_results_hook() override;
 public:
     explicit DirectMILPSolver(Model& model);
 };

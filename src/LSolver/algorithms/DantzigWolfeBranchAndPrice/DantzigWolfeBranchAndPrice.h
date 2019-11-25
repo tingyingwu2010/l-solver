@@ -22,7 +22,7 @@ public:
 
 class L::DantzigWolfeBranchAndPriceNode : public BranchAndBoundNode {
     Decomposition& _decomposition;
-    void actually_solve() override;
+    void actually_solve_hook() override;
 public:
     DantzigWolfeBranchAndPriceNode(const DantzigWolfeBranchAndPriceNode& src);
     explicit DantzigWolfeBranchAndPriceNode(Decomposition& model);

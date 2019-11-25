@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: L::ColumnGeneration&lt; ExternalSolver &gt; Class Template Reference</title>
+<title>L-Solver: L::ColumnGeneration&lt; Adapter_RMP &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,7 +78,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classL_1_1ColumnGeneration-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">L::ColumnGeneration&lt; ExternalSolver &gt; Class Template Reference</div>  </div>
+<div class="title">L::ColumnGeneration&lt; Adapter_RMP &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -87,7 +87,7 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="ColumnGeneration_8h_source.html">ColumnGeneration.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for L::ColumnGeneration&lt; ExternalSolver &gt;:</div>
+Inheritance diagram for L::ColumnGeneration&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1ColumnGeneration__inherit__graph.png" border="0" usemap="#L_1_1ColumnGeneration_3_01ExternalSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1ColumnGeneration_3_01ExternalSolver_01_4_inherit__map" id="L_1_1ColumnGeneration_3_01ExternalSolver_01_4_inherit__map">
@@ -95,7 +95,7 @@ Inheritance diagram for L::ColumnGeneration&lt; ExternalSolver &gt;:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for L::ColumnGeneration&lt; ExternalSolver &gt;:</div>
+Collaboration diagram for L::ColumnGeneration&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1ColumnGeneration__coll__graph.png" border="0" usemap="#L_1_1ColumnGeneration_3_01ExternalSolver_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1ColumnGeneration_3_01ExternalSolver_01_4_coll__map" id="L_1_1ColumnGeneration_3_01ExternalSolver_01_4_coll__map">
@@ -137,12 +137,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a211c6af8e7d21ac6937f0c79eae3ad41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#a211c6af8e7d21ac6937f0c79eae3ad41">actually_solve</a> () override</td></tr>
+<tr class="memitem:a211c6af8e7d21ac6937f0c79eae3ad41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#a211c6af8e7d21ac6937f0c79eae3ad41">actually_solve_hook</a> () override</td></tr>
 <tr class="separator:a211c6af8e7d21ac6937f0c79eae3ad41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8035595cf8c01eaefcda25beb02a6a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#ac8035595cf8c01eaefcda25beb02a6a9">add_column</a> (const <a class="el" href="classL_1_1Column.html">Column</a> &amp;column)</td></tr>
 <tr class="memdesc:ac8035595cf8c01eaefcda25beb02a6a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a column to the RMP  <a href="#ac8035595cf8c01eaefcda25beb02a6a9">More...</a><br /></td></tr>
 <tr class="separator:ac8035595cf8c01eaefcda25beb02a6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8f1fa51f9a09d9dc56e160bd5f96cc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#ab8f1fa51f9a09d9dc56e160bd5f96cc0">save_results</a> () override</td></tr>
+<tr class="memitem:ab8f1fa51f9a09d9dc56e160bd5f96cc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#ab8f1fa51f9a09d9dc56e160bd5f96cc0">save_results_hook</a> () override</td></tr>
 <tr class="separator:ab8f1fa51f9a09d9dc56e160bd5f96cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -153,7 +153,7 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a1bdddfa668aa20af929ca364ba398788"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Model.html">Model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#a1bdddfa668aa20af929ca364ba398788">_restricted_master_problem</a></td></tr>
 <tr class="memdesc:a1bdddfa668aa20af929ca364ba398788"><td class="mdescLeft">&#160;</td><td class="mdescRight">The restricted master problem model. It shall contain only a subset of columns.  <a href="#a1bdddfa668aa20af929ca364ba398788">More...</a><br /></td></tr>
 <tr class="separator:a1bdddfa668aa20af929ca364ba398788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a241cc07bc9bebce980890c5abb45900d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt; ExternalSolver &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#a241cc07bc9bebce980890c5abb45900d">_restricted_master_problem_solver</a></td></tr>
+<tr class="memitem:a241cc07bc9bebce980890c5abb45900d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt; Adapter_RMP &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#a241cc07bc9bebce980890c5abb45900d">_restricted_master_problem_solver</a></td></tr>
 <tr class="memdesc:a241cc07bc9bebce980890c5abb45900d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The solver used to solve the RMP to optimality.  <a href="#a241cc07bc9bebce980890c5abb45900d">More...</a><br /></td></tr>
 <tr class="separator:a241cc07bc9bebce980890c5abb45900d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeace05166eda42763db5593f0ca8cb95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1ColumnIterator.html">ColumnIterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ColumnGeneration.html#aeace05166eda42763db5593f0ca8cb95">_column_iterator</a></td></tr>
@@ -164,8 +164,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a66ecabb8ebfed5d6bfb6c8d36588f19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class ExternalSolver&gt;<br />
-class L::ColumnGeneration&lt; ExternalSolver &gt;</h3>
+<div class="textblock"><h3>template&lt;class Adapter_RMP&gt;<br />
+class L::ColumnGeneration&lt; Adapter_RMP &gt;</h3>
 
 <p>Implements the generic column generation procedure. </p>
 <p><a class="el" href="classL_1_1Column.html">Column</a> generation may be applied in cases where the number of variables is very large compare to the number of constraints provided that one posesses a polyhedral description of the aforementioned columns. Formally, we may consider the following model </p><p class="formulaDsp">
@@ -179,10 +179,10 @@ class L::ColumnGeneration&lt; ExternalSolver &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;std::pair&lt;<a class="el" href="classL_1_1Variable.html">Variable</a>, <a class="el" href="classL_1_1Column.html">Column</a>&gt; &gt; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a></td>
+          <td class="memname">typedef std::vector&lt;std::pair&lt;<a class="el" href="classL_1_1Variable.html">Variable</a>, <a class="el" href="classL_1_1Column.html">Column</a>&gt; &gt; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,13 +196,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classL_1_1Environment.html">Environment</a> &amp;&#160;</td>
           <td class="paramname"><em>env</em>, </td>
@@ -240,10 +240,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::~<a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::~<a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -255,18 +255,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a211c6af8e7d21ac6937f0c79eae3ad41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a211c6af8e7d21ac6937f0c79eae3ad41">&#9670;&nbsp;</a></span>actually_solve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a211c6af8e7d21ac6937f0c79eae3ad41">&#9670;&nbsp;</a></span>actually_solve_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::actually_solve </td>
+          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::actually_solve_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -289,13 +289,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::add_column </td>
+          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::add_column </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classL_1_1Column.html">Column</a> &amp;&#160;</td>
           <td class="paramname"><em>column</em></td><td>)</td>
@@ -314,18 +314,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 </div>
 <a id="ab8f1fa51f9a09d9dc56e160bd5f96cc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8f1fa51f9a09d9dc56e160bd5f96cc0">&#9670;&nbsp;</a></span>save_results()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8f1fa51f9a09d9dc56e160bd5f96cc0">&#9670;&nbsp;</a></span>save_results_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::save_results </td>
+          <td class="memname">void <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::save_results_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -348,10 +348,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a> &amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::variable_column_paris </td>
+          <td class="memname">const <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a> &amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::variable_column_paris </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -370,13 +370,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1ColumnIterator.html">ColumnIterator</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::_column_iterator</td>
+          <td class="memname"><a class="el" href="classL_1_1ColumnIterator.html">ColumnIterator</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::_column_iterator</td>
         </tr>
       </table>
   </td>
@@ -396,13 +396,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Environment.html">Environment</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::_env</td>
+          <td class="memname"><a class="el" href="classL_1_1Environment.html">Environment</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::_env</td>
         </tr>
       </table>
   </td>
@@ -422,13 +422,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a> <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::_generated_columns</td>
+          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html#abf0c70649fd2abcf7df9f86ed98f2564">VariableColumnPairs</a> <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::_generated_columns</td>
         </tr>
       </table>
   </td>
@@ -448,13 +448,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Model.html">Model</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::_restricted_master_problem</td>
+          <td class="memname"><a class="el" href="classL_1_1Model.html">Model</a>&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::_restricted_master_problem</td>
         </tr>
       </table>
   </td>
@@ -474,13 +474,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt;ExternalSolver&gt;&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; ExternalSolver &gt;::_restricted_master_problem_solver</td>
+          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt;Adapter_RMP&gt;&amp; <a class="el" href="classL_1_1ColumnGeneration.html">L::ColumnGeneration</a>&lt; Adapter_RMP &gt;::_restricted_master_problem_solver</td>
         </tr>
       </table>
   </td>

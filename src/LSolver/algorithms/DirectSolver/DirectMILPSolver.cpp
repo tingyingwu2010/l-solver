@@ -8,12 +8,12 @@ L::DirectMILPSolver<ExternalSolver>::DirectMILPSolver(L::Model &model) : DirectS
 }
 
 template <class ExternalSolver>
-void L::DirectMILPSolver<ExternalSolver>::actually_solve() {
+void L::DirectMILPSolver<ExternalSolver>::actually_solve_hook() {
     _solver.solve();
 }
 
 template<class ExternalSolver>
-void L::DirectMILPSolver<ExternalSolver>::save_results() {
+void L::DirectMILPSolver<ExternalSolver>::save_results_hook() {
     ObjectiveStatus status = _model.objective().status();
     if (status == Optimal || status == Feasible)
         _solver.save_results(true, false);

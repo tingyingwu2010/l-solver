@@ -1,15 +1,15 @@
 <map id="L::Solver" name="L::Solver">
 <area shape="rect" id="node2" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l DantzigWolfeBranchAndPrice\lNode \&gt;" alt="" coords="130,5,329,61"/>
-<area shape="rect" id="node4" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt; \&gt;" alt="" coords="135,85,324,141"/>
+<area shape="rect" id="node4" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt; \&gt;" alt="" coords="135,85,324,141"/>
 <area shape="rect" id="node6" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l NodeClass \&gt;" alt="" coords="156,166,303,207"/>
 <area shape="rect" id="node7" href="$classL_1_1BranchAndBoundNode.html" title="L::BranchAndBoundNode" alt="" coords="145,232,314,259"/>
 <area shape="rect" id="node10" href="$classL_1_1ColumnGeneration.html" title="Implements the generic column generation procedure. " alt="" coords="157,283,302,325"/>
-<area shape="rect" id="node11" href="$classL_1_1DantzigWolfeDecomposition.html" title="L::DantzigWolfeDecomposition\l\&lt; ExternalSolver \&gt;" alt="" coords="128,349,331,390"/>
+<area shape="rect" id="node11" href="$classL_1_1DantzigWolfeDecomposition.html" title="L::DantzigWolfeDecomposition\l\&lt; Adapter_RMP \&gt;" alt="" coords="128,349,331,390"/>
 <area shape="rect" id="node12" href="$classL_1_1DirectSolver.html" title="L::DirectSolver" alt="" coords="175,415,284,441"/>
 <area shape="rect" id="node3" href="$classL_1_1DantzigWolfeBranchAndPrice.html" title="L::DantzigWolfeBranchAnd\lPrice" alt="" coords="389,13,569,54"/>
-<area shape="rect" id="node5" href="$classL_1_1MILPBranchAndBound.html" title="L::MILPBranchAndBound\l\&lt; ExternalSolver \&gt;" alt="" coords="394,93,563,134"/>
+<area shape="rect" id="node5" href="$classL_1_1MILPBranchAndBound.html" title="L::MILPBranchAndBound\l\&lt; Adapter_RMP \&gt;" alt="" coords="394,93,563,134"/>
 <area shape="rect" id="node8" href="$classL_1_1DantzigWolfeBranchAndPriceNode.html" title="L::DantzigWolfeBranchAnd\lPriceNode" alt="" coords="389,191,569,233"/>
-<area shape="rect" id="node9" href="$classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt;" alt="" coords="379,257,579,298"/>
-<area shape="rect" id="node13" href="$classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l ExternalSolver \&gt;" alt="" coords="412,374,545,415"/>
-<area shape="rect" id="node14" href="$classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; ExternalSolver \&gt;" alt="" coords="409,439,549,481"/>
+<area shape="rect" id="node9" href="$classL_1_1MILPBranchAndBoundNode.html" title="L::MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt;" alt="" coords="379,257,579,298"/>
+<area shape="rect" id="node13" href="$classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l Adapter_RMP \&gt;" alt="" coords="412,374,545,415"/>
+<area shape="rect" id="node14" href="$classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; Adapter_RMP \&gt;" alt="" coords="409,439,549,481"/>
 </map>

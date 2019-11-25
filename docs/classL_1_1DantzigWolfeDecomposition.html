@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: L::DantzigWolfeDecomposition&lt; ExternalSolver &gt; Class Template Reference</title>
+<title>L-Solver: L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,13 +77,13 @@ $(function() {
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classL_1_1DantzigWolfeDecomposition-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">L::DantzigWolfeDecomposition&lt; ExternalSolver &gt; Class Template Reference</div>  </div>
+<div class="title">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="DantzigWolfeDecomposition_8h_source.html">DantzigWolfeDecomposition.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;:</div>
+Inheritance diagram for L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DantzigWolfeDecomposition__inherit__graph.png" border="0" usemap="#L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_inherit__map" id="L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_inherit__map">
@@ -91,7 +91,7 @@ Inheritance diagram for L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;:</d
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for L::DantzigWolfeDecomposition&lt; ExternalSolver &gt;:</div>
+Collaboration diagram for L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DantzigWolfeDecomposition__coll__graph.png" border="0" usemap="#L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_coll__map" id="L_1_1DantzigWolfeDecomposition_3_01ExternalSolver_01_4_coll__map">
@@ -132,9 +132,9 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a3721520f973020ad628c156130d63cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a3721520f973020ad628c156130d63cdb">add_artificial_variable</a> (<a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;ctr)</td></tr>
 <tr class="separator:a3721520f973020ad628c156130d63cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68fd3bb6b7c6837c91e35ae73b08cea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a68fd3bb6b7c6837c91e35ae73b08cea0">actually_solve</a> () override</td></tr>
+<tr class="memitem:a68fd3bb6b7c6837c91e35ae73b08cea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a68fd3bb6b7c6837c91e35ae73b08cea0">actually_solve_hook</a> () override</td></tr>
 <tr class="separator:a68fd3bb6b7c6837c91e35ae73b08cea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac80fcb32ca7d427850338470acf0472e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#ac80fcb32ca7d427850338470acf0472e">save_results</a> () override</td></tr>
+<tr class="memitem:ac80fcb32ca7d427850338470acf0472e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#ac80fcb32ca7d427850338470acf0472e">save_results_hook</a> () override</td></tr>
 <tr class="separator:ac80fcb32ca7d427850338470acf0472e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -147,9 +147,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa784c31f3ec76fff066e4db9f75249ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01fa9157baf7185ed6c81211c9ba529a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Model.html">Model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a01fa9157baf7185ed6c81211c9ba529a">_rmp_as_block</a></td></tr>
 <tr class="separator:a01fa9157baf7185ed6c81211c9ba529a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2903bc01c98cc82b87b62c8687a8114c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt; ExternalSolver &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a2903bc01c98cc82b87b62c8687a8114c">_dw_column_generator</a> = nullptr</td></tr>
+<tr class="memitem:a2903bc01c98cc82b87b62c8687a8114c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a2903bc01c98cc82b87b62c8687a8114c">_dw_column_generator</a> = nullptr</td></tr>
 <tr class="separator:a2903bc01c98cc82b87b62c8687a8114c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e0988525e7559d56fff4e24bcba026"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a>&lt; ExternalSolver &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a14e0988525e7559d56fff4e24bcba026">_cg_solver</a> = nullptr</td></tr>
+<tr class="memitem:a14e0988525e7559d56fff4e24bcba026"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a>&lt; Adapter_RMP &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a14e0988525e7559d56fff4e24bcba026">_cg_solver</a> = nullptr</td></tr>
 <tr class="separator:a14e0988525e7559d56fff4e24bcba026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a834f366abed5fc7c198577d4cfed4ce9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Environment.html">Environment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a834f366abed5fc7c198577d4cfed4ce9">_dw_env</a></td></tr>
 <tr class="separator:a834f366abed5fc7c198577d4cfed4ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,10 +163,10 @@ Private Attributes</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::~<a class="el" href="classL_1_1DantzigWolfeDecomposition.html">DantzigWolfeDecomposition</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::~<a class="el" href="classL_1_1DantzigWolfeDecomposition.html">DantzigWolfeDecomposition</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -182,13 +182,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1DantzigWolfeDecomposition.html">DantzigWolfeDecomposition</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1DantzigWolfeDecomposition.html">DantzigWolfeDecomposition</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classL_1_1Decomposition.html">L::Decomposition</a> &amp;&#160;</td>
           <td class="paramname"><em>decomposition</em></td><td>)</td>
@@ -206,18 +206,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a68fd3bb6b7c6837c91e35ae73b08cea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68fd3bb6b7c6837c91e35ae73b08cea0">&#9670;&nbsp;</a></span>actually_solve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fd3bb6b7c6837c91e35ae73b08cea0">&#9670;&nbsp;</a></span>actually_solve_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::actually_solve </td>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::actually_solve_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -240,13 +240,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::add_artificial_variable </td>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::add_artificial_variable </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classL_1_1Constraint.html">L::Constraint</a> &amp;&#160;</td>
           <td class="paramname"><em>ctr</em></td><td>)</td>
@@ -268,10 +268,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::build_restricted_master_problem </td>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::build_restricted_master_problem </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -282,18 +282,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 </div>
 <a id="ac80fcb32ca7d427850338470acf0472e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac80fcb32ca7d427850338470acf0472e">&#9670;&nbsp;</a></span>save_results()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80fcb32ca7d427850338470acf0472e">&#9670;&nbsp;</a></span>save_results_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::save_results </td>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::save_results_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -317,13 +317,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a>&lt;ExternalSolver&gt;* <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_cg_solver = nullptr</td>
+          <td class="memname"><a class="el" href="classL_1_1ColumnGeneration.html">ColumnGeneration</a>&lt;Adapter_RMP&gt;* <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_cg_solver = nullptr</td>
         </tr>
       </table>
   </td>
@@ -341,13 +341,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Decomposition.html">Decomposition</a>&amp; <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_decomposition</td>
+          <td class="memname"><a class="el" href="classL_1_1Decomposition.html">Decomposition</a>&amp; <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_decomposition</td>
         </tr>
       </table>
   </td>
@@ -365,13 +365,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt;ExternalSolver&gt;* <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_dw_column_generator = nullptr</td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt;Adapter_RMP&gt;* <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_dw_column_generator = nullptr</td>
         </tr>
       </table>
   </td>
@@ -389,13 +389,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Environment.html">Environment</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_dw_env</td>
+          <td class="memname"><a class="el" href="classL_1_1Environment.html">Environment</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_dw_env</td>
         </tr>
       </table>
   </td>
@@ -413,13 +413,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_model</td>
+          <td class="memname"><a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_model</td>
         </tr>
       </table>
   </td>
@@ -437,13 +437,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_n_artificial_var = 0</td>
+          <td class="memname">unsigned int <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_n_artificial_var = 0</td>
         </tr>
       </table>
   </td>
@@ -461,13 +461,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DetachedModel.html">DetachedModel</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_restricted_master_problem</td>
+          <td class="memname"><a class="el" href="classL_1_1DetachedModel.html">DetachedModel</a> <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_restricted_master_problem</td>
         </tr>
       </table>
   </td>
@@ -485,13 +485,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Model.html">Model</a>&amp; <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; ExternalSolver &gt;::_rmp_as_block</td>
+          <td class="memname"><a class="el" href="classL_1_1Model.html">Model</a>&amp; <a class="el" href="classL_1_1DantzigWolfeDecomposition.html">L::DantzigWolfeDecomposition</a>&lt; Adapter_RMP &gt;::_rmp_as_block</td>
         </tr>
       </table>
   </td>

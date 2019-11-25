@@ -25,11 +25,16 @@ public:
      * @param src the variable which should be detached (i.e., src's core variable is referred to by _core)
      */
     explicit DetachedVariable(const Variable& src);
+    DetachedVariable(const DetachedVariable& src);
 
     /**
      * \brief Upates its core variable's value with its own value
      */
     void update_core_value();
+    void update_this_value();
+
+    void update_core_bounds();
+    void update_this_bounds();
 };
 
 

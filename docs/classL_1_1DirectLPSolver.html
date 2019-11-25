@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: L::DirectLPSolver&lt; ExternalSolver &gt; Class Template Reference</title>
+<title>L-Solver: L::DirectLPSolver&lt; Adapter_RMP &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,13 +77,13 @@ $(function() {
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classL_1_1DirectLPSolver-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">L::DirectLPSolver&lt; ExternalSolver &gt; Class Template Reference</div>  </div>
+<div class="title">L::DirectLPSolver&lt; Adapter_RMP &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="DirectLPSolver_8h_source.html">DirectLPSolver.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for L::DirectLPSolver&lt; ExternalSolver &gt;:</div>
+Inheritance diagram for L::DirectLPSolver&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectLPSolver__inherit__graph.png" border="0" usemap="#L_1_1DirectLPSolver_3_01ExternalSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1DirectLPSolver_3_01ExternalSolver_01_4_inherit__map" id="L_1_1DirectLPSolver_3_01ExternalSolver_01_4_inherit__map">
@@ -92,7 +92,7 @@ Inheritance diagram for L::DirectLPSolver&lt; ExternalSolver &gt;:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for L::DirectLPSolver&lt; ExternalSolver &gt;:</div>
+Collaboration diagram for L::DirectLPSolver&lt; Adapter_RMP &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectLPSolver__coll__graph.png" border="0" usemap="#L_1_1DirectLPSolver_3_01ExternalSolver_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1DirectLPSolver_3_01ExternalSolver_01_4_coll__map" id="L_1_1DirectLPSolver_3_01ExternalSolver_01_4_coll__map">
@@ -137,14 +137,14 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a5586768ef0cf7c551abdc6127427103e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#a5586768ef0cf7c551abdc6127427103e">build_lp_model</a> ()</td></tr>
 <tr class="separator:a5586768ef0cf7c551abdc6127427103e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e3544d508ce2fe8572ecb95b484bfdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#a9e3544d508ce2fe8572ecb95b484bfdf">actually_solve</a> () override</td></tr>
+<tr class="memitem:a9e3544d508ce2fe8572ecb95b484bfdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#a9e3544d508ce2fe8572ecb95b484bfdf">actually_solve_hook</a> () override</td></tr>
 <tr class="separator:a9e3544d508ce2fe8572ecb95b484bfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12b001cffbf7c9638cf035078624f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#ab12b001cffbf7c9638cf035078624f8b">save_results</a> () override</td></tr>
+<tr class="memitem:ab12b001cffbf7c9638cf035078624f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#ab12b001cffbf7c9638cf035078624f8b">save_results_hook</a> () override</td></tr>
 <tr class="separator:ab12b001cffbf7c9638cf035078624f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad26d9339d426b1324b23357e2f2dcb13"><td class="memItemLeft" align="right" valign="top">ExternalSolver&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#ad26d9339d426b1324b23357e2f2dcb13">_solver</a></td></tr>
+<tr class="memitem:ad26d9339d426b1324b23357e2f2dcb13"><td class="memItemLeft" align="right" valign="top">Adapter_RMP&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#ad26d9339d426b1324b23357e2f2dcb13">_solver</a></td></tr>
 <tr class="separator:ad26d9339d426b1324b23357e2f2dcb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8b54be040893ea53acb1d90ea5fd2bf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classL_1_1DetachedVariable.html">DetachedVariable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectLPSolver.html#aa8b54be040893ea53acb1d90ea5fd2bf">_detached_variables</a></td></tr>
 <tr class="separator:aa8b54be040893ea53acb1d90ea5fd2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,13 +162,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::<a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classL_1_1Model.html">L::Model</a> &amp;&#160;</td>
           <td class="paramname"><em>model</em></td><td>)</td>
@@ -190,10 +190,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::~<a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::~<a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,18 +205,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e3544d508ce2fe8572ecb95b484bfdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e3544d508ce2fe8572ecb95b484bfdf">&#9670;&nbsp;</a></span>actually_solve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3544d508ce2fe8572ecb95b484bfdf">&#9670;&nbsp;</a></span>actually_solve_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::actually_solve </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::actually_solve_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -239,10 +239,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::add_constraint </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::add_constraint </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;&#160;</td>
           <td class="paramname"><em>constraint</em></td><td>)</td>
@@ -259,10 +259,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::add_variable </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::add_variable </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;&#160;</td>
           <td class="paramname"><em>variable</em></td><td>)</td>
@@ -279,13 +279,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::build_lp_model </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::build_lp_model </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -306,10 +306,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::export_to_file </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::export_to_file </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -326,10 +326,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::rebuild_constraint </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::rebuild_constraint </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;&#160;</td>
           <td class="paramname"><em>ctr</em></td><td>)</td>
@@ -346,10 +346,10 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::rebuild_objective </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::rebuild_objective </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -360,18 +360,18 @@ template&lt;class ExternalSolver &gt; </div>
 </div>
 </div>
 <a id="ab12b001cffbf7c9638cf035078624f8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab12b001cffbf7c9638cf035078624f8b">&#9670;&nbsp;</a></span>save_results()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12b001cffbf7c9638cf035078624f8b">&#9670;&nbsp;</a></span>save_results_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver &gt; </div>
+template&lt;class Adapter_RMP &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::save_results </td>
+          <td class="memname">void <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::save_results_hook </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -395,13 +395,13 @@ template&lt;class ExternalSolver &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classL_1_1DetachedVariable.html">DetachedVariable</a>*&gt; <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::_detached_variables</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classL_1_1DetachedVariable.html">DetachedVariable</a>*&gt; <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::_detached_variables</td>
         </tr>
       </table>
   </td>
@@ -419,13 +419,13 @@ template&lt;class ExternalSolver&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ExternalSolver&gt; </div>
+template&lt;class Adapter_RMP&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ExternalSolver <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; ExternalSolver &gt;::_solver</td>
+          <td class="memname">Adapter_RMP <a class="el" href="classL_1_1DirectLPSolver.html">L::DirectLPSolver</a>&lt; Adapter_RMP &gt;::_solver</td>
         </tr>
       </table>
   </td>

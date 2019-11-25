@@ -1,5 +1,5 @@
 <map id="L::DirectSolver" name="L::DirectSolver">
-<area shape="rect" id="node3" href="$classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l ExternalSolver \&gt;" alt="" coords="5,155,139,196"/>
-<area shape="rect" id="node4" href="$classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; ExternalSolver \&gt;" alt="" coords="163,155,303,196"/>
+<area shape="rect" id="node3" href="$classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l Adapter_RMP \&gt;" alt="" coords="5,155,139,196"/>
+<area shape="rect" id="node4" href="$classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; Adapter_RMP \&gt;" alt="" coords="163,155,303,196"/>
 <area shape="rect" id="node2" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="115,5,189,32"/>
 </map>

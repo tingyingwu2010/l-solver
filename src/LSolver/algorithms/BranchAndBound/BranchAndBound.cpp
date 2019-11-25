@@ -5,10 +5,16 @@
 #include <cmath>
 #include <LSolver/application/LogManager.h>
 #include "../../application/Application.h"
-
+#include <LSolver/modeling/variables/DetachedVariable.h>
 
 template<class NodeClass>
-void L::BranchAndBound<NodeClass>::actually_solve() {
+void L::BranchAndBound<NodeClass>::restore_bounds() {
+    for (DetachedVariable& var : _detached_variables)
+        var.update_core_bounds();
+}
+
+template<class NodeClass>
+void L::BranchAndBound<NodeClass>::actually_solve_hook() {
     if (_branching_rule == nullptr) throw Exception("Cannot use branch-and-bound without branching rule.");
 
     NodeClass& root_node = *allocate_new_node();
@@ -20,6 +26,7 @@ void L::BranchAndBound<NodeClass>::actually_solve() {
         while (!_nodes_to_be_processed.empty()) {
             NodeClass& node = pull_node_to_be_processed();
             _L_LOG_(Debug) << "Solving node " << node.id() << "..." << std::endl;
+            restore_bounds();
             node.solve();
             _L_LOG_(Release) << "Node " << node.id() << " was solved in " << node.last_execution_time()
                 << "s, and ended with status " << node.solution().objective_status()
@@ -152,7 +159,7 @@ bool L::BranchAndBound<NodeClass>::solution_improves_incumbent(NodeClass& node) 
 }
 
 template<class NodeClass>
-void L::BranchAndBound<NodeClass>::save_results() {
+void L::BranchAndBound<NodeClass>::save_results_hook() {
 
     if (_unbounded) {
         _model.objective().status(Unbounded);
@@ -172,7 +179,11 @@ void L::BranchAndBound<NodeClass>::save_results() {
 }
 
 template<class NodeClass>
-L::BranchAndBound<NodeClass>::BranchAndBound(L::Model &model) : _model(model) {}
+L::BranchAndBound<NodeClass>::BranchAndBound(L::Model &model) : _model(model) {
+    for (const Variable& var : _model.variables())
+        if (var.priority() > 0)
+            _detached_variables.emplace_back(DetachedVariable(var));
+}
 
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::remove_active_node(const NodeClass &node) {

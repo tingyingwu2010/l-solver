@@ -49,11 +49,9 @@ add_library(LSolver
         LSolver/modeling/models/DualAngularModel.cpp
         LSolver/modeling/models/DualAngularModel.h
         LSolver/algorithms/ColumnGeneration/ColumnGeneration.h
-        LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeDecomposition.h
         LSolver/algorithms/ColumnGeneration/Column.cpp
         LSolver/algorithms/ColumnGeneration/Column.h
         LSolver/algorithms/ColumnGeneration/ColumnIterator.h
-        LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeColumnIterator.h
         LSolver/modeling/constraints/AbstractConstraint.h
         LSolver/modeling/enums.h
         LSolver/modeling/constraints/AbstractConstraint.cpp
@@ -73,7 +71,18 @@ add_library(LSolver
         LSolver/modeling/variables/CoreVariable.cpp
         LSolver/modeling/variables/CoreVariable.h
         LSolver/modeling/variables/DetachedVariable.cpp
-        LSolver/modeling/variables/DetachedVariable.h LSolver/modeling/models/DetachedModel.cpp LSolver/modeling/models/DetachedModel.h LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.cpp LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h LSolver/modeling/models/Decomposition.cpp LSolver/modeling/models/Decomposition.h)
+        LSolver/modeling/variables/DetachedVariable.h
+        LSolver/modeling/models/DetachedModel.cpp
+        LSolver/modeling/models/DetachedModel.h
+        LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.cpp
+        LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h
+        LSolver/modeling/models/Decomposition.cpp
+        LSolver/modeling/models/Decomposition.h
+        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.cpp
+        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.h
+        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionAlgorithm.h
+        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeColumnIterator.h
+        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(LSolver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})
