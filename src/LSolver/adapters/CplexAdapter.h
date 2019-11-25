@@ -21,9 +21,9 @@ class L::CplexAdapter : public SolverAdapter {
     template<class LBDS, class Cplex> struct Match;
     typedef Match<Variable, IloNumVar> VariableMatch;
     typedef Match<Constraint, IloRange> ConstraintMatch;
-    IloEnv* _env = new IloEnv();
-    IloModel* _model = new IloModel(*_env);
-    IloCplex* _cplex = new IloCplex(*_model);
+    IloEnv* _env = nullptr;
+    IloModel* _model = nullptr;
+    IloCplex* _cplex = nullptr;
     std::map<std::string, std::pair<Variable*, IloNumVar*>> _variables;
     std::map<std::string, std::pair<Constraint*, IloRange*>> _constraints;
     IloObjective* _objective = nullptr;
@@ -33,7 +33,7 @@ class L::CplexAdapter : public SolverAdapter {
     void lbds_expression_to_cplex(const Expression& lbds_expr, IloNumExpr& cplex_expr);
 public:
     CplexAdapter();
-    ~CplexAdapter();
+    ~CplexAdapter() override;
     void rebuild_objective();
     void create_variable(const Variable& variable) override;
     void create_constraint(const Constraint& constraint) override;

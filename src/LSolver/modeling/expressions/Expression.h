@@ -56,6 +56,7 @@ public:
     Expression(float coef); // NOLINT(google-explicit-constructor,hicpp-explicit-conversions)
     Expression(const Expression& rhs);
     Expression& operator=(const Expression& rhs);
+    virtual ~Expression();
 
     // getters
     Variable as_variable();

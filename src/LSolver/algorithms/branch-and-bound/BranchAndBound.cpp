@@ -5,6 +5,8 @@
 #include <cmath>
 #include <LSolver/application/LogManager.h>
 #include "../../application/Application.h"
+#include "BranchAndBound.h"
+
 #include <LSolver/modeling/variables/DetachedVariable.h>
 
 template<class NodeClass>
@@ -66,6 +68,7 @@ NodeClass &L::BranchAndBound<NodeClass>::pull_node_to_be_processed() {
 template<class NodeClass>
 void L::BranchAndBound<NodeClass>::bound(NodeClass &node) {
     if (solution_improves_incumbent(node)) {
+        if(_incumbent) remove_active_node(*_incumbent);
         _incumbent = &node;
         _L_LOG_(Release) << "New incumbent found, UB = " << _incumbent->solution().objective_value() << "" << std::endl;
     }
@@ -107,8 +110,8 @@ void L::BranchAndBound<NodeClass>::branch(NodeClass &node) {
 
     }
 
+    _L_LOG_(Debug) << "Node " << node.id() << " is being removed from active nodes because it was branched uppon" << std::endl;
     remove_active_node(node);
-    _L_LOG_(Debug) << "Node " << node.id() << " was removed from active nodes because it was branched uppon" << std::endl;
 }
 
 template<class NodeClass>
@@ -126,6 +129,7 @@ void L::BranchAndBound<NodeClass>::fathom_dominated_nodes() {
         if (node.solution().objective_status() == Infeasible || node.solution().objective_value() + tolerance >= incumbent_objective_value) {
             _active_nodes.erase(it);
             _L_LOG_(Release) << "Node " << node.id() << " was fathomed because LB = " << node.solution().objective_value() << " >= " << incumbent_objective_value << " = UB" << std::endl;
+            if (&node != _incumbent) delete &node;
             it--;
             end--;
         }
@@ -190,8 +194,15 @@ template<class NodeClass>
 void L::BranchAndBound<NodeClass>::remove_active_node(const NodeClass &node) {
     for (auto it = _active_nodes.begin(), end = _active_nodes.end() ; it != end ; ++it) {
         if (*it == &node) {
+            delete *it;
             _active_nodes.erase(it);
             break;
         }
     }
+}
+
+template<class NodeClass>
+L::BranchAndBound<NodeClass>::~BranchAndBound() {
+    for (auto ptr : _active_nodes) delete ptr;
+    delete _incumbent;
 }

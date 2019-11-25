@@ -39,6 +39,7 @@ protected:
     virtual void restore_bounds();
 public:
     explicit BranchAndBound(Model& model);
+    ~BranchAndBound();
     void branching_rule(BranchingRule& branching_rule);
     void save_results_hook() override;
 };

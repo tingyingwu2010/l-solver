@@ -19,6 +19,7 @@ protected:
     virtual void before_saving_results_hook() {}
     virtual void before_actually_solving_hook() {}
 public:
+    virtual ~Solver() = default;
     virtual void solve();
     float last_execution_time();
 };

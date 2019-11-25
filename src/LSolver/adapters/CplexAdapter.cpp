@@ -18,6 +18,9 @@ IloNumVar::Type L::CplexAdapter::to_cplex(L::VariableType type) {
 }
 
 L::CplexAdapter::CplexAdapter() {
+    _env = new IloEnv();
+    _model = new IloModel(*_env);
+    _cplex = new IloCplex(*_model);
     if (Application::parameters().external_solver_logs()) {
         _logger = new LogManager(External);
         _cplex->setOut(*_logger);
@@ -30,7 +33,14 @@ L::CplexAdapter::CplexAdapter() {
 
 
 L::CplexAdapter::~CplexAdapter() {
+    if (_env) _env->end();
     delete _objective;
+    delete _lbds_objective;
+    delete _model;
+    delete _env;
+    delete _cplex;
+    if(_logger) _logger->flush();
+    delete _logger;
     for (auto& m : _variables) {
         delete m.second.first;
         delete m.second.second;
@@ -39,9 +49,6 @@ L::CplexAdapter::~CplexAdapter() {
         delete m.second.first;
         delete m.second.second;
     }
-    delete _env;
-    if(_logger) _logger->flush();
-    delete _logger;
 }
 
 void L::CplexAdapter::create_variable(const L::Variable &variable) {
@@ -75,6 +82,7 @@ void L::CplexAdapter::create_constraint(const L::Constraint &constraint) {
 }
 
 void L::CplexAdapter::create_objective(const L::Objective &objective) {
+    if (_lbds_objective) throw Exception("An objective has already been built");
     _lbds_objective = new Objective(objective);
     IloNumExpr cplex_expr = IloNumExpr(*_env);
     lbds_expression_to_cplex(objective.expression(), cplex_expr);
@@ -202,7 +210,10 @@ void L::CplexAdapter::rebuild_objective() {
         delete _objective;
         _objective = nullptr;
     }
-    create_objective(*_lbds_objective);
+    Objective* obj = _lbds_objective;
+    _lbds_objective = nullptr;
+    create_objective(*obj);
+    delete obj;
 }
 
 void L::CplexAdapter::remove_constraint(const L::Constraint &ctr) {
@@ -210,6 +221,7 @@ void L::CplexAdapter::remove_constraint(const L::Constraint &ctr) {
     if (found == _constraints.end()) throw Exception("Cannot remove undeclared constraints");
     found->second.second->end();
     delete found->second.second;
+    delete found->second.first;
     _constraints.erase(found);
 }
 

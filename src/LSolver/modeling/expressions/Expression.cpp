@@ -59,8 +59,14 @@ L::Expression &L::Expression::operator=(const L::Expression &rhs) {
     _type = rhs._type;
     _numerical = rhs._numerical;
     _variable = rhs._variable;
-    if (rhs._left) _left = new Expression(*rhs._left);
-    if (rhs._right) _right = new Expression(*rhs._right);
+    if (rhs._left) {
+        delete _left;
+        _left = new Expression(*rhs._left);
+    }
+    if (rhs._right) {
+        delete _right;
+        _right = new Expression(*rhs._right);
+    }
     return *this;
 }
 
@@ -333,6 +339,11 @@ L::Expression::split_by_variable(const std::map<std::string, std::function<bool(
     }
 
     return output;
+}
+
+L::Expression::~Expression() {
+    delete _left;
+    delete _right;
 }
 
 L::Expression L::operator+(const L::Expression& a, const L::Expression& b) {

@@ -64,11 +64,15 @@ TEST(dantzig_wolfe_bap, optimal) {
     solver.branching_rule(rule);
     solver.solve();
 
+    EXPECT_EQ(model.objective().status(), Optimal);
+    EXPECT_FLOAT_EQ(model.objective().value(), 5.8);
+
 }
 
 TEST(dantzig_wolfe_bap, random) {
     for (unsigned int test = 0 ; test < 10 ; test += 1) {
         std::cout << "test " << test << std::endl;
+
         Environment env;
         VariableVector x = VariableVector(env, "x");
         VariableVector y = VariableVector(env, "y");
@@ -125,13 +129,9 @@ TEST(dantzig_wolfe_bap, random) {
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();
 
+        std::cout << direct_solver.last_execution_time() << " / " << dantzig_wolfe_solver.last_execution_time() << std::endl;
         EXPECT_EQ(dw_status, cplex_status);
         EXPECT_FLOAT_EQ(dw_objective, cplex_objective);
-
-        std::cout << "Status = " << objective.status() << std::endl;
-        for (const Variable& var : env.variables()) {
-            std::cout << var.user_defined_name() << " = " << var.value() << std::endl;
-        }
     }
 }
 

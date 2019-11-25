@@ -18,6 +18,8 @@ namespace L {
  */
 class L::SolverAdapter {
 public:
+    virtual ~SolverAdapter() = default;
+
     // creating models
     virtual void create_variable(const Variable& variable) = 0;
     virtual void create_constraint(const Constraint& constraint) = 0;

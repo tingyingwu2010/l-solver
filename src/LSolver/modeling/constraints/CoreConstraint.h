@@ -31,6 +31,7 @@ public:
      * @param user_defined_name the name of the new constraint
      */
     explicit CoreConstraint(std::string user_defined_name);
+    virtual ~CoreConstraint();
 
     // getters
     Expression& expression() override { return _expr; }

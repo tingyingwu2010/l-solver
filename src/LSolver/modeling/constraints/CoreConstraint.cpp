@@ -15,3 +15,7 @@ L::Variable L::CoreConstraint::dual() {
     }
     return Variable(*_dual_variable);
 }
+
+L::CoreConstraint::~CoreConstraint() {
+    delete _dual_variable;
+}

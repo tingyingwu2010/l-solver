@@ -9,7 +9,7 @@
 #include <LSolver/modeling/models/Model.h>
 #include <LSolver/modeling/vectors/Vector.h>
 #include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
-#include <LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h>
+#include <LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h>
 #include <LSolver/algorithms/DirectSolver/DirectMILPSolver.h>
 #include <LSolver/adapters/CplexAdapter.h>
 
@@ -24,25 +24,26 @@ int main() {
     Constraint knapsack_ctr = Constraint(env, "knapsack_ctr");
     Objective obj = Objective(env, "objective");
 
-    for (unsigned int i = 0 ; i < 10 ; i += 1) {
+    for (unsigned int i = 0 ; i < 1000 ; i += 1) {
         x(i).type(Binary);
-        model.add(x(i));
-        obj.expression() += -(rand() % 10) * x(i);
-        knapsack_ctr.expression() += (rand() % 10) * x(i);
+        obj.expression() += -(rand() % 500) * x(i);
+        knapsack_ctr.expression() += (rand() % 100) * x(i);
     }
-    knapsack_ctr.expression() += -12;
+    knapsack_ctr.expression() += -(rand() % 300);
+    knapsack_ctr.type(LessOrEqualTo);
     model.add(obj);
     model.add(knapsack_ctr);
+    model.add(x);
+
+    DirectMILPSolver<CplexAdapter> direct_solver(model);
+    direct_solver.solve();
+    std::cout << "CPLEX: status " << model.objective().status() << ", obj = " << model.objective().value() << std::endl;
 
     MostInfeasibleBranchingRule rule;
     MILPBranchAndBound<CplexAdapter> solver(model);
     solver.branching_rule(rule);
     solver.solve();
     std::cout << "L: status " << model.objective().status() << ", obj = " << model.objective().value() << std::endl;
-
-    DirectMILPSolver<CplexAdapter> direct_solver(model);
-    direct_solver.solve();
-    std::cout << "CPLEX: status " << model.objective().status() << ", obj = " << model.objective().value() << std::endl;
 
     return 0;
 }
