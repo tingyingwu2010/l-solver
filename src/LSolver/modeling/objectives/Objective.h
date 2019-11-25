@@ -53,12 +53,16 @@ public:
     [[nodiscard]] const Expression& expression() const override;
     [[nodiscard]] ObjectiveStatus status() const override;
     [[nodiscard]] float value() const override;
+    [[nodiscard]] float lb() const override;
+    [[nodiscard]] float ub() const override;
     Expression& expression() override;
 
     // setters
     void type(ObjectiveType type) override;
     void status(ObjectiveStatus status) override;
     void value(float value) override;
+    void lb(float lb) override;
+    void ub(float ub) override;
 };
 
 class L::ConstObjective : public AbstractObjective {
@@ -67,6 +71,8 @@ class L::ConstObjective : public AbstractObjective {
     void status(ObjectiveStatus status) override;
     void value(float value) override;
     Expression& expression() override;
+    void lb(float) override;
+    void ub(float) override;
 public:
     // constructor
     ConstObjective(CoreObjective&);
@@ -77,6 +83,8 @@ public:
     const Expression& expression() const override;
     ObjectiveStatus status() const override;
     float value() const override;
+    float lb() const override;
+    float ub() const override;
 };
 
 #endif //ED_SOLVER_OBJECTIVE_H

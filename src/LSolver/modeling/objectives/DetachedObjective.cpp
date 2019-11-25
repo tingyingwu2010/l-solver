@@ -8,6 +8,8 @@ L::DetachedObjective::DetachedObjective(const L::Objective & src) : CoreObjectiv
     _expression = _core.expression();
     _type = _core.type();
     _status = _core.status();
+    _lb = _core.lb();
+    _ub = _core.ub();
 }
 
 void L::DetachedObjective::update_core_value() {

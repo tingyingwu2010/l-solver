@@ -21,10 +21,12 @@ class L::ParameterManager {
     LogLevel _log_level = Release;
     float _tolerance = 0.00001;
     bool _external_solver_logs = false;
+    float _default_artificial_cost = std::numeric_limits<float>::max();
 public:
-    LogLevel log_level() const { return _log_level; }
-    float tolerance() const { return _tolerance; }
-    bool external_solver_logs() const { return _external_solver_logs; }
+    [[nodiscard]] LogLevel log_level() const { return _log_level; }
+    [[nodiscard]] float tolerance() const { return _tolerance; }
+    [[nodiscard]] bool external_solver_logs() const { return _external_solver_logs; }
+    [[nodiscard]] float default_artificial_cost() const { return _default_artificial_cost; }
 };
 
 

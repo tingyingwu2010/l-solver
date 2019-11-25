@@ -22,6 +22,22 @@ L::Expression &L::Objective::expression() {
     return _core.expression();
 }
 
+float L::Objective::lb() const {
+    return _core.lb();
+}
+
+float L::Objective::ub() const {
+    return _core.ub();
+}
+
+void L::Objective::lb(float lb) {
+    _core.lb(lb);
+}
+
+void L::Objective::ub(float ub) {
+    _core.ub(ub);
+}
+
 L::ObjectiveStatus L::Objective::status() const {
     return _core.status();
 }
@@ -83,3 +99,14 @@ L::Expression &L::ConstObjective::expression() {
     throw Exception("ConstObjective cannot be modified");
 }
 
+void L::ConstObjective::lb(float) {}
+
+void L::ConstObjective::ub(float) {}
+
+float L::ConstObjective::lb() const {
+    return _core.lb();
+}
+
+float L::ConstObjective::ub() const {
+    return _core.ub();
+}

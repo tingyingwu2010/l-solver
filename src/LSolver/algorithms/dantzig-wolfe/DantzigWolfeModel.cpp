@@ -2,6 +2,7 @@
 // Created by hlefebvr on 22/11/19.
 //
 
+#include <LSolver/application/Application.h>
 #include "DantzigWolfeModel.h"
 #include "../../modeling/constraints/DetachedConstraint.h"
 
@@ -118,7 +119,7 @@ void L::DantzigWolfeModel::dispatch(L::Objective obj) {
 }
 
 void L::DantzigWolfeModel::add_artificial_variables(Constraint& ctr) {
-    const float artificial_cost = 100;
+    const float artificial_cost = _restricted_master_problem.objective().ub();
 
     auto artificial_variable = [this, &artificial_cost](){
         Variable a = Variable(_env, "_artificial_" + std::to_string(_n_artificial_var++));

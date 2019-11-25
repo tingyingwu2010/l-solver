@@ -45,3 +45,19 @@ void L::CoreObjective::value(float value) {
 }
 
 L::CoreObjective::CoreObjective(const std::string &user_defined_name) : _user_defined_name(user_defined_name) {}
+
+float L::CoreObjective::ub() const {
+    return _ub;
+}
+
+float L::CoreObjective::lb() const {
+    return _lb;
+}
+
+void L::CoreObjective::lb(float lb) {
+    _lb = lb;
+}
+
+void L::CoreObjective::ub(float ub) {
+    _ub = ub;
+}

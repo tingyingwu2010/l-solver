@@ -24,6 +24,8 @@ protected:
     ObjectiveStatus _status = Unsolved; //!< objective's status (see AbstractObjective)
     ObjectiveType _type = Minimize; //!< objective's type (see AbstractObjective)
     float _value = std::numeric_limits<float>::max(); //!< objective's value
+    float _lb = std::numeric_limits<float>::lowest();
+    float _ub = std::numeric_limits<float>::max();
 public:
     /**
      * \brief Constructor.
@@ -37,12 +39,16 @@ public:
     [[nodiscard]] const Expression& expression() const override;
     [[nodiscard]] ObjectiveStatus status() const override;
     [[nodiscard]] float value() const override;
+    [[nodiscard]] float ub() const override;
+    [[nodiscard]] float lb() const override;
     Expression& expression() override;
 
     // setters
     void type(ObjectiveType type) override;
     void status(ObjectiveStatus status) override;
     void value(float value) override;
+    void lb(float lb) override;
+    void ub(float ub) override;
 };
 
 

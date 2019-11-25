@@ -76,6 +76,30 @@ public:
      */
     virtual void value(float value) = 0;
 
+    /**
+     * \brief Returns upper bound
+     * @return upper bound
+     */
+    virtual float ub() const = 0;
+
+    /**
+     * \brief Updates the upper bound
+     * @param ub new upper bound
+     */
+    virtual void ub(float ub) = 0;
+
+    /** Returns the lower bound
+     * \brief lower bound
+     * @return
+     */
+    virtual float lb() const = 0;
+
+    /**
+     * \brief Updates the lower bound
+     * @param ub new lower bound
+     */
+    virtual void lb(float ub) = 0;
+
     friend std::ostream& operator<<(std::ostream& os, const AbstractObjective& obj);
 };
 
