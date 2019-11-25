@@ -2,7 +2,7 @@ var searchData=
 [
   ['_7eabstractvariable',['~AbstractVariable',['../classL_1_1AbstractVariable.html#acc55957da4df4b70e6d2f75a778f7d43',1,'L::AbstractVariable']]],
   ['_7ebranchandboundnode',['~BranchAndBoundNode',['../classL_1_1BranchAndBoundNode.html#a0550999d8f4b82bd6681cd50624099cb',1,'L::BranchAndBoundNode']]],
-  ['_7ecolumngeneration',['~ColumnGeneration',['../classL_1_1ColumnGeneration.html#a9996ecd52a1763701e89bc4a90a29242',1,'L::ColumnGeneration']]],
+  ['_7ecolumngeneration',['~column-generation',['../classL_1_1ColumnGeneration.html#a9996ecd52a1763701e89bc4a90a29242',1,'L::column-generation']]],
   ['_7ecplexadapter',['~CplexAdapter',['../classL_1_1CplexAdapter.html#aafd9cd29ab95dc5e360f7897bc86771f',1,'L::CplexAdapter']]],
   ['_7edantzigwolfecolumniterator',['~DantzigWolfeColumnIterator',['../classL_1_1DantzigWolfeColumnIterator.html#a6002eac45fbf7088fc1e01d04e58fade',1,'L::DantzigWolfeColumnIterator']]],
   ['_7edantzigwolfedecomposition',['~DantzigWolfeDecomposition',['../classL_1_1DantzigWolfeDecomposition.html#a569053bb91651658abefd4726f91ecfd',1,'L::DantzigWolfeDecomposition']]],

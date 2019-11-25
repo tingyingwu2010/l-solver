@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../DirectSolver/DirectLPSolver.h"
+#include <LSolver/algorithms/direct-solver/DirectLPSolver.h>
 
 template<class ExternalSolver>
 L::MILPBranchAndBound<ExternalSolver>::MILPBranchAndBound(L::Model &model)

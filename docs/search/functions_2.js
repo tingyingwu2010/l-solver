@@ -3,7 +3,7 @@ var searchData=
   ['cbegin',['cbegin',['../classL_1_1Set.html#a7dbdc33fabbf3af3fd70d8a44bd5164b',1,'L::Set']]],
   ['cend',['cend',['../classL_1_1Set.html#ac3d693b8dc18b3181afa160190d63196',1,'L::Set']]],
   ['child',['child',['../classL_1_1Expression.html#afc55fb8bdbbe2024130809f542182286',1,'L::Expression::child(ExpressionSide side)'],['../classL_1_1Expression.html#a60d02c47d04b26ff8f1bbcb914cfa08e',1,'L::Expression::child(ExpressionSide side) const']]],
-  ['columngeneration',['ColumnGeneration',['../classL_1_1ColumnGeneration.html#a42c2de8a9288aead49e53d8073cb73ec',1,'L::ColumnGeneration']]],
+  ['columngeneration',['column-generation',['../classL_1_1ColumnGeneration.html#a42c2de8a9288aead49e53d8073cb73ec',1,'L::column-generation']]],
   ['components',['components',['../classL_1_1Vector.html#aa56a75c6012356ee89555d2b5b2e3ec6',1,'L::Vector']]],
   ['concat_5fstring_5farray',['concat_string_array',['../namespaceL.html#a08a8fdd3880615ad1e17a061b7506eec',1,'L']]],
   ['const_5fiterator',['const_iterator',['../classL_1_1Set_1_1const__iterator.html#ae4653566fb497601f0abb38de86a8c15',1,'L::Set::const_iterator']]],

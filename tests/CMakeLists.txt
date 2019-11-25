@@ -13,7 +13,16 @@ include_directories(${PATH_TO_GOOGLE_TEST}/googletest/include)
 #include the googlemock/include dir
 include_directories(${PATH_TO_GOOGLE_TEST}/googlemock/include)
 
-add_executable(LSolverTests TestsMain.cpp modeling/VariableTests.h modeling/ExpressionTests.h algorithms/DirectLPSolver.h algorithms/DirectMILPSolver.h algorithms/MILPBranchAndBound.h algorithms/DantzigWolfeDecomposition.h modeling/DualAngularModelTest.h algorithms/DantzigWolfeBranchAndPriceTest.h)
+add_executable(LSolverTests
+        TestsMain.cpp
+        modeling/VariableTests.h
+        modeling/ExpressionTests.h
+        algorithms/DirectLPSolver-Test.h
+        algorithms/DirectMILPSolver-Test.h
+        algorithms/MILPBranchAndBound-Test.h
+        algorithms/DantzigWolfeDecompositionSolver-Test.h
+        modeling/DualAngularModelTest.h
+        algorithms/DantzigWolfeBranchAndPrice-Test.h)
 target_link_libraries(LSolverTests LSolver)
 target_link_libraries(LSolverTests gtest gtest_main)
 target_link_libraries(LSolverTests gmock gmock_main)

@@ -7,7 +7,7 @@
 
 #include <LSolver/modeling/models/Model.h>
 #include <LSolver/modeling/vectors/Vector.h>
-#include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
+#include <LSolver/algorithms/direct-solver/DirectLPSolver.h>
 #include <LSolver/adapters/CplexAdapter.h>
 #include "gtest/gtest.h"
 

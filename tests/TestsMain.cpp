@@ -2,12 +2,12 @@
 #include "gtest/gtest.h"
 #include "modeling/VariableTests.h"
 #include "modeling/ExpressionTests.h"
-#include "algorithms/DirectLPSolver.h"
-#include "algorithms/DirectMILPSolver.h"
-#include "algorithms/MILPBranchAndBound.h"
-#include "algorithms/DantzigWolfeDecomposition.h"
+#include "algorithms/DirectLPSolver-Test.h"
+#include "algorithms/DirectMILPSolver-Test.h"
+#include "algorithms/MILPBranchAndBound-Test.h"
+#include "algorithms/DantzigWolfeDecompositionSolver-Test.h"
 #include "modeling/DualAngularModelTest.h"
-#include "algorithms/DantzigWolfeBranchAndPriceTest.h"
+#include "algorithms/DantzigWolfeBranchAndPrice-Test.h"
 
 int main(int argc, char **argv) {
     Application::load_configuration_file("../../tests/test.cfg");

@@ -2,21 +2,19 @@
 
 #include <LSolver/environment/Environment.h>
 #include <LSolver/modeling/variables/Variable.h>
-#include <LSolver/modeling/expressions/Expression.h>
 #include <LSolver/modeling/models/Model.h>
 #include <LSolver/adapters/CplexAdapter.h>
-#include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
+#include <LSolver/algorithms/direct-solver/DirectLPSolver.h>
 #include <LSolver/modeling/vectors/Vector.h>
-#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.h>
-#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionAlgorithm.h>
-#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h>
+#include <LSolver/algorithms/dantzig-wolfe/DantzigWolfeModel.h>
+#include <LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h>
 
 using namespace std;
 using namespace L;
 
 int main() {
 
-    Application::load_configuration_file("../../../examples/DantzigWolfeDecompositionExample/dw.cfg");
+    Application::load_configuration_file("../../../examples/dantzig-wolfe-decomposition/dw.cfg");
 
     Environment env;
     VariableVector x = VariableVector(env, "x");

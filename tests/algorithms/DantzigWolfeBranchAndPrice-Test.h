@@ -2,11 +2,11 @@
 // Created by hlefebvr on 21/11/19.
 //
 
-#ifndef LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
-#define LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
+#ifndef LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICE_TEST_H
+#define LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICE_TEST_H
 
 
-#include <LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h>
+#include <LSolver/algorithms/dantzig-wolfe-branch-and-price/DantzigWolfeBranchAndPrice.h>
 
 TEST(dantzig_wolfe_bap, optimal) {
     Environment env;
@@ -70,9 +70,7 @@ TEST(dantzig_wolfe_bap, optimal) {
 }
 
 TEST(dantzig_wolfe_bap, random) {
-    for (unsigned int test = 0 ; test < 10 ; test += 1) {
-        std::cout << "test " << test << std::endl;
-
+    for (unsigned int test = 0 ; test < 5 ; test += 1) {
         Environment env;
         VariableVector x = VariableVector(env, "x");
         VariableVector y = VariableVector(env, "y");
@@ -129,10 +127,9 @@ TEST(dantzig_wolfe_bap, random) {
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();
 
-        std::cout << direct_solver.last_execution_time() << " / " << dantzig_wolfe_solver.last_execution_time() << std::endl;
         EXPECT_EQ(dw_status, cplex_status);
         EXPECT_FLOAT_EQ(dw_objective, cplex_objective);
     }
 }
 
-#endif //LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
+#endif //LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICE_TEST_H

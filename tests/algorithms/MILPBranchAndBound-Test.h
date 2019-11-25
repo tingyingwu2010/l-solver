@@ -5,8 +5,8 @@
 #ifndef LSOLVERPROJECT_MILPBRANCHANDBOUND_H
 #define LSOLVERPROJECT_MILPBRANCHANDBOUND_H
 
-#include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
-#include <LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h>
+#include <LSolver/algorithms/milp-branch-and-bound/MILPBranchAndBound.h>
+#include <LSolver/algorithms/branch-and-bound/branching-rules/MostInfeasibleBranchingRule.h>
 
 TEST(branch_and_bound_milp_solver, optimal) {
     // with a small knapsack example

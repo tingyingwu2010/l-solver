@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DIRECTMILPSOLVER_H
 #define LSOLVERPROJECT_DIRECTMILPSOLVER_H
 
-#include <LSolver/algorithms/DirectSolver/DirectMILPSolver.h>
+#include <LSolver/algorithms/direct-solver/DirectMILPSolver.h>
 
 TEST(direct_milp_solver, optimal) {
     // with a small knapsack example

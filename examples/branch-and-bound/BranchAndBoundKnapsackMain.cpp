@@ -8,9 +8,9 @@
 #include <LSolver/environment/Environment.h>
 #include <LSolver/modeling/models/Model.h>
 #include <LSolver/modeling/vectors/Vector.h>
-#include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
-#include <LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h>
-#include <LSolver/algorithms/DirectSolver/DirectMILPSolver.h>
+#include <LSolver/algorithms/milp-branch-and-bound/MILPBranchAndBound.h>
+#include <LSolver/algorithms/branch-and-bound/branching-rules/MostInfeasibleBranchingRule.h>
+#include <LSolver/algorithms/direct-solver/DirectMILPSolver.h>
 #include <LSolver/adapters/CplexAdapter.h>
 
 using namespace std;

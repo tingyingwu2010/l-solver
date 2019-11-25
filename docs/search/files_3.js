@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['dantzigwolfebranchandprice_2ecpp',['DantzigWolfeBranchAndPrice.cpp',['../DantzigWolfeBranchAndPrice_8cpp.html',1,'']]],
-  ['dantzigwolfebranchandprice_2eh',['DantzigWolfeBranchAndPrice.h',['../DantzigWolfeBranchAndPrice_8h.html',1,'']]],
+  ['dantzigwolfebranchandprice_2ecpp',['dantzig-wolfe-branch-and-price.cpp',['../DantzigWolfeBranchAndPrice_8cpp.html',1,'']]],
+  ['dantzigwolfebranchandprice_2eh',['dantzig-wolfe-branch-and-price.h',['../DantzigWolfeBranchAndPrice_8h.html',1,'']]],
   ['dantzigwolfecolumniterator_2ecpp',['DantzigWolfeColumnIterator.cpp',['../DantzigWolfeColumnIterator_8cpp.html',1,'']]],
   ['dantzigwolfecolumniterator_2eh',['DantzigWolfeColumnIterator.h',['../DantzigWolfeColumnIterator_8h.html',1,'']]],
   ['dantzigwolfedecomposition_2ecpp',['DantzigWolfeDecomposition.cpp',['../DantzigWolfeDecomposition_8cpp.html',1,'']]],
@@ -20,8 +20,8 @@ var searchData=
   ['directlpsolver_2eh',['DirectLPSolver.h',['../DirectLPSolver_8h.html',1,'']]],
   ['directmilpsolver_2ecpp',['DirectMILPSolver.cpp',['../DirectMILPSolver_8cpp.html',1,'']]],
   ['directmilpsolver_2eh',['DirectMILPSolver.h',['../DirectMILPSolver_8h.html',1,'']]],
-  ['directsolver_2ecpp',['DirectSolver.cpp',['../DirectSolver_8cpp.html',1,'']]],
-  ['directsolver_2eh',['DirectSolver.h',['../DirectSolver_8h.html',1,'']]],
+  ['directsolver_2ecpp',['direct-solver.cpp',['../DirectSolver_8cpp.html',1,'']]],
+  ['directsolver_2eh',['direct-solver.h',['../DirectSolver_8h.html',1,'']]],
   ['dualangularmodel_2ecpp',['DualAngularModel.cpp',['../DualAngularModel_8cpp.html',1,'']]],
   ['dualangularmodel_2eh',['DualAngularModel.h',['../DualAngularModel_8h.html',1,'']]]
 ];

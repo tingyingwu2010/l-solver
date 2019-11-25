@@ -9,7 +9,7 @@
 #include <stack>
 #include "../Solver.h"
 #include "LSolver/modeling/variables/Variable.h"
-#include "BranchingRules/BranchingRule.h"
+#include "branching-rules/BranchingRule.h"
 
 namespace L {
     template<class NodeClass> class BranchAndBound;

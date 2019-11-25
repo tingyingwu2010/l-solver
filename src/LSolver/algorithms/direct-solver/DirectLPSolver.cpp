@@ -3,7 +3,6 @@
 //
 
 #include "../../application/LogManager.h"
-#include "DirectLPSolver.h"
 
 
 template <class ExternalSolver>

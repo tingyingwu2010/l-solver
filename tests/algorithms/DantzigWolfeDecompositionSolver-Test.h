@@ -6,7 +6,7 @@
 #define LSOLVERPROJECT_DANTZIGWOLFEDECOMPOSITION_TEST_H
 
 #include <LSolver/modeling/models/DualAngularModel.h>
-#include <LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h>
+#include <LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h>
 
 TEST(dantzig_wolfe_cg, optimal) {
     Environment env;

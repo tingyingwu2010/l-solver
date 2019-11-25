@@ -19,8 +19,8 @@ add_library(LSolver
         LSolver/adapters/SolverAdapter.h
         LSolver/adapters/CplexAdapter.cpp
         LSolver/adapters/CplexAdapter.h
-        LSolver/algorithms/DirectSolver/DirectSolver.cpp
-        LSolver/algorithms/DirectSolver/DirectSolver.h
+        LSolver/algorithms/direct-solver/DirectSolver.cpp
+        LSolver/algorithms/direct-solver/DirectSolver.h
         LSolver/algorithms/Solver.h
         LSolver/modeling/expressions/Expression.cpp
         LSolver/modeling/expressions/Expression.h
@@ -28,18 +28,18 @@ add_library(LSolver
         LSolver/modeling/objectives/Objective.h
         LSolver/modeling/models/Model.cpp
         LSolver/modeling/models/Model.h
-        LSolver/algorithms/DirectSolver/DirectMILPSolver.h
+        LSolver/algorithms/direct-solver/DirectMILPSolver.h
         LSolver/algorithms/Solver.cpp
-        LSolver/algorithms/DirectSolver/DirectLPSolver.h
+        LSolver/algorithms/direct-solver/DirectLPSolver.h
         LSolver/modeling/vectors/Vector.h
         LSolver/structures/MapIterator.h
         LSolver/algorithms/branch-and-bound/BranchAndBound.h
-        LSolver/algorithms/branch-and-bound/BranchingRules/BranchingRule.h
-        LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.cpp
-        LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h
+        LSolver/algorithms/branch-and-bound/branching-rules/BranchingRule.h
+        LSolver/algorithms/branch-and-bound/branching-rules/MostInfeasibleBranchingRule.cpp
+        LSolver/algorithms/branch-and-bound/branching-rules/MostInfeasibleBranchingRule.h
         LSolver/algorithms/branch-and-bound/BranchAndBoundNode.h
         LSolver/algorithms/branch-and-bound/BranchAndBoundNode.cpp
-        LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h
+        LSolver/algorithms/milp-branch-and-bound/MILPBranchAndBound.h
         LSolver/application/Application.cpp
         LSolver/application/Application.h
         LSolver/application/ParameterManager.cpp
@@ -48,10 +48,10 @@ add_library(LSolver
         LSolver/application/enums.h
         LSolver/modeling/models/DualAngularModel.cpp
         LSolver/modeling/models/DualAngularModel.h
-        LSolver/algorithms/ColumnGeneration/ColumnGeneration.h
-        LSolver/algorithms/ColumnGeneration/Column.cpp
-        LSolver/algorithms/ColumnGeneration/Column.h
-        LSolver/algorithms/ColumnGeneration/ColumnIterator.h
+        LSolver/algorithms/column-generation/ColumnGeneration.h
+        LSolver/algorithms/column-generation/Column.cpp
+        LSolver/algorithms/column-generation/Column.h
+        LSolver/algorithms/column-generation/ColumnIterator.h
         LSolver/modeling/constraints/AbstractConstraint.h
         LSolver/modeling/enums.h
         LSolver/modeling/constraints/AbstractConstraint.cpp
@@ -74,14 +74,14 @@ add_library(LSolver
         LSolver/modeling/variables/DetachedVariable.h
         LSolver/modeling/models/DetachedModel.cpp
         LSolver/modeling/models/DetachedModel.h
-        LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h
+        LSolver/algorithms/dantzig-wolfe-branch-and-price/DantzigWolfeBranchAndPrice.h
         LSolver/modeling/models/Decomposition.cpp
         LSolver/modeling/models/Decomposition.h
-        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.cpp
-        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeModel.h
-        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionAlgorithm.h
-        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeColumnIterator.h
-        LSolver/algorithms/DantzigWolfeSolver/DantzigWolfeDecompositionSolver.h)
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeModel.cpp
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeModel.h
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionAlgorithm.h
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeColumnIterator.h
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(LSolver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})

@@ -6,7 +6,7 @@
 #define LSOLVERPROJECT_COLUMNGENERATION_H
 
 #include <vector>
-#include <LSolver/algorithms/DirectSolver/DirectLPSolver.h>
+#include <LSolver/algorithms/direct-solver/DirectLPSolver.h>
 #include <LSolver/environment/Environment.h>
 #include "LSolver/modeling/models/Model.h"
 #include "../Solver.h"

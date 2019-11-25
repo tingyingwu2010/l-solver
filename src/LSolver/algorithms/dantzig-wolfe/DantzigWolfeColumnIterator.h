@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DANTZIGWOLFECOLUMN_ITERATOR_H
 #define LSOLVERPROJECT_DANTZIGWOLFECOLUMN_ITERATOR_H
 
-#include "../ColumnGeneration/ColumnIterator.h"
+#include "../column-generation/ColumnIterator.h"
 
 namespace L {
     template<class SubProblemSolver> class DantzigWolfeColumnIterator;

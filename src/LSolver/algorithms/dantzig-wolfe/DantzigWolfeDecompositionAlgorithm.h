@@ -7,7 +7,7 @@
 
 #include "DantzigWolfeModel.h"
 #include "DantzigWolfeColumnIterator.h"
-#include "../ColumnGeneration/ColumnGeneration.h"
+#include "../column-generation/ColumnGeneration.h"
 
 namespace L {
     template<class Adapter_RMP, class SubProblemSolver> class DantzigWolfeDecompositionAlgorithm;
