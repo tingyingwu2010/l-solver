@@ -11,6 +11,11 @@ L::DantzigWolfeModel::DantzigWolfeModel(L::Decomposition &decomposition)
     dispatch();
 }
 
+L::DantzigWolfeModel::~DantzigWolfeModel() {
+    for (auto& m : _sub_problems) delete m.second;
+    for (auto ptr : _detached_linking_constraints) delete ptr;
+}
+
 void L::DantzigWolfeModel::dispatch() {
     for (Variable var : _decomposition.source_model().variables()) dispatch(var);
     dispatch(_decomposition.source_model().objective());
@@ -147,6 +152,16 @@ L::Model &L::DantzigWolfeModel::restricted_master_problem() {
 
 L::Environment &L::DantzigWolfeModel::env() {
     return _env;
+}
+
+
+
+
+
+
+
+L::DantzigWolfeSubProblem::~DantzigWolfeSubProblem() {
+    delete _convex_constraint;
 }
 
 const std::map<std::string, L::DantzigWolfeSubProblem *> &L::DantzigWolfeModel::sub_problems() {

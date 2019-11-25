@@ -23,6 +23,7 @@ class L::DantzigWolfeColumnIterator : public ColumnIterator {
 public:
     explicit DantzigWolfeColumnIterator(const std::map<std::string, DantzigWolfeSubProblem*>&);
     DantzigWolfeColumnIterator(const DantzigWolfeColumnIterator<SubProblemSolver>& rhs);
+    virtual ~DantzigWolfeColumnIterator();
     Column get_next_column() override ;
     bool is_done() override;
     void reset_sub_problems_variables();

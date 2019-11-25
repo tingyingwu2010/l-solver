@@ -33,12 +33,12 @@ add_library(LSolver
         LSolver/algorithms/DirectSolver/DirectLPSolver.h
         LSolver/modeling/vectors/Vector.h
         LSolver/structures/MapIterator.h
-        LSolver/algorithms/BranchAndBound/BranchAndBound.h
-        LSolver/algorithms/BranchAndBound/BranchingRules/BranchingRule.h
-        LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.cpp
-        LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h
-        LSolver/algorithms/BranchAndBound/BranchAndBoundNode.h
-        LSolver/algorithms/BranchAndBound/BranchAndBoundNode.cpp
+        LSolver/algorithms/branch-and-bound/BranchAndBound.h
+        LSolver/algorithms/branch-and-bound/BranchingRules/BranchingRule.h
+        LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.cpp
+        LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h
+        LSolver/algorithms/branch-and-bound/BranchAndBoundNode.h
+        LSolver/algorithms/branch-and-bound/BranchAndBoundNode.cpp
         LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h
         LSolver/application/Application.cpp
         LSolver/application/Application.h
@@ -74,7 +74,6 @@ add_library(LSolver
         LSolver/modeling/variables/DetachedVariable.h
         LSolver/modeling/models/DetachedModel.cpp
         LSolver/modeling/models/DetachedModel.h
-        LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.cpp
         LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h
         LSolver/modeling/models/Decomposition.cpp
         LSolver/modeling/models/Decomposition.h

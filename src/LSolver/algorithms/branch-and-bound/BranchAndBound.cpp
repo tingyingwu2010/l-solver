@@ -175,6 +175,7 @@ void L::BranchAndBound<NodeClass>::save_results_hook() {
     }
 
     _L_LOG_(Release) << "Optimal solution found ! Updating core variables..." << std::endl;
+    restore_bounds();
     _incumbent->solution().update();
 }
 

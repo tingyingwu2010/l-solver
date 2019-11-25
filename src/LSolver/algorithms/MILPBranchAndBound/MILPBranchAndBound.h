@@ -5,8 +5,8 @@
 #ifndef LBDS_SOLVER_MILPBRANCHANDBOUND_H
 #define LBDS_SOLVER_MILPBRANCHANDBOUND_H
 
-#include "../BranchAndBound/BranchAndBoundNode.h"
-#include "../BranchAndBound/BranchAndBound.h"
+#include "../branch-and-bound/BranchAndBoundNode.h"
+#include "../branch-and-bound/BranchAndBound.h"
 
 namespace L {
     template<class ExternalSolver> class MILPBranchAndBoundNode;

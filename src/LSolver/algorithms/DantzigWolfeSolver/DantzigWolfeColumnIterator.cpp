@@ -5,6 +5,10 @@
 #include <LSolver/application/LogManager.h>
 #include "DantzigWolfeModel.h"
 
+template<class SubProblemSolver>
+L::DantzigWolfeColumnIterator<SubProblemSolver>::~DantzigWolfeColumnIterator() {
+    for (auto& m : _sub_problems) delete m.second;
+}
 
 template<class SubProblemSolver>
 L::DantzigWolfeColumnIterator<SubProblemSolver>::DantzigWolfeColumnIterator(

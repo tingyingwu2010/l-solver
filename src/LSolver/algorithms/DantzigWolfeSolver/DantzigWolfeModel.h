@@ -22,6 +22,7 @@ class L::DantzigWolfeSubProblem : public Model {
     Constraint* _convex_constraint = nullptr;
     typedef std::vector<std::pair<Constraint, Expression>> LinkingConstraintExpression;
 public:
+    virtual ~DantzigWolfeSubProblem();
     explicit DantzigWolfeSubProblem(const std::string& user_defind_name);
     void add_linking_expression(const Constraint& ctr, const Expression& expr);
     void set_linking_cost(const Expression& expr);
@@ -54,6 +55,7 @@ class L::DantzigWolfeModel {
     void add_convex_constraints();
     void add_artificial_variables(Constraint& ctr);
 public:
+    virtual ~DantzigWolfeModel();
     explicit DantzigWolfeModel(Decomposition& decomposition);
     Model& restricted_master_problem();
     Environment& env();

@@ -6,7 +6,7 @@
 #define LSOLVERPROJECT_MILPBRANCHANDBOUND_H
 
 #include <LSolver/algorithms/MILPBranchAndBound/MILPBranchAndBound.h>
-#include <LSolver/algorithms/BranchAndBound/BranchingRules/MostInfeasibleBranchingRule.h>
+#include <LSolver/algorithms/branch-and-bound/BranchingRules/MostInfeasibleBranchingRule.h>
 
 TEST(branch_and_bound_milp_solver, optimal) {
     // with a small knapsack example

@@ -5,7 +5,7 @@
 #ifndef LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
 #define LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
 
-/*
+
 #include <LSolver/algorithms/DantzigWolfeBranchAndPrice/DantzigWolfeBranchAndPrice.h>
 
 TEST(dantzig_wolfe_bap, optimal) {
@@ -60,7 +60,7 @@ TEST(dantzig_wolfe_bap, optimal) {
 
     // solve
     MostInfeasibleBranchingRule rule;
-    DantzigWolfeBranchAndPrice solver(decomposition);
+    DantzigWolfeBranchAndPrice<CplexAdapter, DirectLPSolver<CplexAdapter>> solver(decomposition);
     solver.branching_rule(rule);
     solver.solve();
 
@@ -68,6 +68,7 @@ TEST(dantzig_wolfe_bap, optimal) {
 
 TEST(dantzig_wolfe_bap, random) {
     for (unsigned int test = 0 ; test < 10 ; test += 1) {
+        std::cout << "test " << test << std::endl;
         Environment env;
         VariableVector x = VariableVector(env, "x");
         VariableVector y = VariableVector(env, "y");
@@ -117,7 +118,9 @@ TEST(dantzig_wolfe_bap, random) {
         const ObjectiveStatus cplex_status = model.objective().status();
         const float cplex_objective = model.objective().value();
 
-        DantzigWolfeDecomposition<CplexAdapter> dantzig_wolfe_solver(decomposition);
+        MostInfeasibleBranchingRule rule;
+        DantzigWolfeBranchAndPrice<CplexAdapter, DirectLPSolver<CplexAdapter>> dantzig_wolfe_solver(decomposition);
+        dantzig_wolfe_solver.branching_rule(rule);
         dantzig_wolfe_solver.solve();
         const ObjectiveStatus dw_status = model.objective().status();
         const float dw_objective = model.objective().value();
@@ -130,6 +133,6 @@ TEST(dantzig_wolfe_bap, random) {
             std::cout << var.user_defined_name() << " = " << var.value() << std::endl;
         }
     }
-} */
+}
 
 #endif //LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICETEST_H
