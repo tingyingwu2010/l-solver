@@ -21,7 +21,6 @@ add_executable(LSolverTests
         algorithms/DirectMILPSolver-Test.h
         algorithms/MILPBranchAndBound-Test.h
         algorithms/DantzigWolfeDecompositionSolver-Test.h
-        modeling/DualAngularModelTest.h
         algorithms/DantzigWolfeBranchAndPrice-Test.h)
 target_link_libraries(LSolverTests LSolver)
 target_link_libraries(LSolverTests gtest gtest_main)

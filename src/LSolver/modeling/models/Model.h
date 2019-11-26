@@ -16,7 +16,6 @@
 
 namespace L {
     class Model;
-    class DetachedModel;
     class DetachedObjective;
     class DetachedConstraint;
     class Objective;

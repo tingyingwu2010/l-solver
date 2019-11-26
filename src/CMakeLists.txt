@@ -46,8 +46,6 @@ add_library(LSolver
         LSolver/application/ParameterManager.h
         LSolver/application/LogManager.h
         LSolver/application/enums.h
-        LSolver/modeling/models/DualAngularModel.cpp
-        LSolver/modeling/models/DualAngularModel.h
         LSolver/algorithms/column-generation/ColumnGeneration.h
         LSolver/algorithms/column-generation/Column.cpp
         LSolver/algorithms/column-generation/Column.h
@@ -72,8 +70,6 @@ add_library(LSolver
         LSolver/modeling/variables/CoreVariable.h
         LSolver/modeling/variables/DetachedVariable.cpp
         LSolver/modeling/variables/DetachedVariable.h
-        LSolver/modeling/models/DetachedModel.cpp
-        LSolver/modeling/models/DetachedModel.h
         LSolver/algorithms/dantzig-wolfe-branch-and-price/DantzigWolfeBranchAndPrice.h
         LSolver/modeling/models/Decomposition.cpp
         LSolver/modeling/models/Decomposition.h

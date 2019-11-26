@@ -6,7 +6,6 @@
 #include "algorithms/DirectMILPSolver-Test.h"
 #include "algorithms/MILPBranchAndBound-Test.h"
 #include "algorithms/DantzigWolfeDecompositionSolver-Test.h"
-#include "modeling/DualAngularModelTest.h"
 #include "algorithms/DantzigWolfeBranchAndPrice-Test.h"
 
 int main(int argc, char **argv) {

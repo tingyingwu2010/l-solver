@@ -6,7 +6,6 @@
 #define LSOLVERPROJECT_DANTZIGWOLFEBRANCHANDPRICE_H
 
 #include <LSolver/algorithms/branch-and-bound/BranchAndBound.h>
-#include <LSolver/modeling/models/DualAngularModel.h>
 
 namespace L {
     template<class Adapter_RMP, class SubProblemSolver> class DantzigWolfeBranchAndPrice;
