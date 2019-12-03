@@ -2,6 +2,8 @@
 // Created by hlefebvr on 21/11/19.
 //
 
+#include <LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h>
+
 template<class Adapter_RMP, class SubProblemSolver>
 L::DantzigWolfeBranchAndPrice<Adapter_RMP, SubProblemSolver>::DantzigWolfeBranchAndPrice(L::Decomposition &decomposition)
     : BranchAndBound<DantzigWolfeBranchAndPriceNode<Adapter_RMP, SubProblemSolver>>(decomposition.source_model()),

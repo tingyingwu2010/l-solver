@@ -27,7 +27,7 @@ public:
     void add_constraint(const Constraint& constraint);
     void export_to_file(const std::string& filename);
     void rebuild_constraint(const Constraint& ctr);
-    ~DirectLPSolver();
+    ~DirectLPSolver() override;
 };
 
 #include "DirectLPSolver.cpp"

@@ -15,7 +15,6 @@
 namespace L {
     class Environment;
     template<class Component> class Vector;
-    typedef Vector<Variable> VariableVector;
     typedef Vector<Constraint> ConstraintVector;
 }
 
@@ -32,6 +31,8 @@ class L::Vector {
     const std::string _user_defined_name; //!< vector's name (to which will be appended "_{index}" for its components name)
     const unsigned long int _dimension; //!< vector's dimension
     std::map<std::string, Component*> _components; //!< pointers to its components (yet the memory is managed by _env)
+protected:
+    virtual void after_new_component_hook(Component& component);
 public:
     typedef MapIterator<std::string, Component> ComponentIterator;
     ~Vector();

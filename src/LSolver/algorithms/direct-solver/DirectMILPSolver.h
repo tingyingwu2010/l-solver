@@ -20,6 +20,7 @@ class L::DirectMILPSolver : public DirectSolver {
     void save_results_hook() override;
 public:
     explicit DirectMILPSolver(Model& model);
+    void rebuild_objective();
 };
 
 #include "DirectMILPSolver.cpp"

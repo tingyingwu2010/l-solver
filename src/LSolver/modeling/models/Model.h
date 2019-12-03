@@ -19,6 +19,7 @@ namespace L {
     class DetachedObjective;
     class DetachedConstraint;
     class Objective;
+    class VariableVector;
     std::ostream& operator<<(std::ostream& os, const Model& model);
 }
 

@@ -13,6 +13,7 @@
 #include "LSolver/modeling/objectives/DetachedObjective.h"
 #include "../constraints/DetachedConstraint.h"
 #include "../variables/DetachedVariable.h"
+#include "LSolver/modeling/vectors/VariableVector.h"
 
 L::Model::Model(std::string user_defined_name) : _user_defined_name(std::move(user_defined_name)) {}
 

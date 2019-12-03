@@ -21,6 +21,7 @@ Component L::Vector<Component>::operator()(unsigned long int i, ...) {
 
     if (found == _components.end()) {
         auto* component = new Component(_env, name);
+        after_new_component_hook(*component);
         _components.insert({ name, component });
         return *component;
     }
@@ -37,3 +38,6 @@ template<class Component>
 typename L::Vector<Component>::ComponentIterator L::Vector<Component>::components() {
     return ComponentIterator(_components);
 }
+
+template<class Component>
+void L::Vector<Component>::after_new_component_hook(Component&) {}
