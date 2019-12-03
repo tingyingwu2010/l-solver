@@ -1,7 +1,7 @@
 var searchData=
 [
   ['column',['Column',['../classL_1_1Column.html',1,'L']]],
-  ['columngeneration',['column-generation',['../classL_1_1ColumnGeneration.html',1,'L']]],
+  ['columngeneration',['ColumnGeneration',['../classL_1_1ColumnGeneration.html',1,'L']]],
   ['columniterator',['ColumnIterator',['../classL_1_1ColumnIterator.html',1,'L']]],
   ['const_5fiterator',['const_iterator',['../classL_1_1Set_1_1const__iterator.html',1,'L::Set']]],
   ['constconstraint',['ConstConstraint',['../classL_1_1ConstConstraint.html',1,'L']]],

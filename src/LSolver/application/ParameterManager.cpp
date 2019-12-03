@@ -43,8 +43,6 @@ void L::ParameterManager::handle_key_value(const std::string& key, const std::st
         if (_tolerance <= 0) throw Exception("Invalid tolerance value: " + value + ", allowed: positive values");
     } else if (key == "EXTERNAL_SOLVER_LOGS") {
         _external_solver_logs = as_boolean();
-    } else if (key == "DEFAULT_ARTIFICIAL_COST") {
-        _default_artificial_cost = std::stof(value);
     } else {
         throw Exception("Unknwon parameter " + key);
     }

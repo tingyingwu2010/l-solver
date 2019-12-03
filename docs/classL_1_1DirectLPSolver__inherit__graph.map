@@ -1,4 +1,4 @@
-<map id="L::DirectLPSolver&lt; Adapter_RMP &gt;" name="L::DirectLPSolver&lt; Adapter_RMP &gt;">
+<map id="L::DirectLPSolver&lt; ExternalSolver &gt;" name="L::DirectLPSolver&lt; ExternalSolver &gt;">
 <area shape="rect" id="node2" href="$classL_1_1DirectSolver.html" title="L::DirectSolver" alt="" coords="17,80,127,107"/>
-<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="35,5,109,32"/>
+<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="Implements the interface for solvers. " alt="" coords="35,5,109,32"/>
 </map>

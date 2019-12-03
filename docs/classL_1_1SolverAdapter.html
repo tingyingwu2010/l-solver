@@ -94,22 +94,59 @@ Inheritance diagram for L::SolverAdapter:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3b9ddda424596a1e3e027a7b3bc1d404"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a3b9ddda424596a1e3e027a7b3bc1d404">~SolverAdapter</a> ()=default</td></tr>
+<tr class="memdesc:a3b9ddda424596a1e3e027a7b3bc1d404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Should clear all the allocated components.  <a href="#a3b9ddda424596a1e3e027a7b3bc1d404">More...</a><br /></td></tr>
+<tr class="separator:a3b9ddda424596a1e3e027a7b3bc1d404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff47ed5222255267806cafb5c4f879c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#aff47ed5222255267806cafb5c4f879c6">create_variable</a> (const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;variable)=0</td></tr>
+<tr class="memdesc:aff47ed5222255267806cafb5c4f879c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new variable for the external solver.  <a href="#aff47ed5222255267806cafb5c4f879c6">More...</a><br /></td></tr>
 <tr class="separator:aff47ed5222255267806cafb5c4f879c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44218ec665e4f92ead8d90641cf6db2e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a44218ec665e4f92ead8d90641cf6db2e">create_constraint</a> (const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;constraint)=0</td></tr>
+<tr class="memdesc:a44218ec665e4f92ead8d90641cf6db2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new constraint for the external solver.  <a href="#a44218ec665e4f92ead8d90641cf6db2e">More...</a><br /></td></tr>
 <tr class="separator:a44218ec665e4f92ead8d90641cf6db2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ee938e58ced8a137116bcfa564c2b6e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a3ee938e58ced8a137116bcfa564c2b6e">create_objective</a> (const <a class="el" href="classL_1_1Objective.html">Objective</a> &amp;objective)=0</td></tr>
+<tr class="memdesc:a3ee938e58ced8a137116bcfa564c2b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new objective for the external solver.  <a href="#a3ee938e58ced8a137116bcfa564c2b6e">More...</a><br /></td></tr>
 <tr class="separator:a3ee938e58ced8a137116bcfa564c2b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c7b564e1d2fb73b84c81896b79f258c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a3c7b564e1d2fb73b84c81896b79f258c">solve</a> ()=0</td></tr>
+<tr class="memdesc:a3c7b564e1d2fb73b84c81896b79f258c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the build model. (does not save the results back in L-Solver, see save_resuts())  <a href="#a3c7b564e1d2fb73b84c81896b79f258c">More...</a><br /></td></tr>
 <tr class="separator:a3c7b564e1d2fb73b84c81896b79f258c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4968e0c0ec5eaea3d767c265f9208817"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a4968e0c0ec5eaea3d767c265f9208817">save_results_hook</a> (bool primal=true, bool dual=false)=0</td></tr>
+<tr class="memitem:a4968e0c0ec5eaea3d767c265f9208817"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a4968e0c0ec5eaea3d767c265f9208817">save_results</a> (bool primal=true, bool dual=false)=0</td></tr>
+<tr class="memdesc:a4968e0c0ec5eaea3d767c265f9208817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the results from the last <a class="el" href="classL_1_1SolverAdapter.html#a3c7b564e1d2fb73b84c81896b79f258c" title="Solves the build model. (does not save the results back in L-Solver, see save_resuts()) ...">solve()</a> call to the L-Solver.  <a href="#a4968e0c0ec5eaea3d767c265f9208817">More...</a><br /></td></tr>
 <tr class="separator:a4968e0c0ec5eaea3d767c265f9208817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad183be492dea42ce58b25a192a3428f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#ad183be492dea42ce58b25a192a3428f8">export_to_file</a> (const std::string &amp;filename)=0</td></tr>
+<tr class="memdesc:ad183be492dea42ce58b25a192a3428f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a textual representation of the model to a file.  <a href="#ad183be492dea42ce58b25a192a3428f8">More...</a><br /></td></tr>
 <tr class="separator:ad183be492dea42ce58b25a192a3428f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements the interface for solver adapters. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3b9ddda424596a1e3e027a7b3bc1d404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9ddda424596a1e3e027a7b3bc1d404">&#9670;&nbsp;</a></span>~SolverAdapter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual L::SolverAdapter::~SolverAdapter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. Should clear all the allocated components. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a44218ec665e4f92ead8d90641cf6db2e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44218ec665e4f92ead8d90641cf6db2e">&#9670;&nbsp;</a></span>create_constraint()</h2>
 
@@ -133,6 +170,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a new constraint for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the constraint to be created </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#a6d30c59598b391980fe9fd48054badd9">L::CplexAdapter</a>.</p>
 
@@ -162,6 +207,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a new objective for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the objective to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#aa57444c2591a04c657add9f204ca0479">L::CplexAdapter</a>.</p>
 
 </div>
@@ -189,6 +242,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a new variable for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the variable to be created </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#a9f1b1b8b671bd30fba6c1172cf9fed6c">L::CplexAdapter</a>.</p>
 
@@ -218,12 +279,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Exports a textual representation of the model to a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>destination filename </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#a94774a70c1e4d330ad9d5983a23a23e1">L::CplexAdapter</a>.</p>
 
 </div>
 </div>
 <a id="a4968e0c0ec5eaea3d767c265f9208817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4968e0c0ec5eaea3d767c265f9208817">&#9670;&nbsp;</a></span>save_results_hook()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4968e0c0ec5eaea3d767c265f9208817">&#9670;&nbsp;</a></span>save_results()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +301,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void L::SolverAdapter::save_results_hook </td>
+          <td class="memname">virtual void L::SolverAdapter::save_results </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>primal</em> = <code>true</code>, </td>
@@ -255,6 +324,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Saves the results from the last <a class="el" href="classL_1_1SolverAdapter.html#a3c7b564e1d2fb73b84c81896b79f258c" title="Solves the build model. (does not save the results back in L-Solver, see save_resuts()) ...">solve()</a> call to the L-Solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">primal</td><td>true if the primal values should be solved, false otherwise </td></tr>
+    <tr><td class="paramname">dual</td><td>true if the dual values should be solved, false otherwise (may throw an exception if dual values are required to be saved and no dual information has been found (e.g., MILPs) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#a400ee27aa50e4de8ae2f507aaaec03cc">L::CplexAdapter</a>.</p>
 
@@ -282,6 +360,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Solves the build model. (does not save the results back in L-Solver, see save_resuts()) </p>
 
 <p>Implemented in <a class="el" href="classL_1_1CplexAdapter.html#a0c450e0a4c8879cda093ea967d1ddc82">L::CplexAdapter</a>.</p>
 

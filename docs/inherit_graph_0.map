@@ -2,7 +2,6 @@
 <area shape="rect" id="node1" href="$classL_1_1AbstractConstraint.html" title="Implements the interface for constraints. " alt="" coords="5,56,152,83"/>
 <area shape="rect" id="node2" href="$classL_1_1ConstConstraint.html" title="L::ConstConstraint" alt="" coords="200,5,332,32"/>
 <area shape="rect" id="node3" href="$classL_1_1Constraint.html" title="Indirection to a core constraint. " alt="" coords="217,56,315,83"/>
-<area shape="rect" id="node5" href="$classL_1_1CoreConstraint.html" title="Implements a constraint. " alt="" coords="203,107,329,133"/>
-<area shape="rect" id="node4" href="$classL_1_1LinkingConstraint.html" title="L::LinkingConstraint" alt="" coords="387,56,526,83"/>
-<area shape="rect" id="node6" href="$classL_1_1DetachedConstraint.html" title="Implements a constraint, while still being linked to a core constraint. " alt="" coords="380,107,533,133"/>
+<area shape="rect" id="node4" href="$classL_1_1CoreConstraint.html" title="Implements a constraint. " alt="" coords="203,107,329,133"/>
+<area shape="rect" id="node5" href="$classL_1_1DetachedConstraint.html" title="Implements a constraint, while still being linked to a core constraint. " alt="" coords="380,107,533,133"/>
 </map>

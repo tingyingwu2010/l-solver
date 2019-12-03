@@ -100,7 +100,7 @@ Collaboration diagram for L::CoreConstraint:</div>
 <map name="L_1_1CoreConstraint_coll__map" id="L_1_1CoreConstraint_coll__map">
 <area shape="rect" id="node2" href="classL_1_1AbstractConstraint.html" title="Implements the interface for constraints. " alt="" coords="5,172,152,199"/>
 <area shape="rect" id="node3" href="classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="165,81,277,108"/>
-<area shape="rect" id="node5" href="classL_1_1Expression.html" title="L::Expression" alt="" coords="313,172,415,199"/>
+<area shape="rect" id="node5" href="classL_1_1Expression.html" title="Represents a mathematical expression as an expression tree. " alt="" coords="313,172,415,199"/>
 <area shape="rect" id="node4" href="classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="155,5,288,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed818775a98e6884a60b2c3ffedeb575"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreConstraint.html#aed818775a98e6884a60b2c3ffedeb575">CoreConstraint</a> (std::string <a class="el" href="classL_1_1CoreConstraint.html#ae50750cad68b27a2f087743172beca8f">user_defined_name</a>)</td></tr>
 <tr class="memdesc:aed818775a98e6884a60b2c3ffedeb575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aed818775a98e6884a60b2c3ffedeb575">More...</a><br /></td></tr>
 <tr class="separator:aed818775a98e6884a60b2c3ffedeb575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bad686b87de0df83494e185e3aef4c0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreConstraint.html#a4bad686b87de0df83494e185e3aef4c0">~CoreConstraint</a> ()</td></tr>
+<tr class="separator:a4bad686b87de0df83494e185e3aef4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023c1574261850bf15562f54e93583f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreConstraint.html#a023c1574261850bf15562f54e93583f2">expression</a> () override</td></tr>
 <tr class="memdesc:a023c1574261850bf15562f54e93583f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the mathematical left handside expression of the constraint.  <a href="#a023c1574261850bf15562f54e93583f2">More...</a><br /></td></tr>
 <tr class="separator:a023c1574261850bf15562f54e93583f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a constraint. </p>
-<p>Like every core object, core constraints are the essence of what they represent in the sense that contrary to <a class="el" href="classL_1_1Constraint.html" title="Indirection to a core constraint. ">Constraint</a>'s, it posesses its attributes. <a class="el" href="classL_1_1CoreConstraint.html" title="Implements a constraint. ">CoreConstraint</a>'s should never be exposed to the user. Only the <a class="el" href="classL_1_1Environment.html">Environment</a> class shall be allowed for their creation. <a class="el" href="classL_1_1Environment.html">Environment</a> is in charge of core constraint's memory. </p>
+<p>Like every core object, core constraints are the essence of what they represent in the sense that contrary to <a class="el" href="classL_1_1Constraint.html" title="Indirection to a core constraint. ">Constraint</a>'s, it posesses its attributes. <a class="el" href="classL_1_1CoreConstraint.html" title="Implements a constraint. ">CoreConstraint</a>'s should never be exposed to the user. Only the <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> class shall be allowed for their creation. <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> is in charge of core constraint's memory. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aed818775a98e6884a60b2c3ffedeb575"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed818775a98e6884a60b2c3ffedeb575">&#9670;&nbsp;</a></span>CoreConstraint()</h2>
@@ -194,6 +196,31 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a4bad686b87de0df83494e185e3aef4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bad686b87de0df83494e185e3aef4c0">&#9670;&nbsp;</a></span>~CoreConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">L::CoreConstraint::~CoreConstraint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -4,6 +4,7 @@ var searchData=
   ['end',['end',['../classL_1_1Set.html#af6149b503a471bbc1d1f174b7482c245',1,'L::Set::end()'],['../classL_1_1MapIterator.html#a49969f0c90da71a71ef4968931758d83',1,'L::MapIterator::end()']]],
   ['enums_2ecpp',['enums.cpp',['../enums_8cpp.html',1,'']]],
   ['enums_2eh',['enums.h',['../application_2enums_8h.html',1,'(Global Namespace)'],['../modeling_2enums_8h.html',1,'(Global Namespace)']]],
+  ['env',['env',['../classL_1_1DantzigWolfeModel.html#a880f8c0b5c6e635a9d053c37e1d16d96',1,'L::DantzigWolfeModel']]],
   ['environment',['Environment',['../classL_1_1Environment.html',1,'L']]],
   ['environment_2ecpp',['Environment.cpp',['../Environment_8cpp.html',1,'']]],
   ['environment_2eh',['Environment.h',['../Environment_8h.html',1,'']]],

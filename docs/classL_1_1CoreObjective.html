@@ -99,7 +99,7 @@ Collaboration diagram for L::CoreObjective:</div>
 <div class="center"><img src="classL_1_1CoreObjective__coll__graph.png" border="0" usemap="#L_1_1CoreObjective_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1CoreObjective_coll__map" id="L_1_1CoreObjective_coll__map">
 <area shape="rect" id="node2" href="classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="5,172,147,199"/>
-<area shape="rect" id="node3" href="classL_1_1Expression.html" title="L::Expression" alt="" coords="171,172,274,199"/>
+<area shape="rect" id="node3" href="classL_1_1Expression.html" title="Represents a mathematical expression as an expression tree. " alt="" coords="171,172,274,199"/>
 <area shape="rect" id="node4" href="classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="167,81,279,108"/>
 <area shape="rect" id="node5" href="classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="156,5,289,32"/>
 </map>
@@ -125,6 +125,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a758a34763eda77c4bffd55f9e76dd091"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a758a34763eda77c4bffd55f9e76dd091">value</a> () const override</td></tr>
 <tr class="memdesc:a758a34763eda77c4bffd55f9e76dd091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the objective's value.  <a href="#a758a34763eda77c4bffd55f9e76dd091">More...</a><br /></td></tr>
 <tr class="separator:a758a34763eda77c4bffd55f9e76dd091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad00e70b2d6a2e2104c44b3c3ff0fdfec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#ad00e70b2d6a2e2104c44b3c3ff0fdfec">ub</a> () const override</td></tr>
+<tr class="memdesc:ad00e70b2d6a2e2104c44b3c3ff0fdfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns upper bound.  <a href="#ad00e70b2d6a2e2104c44b3c3ff0fdfec">More...</a><br /></td></tr>
+<tr class="separator:ad00e70b2d6a2e2104c44b3c3ff0fdfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d10beaf864002596eb10845cc81712"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a51d10beaf864002596eb10845cc81712">lb</a> () const override</td></tr>
+<tr class="memdesc:a51d10beaf864002596eb10845cc81712"><td class="mdescLeft">&#160;</td><td class="mdescRight">lower bound  <a href="#a51d10beaf864002596eb10845cc81712">More...</a><br /></td></tr>
+<tr class="separator:a51d10beaf864002596eb10845cc81712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad96f0786a3aeba13ed79b32cdd561e7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#ad96f0786a3aeba13ed79b32cdd561e7f">expression</a> () override</td></tr>
 <tr class="memdesc:ad96f0786a3aeba13ed79b32cdd561e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the objective's expression as a reference so it can be modified.  <a href="#ad96f0786a3aeba13ed79b32cdd561e7f">More...</a><br /></td></tr>
 <tr class="separator:ad96f0786a3aeba13ed79b32cdd561e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +143,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a04a35ff7f83f3fb9c24413fc7d799f15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a04a35ff7f83f3fb9c24413fc7d799f15">value</a> (float value) override</td></tr>
 <tr class="memdesc:a04a35ff7f83f3fb9c24413fc7d799f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the objective's value.  <a href="#a04a35ff7f83f3fb9c24413fc7d799f15">More...</a><br /></td></tr>
 <tr class="separator:a04a35ff7f83f3fb9c24413fc7d799f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ccb0ca6694c9b80e4d2ddc239816f82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a5ccb0ca6694c9b80e4d2ddc239816f82">lb</a> (float lb) override</td></tr>
+<tr class="memdesc:a5ccb0ca6694c9b80e4d2ddc239816f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the lower bound.  <a href="#a5ccb0ca6694c9b80e4d2ddc239816f82">More...</a><br /></td></tr>
+<tr class="separator:a5ccb0ca6694c9b80e4d2ddc239816f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66289b84a1331d993a919f5dc17d3b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a66289b84a1331d993a919f5dc17d3b57">ub</a> (float ub) override</td></tr>
+<tr class="memdesc:a66289b84a1331d993a919f5dc17d3b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the upper bound.  <a href="#a66289b84a1331d993a919f5dc17d3b57">More...</a><br /></td></tr>
+<tr class="separator:a66289b84a1331d993a919f5dc17d3b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -155,10 +167,14 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aa33d7affd9ed1b5c85a0dad64adcbf26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#aa33d7affd9ed1b5c85a0dad64adcbf26">_value</a> = std::numeric_limits&lt;float&gt;::max()</td></tr>
 <tr class="memdesc:aa33d7affd9ed1b5c85a0dad64adcbf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">objective's value  <a href="#aa33d7affd9ed1b5c85a0dad64adcbf26">More...</a><br /></td></tr>
 <tr class="separator:aa33d7affd9ed1b5c85a0dad64adcbf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bedc328db8d4ccc9d58adec7d78737"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#a74bedc328db8d4ccc9d58adec7d78737">_lb</a> = std::numeric_limits&lt;float&gt;::lowest()</td></tr>
+<tr class="separator:a74bedc328db8d4ccc9d58adec7d78737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c2f869af0e1daf7858352fad4352e2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreObjective.html#aa0c2f869af0e1daf7858352fad4352e2">_ub</a> = std::numeric_limits&lt;float&gt;::max()</td></tr>
+<tr class="separator:aa0c2f869af0e1daf7858352fad4352e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements an objective. </p>
-<p>Like every core object, core objectives are the essence of what they represent in the sense that contrary to <a class="el" href="classL_1_1Objective.html" title="Indirection to a core objective. ">Objective</a>'s, it posesses its attributes. <a class="el" href="classL_1_1CoreObjective.html" title="Implements an objective. ">CoreObjective</a>'s should never be exposed to the user. Only the <a class="el" href="classL_1_1Environment.html">Environment</a> class shall be allowed for their creation. <a class="el" href="classL_1_1Environment.html">Environment</a> is in charge of core objective's memory. </p>
+<p>Like every core object, core objectives are the essence of what they represent in the sense that contrary to <a class="el" href="classL_1_1Objective.html" title="Indirection to a core objective. ">Objective</a>'s, it posesses its attributes. <a class="el" href="classL_1_1CoreObjective.html" title="Implements an objective. ">CoreObjective</a>'s should never be exposed to the user. Only the <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> class shall be allowed for their creation. <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> is in charge of core objective's memory. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a24c4c2d183887eb9919e1491c0b32670"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24c4c2d183887eb9919e1491c0b32670">&#9670;&nbsp;</a></span>CoreObjective()</h2>
@@ -252,6 +268,72 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>objective's expression </dd></dl>
 
 <p>Implements <a class="el" href="classL_1_1AbstractObjective.html#aa920fb884364624a1194d53fe1b9052f">L::AbstractObjective</a>.</p>
+
+</div>
+</div>
+<a id="a51d10beaf864002596eb10845cc81712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d10beaf864002596eb10845cc81712">&#9670;&nbsp;</a></span>lb() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float L::CoreObjective::lb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lower bound </p>
+<p>Returns the lower bound </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="classL_1_1AbstractObjective.html#ab291d2814391a86eddbc04a57202eb98">L::AbstractObjective</a>.</p>
+
+</div>
+</div>
+<a id="a5ccb0ca6694c9b80e4d2ddc239816f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ccb0ca6694c9b80e4d2ddc239816f82">&#9670;&nbsp;</a></span>lb() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void L::CoreObjective::lb </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the lower bound. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ub</td><td>new lower bound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classL_1_1AbstractObjective.html#ada86d03bbb8a43254762649bc378e333">L::AbstractObjective</a>.</p>
 
 </div>
 </div>
@@ -387,6 +469,72 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad00e70b2d6a2e2104c44b3c3ff0fdfec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00e70b2d6a2e2104c44b3c3ff0fdfec">&#9670;&nbsp;</a></span>ub() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float L::CoreObjective::ub </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns upper bound. </p>
+<dl class="section return"><dt>Returns</dt><dd>upper bound </dd></dl>
+
+<p>Implements <a class="el" href="classL_1_1AbstractObjective.html#a2516ea6ea33e952e9e403b297113fc75">L::AbstractObjective</a>.</p>
+
+</div>
+</div>
+<a id="a66289b84a1331d993a919f5dc17d3b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66289b84a1331d993a919f5dc17d3b57">&#9670;&nbsp;</a></span>ub() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void L::CoreObjective::ub </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the upper bound. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ub</td><td>new upper bound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classL_1_1AbstractObjective.html#a1e25d707bf4279f59ed2f2a7e6d9c647">L::AbstractObjective</a>.</p>
+
+</div>
+</div>
 <a id="a02fdac7ab8bed1d7152150b051e42589"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a02fdac7ab8bed1d7152150b051e42589">&#9670;&nbsp;</a></span>user_defined_name()</h2>
 
@@ -508,6 +656,28 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a74bedc328db8d4ccc9d58adec7d78737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74bedc328db8d4ccc9d58adec7d78737">&#9670;&nbsp;</a></span>_lb</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float L::CoreObjective::_lb = std::numeric_limits&lt;float&gt;::lowest()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a46d8fd8c7a73bd5b358117813790f8d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46d8fd8c7a73bd5b358117813790f8d3">&#9670;&nbsp;</a></span>_status</h2>
 
@@ -553,6 +723,28 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>objective's type (see <a class="el" href="classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. ">AbstractObjective</a>) </p>
+
+</div>
+</div>
+<a id="aa0c2f869af0e1daf7858352fad4352e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c2f869af0e1daf7858352fad4352e2">&#9670;&nbsp;</a></span>_ub</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float L::CoreObjective::_ub = std::numeric_limits&lt;float&gt;::max()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,6 +1,5 @@
-<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/BranchAndBound/BranchAndBound.cpp" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/BranchAndBound/BranchAndBound.cpp">
-<area shape="rect" id="node2" href="$BranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/BranchAndBound/BranchAndBound.h" alt="" coords="184,109,427,165"/>
-<area shape="rect" id="node3" href="$DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.h" alt="" coords="5,213,288,284"/>
-<area shape="rect" id="node5" href="$MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/MILPBranchAndBound/MILPBranchAndBound.h" alt="" coords="313,221,618,277"/>
-<area shape="rect" id="node4" href="$DantzigWolfeBranchAndPrice_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.cpp" alt="" coords="5,332,288,403"/>
+<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/branch&#45;and&#45;bound/BranchAndBound.cpp" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/branch&#45;and&#45;bound/BranchAndBound.cpp">
+<area shape="rect" id="node2" href="$BranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/branch&#45;and&#45;bound/BranchAndBound.h" alt="" coords="131,109,376,165"/>
+<area shape="rect" id="node3" href="$DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe&#45;branch&#45;and&#45;price\l/DantzigWolfeBranchAndPrice.h" alt="" coords="5,213,219,284"/>
+<area shape="rect" id="node4" href="$MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/milp&#45;branch&#45;and&#45;bound/MILPBranchAndBound.h" alt="" coords="243,221,547,277"/>
 </map>

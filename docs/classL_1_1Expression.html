@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a mathematical expression as an expression tree.  
+ <a href="classL_1_1Expression.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Expression_8h_source.html">Expression.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for L::Expression:</div>
@@ -97,103 +100,150 @@ Collaboration diagram for L::Expression:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad571b6d602257ff0af3b50f97eaa2a02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ad571b6d602257ff0af3b50f97eaa2a02">Expression</a> ()=default</td></tr>
+<tr class="memdesc:ad571b6d602257ff0af3b50f97eaa2a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ad571b6d602257ff0af3b50f97eaa2a02">More...</a><br /></td></tr>
 <tr class="separator:ad571b6d602257ff0af3b50f97eaa2a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ee72782c47a4b5a1d8614600f38cb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a96ee72782c47a4b5a1d8614600f38cb8">Expression</a> (<a class="el" href="namespaceL.html#a30852e05bf02e4de3ad59078615f7b75">ExpressionType</a> <a class="el" href="classL_1_1Expression.html#a581b6516fa543f9d01f19c45e273282e">type</a>)</td></tr>
+<tr class="memdesc:a96ee72782c47a4b5a1d8614600f38cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new expression whose root node is of the given type.  <a href="#a96ee72782c47a4b5a1d8614600f38cb8">More...</a><br /></td></tr>
 <tr class="separator:a96ee72782c47a4b5a1d8614600f38cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67cfac300978eeb619bf99c7ad50dad7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a67cfac300978eeb619bf99c7ad50dad7">Expression</a> (const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;variable)</td></tr>
+<tr class="memdesc:a67cfac300978eeb619bf99c7ad50dad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new expression whose root is of type Var and is associated to the given variable.  <a href="#a67cfac300978eeb619bf99c7ad50dad7">More...</a><br /></td></tr>
 <tr class="separator:a67cfac300978eeb619bf99c7ad50dad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12cf2c3800815337e91f49bafcb79674"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a12cf2c3800815337e91f49bafcb79674">Expression</a> (float coef)</td></tr>
+<tr class="memdesc:a12cf2c3800815337e91f49bafcb79674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new expression whose root is of type Num and has value 'coef'.  <a href="#a12cf2c3800815337e91f49bafcb79674">More...</a><br /></td></tr>
 <tr class="separator:a12cf2c3800815337e91f49bafcb79674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e9e1a9637b14ffd7c14b620405883f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a11e9e1a9637b14ffd7c14b620405883f">Expression</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a11e9e1a9637b14ffd7c14b620405883f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. The whole expression tree is copied.  <a href="#a11e9e1a9637b14ffd7c14b620405883f">More...</a><br /></td></tr>
 <tr class="separator:a11e9e1a9637b14ffd7c14b620405883f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a519ba150940dedfa5dd54e90ce472f39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a519ba150940dedfa5dd54e90ce472f39">operator=</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a519ba150940dedfa5dd54e90ce472f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign constructor. The whole expression is copied.  <a href="#a519ba150940dedfa5dd54e90ce472f39">More...</a><br /></td></tr>
 <tr class="separator:a519ba150940dedfa5dd54e90ce472f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100166b8c53e7bf1e6aa67f37ccf6274"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a100166b8c53e7bf1e6aa67f37ccf6274">~Expression</a> ()</td></tr>
+<tr class="memdesc:a100166b8c53e7bf1e6aa67f37ccf6274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Frees left and right children.  <a href="#a100166b8c53e7bf1e6aa67f37ccf6274">More...</a><br /></td></tr>
+<tr class="separator:a100166b8c53e7bf1e6aa67f37ccf6274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a2ee1e7c303fd02663f6c0d0193332e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Variable.html">Variable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a4a2ee1e7c303fd02663f6c0d0193332e">as_variable</a> ()</td></tr>
+<tr class="memdesc:a4a2ee1e7c303fd02663f6c0d0193332e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the variable associated to the expression if the expression is of type Var (otherwise, throws an exception)  <a href="#a4a2ee1e7c303fd02663f6c0d0193332e">More...</a><br /></td></tr>
 <tr class="separator:a4a2ee1e7c303fd02663f6c0d0193332e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecb3585f71cde564157bf83501efdf9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1ConstVariable.html">ConstVariable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#aecb3585f71cde564157bf83501efdf9b">as_variable</a> () const</td></tr>
+<tr class="memdesc:aecb3585f71cde564157bf83501efdf9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the variable associated to the expression if the expression is of type Var (otherwise, throws an exception)  <a href="#aecb3585f71cde564157bf83501efdf9b">More...</a><br /></td></tr>
 <tr class="separator:aecb3585f71cde564157bf83501efdf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cfbdbec325596ac33e93d10a26d2e3c"><td class="memItemLeft" align="right" valign="top">float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a0cfbdbec325596ac33e93d10a26d2e3c">as_numerical</a> ()</td></tr>
+<tr class="memdesc:a0cfbdbec325596ac33e93d10a26d2e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numerical constant associated to the expression if the expression if of type Num (otherwise, throws an exception)  <a href="#a0cfbdbec325596ac33e93d10a26d2e3c">More...</a><br /></td></tr>
 <tr class="separator:a0cfbdbec325596ac33e93d10a26d2e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4e35984f46ddc7528981da4a73ec148"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ac4e35984f46ddc7528981da4a73ec148">as_numerical</a> () const</td></tr>
+<tr class="memdesc:ac4e35984f46ddc7528981da4a73ec148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numerical constant associated to the expression if the expression if of type Num (otherwise, throws an exception)  <a href="#ac4e35984f46ddc7528981da4a73ec148">More...</a><br /></td></tr>
 <tr class="separator:ac4e35984f46ddc7528981da4a73ec148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af96e86a455a561989b129c397dcff02b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#af96e86a455a561989b129c397dcff02b">has_child</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side) const</td></tr>
+<tr class="memdesc:af96e86a455a561989b129c397dcff02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the expression has a child on its 'side', false otherwise.  <a href="#af96e86a455a561989b129c397dcff02b">More...</a><br /></td></tr>
 <tr class="separator:af96e86a455a561989b129c397dcff02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc55fb8bdbbe2024130809f542182286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#afc55fb8bdbbe2024130809f542182286">child</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side)</td></tr>
+<tr class="memdesc:afc55fb8bdbbe2024130809f542182286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise.  <a href="#afc55fb8bdbbe2024130809f542182286">More...</a><br /></td></tr>
 <tr class="separator:afc55fb8bdbbe2024130809f542182286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60d02c47d04b26ff8f1bbcb914cfa08e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a60d02c47d04b26ff8f1bbcb914cfa08e">child</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side) const</td></tr>
+<tr class="memdesc:a60d02c47d04b26ff8f1bbcb914cfa08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise.  <a href="#a60d02c47d04b26ff8f1bbcb914cfa08e">More...</a><br /></td></tr>
 <tr class="separator:a60d02c47d04b26ff8f1bbcb914cfa08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9196bd881e791dccd790893fa7648c0"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ab9196bd881e791dccd790893fa7648c0">id</a> () const</td></tr>
+<tr class="memdesc:ab9196bd881e791dccd790893fa7648c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns expression's id.  <a href="#ab9196bd881e791dccd790893fa7648c0">More...</a><br /></td></tr>
 <tr class="separator:ab9196bd881e791dccd790893fa7648c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a581b6516fa543f9d01f19c45e273282e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceL.html#a30852e05bf02e4de3ad59078615f7b75">ExpressionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a581b6516fa543f9d01f19c45e273282e">type</a> () const</td></tr>
+<tr class="memdesc:a581b6516fa543f9d01f19c45e273282e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns expression's type.  <a href="#a581b6516fa543f9d01f19c45e273282e">More...</a><br /></td></tr>
 <tr class="separator:a581b6516fa543f9d01f19c45e273282e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2a0bd394ee1290f2b91cfcac60cc944"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ad2a0bd394ee1290f2b91cfcac60cc944">attach</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)</td></tr>
+<tr class="memdesc:ad2a0bd394ee1290f2b91cfcac60cc944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the expression's 'side' child to be 'expr'. No copy is performed. Thus, '&amp;expr' will be destroyed by the expression's constructor.  <a href="#ad2a0bd394ee1290f2b91cfcac60cc944">More...</a><br /></td></tr>
 <tr class="separator:ad2a0bd394ee1290f2b91cfcac60cc944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a9a615a5aea5ad9827f6f68063dd4f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a5a9a615a5aea5ad9827f6f68063dd4f1">attach_copy</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side, const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)</td></tr>
+<tr class="memdesc:a5a9a615a5aea5ad9827f6f68063dd4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the expression's 'side' child to be 'expr'. The given expression is copied.  <a href="#a5a9a615a5aea5ad9827f6f68063dd4f1">More...</a><br /></td></tr>
 <tr class="separator:a5a9a615a5aea5ad9827f6f68063dd4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2cf5ee5682c0c0f2c2b0b3c055c6045"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#af2cf5ee5682c0c0f2c2b0b3c055c6045">insert</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)</td></tr>
+<tr class="memdesc:af2cf5ee5682c0c0f2c2b0b3c055c6045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the expression's 'side' child to be 'expr'. If the expression already has a 'side' child, it will be moved to 'expr''s side.  <a href="#af2cf5ee5682c0c0f2c2b0b3c055c6045">More...</a><br /></td></tr>
 <tr class="separator:af2cf5ee5682c0c0f2c2b0b3c055c6045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a8fb4f5a0efea1cb21f6bfac962d4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a9a8fb4f5a0efea1cb21f6bfac962d4ac">shift</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side)</td></tr>
+<tr class="memdesc:a9a8fb4f5a0efea1cb21f6bfac962d4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shifts the root node to the 'side'. The expression therefore ends with a child which is the previous root.  <a href="#a9a8fb4f5a0efea1cb21f6bfac962d4ac">More...</a><br /></td></tr>
 <tr class="separator:a9a8fb4f5a0efea1cb21f6bfac962d4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a064f326a3b41c6462454489a77f4b25f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a064f326a3b41c6462454489a77f4b25f">detach_delete</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> side)</td></tr>
+<tr class="memdesc:a064f326a3b41c6462454489a77f4b25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and deletes (frees memory) a child. For memory safety reasons, no "detach" without delete (memory free) has been implemented. See transfer/swap for alternatives.  <a href="#a064f326a3b41c6462454489a77f4b25f">More...</a><br /></td></tr>
 <tr class="separator:a064f326a3b41c6462454489a77f4b25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b7b1109603397df3d0cb1b440bfaeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a59b7b1109603397df3d0cb1b440bfaeb">operator+=</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a59b7b1109603397df3d0cb1b440bfaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Addition overload. See <a class="el" href="classL_1_1Expression.html#a6a0f0ca9ac1d72a75d61e4a2d64c8764" title="Applies an operator (&#39;*&#39; or &#39;+&#39;) on &#39;this&#39; with rhs as right term. ">apply_operator()</a>.  <a href="#a59b7b1109603397df3d0cb1b440bfaeb">More...</a><br /></td></tr>
 <tr class="separator:a59b7b1109603397df3d0cb1b440bfaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26c7d426f321c2ecc03b7462d7e0cf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ac26c7d426f321c2ecc03b7462d7e0cf4">operator*=</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:ac26c7d426f321c2ecc03b7462d7e0cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Product overload. See <a class="el" href="classL_1_1Expression.html#a6a0f0ca9ac1d72a75d61e4a2d64c8764" title="Applies an operator (&#39;*&#39; or &#39;+&#39;) on &#39;this&#39; with rhs as right term. ">apply_operator()</a>.  <a href="#ac26c7d426f321c2ecc03b7462d7e0cf4">More...</a><br /></td></tr>
 <tr class="separator:ac26c7d426f321c2ecc03b7462d7e0cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7c56ec0c7611529025ac685363158b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a1d7c56ec0c7611529025ac685363158b">operator-=</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a1d7c56ec0c7611529025ac685363158b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction overload.  <a href="#a1d7c56ec0c7611529025ac685363158b">More...</a><br /></td></tr>
 <tr class="separator:a1d7c56ec0c7611529025ac685363158b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28b6afa689d58f2916c6ea5458fb49ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a28b6afa689d58f2916c6ea5458fb49ed">operator/=</a> (const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a28b6afa689d58f2916c6ea5458fb49ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division overload.  <a href="#a28b6afa689d58f2916c6ea5458fb49ed">More...</a><br /></td></tr>
 <tr class="separator:a28b6afa689d58f2916c6ea5458fb49ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02eea7ec97aa7f06f753b5a8904c72e6"><td class="memTemplParams" colspan="2">template&lt;ExpressionTraversalOrder order&gt; </td></tr>
-<tr class="memitem:a02eea7ec97aa7f06f753b5a8904c72e6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a02eea7ec97aa7f06f753b5a8904c72e6">depth_first_traversal</a> (const std::function&lt; void(<a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;)</td></tr>
-<tr class="separator:a02eea7ec97aa7f06f753b5a8904c72e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8977adde9ca3856e40d904216e0f9b34"><td class="memTemplParams" colspan="2">template&lt;ExpressionTraversalOrder order&gt; </td></tr>
-<tr class="memitem:a8977adde9ca3856e40d904216e0f9b34"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a8977adde9ca3856e40d904216e0f9b34">depth_first_traversal</a> (const std::function&lt; void(const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;) const</td></tr>
-<tr class="separator:a8977adde9ca3856e40d904216e0f9b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5f871de69faea528cec83250cdcb5a"><td class="memTemplParams" colspan="2">template&lt;ExpressionTraversalOrder order&gt; </td></tr>
+<tr class="memitem:abd5f871de69faea528cec83250cdcb5a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#abd5f871de69faea528cec83250cdcb5a">depth_first_traversal</a> (const std::function&lt; void(<a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;f)</td></tr>
+<tr class="memdesc:abd5f871de69faea528cec83250cdcb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic implementation of the Depth first traversal on the expression tree. Early stop of the traversal can be performed by throwing a <a class="el" href="classL_1_1StopIteration.html">StopIteration</a> exception.  <a href="#abd5f871de69faea528cec83250cdcb5a">More...</a><br /></td></tr>
+<tr class="separator:abd5f871de69faea528cec83250cdcb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601268b35451070221a668c0404464d9"><td class="memTemplParams" colspan="2">template&lt;ExpressionTraversalOrder order&gt; </td></tr>
+<tr class="memitem:a601268b35451070221a668c0404464d9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a601268b35451070221a668c0404464d9">depth_first_traversal</a> (const std::function&lt; void(const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;f) const</td></tr>
+<tr class="memdesc:a601268b35451070221a668c0404464d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic implementation of the Depth first traversal on the expression tree. Early stop of the traversal can be performed by throwing a <a class="el" href="classL_1_1StopIteration.html">StopIteration</a> exception.  <a href="#a601268b35451070221a668c0404464d9">More...</a><br /></td></tr>
+<tr class="separator:a601268b35451070221a668c0404464d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ccd934cf538ce1e31cf099b3ebbb130"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a3ccd934cf538ce1e31cf099b3ebbb130">feval</a> (bool cast_variables=true)</td></tr>
+<tr class="memdesc:a3ccd934cf538ce1e31cf099b3ebbb130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the numerical value of an expression.  <a href="#a3ccd934cf538ce1e31cf099b3ebbb130">More...</a><br /></td></tr>
 <tr class="separator:a3ccd934cf538ce1e31cf099b3ebbb130"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7640c4e69d9982c46387ecc8650216d9"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="classL_1_1Expression.html">Expression</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a7640c4e69d9982c46387ecc8650216d9">split_by_variable</a> (const std::map&lt; std::string, std::function&lt; bool(const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;)&gt;&gt; &amp;indicators)</td></tr>
+<tr class="memdesc:a7640c4e69d9982c46387ecc8650216d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a set of variable indicators, i.e., a set of lambda function which respond true for some variables and false for others, returns a set of subexpressions composed only of those variables for which the associated indicator returns true for all of its variables. Note that the given indicators MUST define a separable expression in those variables. For instance, "x * y" cannot be separated by the two following indicators: <code>c++ [](const <a class="el" href="classL_1_1Variable.html" title="Indirection to a core variable. ">Variable</a>&amp; var){ return var.user_defined_name() == "x"; } and [](const <a class="el" href="classL_1_1Variable.html" title="Indirection to a core variable. ">Variable</a>&amp; var){ return var.user_defined_name() == "y"; }</code>.  <a href="#a7640c4e69d9982c46387ecc8650216d9">More...</a><br /></td></tr>
 <tr class="separator:a7640c4e69d9982c46387ecc8650216d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c88ee27d7574232d07c441c823410f5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a2c88ee27d7574232d07c441c823410f5">to_elementary_string</a> () const</td></tr>
+<tr class="memdesc:a2c88ee27d7574232d07c441c823410f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string expression representing the expression's root node.  <a href="#a2c88ee27d7574232d07c441c823410f5">More...</a><br /></td></tr>
 <tr class="separator:a2c88ee27d7574232d07c441c823410f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd9b53defd859a111733f0d180a32b7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a7cd9b53defd859a111733f0d180a32b7">to_string</a> () const</td></tr>
+<tr class="memdesc:a7cd9b53defd859a111733f0d180a32b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the expression as a string.  <a href="#a7cd9b53defd859a111733f0d180a32b7">More...</a><br /></td></tr>
 <tr class="separator:a7cd9b53defd859a111733f0d180a32b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b5c6d5640489c62efcba84dbceca4c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a6b5c6d5640489c62efcba84dbceca4c4">export_to_dot</a> (const std::string &amp;filename, bool with_system_command=true) const</td></tr>
+<tr class="memdesc:a6b5c6d5640489c62efcba84dbceca4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the expression tree in a .dot file to be used with graphviz. If 'with_system_command' is set to true, the linux command 'dot -Tpng' is executed.  <a href="#a6b5c6d5640489c62efcba84dbceca4c4">More...</a><br /></td></tr>
 <tr class="separator:a6b5c6d5640489c62efcba84dbceca4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6a0f0ca9ac1d72a75d61e4a2d64c8764"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a6a0f0ca9ac1d72a75d61e4a2d64c8764">apply_operator</a> (<a class="el" href="namespaceL.html#a30852e05bf02e4de3ad59078615f7b75">ExpressionType</a> <a class="el" href="classL_1_1Expression.html#a581b6516fa543f9d01f19c45e273282e">type</a>, const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a6a0f0ca9ac1d72a75d61e4a2d64c8764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies an operator ('*' or '+') on 'this' with rhs as right term.  <a href="#a6a0f0ca9ac1d72a75d61e4a2d64c8764">More...</a><br /></td></tr>
 <tr class="separator:a6a0f0ca9ac1d72a75d61e4a2d64c8764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:afb26b29e8d5d8fcc05a2418e3163c816"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceL.html#a30852e05bf02e4de3ad59078615f7b75">ExpressionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#afb26b29e8d5d8fcc05a2418e3163c816">_type</a> = <a class="el" href="namespaceL.html#a30852e05bf02e4de3ad59078615f7b75a140909b8b6f7c45dea0ae6233ced9d5e">Num</a></td></tr>
+<tr class="memdesc:afb26b29e8d5d8fcc05a2418e3163c816"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the node in the expression tree  <a href="#afb26b29e8d5d8fcc05a2418e3163c816">More...</a><br /></td></tr>
 <tr class="separator:afb26b29e8d5d8fcc05a2418e3163c816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8dea240e4f2c416a660c013a7b16d1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#aa8dea240e4f2c416a660c013a7b16d1d">_right</a> = nullptr</td></tr>
+<tr class="memdesc:aa8dea240e4f2c416a660c013a7b16d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">right child  <a href="#aa8dea240e4f2c416a660c013a7b16d1d">More...</a><br /></td></tr>
 <tr class="separator:aa8dea240e4f2c416a660c013a7b16d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4c715ed258189c47c81ad2d527b954d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Expression.html">Expression</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#ac4c715ed258189c47c81ad2d527b954d">_left</a> = nullptr</td></tr>
+<tr class="memdesc:ac4c715ed258189c47c81ad2d527b954d"><td class="mdescLeft">&#160;</td><td class="mdescRight">left child  <a href="#ac4c715ed258189c47c81ad2d527b954d">More...</a><br /></td></tr>
 <tr class="separator:ac4c715ed258189c47c81ad2d527b954d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97f41c079d5792baea325dbab87da037"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a97f41c079d5792baea325dbab87da037">_numerical</a> = 0</td></tr>
+<tr class="memdesc:a97f41c079d5792baea325dbab87da037"><td class="mdescLeft">&#160;</td><td class="mdescRight">if _type == Num, the numerical constant associated with the node  <a href="#a97f41c079d5792baea325dbab87da037">More...</a><br /></td></tr>
 <tr class="separator:a97f41c079d5792baea325dbab87da037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf08989c57c4683b2583ab4c3026e80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1CoreVariable.html">CoreVariable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a9cf08989c57c4683b2583ab4c3026e80">_variable</a> = nullptr</td></tr>
+<tr class="memdesc:a9cf08989c57c4683b2583ab4c3026e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">if _type == Var, the variable associated with the node  <a href="#a9cf08989c57c4683b2583ab4c3026e80">More...</a><br /></td></tr>
 <tr class="separator:a9cf08989c57c4683b2583ab4c3026e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e6acf8d0664dd23c5970e349d3d663e"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a6e6acf8d0664dd23c5970e349d3d663e">_id</a> = <a class="el" href="classL_1_1Expression.html#affc3146c7a317e3bdfb117842eafe8de">_expression_id</a>++</td></tr>
+<tr class="memdesc:a6e6acf8d0664dd23c5970e349d3d663e"><td class="mdescLeft">&#160;</td><td class="mdescRight">expression's id  <a href="#a6e6acf8d0664dd23c5970e349d3d663e">More...</a><br /></td></tr>
 <tr class="separator:a6e6acf8d0664dd23c5970e349d3d663e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:affc3146c7a317e3bdfb117842eafe8de"><td class="memItemLeft" align="right" valign="top">static unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#affc3146c7a317e3bdfb117842eafe8de">_expression_id</a> = 0</td></tr>
+<tr class="memdesc:affc3146c7a317e3bdfb117842eafe8de"><td class="mdescLeft">&#160;</td><td class="mdescRight">general expression counter, used as id  <a href="#affc3146c7a317e3bdfb117842eafe8de">More...</a><br /></td></tr>
 <tr class="separator:affc3146c7a317e3bdfb117842eafe8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:adc798230a847c3341037f76bad96b75c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#adc798230a847c3341037f76bad96b75c">transfer</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> from_side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;from_expr, <a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> to_side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;to_expr)</td></tr>
+<tr class="memdesc:adc798230a847c3341037f76bad96b75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer a child node from a source node to a destination node's child. No copy is performed.  <a href="#adc798230a847c3341037f76bad96b75c">More...</a><br /></td></tr>
 <tr class="separator:adc798230a847c3341037f76bad96b75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e56a1ef0797b2d69992f590568bc9f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Expression.html#a3e56a1ef0797b2d69992f590568bc9f4">swap</a> (<a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> from_side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;from_expr, <a class="el" href="namespaceL.html#a361042d7dd9d3c4e5de494ab3acc4dff">ExpressionSide</a> to_side, <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;to_expr)</td></tr>
+<tr class="memdesc:a3e56a1ef0797b2d69992f590568bc9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchanges a child node of 'from_expr' with a child node of 'to_expr'.  <a href="#a3e56a1ef0797b2d69992f590568bc9f4">More...</a><br /></td></tr>
 <tr class="separator:a3e56a1ef0797b2d69992f590568bc9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a mathematical expression as an expression tree. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Most of the implemented algorithms expect an expanded form of the mathematical expressions yet no ".expand()" function has been written. This is yet to be done. For now, it is, most of the time, assumed that the given expressions are already expanded by the user. </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad571b6d602257ff0af3b50f97eaa2a02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad571b6d602257ff0af3b50f97eaa2a02">&#9670;&nbsp;</a></span>Expression() <span class="overload">[1/5]</span></h2>
 
@@ -216,6 +266,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default constructor. </p>
 
 </div>
 </div>
@@ -242,6 +294,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a new expression whose root node is of the given type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>root node type</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>CONSTRUCTORS </p>
 
 </div>
@@ -262,6 +322,14 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new expression whose root is of type Var and is associated to the given variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>variable associated to the expression's root </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a12cf2c3800815337e91f49bafcb79674"></a>
@@ -280,6 +348,14 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new expression whose root is of type Num and has value 'coef'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coef</td><td>numerical value </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a11e9e1a9637b14ffd7c14b620405883f"></a>
@@ -297,6 +373,41 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. The whole expression tree is copied. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>the source expression to be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a100166b8c53e7bf1e6aa67f37ccf6274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a100166b8c53e7bf1e6aa67f37ccf6274">&#9670;&nbsp;</a></span>~Expression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">L::Expression::~Expression </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. Frees left and right children. </p>
 
 </div>
 </div>
@@ -334,6 +445,16 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Applies an operator ('*' or '+') on 'this' with rhs as right term. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>operator ('*' or '+') </td></tr>
+    <tr><td class="paramname">rhs</td><td>right term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this</dd></dl>
 <p>OPERATORS </p>
 
 </div>
@@ -353,6 +474,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the numerical constant associated to the expression if the expression if of type Num (otherwise, throws an exception) </p>
+<dl class="section return"><dt>Returns</dt><dd>expression as numerical constant </dd></dl>
+
 </div>
 </div>
 <a id="ac4e35984f46ddc7528981da4a73ec148"></a>
@@ -369,6 +493,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the numerical constant associated to the expression if the expression if of type Num (otherwise, throws an exception) </p>
+<dl class="section return"><dt>Returns</dt><dd>expression as numerical constant </dd></dl>
 
 </div>
 </div>
@@ -387,6 +514,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the variable associated to the expression if the expression is of type Var (otherwise, throws an exception) </p>
+<dl class="section return"><dt>Returns</dt><dd>expression as variable </dd></dl>
+
 </div>
 </div>
 <a id="aecb3585f71cde564157bf83501efdf9b"></a>
@@ -403,6 +533,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the variable associated to the expression if the expression is of type Var (otherwise, throws an exception) </p>
+<dl class="section return"><dt>Returns</dt><dd>expression as variable </dd></dl>
 
 </div>
 </div>
@@ -431,6 +564,15 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the expression's 'side' child to be 'expr'. No copy is performed. Thus, '&amp;expr' will be destroyed by the expression's constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">expr</td><td>new 'side' child</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>SETTERS </p>
 
 </div>
@@ -461,6 +603,15 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the expression's 'side' child to be 'expr'. The given expression is copied. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">expr</td><td>new 'side' child to be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afc55fb8bdbbe2024130809f542182286"></a>
@@ -478,6 +629,15 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Leff or Right </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise </dd></dl>
 
 </div>
 </div>
@@ -497,10 +657,19 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Leff or Right </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>child node located on the expression's 'side' (Left/Right) if any, throws an exception otherwise </dd></dl>
+
 </div>
 </div>
-<a id="a02eea7ec97aa7f06f753b5a8904c72e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02eea7ec97aa7f06f753b5a8904c72e6">&#9670;&nbsp;</a></span>depth_first_traversal() <span class="overload">[1/2]</span></h2>
+<a id="abd5f871de69faea528cec83250cdcb5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd5f871de69faea528cec83250cdcb5a">&#9670;&nbsp;</a></span>depth_first_traversal() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -511,16 +680,30 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
           <td class="memname">void L::Expression::depth_first_traversal </td>
           <td>(</td>
           <td class="paramtype">const std::function&lt; void(<a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>explore</em></td><td>)</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Generic implementation of the Depth first traversal on the expression tree. Early stop of the traversal can be performed by throwing a <a class="el" href="classL_1_1StopIteration.html">StopIteration</a> exception. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>lambda function to be called on each node during traversal </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">order</td><td>traversal order (postfix, infix, prefix) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a8977adde9ca3856e40d904216e0f9b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8977adde9ca3856e40d904216e0f9b34">&#9670;&nbsp;</a></span>depth_first_traversal() <span class="overload">[2/2]</span></h2>
+<a id="a601268b35451070221a668c0404464d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a601268b35451070221a668c0404464d9">&#9670;&nbsp;</a></span>depth_first_traversal() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -531,11 +714,25 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
           <td class="memname">void L::Expression::depth_first_traversal </td>
           <td>(</td>
           <td class="paramtype">const std::function&lt; void(const <a class="el" href="classL_1_1Expression.html">Expression</a> &amp;expr)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>explore</em></td><td>)</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generic implementation of the Depth first traversal on the expression tree. Early stop of the traversal can be performed by throwing a <a class="el" href="classL_1_1StopIteration.html">StopIteration</a> exception. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>lambda function to be called on each node during traversal </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">order</td><td>traversal order (postfix, infix, prefix) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -554,6 +751,14 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes and deletes (frees memory) a child. For memory safety reasons, no "detach" without delete (memory free) has been implemented. See transfer/swap for alternatives. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left/Right </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -583,6 +788,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Writes the expression tree in a .dot file to be used with graphviz. If 'with_system_command' is set to true, the linux command 'dot -Tpng' is executed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the destination filename </td></tr>
+    <tr><td class="paramname">with_system_command</td><td>true if the linux command to generate a PNG file should be executed by the program. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3ccd934cf538ce1e31cf099b3ebbb130"></a>
@@ -600,6 +814,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Evaluates the numerical value of an expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cast_variables</td><td>true if the variables encountered should be casted, fase otherwise (an exception is thrown if a variable is found) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>numerical result </dd></dl>
 
 </div>
 </div>
@@ -619,6 +842,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns true if the expression has a child on its 'side', false otherwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left or Right </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the expression has a child on its 'side', false otherwise </dd></dl>
+
 </div>
 </div>
 <a id="ab9196bd881e791dccd790893fa7648c0"></a>
@@ -635,6 +867,9 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns expression's id. </p>
+<dl class="section return"><dt>Returns</dt><dd>expression's id</dd></dl>
 <p>GETTERS </p>
 
 </div>
@@ -665,6 +900,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the expression's 'side' child to be 'expr'. If the expression already has a 'side' child, it will be moved to 'expr''s side. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">expr</td><td>child to be inserted </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac26c7d426f321c2ecc03b7462d7e0cf4"></a>
@@ -682,6 +926,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Product overload. See <a class="el" href="classL_1_1Expression.html#a6a0f0ca9ac1d72a75d61e4a2d64c8764" title="Applies an operator (&#39;*&#39; or &#39;+&#39;) on &#39;this&#39; with rhs as right term. ">apply_operator()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>right term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this </dd></dl>
 
 </div>
 </div>
@@ -701,6 +954,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Addition overload. See <a class="el" href="classL_1_1Expression.html#a6a0f0ca9ac1d72a75d61e4a2d64c8764" title="Applies an operator (&#39;*&#39; or &#39;+&#39;) on &#39;this&#39; with rhs as right term. ">apply_operator()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>right term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this </dd></dl>
+
 </div>
 </div>
 <a id="a1d7c56ec0c7611529025ac685363158b"></a>
@@ -718,6 +980,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Subtraction overload. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>right term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this </dd></dl>
 
 </div>
 </div>
@@ -737,6 +1008,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Division overload. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>right term </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this </dd></dl>
+
 </div>
 </div>
 <a id="a519ba150940dedfa5dd54e90ce472f39"></a>
@@ -754,6 +1034,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Assign constructor. The whole expression is copied. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>the source expression to be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>*this </dd></dl>
 
 </div>
 </div>
@@ -773,6 +1062,14 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Shifts the root node to the 'side'. The expression therefore ends with a child which is the previous root. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>Left/Right </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7640c4e69d9982c46387ecc8650216d9"></a>
@@ -791,6 +1088,15 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Given a set of variable indicators, i.e., a set of lambda function which respond true for some variables and false for others, returns a set of subexpressions composed only of those variables for which the associated indicator returns true for all of its variables. Note that the given indicators MUST define a separable expression in those variables. For instance, "x * y" cannot be separated by the two following indicators: <code>c++ [](const <a class="el" href="classL_1_1Variable.html" title="Indirection to a core variable. ">Variable</a>&amp; var){ return var.user_defined_name() == "x"; } and [](const <a class="el" href="classL_1_1Variable.html" title="Indirection to a core variable. ">Variable</a>&amp; var){ return var.user_defined_name() == "y"; }</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indicators</td><td>map between a string (indicator's name) and a lambda function returning true for some variables, false for others. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>set of subexpressions associated to each indicator by name </dd></dl>
+
 </div>
 </div>
 <a id="a2c88ee27d7574232d07c441c823410f5"></a>
@@ -807,6 +1113,9 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a string expression representing the expression's root node. </p>
+<dl class="section return"><dt>Returns</dt><dd>string expression representing the expression's root node </dd></dl>
 
 </div>
 </div>
@@ -825,6 +1134,9 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the expression as a string. </p>
+<dl class="section return"><dt>Returns</dt><dd>expression as a string </dd></dl>
+
 </div>
 </div>
 <a id="a581b6516fa543f9d01f19c45e273282e"></a>
@@ -841,6 +1153,9 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns expression's type. </p>
+<dl class="section return"><dt>Returns</dt><dd>expression's type </dd></dl>
 
 </div>
 </div>
@@ -891,6 +1206,17 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Exchanges a child node of 'from_expr' with a child node of 'to_expr'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from_side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">from_expr</td><td>expression 1 </td></tr>
+    <tr><td class="paramname">to_side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">to_expr</td><td>expression 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="adc798230a847c3341037f76bad96b75c"></a>
@@ -939,6 +1265,17 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Transfer a child node from a source node to a destination node's child. No copy is performed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from_side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">from_expr</td><td>source node whose 'from_side' child will be transfered to to_expr </td></tr>
+    <tr><td class="paramname">to_side</td><td>Left/Right </td></tr>
+    <tr><td class="paramname">to_expr</td><td>destination node whose 'to_side' child will become 'from_expr''s 'from_side''s child </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -962,6 +1299,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>general expression counter, used as id </p>
+
 </div>
 </div>
 <a id="a6e6acf8d0664dd23c5970e349d3d663e"></a>
@@ -983,6 +1322,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>expression's id </p>
 
 </div>
 </div>
@@ -1006,6 +1347,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>left child </p>
+
 </div>
 </div>
 <a id="a97f41c079d5792baea325dbab87da037"></a>
@@ -1027,6 +1370,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>if _type == Num, the numerical constant associated with the node </p>
 
 </div>
 </div>
@@ -1050,6 +1395,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>right child </p>
+
 </div>
 </div>
 <a id="afb26b29e8d5d8fcc05a2418e3163c816"></a>
@@ -1072,6 +1419,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>type of the node in the expression tree </p>
+
 </div>
 </div>
 <a id="a9cf08989c57c4683b2583ab4c3026e80"></a>
@@ -1093,6 +1442,8 @@ template&lt;L::ExpressionTraversalOrder order&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>if _type == Var, the variable associated with the node </p>
 
 </div>
 </div>

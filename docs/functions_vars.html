@@ -73,6 +73,9 @@ $(function() {
 <li>_active_nodes
 : <a class="el" href="classL_1_1BranchAndBound.html#a463ed91012020d302182008b09e8709a">L::BranchAndBound&lt; NodeClass &gt;</a>
 </li>
+<li>_algorithm
+: <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#a46539a5567e74548df79516c8dd636bb">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+</li>
 <li>_application
 : <a class="el" href="classL_1_1Application.html#a461ccb63498118fe51f9c957009f2f67">L::Application</a>
 </li>
@@ -81,9 +84,6 @@ $(function() {
 </li>
 <li>_as_variables
 : <a class="el" href="classL_1_1Column.html#a953e4b0f7ac988601044026d44f7f447">L::Column</a>
-</li>
-<li>_blocks
-: <a class="el" href="classL_1_1DualAngularModel.html#a9ded48094f0ee2b15d0b118444be462f">L::DualAngularModel</a>
 </li>
 <li>_bold
 : <a class="el" href="classL_1_1LogManager.html#a178b183051cfe3d5be33a646d8fbfc09">L::LogManager</a>
@@ -94,11 +94,14 @@ $(function() {
 <li>_branching_rule
 : <a class="el" href="classL_1_1BranchAndBound.html#a259bde25faece32114c9520a7fb2a9e5">L::BranchAndBound&lt; NodeClass &gt;</a>
 </li>
-<li>_cg_solver
-: <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a14e0988525e7559d56fff4e24bcba026">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
+<li>_cg_iterator
+: <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#ad5e142c3304b8eb6bae92f47aa656271">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+</li>
+<li>_column_generator
+: <a class="el" href="classL_1_1DantzigWolfeDecompositionAlgorithm.html#a13621c901d6336883b0ac9d566992697">L::DantzigWolfeDecompositionAlgorithm&lt; Adapter_RMP, SubProblemSolver &gt;</a>
 </li>
 <li>_column_iterator
-: <a class="el" href="classL_1_1ColumnGeneration.html#aeace05166eda42763db5593f0ca8cb95">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1ColumnGeneration.html#acb4e6bac9f172b793dd6106cedd321bb">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
 </li>
 <li>_components
 : <a class="el" href="classL_1_1Set.html#a035150a4a8844d5364a8b314c57a8575">L::Set&lt; Index, CoreComponent, Component, ConstComponent &gt;</a>
@@ -108,6 +111,9 @@ $(function() {
 : <a class="el" href="classL_1_1CplexAdapter.html#a692f4da75790efc5011b802497293f63">L::CplexAdapter</a>
 , <a class="el" href="classL_1_1Environment.html#a0bcf01bbf1b797e11f9d6d207bbd0736">L::Environment</a>
 , <a class="el" href="classL_1_1Model.html#a06a57a54f23098f2e63a1ba9bd7a076c">L::Model</a>
+</li>
+<li>_convex_constraint
+: <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#aaa5cf99f245ecfa423835323deedbb8f">L::DantzigWolfeSubProblem</a>
 </li>
 <li>_core
 : <a class="el" href="classL_1_1ConstConstraint.html#a01227c43173b3e204a80c18a0866dd82">L::ConstConstraint</a>
@@ -124,43 +130,36 @@ $(function() {
 : <a class="el" href="classL_1_1CplexAdapter.html#ad73308e708e4252305edafc357b109c1">L::CplexAdapter</a>
 </li>
 <li>_decomposition
-: <a class="el" href="classL_1_1DantzigWolfeBranchAndPrice.html#a1ab0cad9ac606b5e957c9072362587c2">L::DantzigWolfeBranchAndPrice</a>
-, <a class="el" href="classL_1_1DantzigWolfeBranchAndPriceNode.html#a9d3b9a9e2cac7e4254bfe89cd84b2e78">L::DantzigWolfeBranchAndPriceNode</a>
-, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a4cc8ca860d1ed050f409dbc35260dc09">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DualAngularModel.html#af495b6661cf45c5bde835e66d7c30550">L::DualAngularModel</a>
+: <a class="el" href="classL_1_1DantzigWolfeBranchAndPrice.html#a8b0e68240acdb305d00eac288ea58104">L::DantzigWolfeBranchAndPrice&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeBranchAndPriceNode.html#ac0d19f4679fb6a42e97fb308f848be93">L::DantzigWolfeBranchAndPriceNode&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#a27f30cb64b4e00b4b91f12b90188be49">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeModel.html#a518ad5620f841e513f6a26990c463f21">L::DantzigWolfeModel</a>
 </li>
 <li>_detach_dual
 : <a class="el" href="classL_1_1DetachedConstraint.html#a88b3d81e1ffc065877f66ed4fbfed8ce">L::DetachedConstraint</a>
 </li>
-<li>_detached_constraints
-: <a class="el" href="classL_1_1DetachedModel.html#a74801df4ef487804fb28c6c475c920c8">L::DetachedModel</a>
-</li>
-<li>_detached_objective
-: <a class="el" href="classL_1_1DetachedModel.html#a572768fff818eff2e68c1a718073f43e">L::DetachedModel</a>
+<li>_detached_linking_constraints
+: <a class="el" href="classL_1_1DantzigWolfeModel.html#ad5fc119982291a1c15b521db8ddf8094">L::DantzigWolfeModel</a>
 </li>
 <li>_detached_variables
-: <a class="el" href="classL_1_1DetachedModel.html#a6cf9de19bae34b3a764cb0afa176e430">L::DetachedModel</a>
-, <a class="el" href="classL_1_1DirectLPSolver.html#aa8b54be040893ea53acb1d90ea5fd2bf">L::DirectLPSolver&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1BranchAndBound.html#aeff0066a28dfd8e7c55d4e6a6d7f93b0">L::BranchAndBound&lt; NodeClass &gt;</a>
+, <a class="el" href="classL_1_1DirectLPSolver.html#aa8b54be040893ea53acb1d90ea5fd2bf">L::DirectLPSolver&lt; ExternalSolver &gt;</a>
 </li>
 <li>_dimension
 : <a class="el" href="classL_1_1Vector.html#a6f3307a9d943fd56709ca95d11f9f43f">L::Vector&lt; Component &gt;</a>
 </li>
-<li>_dual_angular_model
-: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a3eb799272b5091e7e3cb0d7e13975278">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
-</li>
 <li>_dual_variable
 : <a class="el" href="classL_1_1CoreConstraint.html#a820b9ae6f077e15ac85c5c31dbdc8e17">L::CoreConstraint</a>
 </li>
-<li>_dw_column_generator
-: <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a2903bc01c98cc82b87b62c8687a8114c">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
-</li>
-<li>_dw_env
-: <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a834f366abed5fc7c198577d4cfed4ce9">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DualAngularModel.html#ab1c3ba1ff719d5e2d6053e1bb67f9b9d">L::DualAngularModel</a>
+<li>_dw_model
+: <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#a078c49dc1979788085bb9cbdc83ea312">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
 </li>
 <li>_env
-: <a class="el" href="classL_1_1ColumnGeneration.html#aa19df43554f2f3c0bfca7b4f329f252b">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1ColumnGeneration.html#a75e00addb17dfa3be81d0b875197e437">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
 , <a class="el" href="classL_1_1CplexAdapter.html#ae573917f7a09dfc3d42e88e78e05b37d">L::CplexAdapter</a>
+, <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#af1a78c8d02a03e7e8b4ae63f1dc05b6b">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeModel.html#ad632828045b4e6ff193e7fcb31f8041b">L::DantzigWolfeModel</a>
+, <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#adb0ab1bee2b1154201f1ab58b5ea3dd4">L::DantzigWolfeSubProblem</a>
 , <a class="el" href="classL_1_1Set.html#ae886bd69d3b25783d8e37a49e001c462">L::Set&lt; Index, CoreComponent, Component, ConstComponent &gt;</a>
 , <a class="el" href="classL_1_1Vector.html#ab5bcd8838065968f3110cd6c67dddcaf">L::Vector&lt; Component &gt;</a>
 </li>
@@ -177,7 +176,7 @@ $(function() {
 : <a class="el" href="classL_1_1ParameterManager.html#ac7a58f03490f2656930ab9935eee5537">L::ParameterManager</a>
 </li>
 <li>_generated_columns
-: <a class="el" href="classL_1_1ColumnGeneration.html#a66ecabb8ebfed5d6bfb6c8d36588f19d">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1ColumnGeneration.html#ae296af55b6ef2b75a3683943a7037e84">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
 </li>
 <li>_id
 : <a class="el" href="classL_1_1BranchAndBoundNode.html#a5295a0d761bcef9dfcd3936dc92ffc0f">L::BranchAndBoundNode</a>
@@ -190,7 +189,7 @@ $(function() {
 : <a class="el" href="classL_1_1Decomposition.html#a5855ce8fbb3388cce41e3e5553e125b6">L::Decomposition</a>
 </li>
 <li>_is_done
-: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a9c4ad9458dafd5f11ec767ab851fbcb9">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ae5b89e069a82ba29f9322d0e057ca23f">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a>
 </li>
 <li>_is_feasible
 : <a class="el" href="classL_1_1BranchAndBoundNode.html#aef03743da14968a660bfa62d2a0e75cf">L::BranchAndBoundNode</a>
@@ -204,10 +203,11 @@ $(function() {
 : <a class="el" href="classL_1_1Solver.html#a3773064d5b7e6cb638279293cd794c2f">L::Solver</a>
 </li>
 <li>_last_iteration_improved
-: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a90c8a22e70e99bba6c3ccea5f146ccd3">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a6132fedacc7113456a4f25072d92b115">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a>
 </li>
 <li>_lb
-: <a class="el" href="classL_1_1CoreVariable.html#a2f094eb99de98c1495b60b10d558829f">L::CoreVariable</a>
+: <a class="el" href="classL_1_1CoreObjective.html#a74bedc328db8d4ccc9d58adec7d78737">L::CoreObjective</a>
+, <a class="el" href="classL_1_1CoreVariable.html#a2f094eb99de98c1495b60b10d558829f">L::CoreVariable</a>
 </li>
 <li>_lbds_objective
 : <a class="el" href="classL_1_1CplexAdapter.html#ac2678d80b9ade2fdaca0db821ebb079d">L::CplexAdapter</a>
@@ -219,7 +219,10 @@ $(function() {
 : <a class="el" href="classL_1_1LogManager.html#a75d534a4a65732129beb4c80d25156f2">L::LogManager</a>
 </li>
 <li>_linking_constraints
-: <a class="el" href="classL_1_1DualAngularModel.html#a43a62da3f12b9d18d453b1f6fdd59a71">L::DualAngularModel</a>
+: <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#a402183784e7e1256d03f47d365038532">L::DantzigWolfeSubProblem</a>
+</li>
+<li>_linking_cost
+: <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#aa689f681c50caabf07250e390578a525">L::DantzigWolfeSubProblem</a>
 </li>
 <li>_log_level
 : <a class="el" href="classL_1_1ParameterManager.html#aad0b3cfc9fe187e1d91e70408fe8e16f">L::ParameterManager</a>
@@ -237,11 +240,10 @@ $(function() {
 : <a class="el" href="classL_1_1BranchAndBound.html#aeb3b257518e5bca54aeedebb2386339b">L::BranchAndBound&lt; NodeClass &gt;</a>
 , <a class="el" href="classL_1_1BranchAndBoundNode.html#a7ac7af4639731392a87daeadf9830b38">L::BranchAndBoundNode</a>
 , <a class="el" href="classL_1_1CplexAdapter.html#a025ef0ec721379e17da4bacc3773bebc">L::CplexAdapter</a>
-, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#aa784c31f3ec76fff066e4db9f75249ea">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
 , <a class="el" href="classL_1_1DirectSolver.html#a609a8c0ac21501883b72c8943cd58d85">L::DirectSolver</a>
 </li>
 <li>_n_artificial_var
-: <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#acc55dceda2caca47da87b85316191edd">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1DantzigWolfeModel.html#aa3c53d0acb0b30b14ca493839284a7f0">L::DantzigWolfeModel</a>
 </li>
 <li>_nodes_to_be_processed
 : <a class="el" href="classL_1_1BranchAndBound.html#a67d82c1815ccc66bb72daa2720c8010b">L::BranchAndBound&lt; NodeClass &gt;</a>
@@ -251,6 +253,7 @@ $(function() {
 </li>
 <li>_objective
 : <a class="el" href="classL_1_1CplexAdapter.html#a8df26b1e63c463fdb4042da391d1134d">L::CplexAdapter</a>
+, <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#a39c5d0d0fe56ef7532debfea7d31aeb2">L::DantzigWolfeSubProblem</a>
 , <a class="el" href="classL_1_1Model.html#a884d704122e376dee2d57dc0ac127237">L::Model</a>
 </li>
 <li>_objective_cost
@@ -279,31 +282,21 @@ $(function() {
 , <a class="el" href="classL_1_1CoreVariable.html#a462fb74470f044dc04675a3bf1487343">L::CoreVariable</a>
 </li>
 <li>_restricted_master_problem
-: <a class="el" href="classL_1_1ColumnGeneration.html#a1bdddfa668aa20af929ca364ba398788">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a8304b224631da48c7e6548502aba42da">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a5be0249b4899875e11492994a898dab6">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1ColumnGeneration.html#a156bc8b03eda81e2ec73d98d73b6c594">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeModel.html#ac59955c15f89c726a2b8a0727357c013">L::DantzigWolfeModel</a>
 </li>
 <li>_restricted_master_problem_solver
-: <a class="el" href="classL_1_1ColumnGeneration.html#a241cc07bc9bebce980890c5abb45900d">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+: <a class="el" href="classL_1_1ColumnGeneration.html#a789ecccfe4d84fac5ab6203794df7210">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
 </li>
 <li>_right
 : <a class="el" href="classL_1_1Expression.html#aa8dea240e4f2c416a660c013a7b16d1d">L::Expression</a>
-</li>
-<li>_rmp_as_block
-: <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#a01fa9157baf7185ed6c81211c9ba529a">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
 </li>
 <li>_slack
 : <a class="el" href="classL_1_1CoreConstraint.html#a2ed3310182d38fc92726832b7ae32000">L::CoreConstraint</a>
 </li>
 <li>_solver
-: <a class="el" href="classL_1_1DirectLPSolver.html#ad26d9339d426b1324b23357e2f2dcb13">L::DirectLPSolver&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DirectMILPSolver.html#aac916c3ab9b3af2a036ae74bf10e9469">L::DirectMILPSolver&lt; Adapter_RMP &gt;</a>
-</li>
-<li>_splitted_expression
-: <a class="el" href="classL_1_1LinkingConstraint.html#a724219d078bc4e315e1f16a41268fad9">L::LinkingConstraint</a>
-</li>
-<li>_src
-: <a class="el" href="classL_1_1DetachedModel.html#af9f49d2175198ec9daaa26db899c59de">L::DetachedModel</a>
+: <a class="el" href="classL_1_1DirectLPSolver.html#ad26d9339d426b1324b23357e2f2dcb13">L::DirectLPSolver&lt; ExternalSolver &gt;</a>
+, <a class="el" href="classL_1_1DirectMILPSolver.html#aac916c3ab9b3af2a036ae74bf10e9469">L::DirectMILPSolver&lt; ExternalSolver &gt;</a>
 </li>
 <li>_src_model
 : <a class="el" href="classL_1_1Decomposition.html#a4b834c04fd84659940f04ff9684d5e50">L::Decomposition</a>
@@ -311,11 +304,12 @@ $(function() {
 <li>_status
 : <a class="el" href="classL_1_1CoreObjective.html#a46d8fd8c7a73bd5b358117813790f8d3">L::CoreObjective</a>
 </li>
-<li>_subproblem_iterator
-: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ac55d6dfa8149b9d2bb25464e11ddecb2">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
+<li>_sub_problems
+: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a5d483a26083a36739f4c33537cfa9a48">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeModel.html#a9c3cc9e4bdcd88ec1cd41151a9210d7b">L::DantzigWolfeModel</a>
 </li>
-<li>_subproblems
-: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#aa3fb118d01e881ebc40d24b9244cde7e">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a>
+<li>_sub_problems_iterator
+: <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a8e5791ad95dc97ae8c9bbe2286f364f8">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a>
 </li>
 <li>_tolerance
 : <a class="el" href="classL_1_1ParameterManager.html#a752462cda4568505a6929d9b9899542a">L::ParameterManager</a>
@@ -327,7 +321,8 @@ $(function() {
 , <a class="el" href="classL_1_1Expression.html#afb26b29e8d5d8fcc05a2418e3163c816">L::Expression</a>
 </li>
 <li>_ub
-: <a class="el" href="classL_1_1CoreVariable.html#a7b5cf6fd4af225c468d8877726147f32">L::CoreVariable</a>
+: <a class="el" href="classL_1_1CoreObjective.html#aa0c2f869af0e1daf7858352fad4352e2">L::CoreObjective</a>
+, <a class="el" href="classL_1_1CoreVariable.html#a7b5cf6fd4af225c468d8877726147f32">L::CoreVariable</a>
 </li>
 <li>_unbounded
 : <a class="el" href="classL_1_1BranchAndBound.html#aa1809fc645ee38d13eea9ec9d3bb0ccd">L::BranchAndBound&lt; NodeClass &gt;</a>

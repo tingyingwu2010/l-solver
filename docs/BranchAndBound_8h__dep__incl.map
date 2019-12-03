@@ -1,5 +1,5 @@
-<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/BranchAndBound/BranchAndBound.h" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/BranchAndBound/BranchAndBound.h">
-<area shape="rect" id="node2" href="$DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.h" alt="" coords="5,109,288,180"/>
-<area shape="rect" id="node4" href="$MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/MILPBranchAndBound/MILPBranchAndBound.h" alt="" coords="313,117,618,173"/>
-<area shape="rect" id="node3" href="$DantzigWolfeBranchAndPrice_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.cpp" alt="" coords="5,228,288,299"/>
+<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/branch&#45;and&#45;bound/BranchAndBound.h" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/branch&#45;and&#45;bound/BranchAndBound.h">
+<area shape="rect" id="node2" href="$BranchAndBound_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/branch&#45;and&#45;bound/BranchAndBound.cpp" alt="" coords="5,117,264,173"/>
+<area shape="rect" id="node3" href="$DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe&#45;branch&#45;and&#45;price\l/DantzigWolfeBranchAndPrice.h" alt="" coords="288,109,501,180"/>
+<area shape="rect" id="node4" href="$MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/milp&#45;branch&#45;and&#45;bound/MILPBranchAndBound.h" alt="" coords="525,117,829,173"/>
 </map>

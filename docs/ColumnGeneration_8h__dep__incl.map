@@ -1,5 +1,5 @@
-<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/ColumnGeneration/ColumnGeneration.h" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/ColumnGeneration/ColumnGeneration.h">
-<area shape="rect" id="node2" href="$ColumnGeneration_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/ColumnGeneration/ColumnGeneration.cpp" alt="" coords="5,117,276,173"/>
-<area shape="rect" id="node3" href="$DantzigWolfeDecomposition_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeDecomposition/DantzigWolfeDecompositionSolver\lDecomposition.h" alt="" coords="301,109,575,180"/>
-<area shape="rect" id="node4" href="$DantzigWolfeBranchAndPrice_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.cpp" alt="" coords="297,228,579,299"/>
+<map id="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/column&#45;generation/ColumnGeneration.h" name="/home/hlefebvr/CLionProjects/ed&#45;solver/src/LSolver/algorithms/column&#45;generation/ColumnGeneration.h">
+<area shape="rect" id="node2" href="$ColumnGeneration_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/column&#45;generation/ColumnGeneration.cpp" alt="" coords="5,117,275,173"/>
+<area shape="rect" id="node3" href="$DantzigWolfeDecompositionAlgorithm_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe/DantzigWolfeDecomposition\lAlgorithm.h" alt="" coords="299,109,573,180"/>
+<area shape="rect" id="node4" href="$DantzigWolfeDecompositionSolver_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe/DantzigWolfeDecomposition\lSolver.h" alt="" coords="299,228,573,299"/>
 </map>

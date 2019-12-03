@@ -80,20 +80,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Manages logs at the <a class="el" href="classL_1_1Application.html" title="Represents an application execution. {Singleton}. Manages logs, parameters, etc. ">Application</a> level.  
+ <a href="classL_1_1LogManager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="LogManager_8h_source.html">LogManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for L::LogManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1LogManager__inherit__graph.png" border="0" usemap="#L_1_1LogManager_inherit__map" alt="Inheritance graph"/></div>
-<map name="L_1_1LogManager_inherit__map" id="L_1_1LogManager_inherit__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for L::LogManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1LogManager__coll__graph.png" border="0" usemap="#L_1_1LogManager_coll__map" alt="Collaboration graph"/></div>
-<map name="L_1_1LogManager_coll__map" id="L_1_1LogManager_coll__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -106,11 +105,15 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a75d534a4a65732129beb4c80d25156f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceL.html#aef8535bd0d21e1259684046e14a745e5">LogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1LogManager.html#a75d534a4a65732129beb4c80d25156f2">_level</a></td></tr>
+<tr class="memdesc:a75d534a4a65732129beb4c80d25156f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">log level of the log manager (and not the application log level)  <a href="#a75d534a4a65732129beb4c80d25156f2">More...</a><br /></td></tr>
 <tr class="separator:a75d534a4a65732129beb4c80d25156f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178b183051cfe3d5be33a646d8fbfc09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1LogManager.html#a178b183051cfe3d5be33a646d8fbfc09">_bold</a></td></tr>
+<tr class="memdesc:a178b183051cfe3d5be33a646d8fbfc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the output should be in bold case  <a href="#a178b183051cfe3d5be33a646d8fbfc09">More...</a><br /></td></tr>
 <tr class="separator:a178b183051cfe3d5be33a646d8fbfc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages logs at the <a class="el" href="classL_1_1Application.html" title="Represents an application execution. {Singleton}. Manages logs, parameters, etc. ">Application</a> level. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a676980412e2b2270098f439e243cd523"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a676980412e2b2270098f439e243cd523">&#9670;&nbsp;</a></span>LogManager()</h2>
 
@@ -140,10 +143,17 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>log level </td></tr>
+    <tr><td class="paramname">bold</td><td>true if the output should be in bold case </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -195,6 +205,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>true if the output should be in bold case </p>
+
 </div>
 </div>
 <a id="a75d534a4a65732129beb4c80d25156f2"></a>
@@ -216,6 +228,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>log level of the log manager (and not the application log level) </p>
 
 </div>
 </div>

@@ -2,6 +2,7 @@ var searchData=
 [
   ['empty',['empty',['../classL_1_1Column.html#a1649e222da7db0b6d50c5dd6ae87a7c7',1,'L::Column']]],
   ['end',['end',['../classL_1_1Set.html#af6149b503a471bbc1d1f174b7482c245',1,'L::Set::end()'],['../classL_1_1MapIterator.html#a49969f0c90da71a71ef4968931758d83',1,'L::MapIterator::end()']]],
+  ['env',['env',['../classL_1_1DantzigWolfeModel.html#a880f8c0b5c6e635a9d053c37e1d16d96',1,'L::DantzigWolfeModel']]],
   ['exception',['Exception',['../classL_1_1Exception.html#a0b1693d4d5007815322070c907ee5cc2',1,'L::Exception']]],
   ['export_5fto_5fdot',['export_to_dot',['../classL_1_1Expression.html#a6b5c6d5640489c62efcba84dbceca4c4',1,'L::Expression']]],
   ['export_5fto_5ffile',['export_to_file',['../classL_1_1CplexAdapter.html#a94774a70c1e4d330ad9d5983a23a23e1',1,'L::CplexAdapter::export_to_file()'],['../classL_1_1SolverAdapter.html#ad183be492dea42ce58b25a192a3428f8',1,'L::SolverAdapter::export_to_file()'],['../classL_1_1DirectLPSolver.html#a3f7d37e7d8f94c766a03920dd588381c',1,'L::DirectLPSolver::export_to_file()']]],

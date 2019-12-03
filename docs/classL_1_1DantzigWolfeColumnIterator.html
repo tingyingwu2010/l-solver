@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt; Class Template Reference</title>
+<title>L-Solver: L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,137 +73,81 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classL_1_1DantzigWolfeColumnIterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt; Class Template Reference</div>  </div>
+<div class="title">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="DantzigWolfeColumnIterator_8h_source.html">DantzigWolfeColumnIterator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;:</div>
+Inheritance diagram for L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classL_1_1DantzigWolfeColumnIterator__inherit__graph.png" border="0" usemap="#L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_inherit__map" id="L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_inherit__map">
+<div class="center"><img src="classL_1_1DantzigWolfeColumnIterator__inherit__graph.png" border="0" usemap="#L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_inherit__map" id="L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_inherit__map">
 <area shape="rect" id="node2" href="classL_1_1ColumnIterator.html" title="L::ColumnIterator" alt="" coords="45,5,168,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;:</div>
+Collaboration diagram for L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classL_1_1DantzigWolfeColumnIterator__coll__graph.png" border="0" usemap="#L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_coll__map" id="L_1_1DantzigWolfeColumnIterator_3_01ExternalSolver_01_4_coll__map">
-<area shape="rect" id="node2" href="classL_1_1ColumnIterator.html" title="L::ColumnIterator" alt="" coords="1588,5,1711,32"/>
-<area shape="rect" id="node3" href="classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="1079,81,1151,108"/>
-<area shape="rect" id="node15" href="classL_1_1Decomposition.html" title="Embeds instructions for decomposting a given model. " alt="" coords="1271,107,1395,133"/>
-<area shape="rect" id="node4" href="classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="875,81,967,108"/>
-<area shape="rect" id="node5" href="classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="405,56,547,83"/>
-<area shape="rect" id="node6" href="classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="669,107,789,133"/>
-<area shape="rect" id="node7" href="classL_1_1Expression.html" title="L::Expression" alt="" coords="425,160,527,187"/>
-<area shape="rect" id="node8" href="classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="188,160,300,187"/>
-<area shape="rect" id="node9" href="classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="5,160,139,187"/>
-<area shape="rect" id="node10" href="classL_1_1DualAngularModel.html" title="Represents a model which has a dual angular structure. " alt="" coords="1578,107,1721,133"/>
-<area shape="rect" id="node11" href="classL_1_1Environment.html" title="L::Environment" alt="" coords="1277,288,1388,315"/>
-<area shape="rect" id="node12" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreConstraint, Constraint,\l ConstConstraint \&gt;" alt="" coords="1556,188,1743,244"/>
-<area shape="rect" id="node13" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreObjective, Objective,\l ConstObjective \&gt;" alt="" coords="1561,289,1737,345"/>
-<area shape="rect" id="node14" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreVariable, Variable,\l ConstVariable \&gt;" alt="" coords="1569,387,1729,443"/>
+<div class="center"><img src="classL_1_1DantzigWolfeColumnIterator__coll__graph.png" border="0" usemap="#L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_coll__map" id="L_1_1DantzigWolfeColumnIterator_3_01SubProblemSolver_01_4_coll__map">
+<area shape="rect" id="node2" href="classL_1_1ColumnIterator.html" title="L::ColumnIterator" alt="" coords="45,5,168,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3cc2ee77b9a761012570368d2bd5308"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ad3cc2ee77b9a761012570368d2bd5308">DantzigWolfeColumnIterator</a> (<a class="el" href="classL_1_1Model.html">Model</a> &amp;rmp, <a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a> &amp;da_model)</td></tr>
-<tr class="separator:ad3cc2ee77b9a761012570368d2bd5308"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6002eac45fbf7088fc1e01d04e58fade"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a6002eac45fbf7088fc1e01d04e58fade">~DantzigWolfeColumnIterator</a> ()</td></tr>
-<tr class="separator:a6002eac45fbf7088fc1e01d04e58fade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab056f6d16855f463682a1dfdfc59f166"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html">Column</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ab056f6d16855f463682a1dfdfc59f166">get_next_column</a> () override</td></tr>
-<tr class="separator:ab056f6d16855f463682a1dfdfc59f166"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad42b0bb10dae40f41ceb8ede80ce6d21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ad42b0bb10dae40f41ceb8ede80ce6d21">is_done</a> () override</td></tr>
-<tr class="separator:ad42b0bb10dae40f41ceb8ede80ce6d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:af3eb7d0855db6ff79e9affbbfa34be9f"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="classL_1_1DetachedModel.html">DetachedModel</a> *, <a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt; Adapter_RMP &gt; * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a></td></tr>
-<tr class="separator:af3eb7d0855db6ff79e9affbbfa34be9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1d95502cd3cd9e0833ce0c75bac87b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#aee1d95502cd3cd9e0833ce0c75bac87b">DantzigWolfeColumnIterator</a> (const std::map&lt; std::string, <a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a> *&gt; &amp;)</td></tr>
+<tr class="separator:aee1d95502cd3cd9e0833ce0c75bac87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b3b2479abb2d3924083c013048672f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ab5b3b2479abb2d3924083c013048672f">DantzigWolfeColumnIterator</a> (const <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt; &amp;rhs)</td></tr>
+<tr class="separator:ab5b3b2479abb2d3924083c013048672f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84924ed5b5b972e8a19ae4c6700d7af9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a84924ed5b5b972e8a19ae4c6700d7af9">~DantzigWolfeColumnIterator</a> ()</td></tr>
+<tr class="separator:a84924ed5b5b972e8a19ae4c6700d7af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7a9f7a3e445ffeb35463fd6a6cc220"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html">Column</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#afc7a9f7a3e445ffeb35463fd6a6cc220">get_next_column</a> () override</td></tr>
+<tr class="separator:afc7a9f7a3e445ffeb35463fd6a6cc220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b97b0587e18c7d80954041b7951f96e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a1b97b0587e18c7d80954041b7951f96e">is_done</a> () override</td></tr>
+<tr class="separator:a1b97b0587e18c7d80954041b7951f96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ed731d79b68253d2f78b7c9afa5c66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a11ed731d79b68253d2f78b7c9afa5c66">reset_sub_problems_variables</a> ()</td></tr>
+<tr class="separator:a11ed731d79b68253d2f78b7c9afa5c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ad3a0567531a28ce78eee7ad45ddd94eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ad3a0567531a28ce78eee7ad45ddd94eb">next_sub_problem</a> ()</td></tr>
-<tr class="separator:ad3a0567531a28ce78eee7ad45ddd94eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b02d12df736d0933e0f7353a7475799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a3b02d12df736d0933e0f7353a7475799">build_subproblems</a> ()</td></tr>
-<tr class="separator:a3b02d12df736d0933e0f7353a7475799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae46ee07917c3da4004e4825ac289f594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ae46ee07917c3da4004e4825ac289f594">next_sub_problem</a> ()</td></tr>
+<tr class="separator:ae46ee07917c3da4004e4825ac289f594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8304b224631da48c7e6548502aba42da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Model.html">Model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a8304b224631da48c7e6548502aba42da">_restricted_master_problem</a></td></tr>
-<tr class="separator:a8304b224631da48c7e6548502aba42da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eb799272b5091e7e3cb0d7e13975278"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a3eb799272b5091e7e3cb0d7e13975278">_dual_angular_model</a></td></tr>
-<tr class="separator:a3eb799272b5091e7e3cb0d7e13975278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c8a22e70e99bba6c3ccea5f146ccd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a90c8a22e70e99bba6c3ccea5f146ccd3">_last_iteration_improved</a> = true</td></tr>
-<tr class="separator:a90c8a22e70e99bba6c3ccea5f146ccd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c4ad9458dafd5f11ec767ab851fbcb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a9c4ad9458dafd5f11ec767ab851fbcb9">_is_done</a> = false</td></tr>
-<tr class="separator:a9c4ad9458dafd5f11ec767ab851fbcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3fb118d01e881ebc40d24b9244cde7e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#aa3fb118d01e881ebc40d24b9244cde7e">_subproblems</a></td></tr>
-<tr class="separator:aa3fb118d01e881ebc40d24b9244cde7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac55d6dfa8149b9d2bb25464e11ddecb2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a> &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ac55d6dfa8149b9d2bb25464e11ddecb2">_subproblem_iterator</a></td></tr>
-<tr class="separator:ac55d6dfa8149b9d2bb25464e11ddecb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d483a26083a36739f4c33537cfa9a48"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a> *, SubProblemSolver * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a5d483a26083a36739f4c33537cfa9a48">_sub_problems</a></td></tr>
+<tr class="separator:a5d483a26083a36739f4c33537cfa9a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e5791ad95dc97ae8c9bbe2286f364f8"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a> *, SubProblemSolver * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a8e5791ad95dc97ae8c9bbe2286f364f8">_sub_problems_iterator</a></td></tr>
+<tr class="separator:a8e5791ad95dc97ae8c9bbe2286f364f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6132fedacc7113456a4f25072d92b115"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#a6132fedacc7113456a4f25072d92b115">_last_iteration_improved</a> = true</td></tr>
+<tr class="separator:a6132fedacc7113456a4f25072d92b115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b89e069a82ba29f9322d0e057ca23f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#ae5b89e069a82ba29f9322d0e057ca23f">_is_done</a> = false</td></tr>
+<tr class="separator:ae5b89e069a82ba29f9322d0e057ca23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="af3eb7d0855db6ff79e9affbbfa34be9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3eb7d0855db6ff79e9affbbfa34be9f">&#9670;&nbsp;</a></span>ModelSolverAssoc</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::pair&lt; <a class="el" href="classL_1_1DetachedModel.html">DetachedModel</a>*, <a class="el" href="classL_1_1DirectLPSolver.html">DirectLPSolver</a>&lt;Adapter_RMP&gt;*&gt; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad3cc2ee77b9a761012570368d2bd5308"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3cc2ee77b9a761012570368d2bd5308">&#9670;&nbsp;</a></span>DantzigWolfeColumnIterator()</h2>
+<a id="aee1d95502cd3cd9e0833ce0c75bac87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1d95502cd3cd9e0833ce0c75bac87b">&#9670;&nbsp;</a></span>DantzigWolfeColumnIterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classL_1_1Model.html">L::Model</a> &amp;&#160;</td>
-          <td class="paramname"><em>rmp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a> *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>sub_problems</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a> &amp;&#160;</td>
-          <td class="paramname"><em>da_model</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -215,18 +159,19 @@ template&lt;class Adapter_RMP &gt; </div>
 
 </div>
 </div>
-<a id="a6002eac45fbf7088fc1e01d04e58fade"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6002eac45fbf7088fc1e01d04e58fade">&#9670;&nbsp;</a></span>~DantzigWolfeColumnIterator()</h2>
+<a id="ab5b3b2479abb2d3924083c013048672f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b3b2479abb2d3924083c013048672f">&#9670;&nbsp;</a></span>DantzigWolfeColumnIterator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::~<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a> </td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -234,20 +179,19 @@ template&lt;class Adapter_RMP &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3b02d12df736d0933e0f7353a7475799"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b02d12df736d0933e0f7353a7475799">&#9670;&nbsp;</a></span>build_subproblems()</h2>
+<a id="a84924ed5b5b972e8a19ae4c6700d7af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84924ed5b5b972e8a19ae4c6700d7af9">&#9670;&nbsp;</a></span>~DantzigWolfeColumnIterator()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::build_subproblems </td>
+          <td class="memname"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::~<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">DantzigWolfeColumnIterator</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -255,26 +199,27 @@ template&lt;class Adapter_RMP &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ab056f6d16855f463682a1dfdfc59f166"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab056f6d16855f463682a1dfdfc59f166">&#9670;&nbsp;</a></span>get_next_column()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc7a9f7a3e445ffeb35463fd6a6cc220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7a9f7a3e445ffeb35463fd6a6cc220">&#9670;&nbsp;</a></span>get_next_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Column.html">L::Column</a> <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::get_next_column </td>
+          <td class="memname"><a class="el" href="classL_1_1Column.html">L::Column</a> <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::get_next_column </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -291,19 +236,19 @@ template&lt;class Adapter_RMP &gt; </div>
 
 </div>
 </div>
-<a id="ad42b0bb10dae40f41ceb8ede80ce6d21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad42b0bb10dae40f41ceb8ede80ce6d21">&#9670;&nbsp;</a></span>is_done()</h2>
+<a id="a1b97b0587e18c7d80954041b7951f96e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b97b0587e18c7d80954041b7951f96e">&#9670;&nbsp;</a></span>is_done()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::is_done </td>
+          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::is_done </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -320,19 +265,19 @@ template&lt;class Adapter_RMP &gt; </div>
 
 </div>
 </div>
-<a id="ad3a0567531a28ce78eee7ad45ddd94eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a0567531a28ce78eee7ad45ddd94eb">&#9670;&nbsp;</a></span>next_sub_problem()</h2>
+<a id="ae46ee07917c3da4004e4825ac289f594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae46ee07917c3da4004e4825ac289f594">&#9670;&nbsp;</a></span>next_sub_problem()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP &gt; </div>
+template&lt;class SubProblemSolver &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::next_sub_problem </td>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::next_sub_problem </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -347,20 +292,39 @@ template&lt;class Adapter_RMP &gt; </div>
 
 </div>
 </div>
+<a id="a11ed731d79b68253d2f78b7c9afa5c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ed731d79b68253d2f78b7c9afa5c66">&#9670;&nbsp;</a></span>reset_sub_problems_variables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SubProblemSolver &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::reset_sub_problems_variables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3eb799272b5091e7e3cb0d7e13975278"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3eb799272b5091e7e3cb0d7e13975278">&#9670;&nbsp;</a></span>_dual_angular_model</h2>
+<a id="ae5b89e069a82ba29f9322d0e057ca23f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b89e069a82ba29f9322d0e057ca23f">&#9670;&nbsp;</a></span>_is_done</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
+template&lt;class SubProblemSolver&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1DualAngularModel.html">DualAngularModel</a>&amp; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_dual_angular_model</td>
+          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::_is_done = false</td>
         </tr>
       </table>
   </td>
@@ -372,19 +336,19 @@ template&lt;class Adapter_RMP&gt; </div>
 
 </div>
 </div>
-<a id="a9c4ad9458dafd5f11ec767ab851fbcb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c4ad9458dafd5f11ec767ab851fbcb9">&#9670;&nbsp;</a></span>_is_done</h2>
+<a id="a6132fedacc7113456a4f25072d92b115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6132fedacc7113456a4f25072d92b115">&#9670;&nbsp;</a></span>_last_iteration_improved</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
+template&lt;class SubProblemSolver&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_is_done = false</td>
+          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::_last_iteration_improved = true</td>
         </tr>
       </table>
   </td>
@@ -396,19 +360,19 @@ template&lt;class Adapter_RMP&gt; </div>
 
 </div>
 </div>
-<a id="a90c8a22e70e99bba6c3ccea5f146ccd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90c8a22e70e99bba6c3ccea5f146ccd3">&#9670;&nbsp;</a></span>_last_iteration_improved</h2>
+<a id="a5d483a26083a36739f4c33537cfa9a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d483a26083a36739f4c33537cfa9a48">&#9670;&nbsp;</a></span>_sub_problems</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
+template&lt;class SubProblemSolver&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_last_iteration_improved = true</td>
+          <td class="memname">std::map&lt;<a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a>*, SubProblemSolver*&gt; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::_sub_problems</td>
         </tr>
       </table>
   </td>
@@ -420,67 +384,19 @@ template&lt;class Adapter_RMP&gt; </div>
 
 </div>
 </div>
-<a id="a8304b224631da48c7e6548502aba42da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8304b224631da48c7e6548502aba42da">&#9670;&nbsp;</a></span>_restricted_master_problem</h2>
+<a id="a8e5791ad95dc97ae8c9bbe2286f364f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5791ad95dc97ae8c9bbe2286f364f8">&#9670;&nbsp;</a></span>_sub_problems_iterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
+template&lt;class SubProblemSolver&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Model.html">Model</a>&amp; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_restricted_master_problem</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac55d6dfa8149b9d2bb25464e11ddecb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac55d6dfa8149b9d2bb25464e11ddecb2">&#9670;&nbsp;</a></span>_subproblem_iterator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a>&gt;::iterator <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_subproblem_iterator</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa3fb118d01e881ebc40d24b9244cde7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3fb118d01e881ebc40d24b9244cde7e">&#9670;&nbsp;</a></span>_subproblems</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Adapter_RMP&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classL_1_1DantzigWolfeColumnIterator.html#af3eb7d0855db6ff79e9affbbfa34be9f">ModelSolverAssoc</a>&gt; <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; Adapter_RMP &gt;::_subproblems</td>
+          <td class="memname">std::map&lt;<a class="el" href="classL_1_1DantzigWolfeSubProblem.html">DantzigWolfeSubProblem</a>*, SubProblemSolver*&gt;::iterator <a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator</a>&lt; SubProblemSolver &gt;::_sub_problems_iterator</td>
         </tr>
       </table>
   </td>
@@ -493,8 +409,8 @@ template&lt;class Adapter_RMP&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/DantzigWolfeDecomposition/<a class="el" href="DantzigWolfeColumnIterator_8h_source.html">DantzigWolfeColumnIterator.h</a></li>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/DantzigWolfeDecomposition/<a class="el" href="DantzigWolfeColumnIterator_8cpp.html">DantzigWolfeColumnIterator.cpp</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/dantzig-wolfe/<a class="el" href="DantzigWolfeColumnIterator_8h_source.html">DantzigWolfeColumnIterator.h</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/dantzig-wolfe/<a class="el" href="DantzigWolfeColumnIterator_8cpp.html">DantzigWolfeColumnIterator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,11 +1,11 @@
-<map id="L::MILPBranchAndBoundNode&lt; Adapter_RMP &gt;" name="L::MILPBranchAndBoundNode&lt; Adapter_RMP &gt;">
+<map id="L::MILPBranchAndBoundNode&lt; ExternalSolver &gt;" name="L::MILPBranchAndBoundNode&lt; ExternalSolver &gt;">
 <area shape="rect" id="node2" href="$classL_1_1BranchAndBoundNode.html" title="L::BranchAndBoundNode" alt="" coords="21,531,190,557"/>
-<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="47,441,121,468"/>
+<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="Implements the interface for solvers. " alt="" coords="47,441,121,468"/>
 <area shape="rect" id="node4" href="$classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="145,441,217,468"/>
 <area shape="rect" id="node5" href="$classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="135,352,227,379"/>
 <area shape="rect" id="node6" href="$classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="89,172,231,199"/>
 <area shape="rect" id="node7" href="$classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="197,263,317,289"/>
-<area shape="rect" id="node8" href="$classL_1_1Expression.html" title="L::Expression" alt="" coords="255,172,358,199"/>
+<area shape="rect" id="node8" href="$classL_1_1Expression.html" title="Represents a mathematical expression as an expression tree. " alt="" coords="255,172,358,199"/>
 <area shape="rect" id="node9" href="$classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="251,81,363,108"/>
 <area shape="rect" id="node10" href="$classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="240,5,373,32"/>
 </map>

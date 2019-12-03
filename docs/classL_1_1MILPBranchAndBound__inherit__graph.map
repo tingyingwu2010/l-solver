@@ -1,4 +1,4 @@
-<map id="L::MILPBranchAndBound&lt; Adapter_RMP &gt;" name="L::MILPBranchAndBound&lt; Adapter_RMP &gt;">
-<area shape="rect" id="node2" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; Adapter_RMP \&gt; \&gt;" alt="" coords="5,80,195,136"/>
-<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="L::Solver" alt="" coords="63,5,137,32"/>
+<map id="L::MILPBranchAndBound&lt; ExternalSolver &gt;" name="L::MILPBranchAndBound&lt; ExternalSolver &gt;">
+<area shape="rect" id="node2" href="$classL_1_1BranchAndBound.html" title="L::BranchAndBound\&lt;\l MILPBranchAndBoundNode\l\&lt; ExternalSolver \&gt; \&gt;" alt="" coords="5,80,195,136"/>
+<area shape="rect" id="node3" href="$classL_1_1Solver.html" title="Implements the interface for solvers. " alt="" coords="63,5,137,32"/>
 </map>

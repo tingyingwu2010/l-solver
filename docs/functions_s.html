@@ -73,22 +73,31 @@ $(function() {
 <li>save_more_results()
 : <a class="el" href="classL_1_1CplexAdapter.html#a9a4790b8c35dcc1a4b8613c4b5552f63">L::CplexAdapter</a>
 </li>
-<li>save_results_hook()
-: <a class="el" href="classL_1_1BranchAndBound.html#afb78b31156540474b2dfef8fbb7911ea">L::BranchAndBound&lt; NodeClass &gt;</a>
-, <a class="el" href="classL_1_1BranchAndBoundNode.html#aa011a8c2bb873d0b08b04cc7a610a868">L::BranchAndBoundNode</a>
-, <a class="el" href="classL_1_1ColumnGeneration.html#ab8f1fa51f9a09d9dc56e160bd5f96cc0">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1CplexAdapter.html#a400ee27aa50e4de8ae2f507aaaec03cc">L::CplexAdapter</a>
-, <a class="el" href="classL_1_1DantzigWolfeDecomposition.html#ac80fcb32ca7d427850338470acf0472e">L::DantzigWolfeDecomposition&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DirectLPSolver.html#ab12b001cffbf7c9638cf035078624f8b">L::DirectLPSolver&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1DirectMILPSolver.html#a80b3b1ded9bf0caeae03f560506d345d">L::DirectMILPSolver&lt; Adapter_RMP &gt;</a>
-, <a class="el" href="classL_1_1Solver.html#ad439bf55cfa922f5b6b6f13c9242af37">L::Solver</a>
+<li>save_results()
+: <a class="el" href="classL_1_1CplexAdapter.html#a400ee27aa50e4de8ae2f507aaaec03cc">L::CplexAdapter</a>
 , <a class="el" href="classL_1_1SolverAdapter.html#a4968e0c0ec5eaea3d767c265f9208817">L::SolverAdapter</a>
+</li>
+<li>save_results_hook()
+: <a class="el" href="classL_1_1BranchAndBound.html#a08ace59c77a7c58b694d3b5975fdd146">L::BranchAndBound&lt; NodeClass &gt;</a>
+, <a class="el" href="classL_1_1BranchAndBoundNode.html#a17ae7875ea8b2a6e00e69ec628511ba8">L::BranchAndBoundNode</a>
+, <a class="el" href="classL_1_1ColumnGeneration.html#ab36f47de3a6e651ae64b3431a3b01cf0">L::ColumnGeneration&lt; Adapter_RMP &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeDecompositionAlgorithm.html#acac430a9039fb28adc067eb890e1bf55">L::DantzigWolfeDecompositionAlgorithm&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DantzigWolfeDecompositionSolver.html#afa051a6c012dae108f8887515f68b09f">L::DantzigWolfeDecompositionSolver&lt; Adapter_RMP, SubProblemSolver &gt;</a>
+, <a class="el" href="classL_1_1DirectLPSolver.html#a57296a1bbb29a6a4f45ad75e77c2659e">L::DirectLPSolver&lt; ExternalSolver &gt;</a>
+, <a class="el" href="classL_1_1DirectMILPSolver.html#ad5b9a23e8a6ded62bdaaf3df26baabe9">L::DirectMILPSolver&lt; ExternalSolver &gt;</a>
+, <a class="el" href="classL_1_1Solver.html#a12838818d5af4d844efc3d8a77cbb5c2">L::Solver</a>
 </li>
 <li>select_node_for_branching()
 : <a class="el" href="classL_1_1BranchAndBound.html#a76aa086148d107f29c8d7af272166008">L::BranchAndBound&lt; NodeClass &gt;</a>
 </li>
 <li>Set()
 : <a class="el" href="classL_1_1Set.html#a12c4c50056d574467d47561c4c93c5f0">L::Set&lt; Index, CoreComponent, Component, ConstComponent &gt;</a>
+</li>
+<li>set_convex_constraint()
+: <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#a648b752d137c66b16f5e2e84917255d0">L::DantzigWolfeSubProblem</a>
+</li>
+<li>set_linking_cost()
+: <a class="el" href="classL_1_1DantzigWolfeSubProblem.html#a3bd9af8b5540a4acde76d4bc5f8b04ff">L::DantzigWolfeSubProblem</a>
 </li>
 <li>shift()
 : <a class="el" href="classL_1_1Expression.html#a9a8fb4f5a0efea1cb21f6bfac962d4ac">L::Expression</a>
@@ -126,10 +135,13 @@ $(function() {
 : <a class="el" href="classL_1_1Expression.html#a7640c4e69d9982c46387ecc8650216d9">L::Expression</a>
 </li>
 <li>status()
-: <a class="el" href="classL_1_1AbstractObjective.html#a031dd3ac4491070a93148b0741107239">L::AbstractObjective</a>
-, <a class="el" href="classL_1_1ConstObjective.html#af400d96118e9176089cffd6ab1eee0bc">L::ConstObjective</a>
-, <a class="el" href="classL_1_1CoreObjective.html#a0d5138bfc628d57c2f2bda1acbe545a5">L::CoreObjective</a>
-, <a class="el" href="classL_1_1Objective.html#aa60abf7a8211ddeeff84ff1fcb920f0e">L::Objective</a>
+: <a class="el" href="classL_1_1AbstractObjective.html#a06c2ce3edb03061fd6923594e58988fd">L::AbstractObjective</a>
+, <a class="el" href="classL_1_1ConstObjective.html#aaa1a1096f2897ea5455a9f0e23774eea">L::ConstObjective</a>
+, <a class="el" href="classL_1_1CoreObjective.html#a1263ad02a1b7da95ce6c94325d0ff991">L::CoreObjective</a>
+, <a class="el" href="classL_1_1Objective.html#acdf0b5757cc3d64d06661fd34be918e5">L::Objective</a>
+</li>
+<li>sub_problems()
+: <a class="el" href="classL_1_1DantzigWolfeModel.html#a5d103f303efd5418b5f5bb8b98468b44">L::DantzigWolfeModel</a>
 </li>
 <li>swap
 : <a class="el" href="classL_1_1Expression.html#a3e56a1ef0797b2d69992f590568bc9f4">L::Expression</a>

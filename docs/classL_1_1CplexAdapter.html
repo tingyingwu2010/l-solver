@@ -105,10 +105,10 @@ Collaboration diagram for L::CplexAdapter:</div>
 <area shape="rect" id="node3" href="classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="148,352,240,379"/>
 <area shape="rect" id="node4" href="classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="26,172,167,199"/>
 <area shape="rect" id="node5" href="classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="134,263,254,289"/>
-<area shape="rect" id="node6" href="classL_1_1Expression.html" title="L::Expression" alt="" coords="192,172,295,199"/>
+<area shape="rect" id="node6" href="classL_1_1Expression.html" title="Represents a mathematical expression as an expression tree. " alt="" coords="192,172,295,199"/>
 <area shape="rect" id="node7" href="classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="187,81,299,108"/>
 <area shape="rect" id="node8" href="classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="177,5,310,32"/>
-<area shape="rect" id="node9" href="classL_1_1LogManager.html" title="L::LogManager" alt="" coords="272,352,380,379"/>
+<area shape="rect" id="node9" href="classL_1_1LogManager.html" title="Manages logs at the Application level. " alt="" coords="272,352,380,379"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -121,28 +121,38 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2fb8cc25c49624d7fcf9d9076d98279"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ad2fb8cc25c49624d7fcf9d9076d98279">CplexAdapter</a> ()</td></tr>
 <tr class="separator:ad2fb8cc25c49624d7fcf9d9076d98279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafd9cd29ab95dc5e360f7897bc86771f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#aafd9cd29ab95dc5e360f7897bc86771f">~CplexAdapter</a> ()</td></tr>
-<tr class="separator:aafd9cd29ab95dc5e360f7897bc86771f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979b3735f2f3957b6b81dd6c8f5260ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a979b3735f2f3957b6b81dd6c8f5260ea">~CplexAdapter</a> () override</td></tr>
+<tr class="separator:a979b3735f2f3957b6b81dd6c8f5260ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad78ccf91aaccaea7a46d1f7d433958e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ad78ccf91aaccaea7a46d1f7d433958e8">rebuild_objective</a> ()</td></tr>
 <tr class="separator:ad78ccf91aaccaea7a46d1f7d433958e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f1b1b8b671bd30fba6c1172cf9fed6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a9f1b1b8b671bd30fba6c1172cf9fed6c">create_variable</a> (const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;variable) override</td></tr>
+<tr class="memdesc:a9f1b1b8b671bd30fba6c1172cf9fed6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new variable for the external solver.  <a href="#a9f1b1b8b671bd30fba6c1172cf9fed6c">More...</a><br /></td></tr>
 <tr class="separator:a9f1b1b8b671bd30fba6c1172cf9fed6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d30c59598b391980fe9fd48054badd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a6d30c59598b391980fe9fd48054badd9">create_constraint</a> (const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;constraint) override</td></tr>
+<tr class="memdesc:a6d30c59598b391980fe9fd48054badd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new constraint for the external solver.  <a href="#a6d30c59598b391980fe9fd48054badd9">More...</a><br /></td></tr>
 <tr class="separator:a6d30c59598b391980fe9fd48054badd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27946dfc873e0a61a2d7e5709c0da9f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a27946dfc873e0a61a2d7e5709c0da9f8">remove_constraint</a> (const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;constraint)</td></tr>
 <tr class="separator:a27946dfc873e0a61a2d7e5709c0da9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57444c2591a04c657add9f204ca0479"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#aa57444c2591a04c657add9f204ca0479">create_objective</a> (const <a class="el" href="classL_1_1Objective.html">Objective</a> &amp;objective) override</td></tr>
+<tr class="memdesc:aa57444c2591a04c657add9f204ca0479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new objective for the external solver.  <a href="#aa57444c2591a04c657add9f204ca0479">More...</a><br /></td></tr>
 <tr class="separator:aa57444c2591a04c657add9f204ca0479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5edb927ec05d009bcb6cc981de89e30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ab5edb927ec05d009bcb6cc981de89e30">rebuild_constraint</a> (const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;ctr)</td></tr>
 <tr class="separator:ab5edb927ec05d009bcb6cc981de89e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94774a70c1e4d330ad9d5983a23a23e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a94774a70c1e4d330ad9d5983a23a23e1">export_to_file</a> (const std::string &amp;filename) override</td></tr>
+<tr class="memdesc:a94774a70c1e4d330ad9d5983a23a23e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a textual representation of the model to a file.  <a href="#a94774a70c1e4d330ad9d5983a23a23e1">More...</a><br /></td></tr>
 <tr class="separator:a94774a70c1e4d330ad9d5983a23a23e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c450e0a4c8879cda093ea967d1ddc82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a0c450e0a4c8879cda093ea967d1ddc82">solve</a> () override</td></tr>
+<tr class="memdesc:a0c450e0a4c8879cda093ea967d1ddc82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the build model. (does not save the results back in L-Solver, see save_resuts())  <a href="#a0c450e0a4c8879cda093ea967d1ddc82">More...</a><br /></td></tr>
 <tr class="separator:a0c450e0a4c8879cda093ea967d1ddc82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a4790b8c35dcc1a4b8613c4b5552f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a9a4790b8c35dcc1a4b8613c4b5552f63">save_more_results</a> (bool primal=true, bool dual=true, bool reduced_costs=true, bool slacks=true)</td></tr>
 <tr class="separator:a9a4790b8c35dcc1a4b8613c4b5552f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a400ee27aa50e4de8ae2f507aaaec03cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a400ee27aa50e4de8ae2f507aaaec03cc">save_results_hook</a> (bool primal=true, bool dual=false) override</td></tr>
+<tr class="memitem:a400ee27aa50e4de8ae2f507aaaec03cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a400ee27aa50e4de8ae2f507aaaec03cc">save_results</a> (bool primal=true, bool dual=false) override</td></tr>
+<tr class="memdesc:a400ee27aa50e4de8ae2f507aaaec03cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the results from the last <a class="el" href="classL_1_1CplexAdapter.html#a0c450e0a4c8879cda093ea967d1ddc82" title="Solves the build model. (does not save the results back in L-Solver, see save_resuts()) ...">solve()</a> call to the L-Solver.  <a href="#a400ee27aa50e4de8ae2f507aaaec03cc">More...</a><br /></td></tr>
 <tr class="separator:a400ee27aa50e4de8ae2f507aaaec03cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classL_1_1SolverAdapter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classL_1_1SolverAdapter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classL_1_1SolverAdapter.html">L::SolverAdapter</a></td></tr>
+<tr class="memitem:a3b9ddda424596a1e3e027a7b3bc1d404 inherit pub_methods_classL_1_1SolverAdapter"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1SolverAdapter.html#a3b9ddda424596a1e3e027a7b3bc1d404">~SolverAdapter</a> ()=default</td></tr>
+<tr class="memdesc:a3b9ddda424596a1e3e027a7b3bc1d404 inherit pub_methods_classL_1_1SolverAdapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Should clear all the allocated components.  <a href="classL_1_1SolverAdapter.html#a3b9ddda424596a1e3e027a7b3bc1d404">More...</a><br /></td></tr>
+<tr class="separator:a3b9ddda424596a1e3e027a7b3bc1d404 inherit pub_methods_classL_1_1SolverAdapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -167,11 +177,11 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ae573917f7a09dfc3d42e88e78e05b37d"><td class="memItemLeft" align="right" valign="top">IloEnv *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ae573917f7a09dfc3d42e88e78e05b37d">_env</a> = new IloEnv()</td></tr>
+<tr class="memitem:ae573917f7a09dfc3d42e88e78e05b37d"><td class="memItemLeft" align="right" valign="top">IloEnv *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ae573917f7a09dfc3d42e88e78e05b37d">_env</a> = nullptr</td></tr>
 <tr class="separator:ae573917f7a09dfc3d42e88e78e05b37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025ef0ec721379e17da4bacc3773bebc"><td class="memItemLeft" align="right" valign="top">IloModel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a025ef0ec721379e17da4bacc3773bebc">_model</a> = new IloModel(*<a class="el" href="classL_1_1CplexAdapter.html#ae573917f7a09dfc3d42e88e78e05b37d">_env</a>)</td></tr>
+<tr class="memitem:a025ef0ec721379e17da4bacc3773bebc"><td class="memItemLeft" align="right" valign="top">IloModel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#a025ef0ec721379e17da4bacc3773bebc">_model</a> = nullptr</td></tr>
 <tr class="separator:a025ef0ec721379e17da4bacc3773bebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad73308e708e4252305edafc357b109c1"><td class="memItemLeft" align="right" valign="top">IloCplex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ad73308e708e4252305edafc357b109c1">_cplex</a> = new IloCplex(*<a class="el" href="classL_1_1CplexAdapter.html#a025ef0ec721379e17da4bacc3773bebc">_model</a>)</td></tr>
+<tr class="memitem:ad73308e708e4252305edafc357b109c1"><td class="memItemLeft" align="right" valign="top">IloCplex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#ad73308e708e4252305edafc357b109c1">_cplex</a> = nullptr</td></tr>
 <tr class="separator:ad73308e708e4252305edafc357b109c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afce7c961860bf3567f76286e2b65048a"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::pair&lt; <a class="el" href="classL_1_1Variable.html">Variable</a> *, IloNumVar * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CplexAdapter.html#afce7c961860bf3567f76286e2b65048a">_variables</a></td></tr>
 <tr class="separator:afce7c961860bf3567f76286e2b65048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,11 +259,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aafd9cd29ab95dc5e360f7897bc86771f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafd9cd29ab95dc5e360f7897bc86771f">&#9670;&nbsp;</a></span>~CplexAdapter()</h2>
+<a id="a979b3735f2f3957b6b81dd6c8f5260ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979b3735f2f3957b6b81dd6c8f5260ea">&#9670;&nbsp;</a></span>~CplexAdapter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">L::CplexAdapter::~CplexAdapter </td>
@@ -262,6 +275,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -291,6 +309,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a new constraint for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the constraint to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#a44218ec665e4f92ead8d90641cf6db2e">L::SolverAdapter</a>.</p>
 
 </div>
@@ -318,6 +344,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a new objective for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the objective to be created </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#a3ee938e58ced8a137116bcfa564c2b6e">L::SolverAdapter</a>.</p>
 
@@ -347,6 +381,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a new variable for the external solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variable</td><td>the variable to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#aff47ed5222255267806cafb5c4f879c6">L::SolverAdapter</a>.</p>
 
 </div>
@@ -374,6 +416,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Exports a textual representation of the model to a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>destination filename </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#ad183be492dea42ce58b25a192a3428f8">L::SolverAdapter</a>.</p>
 
@@ -509,7 +559,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a400ee27aa50e4de8ae2f507aaaec03cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a400ee27aa50e4de8ae2f507aaaec03cc">&#9670;&nbsp;</a></span>save_results_hook()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a400ee27aa50e4de8ae2f507aaaec03cc">&#9670;&nbsp;</a></span>save_results()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,7 +568,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void L::CplexAdapter::save_results_hook </td>
+          <td class="memname">void L::CplexAdapter::save_results </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>primal</em> = <code>true</code>, </td>
@@ -541,6 +591,15 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Saves the results from the last <a class="el" href="classL_1_1CplexAdapter.html#a0c450e0a4c8879cda093ea967d1ddc82" title="Solves the build model. (does not save the results back in L-Solver, see save_resuts()) ...">solve()</a> call to the L-Solver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">primal</td><td>true if the primal values should be solved, false otherwise </td></tr>
+    <tr><td class="paramname">dual</td><td>true if the dual values should be solved, false otherwise (may throw an exception if dual values are required to be saved and no dual information has been found (e.g., MILPs) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#a4968e0c0ec5eaea3d767c265f9208817">L::SolverAdapter</a>.</p>
 
@@ -568,6 +627,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Solves the build model. (does not save the results back in L-Solver, see save_resuts()) </p>
 
 <p>Implements <a class="el" href="classL_1_1SolverAdapter.html#a3c7b564e1d2fb73b84c81896b79f258c">L::SolverAdapter</a>.</p>
 
@@ -684,7 +745,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IloCplex* L::CplexAdapter::_cplex = new IloCplex(*<a class="el" href="classL_1_1CplexAdapter.html#a025ef0ec721379e17da4bacc3773bebc">_model</a>)</td>
+          <td class="memname">IloCplex* L::CplexAdapter::_cplex = nullptr</td>
         </tr>
       </table>
   </td>
@@ -706,7 +767,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IloEnv* L::CplexAdapter::_env = new IloEnv()</td>
+          <td class="memname">IloEnv* L::CplexAdapter::_env = nullptr</td>
         </tr>
       </table>
   </td>
@@ -772,7 +833,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IloModel* L::CplexAdapter::_model = new IloModel(*<a class="el" href="classL_1_1CplexAdapter.html#ae573917f7a09dfc3d42e88e78e05b37d">_env</a>)</td>
+          <td class="memname">IloModel* L::CplexAdapter::_model = nullptr</td>
         </tr>
       </table>
   </td>

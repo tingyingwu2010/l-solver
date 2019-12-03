@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: /home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/DantzigWolfeDecomposition/DantzigWolfeColumnIterator.h File Reference</title>
+<title>L-Solver: /home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/dantzig-wolfe/DantzigWolfeColumnIterator.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2182aa7616e78e05e4eaf42601fea53c.html">LSolver</a></li><li class="navelem"><a class="el" href="dir_ab1c649c15b0cbf1eec08390d2a53536.html">algorithms</a></li><li class="navelem"><a class="el" href="dir_d63af1daa2cbc93a1bf1cd05bca1e81e.html">DantzigWolfeDecomposition</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2182aa7616e78e05e4eaf42601fea53c.html">LSolver</a></li><li class="navelem"><a class="el" href="dir_ab1c649c15b0cbf1eec08390d2a53536.html">algorithms</a></li><li class="navelem"><a class="el" href="dir_bc23a04925cdb06d0e35a9c6bf26965f.html">dantzig-wolfe</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,57 +78,51 @@ $(function() {
 <div class="title">DantzigWolfeColumnIterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="ColumnIterator_8h_source.html">../ColumnGeneration/ColumnIterator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Model_8h_source.html">LSolver/modeling/models/Model.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="DualAngularModel_8h_source.html">LSolver/modeling/models/DualAngularModel.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="DirectLPSolver_8h_source.html">../DirectSolver/DirectLPSolver.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="ColumnIterator_8h_source.html">../column-generation/ColumnIterator.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="DantzigWolfeColumnIterator_8cpp.html">DantzigWolfeColumnIterator.cpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for DantzigWolfeColumnIterator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="DantzigWolfeColumnIterator_8h__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8h" alt=""/></div>
-<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8h" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8h">
-<area shape="rect" id="node2" href="ColumnIterator_8h.html" title="../ColumnGeneration\l/ColumnIterator.h" alt="" coords="221,124,363,165"/>
-<area shape="rect" id="node6" href="Model_8h.html" title="LSolver/modeling/models\l/Model.h" alt="" coords="655,303,823,344"/>
-<area shape="rect" id="node25" href="DualAngularModel_8h.html" title="LSolver/modeling/models\l/DualAngularModel.h" alt="" coords="1012,124,1180,165"/>
-<area shape="rect" id="node32" href="DirectLPSolver_8h.html" title="../DirectSolver/DirectLPSolver.h" alt="" coords="2315,221,2525,247"/>
-<area shape="rect" id="node41" href="DantzigWolfeColumnIterator_8cpp.html" title="DantzigWolfeColumnIterator.cpp" alt="" coords="775,131,987,158"/>
-<area shape="rect" id="node3" href="Column_8h.html" title="Column.h" alt="" coords="622,667,701,694"/>
-<area shape="rect" id="node8" href="Variable_8h.html" title="LSolver/modeling/variables\l/Variable.h" alt="" coords="1277,571,1456,612"/>
-<area shape="rect" id="node13" href="DetachedVariable_8h.html" title="LSolver/modeling/variables\l/DetachedVariable.h" alt="" coords="1741,571,1920,612"/>
-<area shape="rect" id="node14" href="Constraint_8h.html" title="LSolver/modeling/constraints\l/Constraint.h" alt="" coords="878,481,1069,523"/>
-<area shape="rect" id="node20" href="MapIterator_8h.html" title="LSolver/structures\l/MapIterator.h" alt="" coords="195,481,323,523"/>
-<area shape="rect" id="node21" href="Vector_8h.html" title="LSolver/modeling/vectors\l/Vector.h" alt="" coords="514,392,683,433"/>
-<area shape="rect" id="node9" href="modeling_2enums_8h.html" title="../enums.h" alt="" coords="1621,824,1705,851"/>
-<area shape="rect" id="node11" href="AbstractVariable_8h.html" title="AbstractVariable.h" alt="" coords="1546,749,1675,776"/>
-<area shape="rect" id="node12" href="CoreVariable_8h.html" title="CoreVariable.h" alt="" coords="1567,667,1675,694"/>
-<area shape="rect" id="node15" href="AbstractConstraint_8h.html" title="LSolver/modeling/constraints\l/AbstractConstraint.h" alt="" coords="1199,660,1390,701"/>
-<area shape="rect" id="node16" href="Expression_8h.html" title="LSolver/modeling/expressions\l/Expression.h" alt="" coords="979,660,1175,701"/>
-<area shape="rect" id="node18" href="Exception_8h.html" title="LSolver/utils/Exception.h" alt="" coords="878,749,1045,776"/>
-<area shape="rect" id="node19" href="CoreConstraint_8h.html" title="CoreConstraint.h" alt="" coords="1030,578,1151,605"/>
-<area shape="rect" id="node24" href="Vector_8cpp.html" title="Vector.cpp" alt="" coords="539,489,624,515"/>
-<area shape="rect" id="node26" href="application_2enums_8h.html" title="LSolver/application\l/enums.h" alt="" coords="2135,660,2267,701"/>
-<area shape="rect" id="node27" href="Environment_8h.html" title="LSolver/environment\l/Environment.h" alt="" coords="1087,392,1228,433"/>
-<area shape="rect" id="node31" href="Decomposition_8h.html" title="Decomposition.h" alt="" coords="581,221,701,247"/>
-<area shape="rect" id="node28" href="Objective_8h.html" title="LSolver/modeling/objectives\l/Objective.h" alt="" coords="1246,481,1431,523"/>
-<area shape="rect" id="node30" href="CoreObjective_8h.html" title="LSolver/modeling/objectives\l/CoreObjective.h" alt="" coords="1455,481,1641,523"/>
-<area shape="rect" id="node29" href="AbstractObjective_8h.html" title="LSolver/modeling/objectives\l/AbstractObjective.h" alt="" coords="1531,571,1717,612"/>
-<area shape="rect" id="node33" href="DirectSolver_8h.html" title="DirectSolver.h" alt="" coords="2517,310,2622,337"/>
-<area shape="rect" id="node36" href="DirectLPSolver_8cpp.html" title="DirectLPSolver.cpp" alt="" coords="2353,310,2487,337"/>
-<area shape="rect" id="node34" href="Solver_8h.html" title="../Solver.h" alt="" coords="2533,399,2616,426"/>
-<area shape="rect" id="node37" href="LogManager_8h.html" title="../../application/LogManager.h" alt="" coords="2315,399,2509,426"/>
-<area shape="rect" id="node39" href="Application_8h.html" title="Application.h" alt="" coords="2042,489,2139,515"/>
-<area shape="rect" id="node40" href="ParameterManager_8h.html" title="ParameterManager.h" alt="" coords="1995,578,2138,605"/>
-<area shape="rect" id="node42" href="DetachedModel_8h.html" title="../../modeling/models\l/DetachedModel.h" alt="" coords="792,213,936,255"/>
+<div class="center"><img src="DantzigWolfeColumnIterator_8h__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8h" alt=""/></div>
+<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8h" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8h">
+<area shape="rect" id="node2" href="ColumnIterator_8h.html" title="../column&#45;generation\l/ColumnIterator.h" alt="" coords="1701,109,1841,151"/>
+<area shape="rect" id="node6" href="DantzigWolfeColumnIterator_8cpp.html" title="DantzigWolfeColumnIterator.cpp" alt="" coords="1465,117,1677,143"/>
+<area shape="rect" id="node3" href="Column_8h.html" title="Column.h" alt="" coords="1582,713,1661,739"/>
+<area shape="rect" id="node7" href="LogManager_8h.html" title="LSolver/application\l/LogManager.h" alt="" coords="1827,437,1959,479"/>
+<area shape="rect" id="node14" href="DantzigWolfeModel_8h.html" title="DantzigWolfeModel.h" alt="" coords="1435,199,1581,225"/>
+<area shape="rect" id="node10" href="Application_8h.html" title="Application.h" alt="" coords="1953,534,2050,561"/>
+<area shape="rect" id="node12" href="application_2enums_8h.html" title="enums.h" alt="" coords="1736,713,1808,739"/>
+<area shape="rect" id="node11" href="ParameterManager_8h.html" title="ParameterManager.h" alt="" coords="1859,623,2002,650"/>
+<area shape="rect" id="node15" href="Decomposition_8h.html" title="LSolver/modeling/models\l/Decomposition.h" alt="" coords="1364,273,1532,315"/>
+<area shape="rect" id="node33" href="Environment_8h.html" title="LSolver/environment\l/Environment.h" alt="" coords="1236,437,1377,479"/>
+<area shape="rect" id="node37" href="DetachedObjective_8h.html" title="LSolver/modeling/objectives\l/DetachedObjective.h" alt="" coords="1477,437,1662,479"/>
+<area shape="rect" id="node17" href="Model_8h.html" title="Model.h" alt="" coords="449,363,517,389"/>
+<area shape="rect" id="node18" href="Variable_8h.html" title="LSolver/modeling/variables\l/Variable.h" alt="" coords="549,616,728,657"/>
+<area shape="rect" id="node22" href="DetachedVariable_8h.html" title="LSolver/modeling/variables\l/DetachedVariable.h" alt="" coords="296,616,475,657"/>
+<area shape="rect" id="node23" href="Constraint_8h.html" title="LSolver/modeling/constraints\l/Constraint.h" alt="" coords="827,527,1018,568"/>
+<area shape="rect" id="node28" href="MapIterator_8h.html" title="LSolver/structures\l/MapIterator.h" alt="" coords="93,527,221,568"/>
+<area shape="rect" id="node29" href="Vector_8h.html" title="LSolver/modeling/vectors\l/Vector.h" alt="" coords="398,437,567,479"/>
+<area shape="rect" id="node19" href="modeling_2enums_8h.html" title="../enums.h" alt="" coords="813,869,897,896"/>
+<area shape="rect" id="node20" href="AbstractVariable_8h.html" title="AbstractVariable.h" alt="" coords="478,795,607,821"/>
+<area shape="rect" id="node21" href="CoreVariable_8h.html" title="CoreVariable.h" alt="" coords="449,713,557,739"/>
+<area shape="rect" id="node24" href="AbstractConstraint_8h.html" title="LSolver/modeling/constraints\l/AbstractConstraint.h" alt="" coords="734,705,925,747"/>
+<area shape="rect" id="node25" href="Expression_8h.html" title="LSolver/modeling/expressions\l/Expression.h" alt="" coords="1203,705,1399,747"/>
+<area shape="rect" id="node26" href="Exception_8h.html" title="LSolver/utils/Exception.h" alt="" coords="1102,795,1269,821"/>
+<area shape="rect" id="node27" href="CoreConstraint_8h.html" title="CoreConstraint.h" alt="" coords="803,623,925,650"/>
+<area shape="rect" id="node32" href="Vector_8cpp.html" title="Vector.cpp" alt="" coords="616,534,701,561"/>
+<area shape="rect" id="node34" href="Objective_8h.html" title="LSolver/modeling/objectives\l/Objective.h" alt="" coords="1287,527,1473,568"/>
+<area shape="rect" id="node36" href="CoreObjective_8h.html" title="LSolver/modeling/objectives\l/CoreObjective.h" alt="" coords="1497,527,1682,568"/>
+<area shape="rect" id="node35" href="AbstractObjective_8h.html" title="LSolver/modeling/objectives\l/AbstractObjective.h" alt="" coords="1446,616,1631,657"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="DantzigWolfeColumnIterator_8h__dep__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8hdep" alt=""/></div>
-<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8hdep" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2DantzigWolfeDecomposition_2DantzigWolfeColumnIterator_8hdep">
-<area shape="rect" id="node2" href="DantzigWolfeDecomposition_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeDecomposition/DantzigWolfeDecompositionSolver\lDecomposition.h" alt="" coords="9,124,284,195"/>
-<area shape="rect" id="node3" href="DantzigWolfeBranchAndPrice_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.cpp" alt="" coords="5,243,288,313"/>
+<div class="center"><img src="DantzigWolfeColumnIterator_8h__dep__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8hdep" alt=""/></div>
+<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8hdep" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2dantzig-wolfe_2DantzigWolfeColumnIterator_8hdep">
+<area shape="rect" id="node2" href="DantzigWolfeDecompositionAlgorithm_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe/DantzigWolfeDecomposition\lAlgorithm.cpp" alt="" coords="5,109,279,180"/>
+<area shape="rect" id="node3" href="DantzigWolfeDecompositionAlgorithm_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe/DantzigWolfeDecomposition\lAlgorithm.h" alt="" coords="56,228,329,299"/>
+<area shape="rect" id="node4" href="DantzigWolfeDecompositionSolver_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe/DantzigWolfeDecomposition\lSolver.h" alt="" coords="143,347,416,417"/>
 </map>
 </div>
 </div>
@@ -136,9 +130,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator&lt; Adapter_RMP &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DantzigWolfeColumnIterator.html">L::DantzigWolfeColumnIterator&lt; SubProblemSolver &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>

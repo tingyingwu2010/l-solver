@@ -108,9 +108,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a27256e885d87f69248c07c894c81a4c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#a27256e885d87f69248c07c894c81a4c9">DetachedVariable</a> (const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;src)</td></tr>
 <tr class="memdesc:a27256e885d87f69248c07c894c81a4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a27256e885d87f69248c07c894c81a4c9">More...</a><br /></td></tr>
 <tr class="separator:a27256e885d87f69248c07c894c81a4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576d1ab0a43b6651fa4fe2419bec2b1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#a576d1ab0a43b6651fa4fe2419bec2b1a">DetachedVariable</a> (const <a class="el" href="classL_1_1DetachedVariable.html">DetachedVariable</a> &amp;src)</td></tr>
+<tr class="separator:a576d1ab0a43b6651fa4fe2419bec2b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f7423811e7920afb293406f388ddcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#af0f7423811e7920afb293406f388ddcc">update_core_value</a> ()</td></tr>
 <tr class="memdesc:af0f7423811e7920afb293406f388ddcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upates its core variable's value with its own value.  <a href="#af0f7423811e7920afb293406f388ddcc">More...</a><br /></td></tr>
 <tr class="separator:af0f7423811e7920afb293406f388ddcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4842b07e17741945521742653278ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#aee4842b07e17741945521742653278ab">update_this_value</a> ()</td></tr>
+<tr class="separator:aee4842b07e17741945521742653278ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad88b086270a23203934e7004c9ce8426"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#ad88b086270a23203934e7004c9ce8426">update_core_bounds</a> ()</td></tr>
+<tr class="separator:ad88b086270a23203934e7004c9ce8426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab81aa7c310bc4c9fed55ca8b27445d36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DetachedVariable.html#ab81aa7c310bc4c9fed55ca8b27445d36">update_this_bounds</a> ()</td></tr>
+<tr class="separator:ab81aa7c310bc4c9fed55ca8b27445d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classL_1_1CoreVariable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classL_1_1CoreVariable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classL_1_1CoreVariable.html">L::CoreVariable</a></td></tr>
 <tr class="memitem:a22fdf560ea51ffbe64e80caa6cd2e2b6 inherit pub_methods_classL_1_1CoreVariable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1CoreVariable.html#a22fdf560ea51ffbe64e80caa6cd2e2b6">CoreVariable</a> (std::string <a class="el" href="classL_1_1CoreVariable.html#a441e832a6be37f5f9fea1d0610ce32e1">user_defined_name</a>)</td></tr>
 <tr class="memdesc:a22fdf560ea51ffbe64e80caa6cd2e2b6 inherit pub_methods_classL_1_1CoreVariable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classL_1_1CoreVariable.html#a22fdf560ea51ffbe64e80caa6cd2e2b6">More...</a><br /></td></tr>
@@ -195,7 +203,7 @@ Additional Inherited Members</h2></td></tr>
 <p>See the Modeling Components page for more details. Like every detached object, <a class="el" href="classL_1_1DetachedVariable.html" title="Implements a variable, while still being linked to a core variable. ">DetachedVariable</a> still refer to a core variable, yet, can be modified independently (i.e., without modifying its core variable). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a27256e885d87f69248c07c894c81a4c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27256e885d87f69248c07c894c81a4c9">&#9670;&nbsp;</a></span>DetachedVariable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a27256e885d87f69248c07c894c81a4c9">&#9670;&nbsp;</a></span>DetachedVariable() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +236,42 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a576d1ab0a43b6651fa4fe2419bec2b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576d1ab0a43b6651fa4fe2419bec2b1a">&#9670;&nbsp;</a></span>DetachedVariable() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">L::DetachedVariable::DetachedVariable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classL_1_1DetachedVariable.html">DetachedVariable</a> &amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad88b086270a23203934e7004c9ce8426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88b086270a23203934e7004c9ce8426">&#9670;&nbsp;</a></span>update_core_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void L::DetachedVariable::update_core_bounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af0f7423811e7920afb293406f388ddcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0f7423811e7920afb293406f388ddcc">&#9670;&nbsp;</a></span>update_core_value()</h2>
 
@@ -245,6 +288,40 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Upates its core variable's value with its own value. </p>
+
+</div>
+</div>
+<a id="ab81aa7c310bc4c9fed55ca8b27445d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81aa7c310bc4c9fed55ca8b27445d36">&#9670;&nbsp;</a></span>update_this_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void L::DetachedVariable::update_this_bounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee4842b07e17741945521742653278ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee4842b07e17741945521742653278ab">&#9670;&nbsp;</a></span>update_this_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void L::DetachedVariable::update_this_value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

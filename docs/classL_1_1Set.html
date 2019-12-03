@@ -81,13 +81,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a composition of components. Sets are responsible for the life and death of their components.  
+ <a href="classL_1_1Set.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Environment_8h_source.html">Environment.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for L::Set&lt; Index, CoreComponent, Component, ConstComponent &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1Set__coll__graph.png" border="0" usemap="#L_1_1Set_3_01Index_00_01CoreComponent_00_01Component_00_01ConstComponent_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1Set_3_01Index_00_01CoreComponent_00_01Component_00_01ConstComponent_01_4_coll__map" id="L_1_1Set_3_01Index_00_01CoreComponent_00_01Component_00_01ConstComponent_01_4_coll__map">
-<area shape="rect" id="node2" href="classL_1_1Environment.html" title="L::Environment" alt="" coords="5,149,116,175"/>
+<area shape="rect" id="node2" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) " alt="" coords="5,149,116,175"/>
 <area shape="rect" id="node3" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreConstraint, Constraint,\l ConstConstraint \&gt;" alt="" coords="254,81,441,137"/>
 <area shape="rect" id="node4" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreObjective, Objective,\l ConstObjective \&gt;" alt="" coords="259,170,435,226"/>
 <area shape="rect" id="node5" href="classL_1_1Set.html" title="L::Set\&lt; std::string,\l CoreVariable, Variable,\l ConstVariable \&gt;" alt="" coords="267,255,427,311"/>
@@ -104,30 +107,54 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a12c4c50056d574467d47561c4c93c5f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#a12c4c50056d574467d47561c4c93c5f0">Set</a> (<a class="el" href="classL_1_1Environment.html">Environment</a> &amp;env)</td></tr>
+<tr class="memdesc:a12c4c50056d574467d47561c4c93c5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a12c4c50056d574467d47561c4c93c5f0">More...</a><br /></td></tr>
 <tr class="separator:a12c4c50056d574467d47561c4c93c5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07be7a84a84b2a7c2770844df60ae14a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#a07be7a84a84b2a7c2770844df60ae14a">~Set</a> ()</td></tr>
+<tr class="memdesc:a07be7a84a84b2a7c2770844df60ae14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Clears memory. Deletes each of its components.  <a href="#a07be7a84a84b2a7c2770844df60ae14a">More...</a><br /></td></tr>
 <tr class="separator:a07be7a84a84b2a7c2770844df60ae14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae16ea1b798a53cb2cea0d9a02ba8f384"><td class="memItemLeft" align="right" valign="top">Component&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#ae16ea1b798a53cb2cea0d9a02ba8f384">get_or_create</a> (const Index &amp;index)</td></tr>
+<tr class="memdesc:ae16ea1b798a53cb2cea0d9a02ba8f384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a (regular) component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) if it exists of creates a new core component and returns a regular component pointing to it (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>)  <a href="#ae16ea1b798a53cb2cea0d9a02ba8f384">More...</a><br /></td></tr>
 <tr class="separator:ae16ea1b798a53cb2cea0d9a02ba8f384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf31083ca8dd51d5d1428b536d794738"><td class="memItemLeft" align="right" valign="top">ConstComponent&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#aaf31083ca8dd51d5d1428b536d794738">get</a> (const Index &amp;index) const</td></tr>
+<tr class="memdesc:aaf31083ca8dd51d5d1428b536d794738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a (regular) component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) pointing to the core component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) associated with the given index. Throws an exception if no component can be found.  <a href="#aaf31083ca8dd51d5d1428b536d794738">More...</a><br /></td></tr>
 <tr class="separator:aaf31083ca8dd51d5d1428b536d794738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca173dc8180d32b428458bdc56cc8f66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Set_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#aca173dc8180d32b428458bdc56cc8f66">begin</a> ()</td></tr>
+<tr class="memdesc:aca173dc8180d32b428458bdc56cc8f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator begin.  <a href="#aca173dc8180d32b428458bdc56cc8f66">More...</a><br /></td></tr>
 <tr class="separator:aca173dc8180d32b428458bdc56cc8f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6149b503a471bbc1d1f174b7482c245"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Set_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#af6149b503a471bbc1d1f174b7482c245">end</a> ()</td></tr>
+<tr class="memdesc:af6149b503a471bbc1d1f174b7482c245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator end.  <a href="#af6149b503a471bbc1d1f174b7482c245">More...</a><br /></td></tr>
 <tr class="separator:af6149b503a471bbc1d1f174b7482c245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dbdc33fabbf3af3fd70d8a44bd5164b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Set_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#a7dbdc33fabbf3af3fd70d8a44bd5164b">cbegin</a> () const</td></tr>
+<tr class="memdesc:a7dbdc33fabbf3af3fd70d8a44bd5164b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const Iterator begin.  <a href="#a7dbdc33fabbf3af3fd70d8a44bd5164b">More...</a><br /></td></tr>
 <tr class="separator:a7dbdc33fabbf3af3fd70d8a44bd5164b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d693b8dc18b3181afa160190d63196"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Set_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#ac3d693b8dc18b3181afa160190d63196">cend</a> () const</td></tr>
+<tr class="memdesc:ac3d693b8dc18b3181afa160190d63196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const Iterator end.  <a href="#ac3d693b8dc18b3181afa160190d63196">More...</a><br /></td></tr>
 <tr class="separator:ac3d693b8dc18b3181afa160190d63196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a035150a4a8844d5364a8b314c57a8575"><td class="memItemLeft" align="right" valign="top">std::map&lt; Index, CoreComponent * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#a035150a4a8844d5364a8b314c57a8575">_components</a></td></tr>
+<tr class="memdesc:a035150a4a8844d5364a8b314c57a8575"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classL_1_1Set.html" title="Represents a composition of components. Sets are responsible for the life and death of their componen...">Set</a> of core components associated to their index.  <a href="#a035150a4a8844d5364a8b314c57a8575">More...</a><br /></td></tr>
 <tr class="separator:a035150a4a8844d5364a8b314c57a8575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae886bd69d3b25783d8e37a49e001c462"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Environment.html">Environment</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Set.html#ae886bd69d3b25783d8e37a49e001c462">_env</a></td></tr>
+<tr class="memdesc:ae886bd69d3b25783d8e37a49e001c462"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> to which the set belongs.  <a href="#ae886bd69d3b25783d8e37a49e001c462">More...</a><br /></td></tr>
 <tr class="separator:ae886bd69d3b25783d8e37a49e001c462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class Index, class CoreComponent, class Component, class ConstComponent&gt;<br />
+class L::Set&lt; Index, CoreComponent, Component, ConstComponent &gt;</h3>
+
+<p>Represents a composition of components. Sets are responsible for the life and death of their components. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Index</td><td>the class used to represent an index for the components (e.g., storage by name -&gt; std::string) </td></tr>
+    <tr><td class="paramname">CoreComponent</td><td>class which implements the core components (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) </td></tr>
+    <tr><td class="paramname">Component</td><td>class which implements the regular components (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) </td></tr>
+    <tr><td class="paramname">ConstComponent</td><td>class which implements the const components (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12c4c50056d574467d47561c4c93c5f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12c4c50056d574467d47561c4c93c5f0">&#9670;&nbsp;</a></span>Set()</h2>
 
@@ -153,6 +180,14 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">env</td><td><a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> to which the set belongs </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -180,6 +215,8 @@ template&lt;class Index , class CoreComponent , class Component , class ConstCom
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. Clears memory. Deletes each of its components. </p>
 
 </div>
 </div>
@@ -209,6 +246,9 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
 </table>
 </div><div class="memdoc">
 
+<p>Iterator begin. </p>
+<dl class="section return"><dt>Returns</dt><dd>iterator. </dd></dl>
+
 </div>
 </div>
 <a id="a7dbdc33fabbf3af3fd70d8a44bd5164b"></a>
@@ -235,6 +275,9 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Const Iterator begin. </p>
+<dl class="section return"><dt>Returns</dt><dd>iterator. </dd></dl>
 
 </div>
 </div>
@@ -263,6 +306,9 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
 </table>
 </div><div class="memdoc">
 
+<p>Const Iterator end. </p>
+<dl class="section return"><dt>Returns</dt><dd>iterator. </dd></dl>
+
 </div>
 </div>
 <a id="af6149b503a471bbc1d1f174b7482c245"></a>
@@ -290,6 +336,9 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
 </table>
 </div><div class="memdoc">
 
+<p>Iterator end. </p>
+<dl class="section return"><dt>Returns</dt><dd>iterator. </dd></dl>
+
 </div>
 </div>
 <a id="aaf31083ca8dd51d5d1428b536d794738"></a>
@@ -310,6 +359,15 @@ template&lt;class Index, class CoreComponent , class Component , class ConstComp
       </table>
 </div><div class="memdoc">
 
+<p>Returns a (regular) component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) pointing to the core component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) associated with the given index. Throws an exception if no component can be found. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>associated index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>existing component </dd></dl>
+
 </div>
 </div>
 <a id="ae16ea1b798a53cb2cea0d9a02ba8f384"></a>
@@ -329,6 +387,15 @@ template&lt;class Index, class CoreComponent , class Component , class ConstComp
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a (regular) component (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) if it exists of creates a new core component and returns a regular component pointing to it (see <a href="http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html">http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html</a>) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>associated index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>new or existing component </dd></dl>
 
 </div>
 </div>
@@ -355,6 +422,8 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
 </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="classL_1_1Set.html" title="Represents a composition of components. Sets are responsible for the life and death of their componen...">Set</a> of core components associated to their index. </p>
+
 </div>
 </div>
 <a id="ae886bd69d3b25783d8e37a49e001c462"></a>
@@ -378,6 +447,8 @@ template&lt;class Index, class CoreComponent, class Component, class ConstCompon
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The <a class="el" href="classL_1_1Environment.html" title="Implements a modeling Environment (see http://hlefebvr.github.io/posts/en_lsolver_modeling_milp.html) ">Environment</a> to which the set belongs. </p>
 
 </div>
 </div>

@@ -77,7 +77,7 @@ add_library(LSolver
         LSolver/algorithms/dantzig-wolfe/DantzigWolfeModel.h
         LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionAlgorithm.h
         LSolver/algorithms/dantzig-wolfe/DantzigWolfeColumnIterator.h
-        LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h)
+        LSolver/algorithms/dantzig-wolfe/DantzigWolfeDecompositionSolver.h ../projects/robust-middleman-problem/RobustMiddleManMain.cpp)
 
 if ("CPLEX" IN_LIST SOLVERS)
     target_link_libraries(LSolver ${CPLEX_LIBRARIES} ${CMAKE_DL_LIBS})

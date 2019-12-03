@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L-Solver: /home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/BranchAndBound/BranchAndBound.cpp File Reference</title>
+<title>L-Solver: /home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/branch-and-bound/BranchAndBound.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2182aa7616e78e05e4eaf42601fea53c.html">LSolver</a></li><li class="navelem"><a class="el" href="dir_ab1c649c15b0cbf1eec08390d2a53536.html">algorithms</a></li><li class="navelem"><a class="el" href="dir_1899b4478fe57bc270abb8ee4d5ccf11.html">BranchAndBound</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2182aa7616e78e05e4eaf42601fea53c.html">LSolver</a></li><li class="navelem"><a class="el" href="dir_ab1c649c15b0cbf1eec08390d2a53536.html">algorithms</a></li><li class="navelem"><a class="el" href="dir_efef63079eacdb046fdfaf5e16ca049f.html">branch-and-bound</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,26 +78,47 @@ $(function() {
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;<a class="el" href="LogManager_8h_source.html">LSolver/application/LogManager.h</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="Application_8h_source.html">../../application/Application.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="BranchAndBound_8h_source.html">BranchAndBound.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="DetachedVariable_8h_source.html">LSolver/modeling/variables/DetachedVariable.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BranchAndBound.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="BranchAndBound_8cpp__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cpp" alt=""/></div>
-<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cpp" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cpp">
-<area shape="rect" id="node3" href="LogManager_8h.html" title="LSolver/application\l/LogManager.h" alt="" coords="133,109,265,151"/>
-<area shape="rect" id="node6" href="Application_8h.html" title="Application.h" alt="" coords="254,199,351,225"/>
-<area shape="rect" id="node9" href="application_2enums_8h.html" title="enums.h" alt="" coords="223,348,295,375"/>
-<area shape="rect" id="node8" href="ParameterManager_8h.html" title="ParameterManager.h" alt="" coords="297,273,439,300"/>
+<div class="center"><img src="BranchAndBound_8cpp__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cpp" alt=""/></div>
+<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cpp" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cpp">
+<area shape="rect" id="node3" href="LogManager_8h.html" title="LSolver/application\l/LogManager.h" alt="" coords="1801,437,1933,479"/>
+<area shape="rect" id="node6" href="Application_8h.html" title="Application.h" alt="" coords="1922,534,2019,561"/>
+<area shape="rect" id="node11" href="BranchAndBound_8h.html" title="BranchAndBound.h" alt="" coords="285,109,419,136"/>
+<area shape="rect" id="node23" href="DetachedVariable_8h.html" title="LSolver/modeling/variables\l/DetachedVariable.h" alt="" coords="5,437,184,479"/>
+<area shape="rect" id="node9" href="application_2enums_8h.html" title="enums.h" alt="" coords="1791,713,1863,739"/>
+<area shape="rect" id="node8" href="ParameterManager_8h.html" title="ParameterManager.h" alt="" coords="1889,623,2031,650"/>
+<area shape="rect" id="node13" href="Solver_8h.html" title="../Solver.h" alt="" coords="259,355,341,382"/>
+<area shape="rect" id="node15" href="Variable_8h.html" title="LSolver/modeling/variables\l/Variable.h" alt="" coords="319,616,497,657"/>
+<area shape="rect" id="node19" href="BranchingRule_8h.html" title="branching&#45;rules/Branching\lRule.h" alt="" coords="521,184,693,225"/>
+<area shape="rect" id="node16" href="modeling_2enums_8h.html" title="../enums.h" alt="" coords="518,869,602,896"/>
+<area shape="rect" id="node17" href="AbstractVariable_8h.html" title="AbstractVariable.h" alt="" coords="317,795,446,821"/>
+<area shape="rect" id="node18" href="CoreVariable_8h.html" title="CoreVariable.h" alt="" coords="262,713,370,739"/>
+<area shape="rect" id="node20" href="Model_8h.html" title="LSolver/modeling/models\l/Model.h" alt="" coords="1159,348,1327,389"/>
+<area shape="rect" id="node34" href="BranchAndBoundNode_8h.html" title="../BranchAndBoundNode.h" alt="" coords="647,273,825,300"/>
+<area shape="rect" id="node24" href="Constraint_8h.html" title="LSolver/modeling/constraints\l/Constraint.h" alt="" coords="1299,527,1490,568"/>
+<area shape="rect" id="node29" href="MapIterator_8h.html" title="LSolver/structures\l/MapIterator.h" alt="" coords="1147,527,1275,568"/>
+<area shape="rect" id="node30" href="Vector_8h.html" title="LSolver/modeling/vectors\l/Vector.h" alt="" coords="914,437,1083,479"/>
+<area shape="rect" id="node25" href="AbstractConstraint_8h.html" title="LSolver/modeling/constraints\l/AbstractConstraint.h" alt="" coords="986,705,1177,747"/>
+<area shape="rect" id="node26" href="Expression_8h.html" title="LSolver/modeling/expressions\l/Expression.h" alt="" coords="1253,705,1449,747"/>
+<area shape="rect" id="node27" href="Exception_8h.html" title="LSolver/utils/Exception.h" alt="" coords="1383,795,1550,821"/>
+<area shape="rect" id="node28" href="CoreConstraint_8h.html" title="CoreConstraint.h" alt="" coords="1226,623,1347,650"/>
+<area shape="rect" id="node33" href="Vector_8cpp.html" title="Vector.cpp" alt="" coords="987,534,1072,561"/>
+<area shape="rect" id="node35" href="Objective_8h.html" title="LSolver/modeling/objectives\l/Objective.h" alt="" coords="558,527,743,568"/>
+<area shape="rect" id="node36" href="AbstractObjective_8h.html" title="LSolver/modeling/objectives\l/AbstractObjective.h" alt="" coords="573,616,758,657"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="BranchAndBound_8cpp__dep__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cppdep" alt=""/></div>
-<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cppdep" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2BranchAndBound_2BranchAndBound_8cppdep">
-<area shape="rect" id="node2" href="BranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/BranchAndBound/BranchAndBound.h" alt="" coords="184,109,427,165"/>
-<area shape="rect" id="node3" href="DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.h" alt="" coords="5,213,288,284"/>
-<area shape="rect" id="node5" href="MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/MILPBranchAndBound/MILPBranchAndBound.h" alt="" coords="313,221,618,277"/>
-<area shape="rect" id="node4" href="DantzigWolfeBranchAndPrice_8cpp.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/DantzigWolfeBranchAndPrice/DantzigWolfeDecompositionSolver\lBranchAndPrice.cpp" alt="" coords="5,332,288,403"/>
+<div class="center"><img src="BranchAndBound_8cpp__dep__incl.png" border="0" usemap="#_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cppdep" alt=""/></div>
+<map name="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cppdep" id="_2home_2hlefebvr_2CLionProjects_2ed-solver_2src_2LSolver_2algorithms_2branch-and-bound_2BranchAndBound_8cppdep">
+<area shape="rect" id="node2" href="BranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/branch&#45;and&#45;bound/BranchAndBound.h" alt="" coords="131,109,376,165"/>
+<area shape="rect" id="node3" href="DantzigWolfeBranchAndPrice_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/dantzig&#45;wolfe&#45;branch&#45;and&#45;price\l/DantzigWolfeBranchAndPrice.h" alt="" coords="5,213,219,284"/>
+<area shape="rect" id="node4" href="MILPBranchAndBound_8h.html" title="/home/hlefebvr/CLionProjects\l/ed&#45;solver/src/LSolver/algorithms\l/milp&#45;branch&#45;and&#45;bound/MILPBranchAndBound.h" alt="" coords="243,221,547,277"/>
 </map>
 </div>
 </div></div><!-- contents -->

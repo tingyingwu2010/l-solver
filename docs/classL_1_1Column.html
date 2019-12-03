@@ -85,18 +85,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a19bafd4db8a7fab8e92cbbe4d9a33439"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; std::string, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">CoefficientsAsConstraints</a></td></tr>
-<tr class="separator:a19bafd4db8a7fab8e92cbbe4d9a33439"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea77119b100b0e88fa18f6195bf5649f"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; std::string, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">CoefficientsAsVariables</a></td></tr>
-<tr class="separator:aea77119b100b0e88fa18f6195bf5649f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc8ecd7bcfe3c738a09bd87acd8d21a"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; <a class="el" href="classL_1_1Constraint.html">Constraint</a>, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">CoefficientsAsConstraints</a></td></tr>
+<tr class="separator:a3fc8ecd7bcfe3c738a09bd87acd8d21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987d368f2e8a7f621e56c70b453597c5"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; <a class="el" href="classL_1_1Variable.html">Variable</a>, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">CoefficientsAsVariables</a></td></tr>
+<tr class="separator:a987d368f2e8a7f621e56c70b453597c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a107b6460215a842d68ded883100f148f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a107b6460215a842d68ded883100f148f">reduced_cost</a> () const</td></tr>
 <tr class="separator:a107b6460215a842d68ded883100f148f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec472f0e2ee6468bcb5bdb66c305e16"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">CoefficientsAsConstraints</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#aaec472f0e2ee6468bcb5bdb66c305e16">as_constraints</a> () const</td></tr>
+<tr class="memitem:aaec472f0e2ee6468bcb5bdb66c305e16"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">CoefficientsAsConstraints</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#aaec472f0e2ee6468bcb5bdb66c305e16">as_constraints</a> () const</td></tr>
 <tr class="separator:aaec472f0e2ee6468bcb5bdb66c305e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad97c90c2be49a9c84026759a0b42f20b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">CoefficientsAsVariables</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#ad97c90c2be49a9c84026759a0b42f20b">as_variables</a> () const</td></tr>
+<tr class="memitem:ad97c90c2be49a9c84026759a0b42f20b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">CoefficientsAsVariables</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#ad97c90c2be49a9c84026759a0b42f20b">as_variables</a> () const</td></tr>
 <tr class="separator:ad97c90c2be49a9c84026759a0b42f20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93dcbdc75f67def26edbb2223fbe9ccf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a93dcbdc75f67def26edbb2223fbe9ccf">objective_cost</a> () const</td></tr>
 <tr class="separator:a93dcbdc75f67def26edbb2223fbe9ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,18 +104,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1649e222da7db0b6d50c5dd6ae87a7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af732d69f4e1fc2e3793a9bf8d699b078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#af732d69f4e1fc2e3793a9bf8d699b078">reduced_cost</a> (float r)</td></tr>
 <tr class="separator:af732d69f4e1fc2e3793a9bf8d699b078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebb908b2df3d6140f2a56c7b57dcd926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#aebb908b2df3d6140f2a56c7b57dcd926">constraint_coefficient</a> (const std::string &amp;ctr, float coef)</td></tr>
-<tr class="separator:aebb908b2df3d6140f2a56c7b57dcd926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2135b49e1f0d807c6bc4cd3833ec57a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a2135b49e1f0d807c6bc4cd3833ec57a3">variable_coefficient</a> (const std::string &amp;ctr, float coef)</td></tr>
-<tr class="separator:a2135b49e1f0d807c6bc4cd3833ec57a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4dc74c6c8c932cd2557272e5bd1a0b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#ac4dc74c6c8c932cd2557272e5bd1a0b5">constraint_coefficient</a> (const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;ctr, float coef)</td></tr>
+<tr class="separator:ac4dc74c6c8c932cd2557272e5bd1a0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0aeb363dc3031a852832f3116da57e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#ac0aeb363dc3031a852832f3116da57e8">variable_coefficient</a> (const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;ctr, float coef)</td></tr>
+<tr class="separator:ac0aeb363dc3031a852832f3116da57e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee1608135c93a8de70624621b5ea6377"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#aee1608135c93a8de70624621b5ea6377">objective_cost</a> (float c)</td></tr>
 <tr class="separator:aee1608135c93a8de70624621b5ea6377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:abc8b0a586e2bb8163985775100468e1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">CoefficientsAsConstraints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#abc8b0a586e2bb8163985775100468e1b">_as_constraints</a></td></tr>
+<tr class="memitem:abc8b0a586e2bb8163985775100468e1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">CoefficientsAsConstraints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#abc8b0a586e2bb8163985775100468e1b">_as_constraints</a></td></tr>
 <tr class="separator:abc8b0a586e2bb8163985775100468e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953e4b0f7ac988601044026d44f7f447"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">CoefficientsAsVariables</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a953e4b0f7ac988601044026d44f7f447">_as_variables</a></td></tr>
+<tr class="memitem:a953e4b0f7ac988601044026d44f7f447"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">CoefficientsAsVariables</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a953e4b0f7ac988601044026d44f7f447">_as_variables</a></td></tr>
 <tr class="separator:a953e4b0f7ac988601044026d44f7f447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0171d35d64ed6e1e7514c71fee1f2d09"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Column.html#a0171d35d64ed6e1e7514c71fee1f2d09">_reduced_cost</a> = 0</td></tr>
 <tr class="separator:a0171d35d64ed6e1e7514c71fee1f2d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,28 +123,28 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aec1278beab4b5b73a17a7fa10b9e56b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a19bafd4db8a7fab8e92cbbe4d9a33439"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19bafd4db8a7fab8e92cbbe4d9a33439">&#9670;&nbsp;</a></span>CoefficientsAsConstraints</h2>
+<a id="a3fc8ecd7bcfe3c738a09bd87acd8d21a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc8ecd7bcfe3c738a09bd87acd8d21a">&#9670;&nbsp;</a></span>CoefficientsAsConstraints</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;std::pair&lt;std::string, float&gt; &gt; <a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">L::Column::CoefficientsAsConstraints</a></td>
+          <td class="memname">typedef std::vector&lt;std::pair&lt;<a class="el" href="classL_1_1Constraint.html">Constraint</a>, float&gt; &gt; <a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">L::Column::CoefficientsAsConstraints</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aea77119b100b0e88fa18f6195bf5649f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea77119b100b0e88fa18f6195bf5649f">&#9670;&nbsp;</a></span>CoefficientsAsVariables</h2>
+<a id="a987d368f2e8a7f621e56c70b453597c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987d368f2e8a7f621e56c70b453597c5">&#9670;&nbsp;</a></span>CoefficientsAsVariables</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;std::pair&lt;std::string, float&gt; &gt; <a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">L::Column::CoefficientsAsVariables</a></td>
+          <td class="memname">typedef std::vector&lt;std::pair&lt;<a class="el" href="classL_1_1Variable.html">Variable</a>, float&gt; &gt; <a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">L::Column::CoefficientsAsVariables</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,7 +159,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">L::Column::CoefficientsAsConstraints</a> &amp; L::Column::as_constraints </td>
+          <td class="memname">const <a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">L::Column::CoefficientsAsConstraints</a> &amp; L::Column::as_constraints </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -176,7 +176,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">L::Column::CoefficientsAsVariables</a> &amp; L::Column::as_variables </td>
+          <td class="memname">const <a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">L::Column::CoefficientsAsVariables</a> &amp; L::Column::as_variables </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -186,8 +186,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aebb908b2df3d6140f2a56c7b57dcd926"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebb908b2df3d6140f2a56c7b57dcd926">&#9670;&nbsp;</a></span>constraint_coefficient()</h2>
+<a id="ac4dc74c6c8c932cd2557272e5bd1a0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4dc74c6c8c932cd2557272e5bd1a0b5">&#9670;&nbsp;</a></span>constraint_coefficient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +195,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void L::Column::constraint_coefficient </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classL_1_1Constraint.html">Constraint</a> &amp;&#160;</td>
           <td class="paramname"><em>ctr</em>, </td>
         </tr>
         <tr>
@@ -301,8 +301,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2135b49e1f0d807c6bc4cd3833ec57a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2135b49e1f0d807c6bc4cd3833ec57a3">&#9670;&nbsp;</a></span>variable_coefficient()</h2>
+<a id="ac0aeb363dc3031a852832f3116da57e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0aeb363dc3031a852832f3116da57e8">&#9670;&nbsp;</a></span>variable_coefficient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,7 +310,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void L::Column::variable_coefficient </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classL_1_1Variable.html">Variable</a> &amp;&#160;</td>
           <td class="paramname"><em>ctr</em>, </td>
         </tr>
         <tr>
@@ -340,7 +340,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Column.html#a19bafd4db8a7fab8e92cbbe4d9a33439">CoefficientsAsConstraints</a> L::Column::_as_constraints</td>
+          <td class="memname"><a class="el" href="classL_1_1Column.html#a3fc8ecd7bcfe3c738a09bd87acd8d21a">CoefficientsAsConstraints</a> L::Column::_as_constraints</td>
         </tr>
       </table>
   </td>
@@ -362,7 +362,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classL_1_1Column.html#aea77119b100b0e88fa18f6195bf5649f">CoefficientsAsVariables</a> L::Column::_as_variables</td>
+          <td class="memname"><a class="el" href="classL_1_1Column.html#a987d368f2e8a7f621e56c70b453597c5">CoefficientsAsVariables</a> L::Column::_as_variables</td>
         </tr>
       </table>
   </td>
@@ -419,8 +419,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/ColumnGeneration/<a class="el" href="Column_8h_source.html">Column.h</a></li>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/ColumnGeneration/<a class="el" href="Column_8cpp.html">Column.cpp</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/column-generation/<a class="el" href="Column_8h_source.html">Column.h</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/column-generation/<a class="el" href="Column_8cpp.html">Column.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

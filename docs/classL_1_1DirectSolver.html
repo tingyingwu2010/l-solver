@@ -86,9 +86,10 @@ Inheritance diagram for L::DirectSolver:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectSolver__inherit__graph.png" border="0" usemap="#L_1_1DirectSolver_inherit__map" alt="Inheritance graph"/></div>
 <map name="L_1_1DirectSolver_inherit__map" id="L_1_1DirectSolver_inherit__map">
-<area shape="rect" id="node3" href="classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l Adapter_RMP \&gt;" alt="" coords="5,155,139,196"/>
-<area shape="rect" id="node4" href="classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; Adapter_RMP \&gt;" alt="" coords="163,155,303,196"/>
-<area shape="rect" id="node2" href="classL_1_1Solver.html" title="L::Solver" alt="" coords="115,5,189,32"/>
+<area shape="rect" id="node3" href="classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l Adapter_RMP \&gt;" alt="" coords="289,5,422,47"/>
+<area shape="rect" id="node4" href="classL_1_1DirectLPSolver.html" title="L::DirectLPSolver\&lt;\l ExternalSolver \&gt;" alt="" coords="289,71,422,112"/>
+<area shape="rect" id="node5" href="classL_1_1DirectMILPSolver.html" title="L::DirectMILPSolver\l\&lt; ExternalSolver \&gt;" alt="" coords="285,136,425,177"/>
+<area shape="rect" id="node2" href="classL_1_1Solver.html" title="Implements the interface for solvers. " alt="" coords="5,78,80,105"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -96,12 +97,12 @@ Collaboration diagram for L::DirectSolver:</div>
 <div class="dyncontent">
 <div class="center"><img src="classL_1_1DirectSolver__coll__graph.png" border="0" usemap="#L_1_1DirectSolver_coll__map" alt="Collaboration graph"/></div>
 <map name="L_1_1DirectSolver_coll__map" id="L_1_1DirectSolver_coll__map">
-<area shape="rect" id="node2" href="classL_1_1Solver.html" title="L::Solver" alt="" coords="5,441,80,468"/>
+<area shape="rect" id="node2" href="classL_1_1Solver.html" title="Implements the interface for solvers. " alt="" coords="5,441,80,468"/>
 <area shape="rect" id="node3" href="classL_1_1Model.html" title="Represents a model for an optimization problem. " alt="" coords="104,441,176,468"/>
 <area shape="rect" id="node4" href="classL_1_1Objective.html" title="Indirection to a core objective. " alt="" coords="94,352,186,379"/>
 <area shape="rect" id="node5" href="classL_1_1AbstractObjective.html" title="Implements the interface for Objective&#39;s. " alt="" coords="48,172,189,199"/>
 <area shape="rect" id="node6" href="classL_1_1CoreObjective.html" title="Implements an objective. " alt="" coords="156,263,276,289"/>
-<area shape="rect" id="node7" href="classL_1_1Expression.html" title="L::Expression" alt="" coords="214,172,317,199"/>
+<area shape="rect" id="node7" href="classL_1_1Expression.html" title="Represents a mathematical expression as an expression tree. " alt="" coords="214,172,317,199"/>
 <area shape="rect" id="node8" href="classL_1_1CoreVariable.html" title="Implements a variable. " alt="" coords="209,81,321,108"/>
 <area shape="rect" id="node9" href="classL_1_1AbstractVariable.html" title="Implements the interface for variables. " alt="" coords="199,5,332,32"/>
 </map>
@@ -112,15 +113,40 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ead8a59ea14b5bff56f74978a41f993"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectSolver.html#a3ead8a59ea14b5bff56f74978a41f993">DirectSolver</a> (<a class="el" href="classL_1_1Model.html">Model</a> &amp;model)</td></tr>
 <tr class="separator:a3ead8a59ea14b5bff56f74978a41f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classL_1_1Solver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classL_1_1Solver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classL_1_1Solver.html">L::Solver</a></td></tr>
+<tr class="memitem:a2eb96502c15730e53c89c4680cb9022f inherit pub_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a2eb96502c15730e53c89c4680cb9022f">~Solver</a> ()=default</td></tr>
+<tr class="memdesc:a2eb96502c15730e53c89c4680cb9022f inherit pub_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classL_1_1Solver.html#a2eb96502c15730e53c89c4680cb9022f">More...</a><br /></td></tr>
+<tr class="separator:a2eb96502c15730e53c89c4680cb9022f inherit pub_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6853fa66d05dbfeb7fd37b4e66b79e11 inherit pub_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a6853fa66d05dbfeb7fd37b4e66b79e11">solve</a> ()</td></tr>
+<tr class="memdesc:a6853fa66d05dbfeb7fd37b4e66b79e11 inherit pub_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classL_1_1Solver.html#a449e222a9023322db30a61a6b7fd5132" title="Solves the optimization problem. ">actually_solve_hook()</a> and measure its execution time.  <a href="classL_1_1Solver.html#a6853fa66d05dbfeb7fd37b4e66b79e11">More...</a><br /></td></tr>
 <tr class="separator:a6853fa66d05dbfeb7fd37b4e66b79e11 inherit pub_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ef0f8f38760cbae6b7f15e38a1dd8a3 inherit pub_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a8ef0f8f38760cbae6b7f15e38a1dd8a3">last_execution_time</a> ()</td></tr>
+<tr class="memdesc:a8ef0f8f38760cbae6b7f15e38a1dd8a3 inherit pub_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last measured execution time.  <a href="classL_1_1Solver.html#a8ef0f8f38760cbae6b7f15e38a1dd8a3">More...</a><br /></td></tr>
 <tr class="separator:a8ef0f8f38760cbae6b7f15e38a1dd8a3 inherit pub_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a609a8c0ac21501883b72c8943cd58d85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classL_1_1Model.html">Model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1DirectSolver.html#a609a8c0ac21501883b72c8943cd58d85">_model</a></td></tr>
 <tr class="separator:a609a8c0ac21501883b72c8943cd58d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classL_1_1Solver"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classL_1_1Solver')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classL_1_1Solver.html">L::Solver</a></td></tr>
+<tr class="memitem:a3773064d5b7e6cb638279293cd794c2f inherit pro_attribs_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a3773064d5b7e6cb638279293cd794c2f">_last_execution_time</a> = std::numeric_limits&lt;float&gt;::max()</td></tr>
+<tr class="memdesc:a3773064d5b7e6cb638279293cd794c2f inherit pro_attribs_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the execution time of the last execution  <a href="classL_1_1Solver.html#a3773064d5b7e6cb638279293cd794c2f">More...</a><br /></td></tr>
+<tr class="separator:a3773064d5b7e6cb638279293cd794c2f inherit pro_attribs_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_classL_1_1Solver"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classL_1_1Solver')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classL_1_1Solver.html">L::Solver</a></td></tr>
+<tr class="memitem:a449e222a9023322db30a61a6b7fd5132 inherit pro_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a449e222a9023322db30a61a6b7fd5132">actually_solve_hook</a> ()=0</td></tr>
+<tr class="memdesc:a449e222a9023322db30a61a6b7fd5132 inherit pro_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the optimization problem.  <a href="classL_1_1Solver.html#a449e222a9023322db30a61a6b7fd5132">More...</a><br /></td></tr>
+<tr class="separator:a449e222a9023322db30a61a6b7fd5132 inherit pro_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12838818d5af4d844efc3d8a77cbb5c2 inherit pro_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a12838818d5af4d844efc3d8a77cbb5c2">save_results_hook</a> ()=0</td></tr>
+<tr class="memdesc:a12838818d5af4d844efc3d8a77cbb5c2 inherit pro_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the results.  <a href="classL_1_1Solver.html#a12838818d5af4d844efc3d8a77cbb5c2">More...</a><br /></td></tr>
+<tr class="separator:a12838818d5af4d844efc3d8a77cbb5c2 inherit pro_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4f3d48241917383f4c6bedbbd02f3c inherit pro_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a8a4f3d48241917383f4c6bedbbd02f3c">before_saving_results_hook</a> ()</td></tr>
+<tr class="memdesc:a8a4f3d48241917383f4c6bedbbd02f3c inherit pro_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hook for performing some actions before <a class="el" href="classL_1_1Solver.html#a12838818d5af4d844efc3d8a77cbb5c2" title="Saves the results. ">save_results_hook()</a> is called.  <a href="classL_1_1Solver.html#a8a4f3d48241917383f4c6bedbbd02f3c">More...</a><br /></td></tr>
+<tr class="separator:a8a4f3d48241917383f4c6bedbbd02f3c inherit pro_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94413bb87626c26ff6a9f089a95b9002 inherit pro_methods_classL_1_1Solver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1Solver.html#a94413bb87626c26ff6a9f089a95b9002">before_actually_solving_hook</a> ()</td></tr>
+<tr class="memdesc:a94413bb87626c26ff6a9f089a95b9002 inherit pro_methods_classL_1_1Solver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hook for performing some actions before <a class="el" href="classL_1_1Solver.html#a449e222a9023322db30a61a6b7fd5132" title="Solves the optimization problem. ">actually_solve_hook()</a> is called.  <a href="classL_1_1Solver.html#a94413bb87626c26ff6a9f089a95b9002">More...</a><br /></td></tr>
+<tr class="separator:a94413bb87626c26ff6a9f089a95b9002 inherit pro_methods_classL_1_1Solver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Solves an optimization model using a given solver adapter </p>
@@ -175,8 +201,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/DirectSolver/<a class="el" href="DirectSolver_8h_source.html">DirectSolver.h</a></li>
-<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/DirectSolver/<a class="el" href="DirectSolver_8cpp.html">DirectSolver.cpp</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/direct-solver/<a class="el" href="DirectSolver_8h_source.html">DirectSolver.h</a></li>
+<li>/home/hlefebvr/CLionProjects/ed-solver/src/LSolver/algorithms/direct-solver/<a class="el" href="DirectSolver_8cpp.html">DirectSolver.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

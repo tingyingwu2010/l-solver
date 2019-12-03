@@ -125,6 +125,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7757b73f978067f1e662cff140434bf3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1AbstractObjective.html#a7757b73f978067f1e662cff140434bf3">value</a> (float value)=0</td></tr>
 <tr class="memdesc:a7757b73f978067f1e662cff140434bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the objective's value.  <a href="#a7757b73f978067f1e662cff140434bf3">More...</a><br /></td></tr>
 <tr class="separator:a7757b73f978067f1e662cff140434bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2516ea6ea33e952e9e403b297113fc75"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1AbstractObjective.html#a2516ea6ea33e952e9e403b297113fc75">ub</a> () const =0</td></tr>
+<tr class="memdesc:a2516ea6ea33e952e9e403b297113fc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns upper bound.  <a href="#a2516ea6ea33e952e9e403b297113fc75">More...</a><br /></td></tr>
+<tr class="separator:a2516ea6ea33e952e9e403b297113fc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e25d707bf4279f59ed2f2a7e6d9c647"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1AbstractObjective.html#a1e25d707bf4279f59ed2f2a7e6d9c647">ub</a> (float ub)=0</td></tr>
+<tr class="memdesc:a1e25d707bf4279f59ed2f2a7e6d9c647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the upper bound.  <a href="#a1e25d707bf4279f59ed2f2a7e6d9c647">More...</a><br /></td></tr>
+<tr class="separator:a1e25d707bf4279f59ed2f2a7e6d9c647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab291d2814391a86eddbc04a57202eb98"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1AbstractObjective.html#ab291d2814391a86eddbc04a57202eb98">lb</a> () const =0</td></tr>
+<tr class="memdesc:ab291d2814391a86eddbc04a57202eb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">lower bound  <a href="#ab291d2814391a86eddbc04a57202eb98">More...</a><br /></td></tr>
+<tr class="separator:ab291d2814391a86eddbc04a57202eb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada86d03bbb8a43254762649bc378e333"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1AbstractObjective.html#ada86d03bbb8a43254762649bc378e333">lb</a> (float <a class="el" href="classL_1_1AbstractObjective.html#a2516ea6ea33e952e9e403b297113fc75">ub</a>)=0</td></tr>
+<tr class="memdesc:ada86d03bbb8a43254762649bc378e333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the lower bound.  <a href="#ada86d03bbb8a43254762649bc378e333">More...</a><br /></td></tr>
+<tr class="separator:ada86d03bbb8a43254762649bc378e333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -192,6 +204,72 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>objective's expression </dd></dl>
 
 <p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#a9b569eba54ba02e9b8ce27d536c310bf">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#a97e40356c2a10ec7185aae767cc827b9">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#ad96f0786a3aeba13ed79b32cdd561e7f">L::CoreObjective</a>.</p>
+
+</div>
+</div>
+<a id="ab291d2814391a86eddbc04a57202eb98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab291d2814391a86eddbc04a57202eb98">&#9670;&nbsp;</a></span>lb() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float L::AbstractObjective::lb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lower bound </p>
+<p>Returns the lower bound </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#a345607e95e79dcd5aa8ee14b6e818040">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#a8eb9c3deab28bc97d72b3d1967e2a360">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#a51d10beaf864002596eb10845cc81712">L::CoreObjective</a>.</p>
+
+</div>
+</div>
+<a id="ada86d03bbb8a43254762649bc378e333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada86d03bbb8a43254762649bc378e333">&#9670;&nbsp;</a></span>lb() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void L::AbstractObjective::lb </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the lower bound. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ub</td><td>new lower bound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#a3710c8c7cb20a0e8baccbc8f109b2028">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#ae100e7c1273bf4024aa9753bdab26978">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#a5ccb0ca6694c9b80e4d2ddc239816f82">L::CoreObjective</a>.</p>
 
 </div>
 </div>
@@ -324,6 +402,72 @@ Friends</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#a62506297370400944a238cf51c183178">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#a32b765a372bfd4feca0b03f5e8c83775">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#a0c7dfb95133a50dc2204a7254c1f34e7">L::CoreObjective</a>.</p>
+
+</div>
+</div>
+<a id="a2516ea6ea33e952e9e403b297113fc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2516ea6ea33e952e9e403b297113fc75">&#9670;&nbsp;</a></span>ub() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float L::AbstractObjective::ub </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns upper bound. </p>
+<dl class="section return"><dt>Returns</dt><dd>upper bound </dd></dl>
+
+<p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#abf01913dfdcabe052a9ecbe000ebc9ff">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#a320b986ab728332b2da43ce898b092d2">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#ad00e70b2d6a2e2104c44b3c3ff0fdfec">L::CoreObjective</a>.</p>
+
+</div>
+</div>
+<a id="a1e25d707bf4279f59ed2f2a7e6d9c647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e25d707bf4279f59ed2f2a7e6d9c647">&#9670;&nbsp;</a></span>ub() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void L::AbstractObjective::ub </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the upper bound. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ub</td><td>new upper bound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classL_1_1ConstObjective.html#ae5ecb287b82b09cc27773b644d2ea0b0">L::ConstObjective</a>, <a class="el" href="classL_1_1Objective.html#aa96d0f5a6787376eb8846358f0dcb5b0">L::Objective</a>, and <a class="el" href="classL_1_1CoreObjective.html#a66289b84a1331d993a919f5dc17d3b57">L::CoreObjective</a>.</p>
 
 </div>
 </div>

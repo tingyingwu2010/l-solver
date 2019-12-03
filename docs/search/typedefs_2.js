@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iterator',['iterator',['../classL_1_1BranchAndBoundNode_1_1Solution.html#a821c1d42a02f85201397fdc27f105a94',1,'L::BranchAndBoundNode::Solution']]]
+  ['linkingconstraintexpression',['LinkingConstraintExpression',['../classL_1_1DantzigWolfeSubProblem.html#af6b5106d32c679f544c3ce8e8952c58f',1,'L::DantzigWolfeSubProblem']]]
 ];

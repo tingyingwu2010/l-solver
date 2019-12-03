@@ -82,31 +82,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Manages the parameters at the application level. Every parameter can be modified through a configuration file where each parameter's name correspond to an attribute of this class writen in UPPER_CASE, e.g., LOG_LEVEL for _log_level. All parameters are optional.  
+ <a href="classL_1_1ParameterManager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ParameterManager_8h_source.html">ParameterManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a61ff430d662a5e95d2fe966d32136181"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceL.html#aef8535bd0d21e1259684046e14a745e5">LogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#a61ff430d662a5e95d2fe966d32136181">log_level</a> () const</td></tr>
+<tr class="memdesc:a61ff430d662a5e95d2fe966d32136181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the LOG_LEVEL parameter.  <a href="#a61ff430d662a5e95d2fe966d32136181">More...</a><br /></td></tr>
 <tr class="separator:a61ff430d662a5e95d2fe966d32136181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad447cd644988bf0e4d85e1c4ba14f8d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#ad447cd644988bf0e4d85e1c4ba14f8d7">tolerance</a> () const</td></tr>
+<tr class="memdesc:ad447cd644988bf0e4d85e1c4ba14f8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the TOLERANCE parameter.  <a href="#ad447cd644988bf0e4d85e1c4ba14f8d7">More...</a><br /></td></tr>
 <tr class="separator:ad447cd644988bf0e4d85e1c4ba14f8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f2deaefbfa993b410f75c57b9d1eae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#ad1f2deaefbfa993b410f75c57b9d1eae">external_solver_logs</a> () const</td></tr>
+<tr class="memdesc:ad1f2deaefbfa993b410f75c57b9d1eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the EXTERNAL_SOLVER_LOGS parameter.  <a href="#ad1f2deaefbfa993b410f75c57b9d1eae">More...</a><br /></td></tr>
 <tr class="separator:ad1f2deaefbfa993b410f75c57b9d1eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:af04c40133749a25c6db7aa8f2e05ce7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#af04c40133749a25c6db7aa8f2e05ce7f">load_configuration</a> (const std::string &amp;config_file)</td></tr>
+<tr class="memdesc:af04c40133749a25c6db7aa8f2e05ce7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all parameters from the given configuration file.  <a href="#af04c40133749a25c6db7aa8f2e05ce7f">More...</a><br /></td></tr>
 <tr class="separator:af04c40133749a25c6db7aa8f2e05ce7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e9183a4565fc3b029d74383ec99d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#ae2e9183a4565fc3b029d74383ec99d01">handle_key_value</a> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr class="memdesc:ae2e9183a4565fc3b029d74383ec99d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the parameters based on a (key, value) match as read by the <a class="el" href="classL_1_1ParameterManager.html#af04c40133749a25c6db7aa8f2e05ce7f" title="Loads all parameters from the given configuration file. ">load_configuration()</a> method.  <a href="#ae2e9183a4565fc3b029d74383ec99d01">More...</a><br /></td></tr>
 <tr class="separator:ae2e9183a4565fc3b029d74383ec99d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aad0b3cfc9fe187e1d91e70408fe8e16f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceL.html#aef8535bd0d21e1259684046e14a745e5">LogLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#aad0b3cfc9fe187e1d91e70408fe8e16f">_log_level</a> = <a class="el" href="namespaceL.html#aef8535bd0d21e1259684046e14a745e5a94435192cec1ea9e7bdf3e76644aa4d2">Release</a></td></tr>
+<tr class="memdesc:aad0b3cfc9fe187e1d91e70408fe8e16f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log level of the running application.  <a href="#aad0b3cfc9fe187e1d91e70408fe8e16f">More...</a><br /></td></tr>
 <tr class="separator:aad0b3cfc9fe187e1d91e70408fe8e16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a752462cda4568505a6929d9b9899542a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#a752462cda4568505a6929d9b9899542a">_tolerance</a> = 0.00001</td></tr>
+<tr class="memdesc:a752462cda4568505a6929d9b9899542a"><td class="mdescLeft">&#160;</td><td class="mdescRight">tolerance for float comparison  <a href="#a752462cda4568505a6929d9b9899542a">More...</a><br /></td></tr>
 <tr class="separator:a752462cda4568505a6929d9b9899542a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7a58f03490f2656930ab9935eee5537"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#ac7a58f03490f2656930ab9935eee5537">_external_solver_logs</a> = false</td></tr>
+<tr class="memdesc:ac7a58f03490f2656930ab9935eee5537"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the logs from the external solvers shall be printed out, false otherwise  <a href="#ac7a58f03490f2656930ab9935eee5537">More...</a><br /></td></tr>
 <tr class="separator:ac7a58f03490f2656930ab9935eee5537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -114,7 +125,9 @@ Friends</h2></td></tr>
 <tr class="memitem:a23f25bcc02a0e94c2f5a4188496b04d0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classL_1_1ParameterManager.html#a23f25bcc02a0e94c2f5a4188496b04d0">Application</a></td></tr>
 <tr class="separator:a23f25bcc02a0e94c2f5a4188496b04d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the parameters at the application level. Every parameter can be modified through a configuration file where each parameter's name correspond to an attribute of this class writen in UPPER_CASE, e.g., LOG_LEVEL for _log_level. All parameters are optional. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad1f2deaefbfa993b410f75c57b9d1eae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad1f2deaefbfa993b410f75c57b9d1eae">&#9670;&nbsp;</a></span>external_solver_logs()</h2>
 
@@ -137,6 +150,9 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the EXTERNAL_SOLVER_LOGS parameter. </p>
+<dl class="section return"><dt>Returns</dt><dd>EXTERNAL_SOLVER_LOGS </dd></dl>
 
 </div>
 </div>
@@ -174,6 +190,15 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Updates the parameters based on a (key, value) match as read by the <a class="el" href="classL_1_1ParameterManager.html#af04c40133749a25c6db7aa8f2e05ce7f" title="Loads all parameters from the given configuration file. ">load_configuration()</a> method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>parameter name </td></tr>
+    <tr><td class="paramname">value</td><td>value as string </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af04c40133749a25c6db7aa8f2e05ce7f"></a>
@@ -200,6 +225,14 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Loads all parameters from the given configuration file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_file</td><td>configuration file filename </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a61ff430d662a5e95d2fe966d32136181"></a>
@@ -225,6 +258,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the LOG_LEVEL parameter. </p>
+<dl class="section return"><dt>Returns</dt><dd>LOG_LEVEL </dd></dl>
+
 </div>
 </div>
 <a id="ad447cd644988bf0e4d85e1c4ba14f8d7"></a>
@@ -249,6 +285,9 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the TOLERANCE parameter. </p>
+<dl class="section return"><dt>Returns</dt><dd>TOLERANCE </dd></dl>
 
 </div>
 </div>
@@ -296,6 +335,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>true if the logs from the external solvers shall be printed out, false otherwise </p>
+
 </div>
 </div>
 <a id="aad0b3cfc9fe187e1d91e70408fe8e16f"></a>
@@ -318,6 +359,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Log level of the running application. </p>
+
 </div>
 </div>
 <a id="a752462cda4568505a6929d9b9899542a"></a>
@@ -339,6 +382,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>tolerance for float comparison </p>
 
 </div>
 </div>
