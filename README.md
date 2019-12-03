@@ -9,6 +9,8 @@ Its name comes from the interesting structure for decomposing problems referred 
 (see below). For instance, CPLEX may be used for solving the restricted master problem and the sub-problems when executing
 a column-generation algorithm.
 
+**IMPORTANT: ONLY MINIMIZATION IS IMPLEMENTED FOR NOW (though it is possible to set an objective's type to "Maximize")**
+
 ## Documentation
 
 A documentation is available at [https://hlefebvr.github.io/l-solver/](https://hlefebvr.github.io/l-solver/). Feel free to also check the following tutorials:
