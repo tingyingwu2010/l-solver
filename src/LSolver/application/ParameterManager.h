@@ -36,6 +36,7 @@ class L::ParameterManager {
     LogLevel _log_level = Release; //!< Log level of the running application
     float _tolerance = 0.00001; //!< tolerance for float comparison
     bool _external_solver_logs = false; //!< true if the logs from the external solvers shall be printed out, false otherwise
+    bool _external_solver_preprocessing = false; //!< true if the preprocessing from the external solver shall be turned on, false otherwise
 public:
     /**
      * \brief Returns the LOG_LEVEL parameter
@@ -54,6 +55,12 @@ public:
      * @return EXTERNAL_SOLVER_LOGS
      */
     [[nodiscard]] bool external_solver_logs() const { return _external_solver_logs; }
+
+    /**
+     * \bref Returns the EXTERNAL_SOLVER_PREPROCESSING parameter
+     * @return EXTERNAL_SOLVER_PREPROCESSING
+     */
+    [[nodiscard]] bool external_solver_preprocessing() const { return _external_solver_preprocessing; }
 };
 
 

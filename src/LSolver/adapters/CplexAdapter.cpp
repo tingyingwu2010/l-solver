@@ -105,8 +105,15 @@ void L::CplexAdapter::solve() {
     if (_objective == nullptr) throw Exception("Cannot solve model without objective");
 
     _cplex->setParam(IloCplex::RootAlg, IloCplex::Primal);
-    _cplex->setParam(IloCplex::PreInd, false); // for getting extreme rays
+    _cplex->setParam(IloCplex::PreInd, Application::parameters().external_solver_preprocessing());
+
+    /* _cplex->setParam(IloCplex::Param::Read::DataCheck,1);
+    _cplex->setParam(IloCplex::Param::OptimalityTarget,CPX_OPTIMALITYTARGET_OPTIMALGLOBAL);
+    _cplex->setParam(IloCplex::Param::Threads, 1);
+    _cplex->setParam(IloCplex::Param::MIP::Strategy::VariableSelect, CPX_VARSEL_MAXINFEAS); */
+
     _cplex->solve();
+    // std::cout << "Nodes: " << _cplex->getNnodes() << std::endl;
 
     IloAlgorithm::Status status = _cplex->getStatus();
     _lbds_objective->status(to_lbds(status));
